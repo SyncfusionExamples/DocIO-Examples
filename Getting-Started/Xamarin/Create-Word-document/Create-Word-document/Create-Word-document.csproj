@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Templates\AdventureCycle.jpg" />
+    <None Remove="Templates\Mountain-200.jpg" />
+    <None Remove="Templates\Mountain-300.jpg" />
+    <None Remove="Templates\Road-550-W.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\AdventureCycle.jpg" />
+    <EmbeddedResource Include="Templates\Mountain-200.jpg" />
+    <EmbeddedResource Include="Templates\Mountain-300.jpg" />
+    <EmbeddedResource Include="Templates\Road-550-W.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.Xamarin.DocIO" Version="19.4.0.43" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+</Project>

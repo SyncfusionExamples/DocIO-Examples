@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Create-Word-with-basic-elements", "Create-Word-with-basic-elements\Create-Word-with-basic-elements.csproj", "{A999452A-FB2A-4FED-B5DA-7DF6C993E813}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A999452A-FB2A-4FED-B5DA-7DF6C993E813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A999452A-FB2A-4FED-B5DA-7DF6C993E813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A999452A-FB2A-4FED-B5DA-7DF6C993E813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A999452A-FB2A-4FED-B5DA-7DF6C993E813}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {917E516E-4E30-42F7-A514-06A3931ADDC5}
+	EndGlobalSection
+EndGlobal
