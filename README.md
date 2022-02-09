@@ -60,7 +60,7 @@ Support and feedback
 --------------------
 
 *   For any other queries, reach our [Syncfusion support team](https://www.syncfusion.com/support/directtrac/incidents/newincident?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) or post the queries through the [community forums](https://www.syncfusion.com/forums?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples).
-*   Request new feature through [Syncfusion feedback portal](https://www.syncfusion.com/feedback/word?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples).
+*   Request new feature through [Syncfusion feedback portal](https://www.syncfusion.com/feedback?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples).
 
 License
 -------
