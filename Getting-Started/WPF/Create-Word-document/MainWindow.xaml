@@ -1,0 +1,23 @@
+﻿<Window x:Class="Create_Word_document.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Create_Word_document"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Click="btnCreate_Click" Margin="0,0,10,12" VerticalAlignment="Center" Height="30" BorderBrush="LightBlue" HorizontalAlignment="Center" Width="180">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,-0.04" StartPoint="0.5,1.04">
+                    <GradientStop Color="#FFD9E9F7" Offset="0"/>
+                    <GradientStop Color="#FFEFF8FF" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,0,-2.52" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100">
+                <Image Name="image2" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Text="Create Document" Height="15.96" Width="126" Margin="0,4,0,3" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

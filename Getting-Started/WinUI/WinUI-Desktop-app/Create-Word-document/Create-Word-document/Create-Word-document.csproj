@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>Create_Word_document</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>x86;x64;arm64</Platforms>
+    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+    <UseWinUI>true</UseWinUI>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0-experimental1" />
+    <PackageReference Include="Microsoft.WindowsAppSDK.Foundation" Version="1.0.0-experimental1" />
+    <PackageReference Include="Microsoft.WindowsAppSDK.WinUI" Version="1.0.0-experimental1" />
+    <PackageReference Include="Microsoft.WindowsAppSDK.InteractiveExperiences" Version="1.0.0-experimental1" />
+    <PackageReference Include="Syncfusion.DocIO.NET" Version="*" />
+    <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Assets\AdventureCycle.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\AdventureCycle.jpg" />
+    <EmbeddedResource Include="Assets\Mountain-200.jpg" />
+    <EmbeddedResource Include="Assets\Mountain-300.jpg" />
+    <EmbeddedResource Include="Assets\Road-550-W.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Assets\Mountain-200.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Assets\Mountain-300.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Assets\Road-550-W.jpg" />
+  </ItemGroup>
+</Project>
