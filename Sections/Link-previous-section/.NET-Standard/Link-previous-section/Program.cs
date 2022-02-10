@@ -2,7 +2,7 @@
 using Syncfusion.DocIO.DLS;
 using System.IO;
 
-namespace Link_previous_section_headers_and_footers
+namespace Link_previous_section
 {
     class Program
     {

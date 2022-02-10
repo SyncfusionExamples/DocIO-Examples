@@ -2,7 +2,7 @@
 using Syncfusion.DocIO.DLS;
 using System.IO;
 
-namespace Header_and_footers_for_odd_and_even_pages
+namespace Odd_and_even_page_header_footer
 {
     class Program
     {
