@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Add-group-shape-in-Word", "Add-group-shape-in-Word/Add-group-shape-in-Word.csproj", "{A3B29D7C-753E-4E55-9033-37577F2E9B04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3B29D7C-753E-4E55-9033-37577F2E9B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3B29D7C-753E-4E55-9033-37577F2E9B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3B29D7C-753E-4E55-9033-37577F2E9B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3B29D7C-753E-4E55-9033-37577F2E9B04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1ED5D117-8AFF-4FB7-9B72-11B13736DF74}
+	EndGlobalSection
+EndGlobal
