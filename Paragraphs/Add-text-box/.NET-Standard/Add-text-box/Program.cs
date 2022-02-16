@@ -16,9 +16,7 @@ namespace Add_text_box
                 //Adds new paragraph to the section.
                 IWParagraph paragraph = section.AddParagraph();
                 //Appends new textbox to the paragraph.
-                IWTextBox textbox = paragraph.AppendTextBox(150, 75);
-                textbox.TextBoxFormat.Height = 115;
-                textbox.TextBoxFormat.Width = 150;
+                IWTextBox textbox = paragraph.AppendTextBox(150, 115);
                 //Adds new text to the textbox body.
                 IWParagraph textboxParagraph = textbox.TextBoxBody.AddParagraph();
                 textboxParagraph.AppendText("Text inside text box");
