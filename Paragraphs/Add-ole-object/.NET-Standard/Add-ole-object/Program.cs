@@ -22,6 +22,9 @@ namespace Add_ole_object
                     WPicture picture = new WPicture(document);
                     FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Data/Image.png"), FileMode.Open, FileAccess.ReadWrite);
                     picture.LoadImage(imageStream);
+                    //Sets height and width for the image.
+                    picture.Height = 80;
+                    picture.Width = 80;
                     //Appends the OLE object to the paragraph.
                     WOleObject oleObject = paragraph.AppendOleObject(fileStream, picture, OleObjectType.ExcelWorksheet);
                     //Creates file stream.
