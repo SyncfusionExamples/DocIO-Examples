@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <RootNamespace>Edit_footnotes_and_endnotes</RootNamespace>
+    <RootNamespace>Remove_footnotes_and_endnotes</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

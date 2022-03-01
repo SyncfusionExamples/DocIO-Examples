@@ -3,7 +3,7 @@ using System.IO;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-namespace Edit_content_control_text
+namespace Edit_text_in_inline_content_control
 {
     class Program
     {
@@ -109,7 +109,9 @@ namespace Edit_content_control_text
                         break;
                     case EntityType.InlineContentControl:
                         InlineContentControl inlineContentControl = entity as InlineContentControl;
-                        if(inlineContentControl.ContentControlProperties.Title == "ReplaceText")
+                        if((inlineContentControl.ContentControlProperties.Type == ContentControlType.RichText 
+                            || inlineContentControl.ContentControlProperties.Type == ContentControlType.Text) 
+                            && inlineContentControl.ContentControlProperties.Title == "ReplaceText")
                             ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
                         break;
                 }
@@ -120,7 +122,7 @@ namespace Edit_content_control_text
         /// </summary>
         /// <param name="text"></param>
         /// <param name="inlineContentControl"></param>
-        private static void ReplaceTextWithInlineContentControl(string text, InlineContentControl inlineContentControl)
+        private static void ReplaceTextWithInlineContentControl(string replacementText, InlineContentControl inlineContentControl)
         {
             WCharacterFormat characterFormat = null;
             foreach (ParagraphItem item in inlineContentControl.ParagraphItems)
@@ -134,7 +136,7 @@ namespace Edit_content_control_text
             //Remove exiting items and add new text range with required text
             inlineContentControl.ParagraphItems.Clear();
             WTextRange textRange = new WTextRange(inlineContentControl.Document);
-            textRange.Text = text;
+            textRange.Text = replacementText;
             if (characterFormat != null)
                 textRange.ApplyCharacterFormat(characterFormat);
             inlineContentControl.ParagraphItems.Add(textRange);

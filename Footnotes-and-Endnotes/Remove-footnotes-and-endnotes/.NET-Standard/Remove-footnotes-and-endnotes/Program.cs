@@ -3,7 +3,7 @@ using System.IO;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-namespace Edit_footnotes_and_endnotes
+namespace Remove_footnotes_and_endnotes
 {
     class Program
     {
@@ -14,8 +14,8 @@ namespace Edit_footnotes_and_endnotes
                 //Loads the template document as stream
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    //Removes footnote from the document
-                    RemoveFootNote(document);
+                    //Removes footnote and endnote from the document
+                    RemoveFootNoteEndNote(document);
                     //Creates file stream.
                     using (FileStream outputStream = new FileStream(@"../../../Result.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                     {
@@ -26,21 +26,17 @@ namespace Edit_footnotes_and_endnotes
             }
         }
         /// <summary>
-        /// Remove FootNote from Word document
+        /// Remove footnote and endnote from Word document
         /// </summary>
-        /// <param name="document"></param>
-        private static void RemoveFootNote(WordDocument document)
+        private static void RemoveFootNoteEndNote(WordDocument document)
         {
             foreach (WSection section in document.Sections)
-            {
-                RemoveFootNote(section.Body);
-            }
+                RemoveFootNoteEndNote(section.Body);
         }
         /// <summary>
-        /// Remove FootNote from textbody
-        /// </summary>
-        /// <param name="textBody"></param>
-        private static void RemoveFootNote(WTextBody textBody)
+        /// Remove footnote and endnote from textbody
+        /// </summary>        
+        private static void RemoveFootNoteEndNote(WTextBody textBody)
         {
             for (int i = 0; i < textBody.ChildEntities.Count; i++)
             {
@@ -55,30 +51,31 @@ namespace Edit_footnotes_and_endnotes
                         WParagraph paragraph = bodyItemEntity as WParagraph;
                         for (int j = 0; j < paragraph.ChildEntities.Count; j++)
                         {
+                            //Footnote and endnote are maintained in same entity type in DocIO
                             if (paragraph.ChildEntities[j] is WFootnote)
                             {
                                 paragraph.ChildEntities.RemoveAt(j);
+                                j--;
                             }
                         }
                         break;
                     case EntityType.Table:
                         //Table is a collection of rows and cells
                         //Iterates through table's DOM and and Remove footnote.
-                        RemoveFootNote(bodyItemEntity as WTable);
+                        RemoveFootNoteEndNote(bodyItemEntity as WTable);
                         break;
                     case EntityType.BlockContentControl:
                         BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                         //Iterates to the body items of Block Content Control and Remove footnote.
-                        RemoveFootNote(blockContentControl.TextBody);
+                        RemoveFootNoteEndNote(blockContentControl.TextBody);
                         break;
                 }
             }
         }
         /// <summary>
-        /// Remove FootNote table
+        /// Remove footnote and endnote from table
         /// </summary>
-        /// <param name="table"></param>
-        private static void RemoveFootNote(WTable table)
+        private static void RemoveFootNoteEndNote(WTable table)
         {
             //Iterates the row collection in a table.
             foreach (WTableRow row in table.Rows)
@@ -87,7 +84,7 @@ namespace Edit_footnotes_and_endnotes
                 foreach (WTableCell cell in row.Cells)
                 {
                     //Iterate items in cell and and Remove footnote.
-                    RemoveFootNote(cell);
+                    RemoveFootNoteEndNote(cell);
                 }
             }
         }
