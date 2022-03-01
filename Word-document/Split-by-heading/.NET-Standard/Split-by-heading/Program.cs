@@ -32,10 +32,8 @@ namespace Split_by_heading
                                     if (newDocument != null)
                                     {
                                         //Saves the Word document
-                                        using (FileStream outputStream = new FileStream(@"../../../Heading" + i + ".docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
-                                        {
-                                            SaveWordDocument(newDocument, outputStream);
-                                        }
+                                        string fileName = @"../../../Heading" + i + ".docx";
+                                        SaveWordDocument(newDocument, fileName);
                                         i++;
                                     }
                                     //Create new Word document
@@ -55,11 +53,9 @@ namespace Split_by_heading
                     }
                     if (newDocument != null)
                     {
-                        //Saves the Word document to  MemoryStream
-                        using (FileStream outputStream = new FileStream(@"../../../Heading" + i + ".docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
-                        {
-                            SaveWordDocument(newDocument, outputStream);
-                        }
+                        //Saves the Word document
+                        string fileName = @"../../../Heading" + i + ".docx";
+                        SaveWordDocument(newDocument, fileName);
                     }
                 }
             }
@@ -99,13 +95,16 @@ namespace Split_by_heading
         /// <summary>
         /// Save Word document
         /// </summary>
-        private static void SaveWordDocument(WordDocument newDocument, FileStream outputStream)
+        private static void SaveWordDocument(WordDocument newDocument, string fileName)
         {
-            //Save file stream as Word document
-            newDocument.Save(outputStream, FormatType.Docx);
-            //Closes the document
-            newDocument.Close();
-            newDocument = null;
+            using (FileStream outputStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            {
+                //Save file stream as Word document
+                newDocument.Save(outputStream, FormatType.Docx);
+                //Closes the document
+                newDocument.Close();
+                newDocument = null;
+            }
         }
     }
 }
