@@ -41,7 +41,6 @@ namespace Split_a_document_by_placeholder_text
                     }
                 }
             }
-
         }
     }
 }

@@ -9,7 +9,6 @@ namespace Split_a_document_by_bookmark
     {
         static void Main(string[] args)
         {
-
             //Load an existing Word document.
             FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -36,10 +35,7 @@ namespace Split_a_document_by_bookmark
                         newDocument.Save(outputFileStream, FormatType.Docx);
                     }
                 }
-                
-
-            }
-            
+            } 
         }
     }
 }

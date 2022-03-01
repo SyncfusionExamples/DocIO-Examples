@@ -21,15 +21,13 @@ namespace Retrieve_commented_word
                     {
                         ParagraphItemCollection paragraphItem = comment.CommentedItems;
                     }
-
                 }
                 //Save the Word document to file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     document.Save(outputFileStream, FormatType.Docx);
                 }
-            }
-            
+            } 
         }
     }
 }
