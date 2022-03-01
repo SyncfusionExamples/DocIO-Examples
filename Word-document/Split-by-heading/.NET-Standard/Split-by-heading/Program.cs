@@ -14,7 +14,6 @@ namespace Split_by_heading
                 //Load the template document as stream
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    inputStream.Dispose();
                     WordDocument newDocument = null;
                     WSection newSection = null;
                     int i = 0;
