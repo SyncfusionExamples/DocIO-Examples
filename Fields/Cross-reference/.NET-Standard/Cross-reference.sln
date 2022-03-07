@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cross-reference", "Cross-reference/Cross-reference.csproj", "{FD326AA0-AB2D-4DC5-A959-2DF865CAD8E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD326AA0-AB2D-4DC5-A959-2DF865CAD8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD326AA0-AB2D-4DC5-A959-2DF865CAD8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD326AA0-AB2D-4DC5-A959-2DF865CAD8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD326AA0-AB2D-4DC5-A959-2DF865CAD8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00EE7A67-B33C-4AEA-ABDC-8B20AF9DF1F8}
+	EndGlobalSection
+EndGlobal

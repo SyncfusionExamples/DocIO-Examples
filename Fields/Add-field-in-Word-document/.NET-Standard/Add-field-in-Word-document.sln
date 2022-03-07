@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Add-field-in-Word-document", "Add-field-in-Word-document/Add-field-in-Word-document.csproj", "{89CBB2F5-17BE-4011-884A-7AF282C9EFEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89CBB2F5-17BE-4011-884A-7AF282C9EFEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89CBB2F5-17BE-4011-884A-7AF282C9EFEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89CBB2F5-17BE-4011-884A-7AF282C9EFEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89CBB2F5-17BE-4011-884A-7AF282C9EFEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C14FF7BE-5664-4057-BDA1-F2A48AF5DC2A}
+	EndGlobalSection
+EndGlobal
