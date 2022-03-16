@@ -33,6 +33,9 @@ namespace Mail_merge_with_.NET_objects
             }
         }
 
+        /// <summary>
+        /// Gets the employee details to perform mail merge.
+        /// </summary>
         public static List<Employee> GetEmployees()
         {
             List<Employee> employees = new List<Employee>();
@@ -44,6 +47,9 @@ namespace Mail_merge_with_.NET_objects
             return employees;
         }
 
+        /// <summary>
+        /// Represents the method that handles MergeImageField event.
+        /// </summary>
         private static void MergeField_EmployeeImage(object sender, MergeImageFieldEventArgs args)
         {
             //Binds image from file system during mail merge.
@@ -57,6 +63,9 @@ namespace Mail_merge_with_.NET_objects
         }
     }
 
+    /// <summary>
+    /// Represents a class to maintain employee details.
+    /// </summary>
     public class Employee
     {
         public string FirstName { get; set; }

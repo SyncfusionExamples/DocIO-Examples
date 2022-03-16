@@ -26,6 +26,9 @@ namespace Repeat_nearest_number_of_SEQ_field
             }
         }
 
+        /// <summary>
+        /// Creates a new Word document.
+        /// </summary>
         private static WordDocument CreateDocument()
         {
 			//Creates a new document.

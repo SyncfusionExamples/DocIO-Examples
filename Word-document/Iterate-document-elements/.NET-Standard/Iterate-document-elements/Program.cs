@@ -35,6 +35,9 @@ namespace Iterate_document_elements
             }
         }
 
+        /// <summary>
+        /// Iterates textbody child elements.
+        /// </summary>
         private static void IterateTextBody(WTextBody textBody)
         {
             //Iterates through each of the child items of WTextBody.
@@ -67,6 +70,9 @@ namespace Iterate_document_elements
             }
         }
 
+        /// <summary>
+        /// Iterates table child elements.
+        /// </summary>
         private static void IterateTable(WTable table)
         {
             //Iterates the row collection in a table.
@@ -82,6 +88,9 @@ namespace Iterate_document_elements
             }
         }
 
+        /// <summary>
+        /// Iterates paragraph child elements.
+        /// </summary>
         private static void IterateParagraph(ParagraphItemCollection paraItems)
         {
             for (int i = 0; i < paraItems.Count; i++)

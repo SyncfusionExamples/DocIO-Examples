@@ -30,6 +30,9 @@ namespace Skip_to_merge_image
             }
         }
 
+        /// <summary>
+        /// Represents the method that handles MergeImageField event.
+        /// </summary>
         private static void MergeEmployeePhoto(object sender, MergeImageFieldEventArgs args)
         {
             //Skip to merge particular image.

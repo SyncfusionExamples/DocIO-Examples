@@ -31,6 +31,9 @@ namespace Hide_SEQ_field_result
             }
         }
 
+        /// <summary>
+        /// Creates a new Word document.
+        /// </summary>
         private static WordDocument CreateDocument()
         {
 			//Creates a new Word document.
