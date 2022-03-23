@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Preserve-complex-script-text-in-PDF", "Preserve-complex-script-text-in-PDF/Preserve-complex-script-text-in-PDF.csproj", "{A0C7DB63-13B2-4A1C-BEA8-27E6B179DD5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0C7DB63-13B2-4A1C-BEA8-27E6B179DD5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C7DB63-13B2-4A1C-BEA8-27E6B179DD5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C7DB63-13B2-4A1C-BEA8-27E6B179DD5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C7DB63-13B2-4A1C-BEA8-27E6B179DD5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {874CA896-0D07-416A-BDC5-DB389F321A80}
+	EndGlobalSection
+EndGlobal
