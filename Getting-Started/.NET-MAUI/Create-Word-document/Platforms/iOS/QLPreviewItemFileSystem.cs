@@ -1,18 +1,10 @@
-#region Copyright Syncfusion Inc. 2001 - 2015
-// Copyright Syncfusion Inc. 2001 - 2015. All rights reserved.
-// Use of this code is subject to the terms of our license.
-// A copy of the current license can be obtained at any time by e-mailing
-// licensing@syncfusion.com. Any infringement will be prosecuted under
-// applicable laws. 
-#endregion
-using System;
-using QuickLook;
 using Foundation;
+using QuickLook;
 using System.IO;
 
 public class QLPreviewItemFileSystem : QLPreviewItem
 {
-    string _fileName, _filePath;
+    readonly string _fileName, _filePath;
 
     public QLPreviewItemFileSystem(string fileName, string filePath)
     {
@@ -20,14 +12,14 @@ public class QLPreviewItemFileSystem : QLPreviewItem
         _filePath = filePath;
     }
 
-    public override string ItemTitle
+    public override string PreviewItemTitle
     {
         get
         {
             return _fileName;
         }
     }
-    public override NSUrl ItemUrl
+    public override NSUrl PreviewItemUrl
     {
         get
         {
@@ -38,21 +30,21 @@ public class QLPreviewItemFileSystem : QLPreviewItem
 
 public class QLPreviewItemBundle : QLPreviewItem
 {
-    string _fileName, _filePath;
+    readonly string _fileName, _filePath;
     public QLPreviewItemBundle(string fileName, string filePath)
     {
         _fileName = fileName;
         _filePath = filePath;
     }
 
-    public override string ItemTitle
+    public override string PreviewItemTitle
     {
         get
         {
             return _fileName;
         }
     }
-    public override NSUrl ItemUrl
+    public override NSUrl PreviewItemUrl
     {
         get
         {

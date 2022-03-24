@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using Microsoft.Maui.Controls;
+using Create_Word_document.Services;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
@@ -241,7 +242,8 @@ namespace Create_Word_document
             document.Save(ms, FormatType.Docx);
             ms.Position = 0;
             //Saves the memory stream as file.
-            DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", ms);
+            SaveService saveService = new();
+            saveService.SaveAndView("Sample.docx", "application/msword", ms);
         }
     }
 }

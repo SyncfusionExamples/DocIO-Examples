@@ -1,9 +1,8 @@
-using System;
 using QuickLook;
 
 public class PreviewControllerDS : QLPreviewControllerDataSource
 {
-    private QLPreviewItem _item;
+    private readonly QLPreviewItem _item;
 
     public PreviewControllerDS(QLPreviewItem item)
     {

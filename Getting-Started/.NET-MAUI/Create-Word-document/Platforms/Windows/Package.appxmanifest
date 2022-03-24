@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="76CC88AB-9CDA-4E0C-A900-B86B814DB4F3"
+    Name="B89B94A2-C6E7-4F8B-A515-DC3E0D1EE136"
     Publisher="CN=User Name"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>Create_Word_document</DisplayName>
+    <DisplayName>Create-Word-document</DisplayName>
     <PublisherDisplayName>Microsoft</PublisherDisplayName>
-    <Logo>Assets\appiconStoreLogo.png</Logo>
+    <Logo>appiconStoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -31,22 +31,22 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Create_Word_document"
-        Description="Create_Word_document"
+        DisplayName="Create-Word-document"
+        Description="Create-Word-document"
         BackgroundColor="transparent"
-        Square150x150Logo="Assets\appiconMediumTile.png"
-        Square44x44Logo="Assets\appiconLogo.png">
+        Square150x150Logo="appiconMediumTile.png"
+        Square44x44Logo="appiconLogo.png">
         <uap:DefaultTile
-          Wide310x150Logo="Assets\appiconWideTile.png"
-          Square71x71Logo="Assets\appiconSmallTile.png"
-          Square310x310Logo="Assets\appiconLargeTile.png"
-          ShortName="Create_Word_document">
+          Wide310x150Logo="appiconWideTile.png"
+          Square71x71Logo="appiconSmallTile.png"
+          Square310x310Logo="appiconLargeTile.png"
+          ShortName="Create-Word-document">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo"/>
             <uap:ShowOn Tile="wide310x150Logo"/>
           </uap:ShowNameOnTiles>
         </uap:DefaultTile >
-        <uap:SplashScreen Image="Assets\appiconfgSplashScreen.png" />
+        <uap:SplashScreen Image="appiconfgSplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>
