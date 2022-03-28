@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Set-ligature-types-tor-text", "Set-ligature-types-tor-text\Set-ligature-types-tor-text.csproj", "{AD1E5048-8030-4B4E-B8B6-1D557B76CD0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD1E5048-8030-4B4E-B8B6-1D557B76CD0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD1E5048-8030-4B4E-B8B6-1D557B76CD0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD1E5048-8030-4B4E-B8B6-1D557B76CD0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD1E5048-8030-4B4E-B8B6-1D557B76CD0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBCBF5BD-E783-49B5-8116-FABCFF29F7DC}
+	EndGlobalSection
+EndGlobal

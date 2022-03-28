@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Set-number-forms", "Set-number-forms\Set-number-forms.csproj", "{246C395E-5EFB-443C-88BF-1D8EE2E576F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{246C395E-5EFB-443C-88BF-1D8EE2E576F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{246C395E-5EFB-443C-88BF-1D8EE2E576F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{246C395E-5EFB-443C-88BF-1D8EE2E576F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{246C395E-5EFB-443C-88BF-1D8EE2E576F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2728B659-185C-4846-B505-2D0F2FFC9126}
+	EndGlobalSection
+EndGlobal
