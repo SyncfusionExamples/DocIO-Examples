@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDF-conformance-level", "PDF-conformance-level/PDF-conformance-level.csproj", "{B3F45FFF-D1D8-414C-8740-ADB72C39565A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3F45FFF-D1D8-414C-8740-ADB72C39565A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3F45FFF-D1D8-414C-8740-ADB72C39565A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3F45FFF-D1D8-414C-8740-ADB72C39565A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3F45FFF-D1D8-414C-8740-ADB72C39565A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90C3E417-A85A-4801-8C6E-014F8EDCAB81}
+	EndGlobalSection
+EndGlobal
