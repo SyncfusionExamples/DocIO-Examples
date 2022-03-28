@@ -4,7 +4,7 @@ using System.Collections;
 using System.Data.OleDb;
 using System.IO;
 
-namespace Mail_merge_for_nested_group
+namespace Mail_merge_with_explicit_relational_data
 {
     class Program
     {
