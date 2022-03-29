@@ -1,17 +1,16 @@
 Copy necessary fonts to Linux containers
 ----------------------------------------
 
-In Word to PDF conversion, Essential DocIO uses the fonts which are installed in the corresponding production machine to measure and draw the text. If the font is not available in the production environment, then the alternate font will be used to measure and draw text based on the environment. And so, it is mandatory to install all the fonts used in the Word document in machine to achieve proper preservation.
-
 The fonts present in the location(in Docker container) “/usr/local/share/fonts/” is used for conversion. By default, there will be limited number of fonts available in the container.
 
 You should copy necessary fonts to this location “/usr/local/share/fonts/” before conversion.
 
-How to run the examples
+How to run this example
 -----------------------
 
 *   Download this project to a location in your disk.
-*   Download necessary Microsoft compatible fonts and placed it in the fonts folder of this project.
+*   Create a folder "Fonts" parallelly to .sln file.
+*   Download necessary Microsoft compatible fonts and paste into "Fonts" folder.
 *   Open the solution file using Visual Studio.
 *   Rebuild the solution to install the required NuGet packages.
 *   Run the application.
