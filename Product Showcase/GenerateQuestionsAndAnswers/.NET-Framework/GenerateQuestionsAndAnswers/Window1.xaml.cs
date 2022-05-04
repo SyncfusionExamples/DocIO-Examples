@@ -22,7 +22,7 @@ using Syncfusion.Pdf;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace CloningandMerging
+namespace GenerateRandomMathsQuestions
 {
     /// <summary>
     /// Interaction logic for Window1.xaml

@@ -1,4 +1,4 @@
-﻿<syncfusion:ChromelessWindow x:Class="CloningandMerging.Window1"
+﻿<syncfusion:ChromelessWindow x:Class="GenerateRandomMathsQuestions.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
