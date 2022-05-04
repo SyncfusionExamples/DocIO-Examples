@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CloningandMerging.Properties
+namespace GenerateRandomMathsQuestions.Properties
 {
 
 
