@@ -36,6 +36,14 @@ namespace Format_shapes
                 //Sets line format.
                 rectangle.LineFormat.DashStyle = LineDashing.Dot;
                 rectangle.LineFormat.Color = Color.DarkGray;
+                //Sets the left internal margin for the shape.
+                rectangle.TextFrame.InternalMargin.Left = 30;
+                //Sets the right internal margin for the shape.
+                rectangle.TextFrame.InternalMargin.Right = 24;
+                //Sets the bottom internal margin for the shape.
+                rectangle.TextFrame.InternalMargin.Bottom = 18;
+                //Sets the top internal margin for the shape.
+                rectangle.TextFrame.InternalMargin.Top = 6;
                 //Creates file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
