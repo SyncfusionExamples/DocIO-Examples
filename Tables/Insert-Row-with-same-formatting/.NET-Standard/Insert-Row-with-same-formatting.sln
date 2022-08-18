@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insert-a-row-in-a-table", "Insert-a-row-in-a-table/Insert-a-row-in-a-table.csproj", "{DDC158F3-4052-48B7-AF5F-4AB3D6CD4B22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insert-Row-with-same-formatting", "Insert-Row-with-same-formatting/Insert-Row-with-same-formatting.csproj", "{DDC158F3-4052-48B7-AF5F-4AB3D6CD4B22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

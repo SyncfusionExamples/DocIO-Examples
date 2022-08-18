@@ -2,7 +2,7 @@
 using Syncfusion.DocIO.DLS;
 using System.IO;
 
-namespace Insert_a_row_in_a_table
+namespace Insert_Row_with_same_formatting
 {
     class Program
     {
