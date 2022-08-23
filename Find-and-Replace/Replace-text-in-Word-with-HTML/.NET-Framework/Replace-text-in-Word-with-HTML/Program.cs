@@ -19,9 +19,9 @@ namespace Replace_text_in_Word_with_HTML
                     IWSection htmlsection = replaceDoc.AddSection();
                     //Reads HTML string from the file.
                     string htmlString = File.ReadAllText(Path.GetFullPath(@"../../Data/File.html"));
-                    //Validates the Html string
+                    //Validates the Html string.
                     bool isValidHtml = htmlsection.Body.IsValidXHTML(htmlString, XHTMLValidationType.None);
-                    //When the Html string passes validation, it is inserted to the document
+                    //When the Html string passes validation, it is inserted to the document.
                     if (isValidHtml)
                     {
                         //Appends Html string in the temporary word document.
