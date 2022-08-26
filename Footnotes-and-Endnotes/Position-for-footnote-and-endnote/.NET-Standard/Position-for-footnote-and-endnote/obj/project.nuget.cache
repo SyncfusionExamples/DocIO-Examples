@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "jNA28u8n+d93wlDgsPoNdT9kRaMT/XWcIG6+HwYhXr4HwpKmW0J20eppkeQpm9sObzdqUsm+ZWMAFaIEHxAbWg==",
+  "success": true,
+  "projectFilePath": "C:\\OfficeWork\\DocIoWork\\DocIO-Examplesfootnote\\Footnotes-and-Endnotes\\Position-for-footnote-and-endnote\\.NET-Standard\\Position-for-footnote-and-endnote\\Position-for-footnote-and-endnote.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SharonAumaOwuor\\.nuget\\packages\\microsoft.netcore.app\\2.0.0\\microsoft.netcore.app.2.0.0.nupkg.sha512",
+    "C:\\Users\\SharonAumaOwuor\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.0.0\\microsoft.netcore.dotnetapphost.2.0.0.nupkg.sha512",
+    "C:\\Users\\SharonAumaOwuor\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.0.0\\microsoft.netcore.dotnethostpolicy.2.0.0.nupkg.sha512",
+    "C:\\Users\\SharonAumaOwuor\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.0.0\\microsoft.netcore.dotnethostresolver.2.0.0.nupkg.sha512",
+    "C:\\Users\\SharonAumaOwuor\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\SharonAumaOwuor\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\SharonAumaOwuor\\.nuget\\packages\\syncfusion.compression.net.core\\20.2.0.45\\syncfusion.compression.net.core.20.2.0.45.nupkg.sha512",
+    "C:\\Users\\SharonAumaOwuor\\.nuget\\packages\\syncfusion.docio.net.core\\20.2.0.45\\syncfusion.docio.net.core.20.2.0.45.nupkg.sha512",
+    "C:\\Users\\SharonAumaOwuor\\.nuget\\packages\\syncfusion.licensing\\20.2.0.45\\syncfusion.licensing.20.2.0.45.nupkg.sha512",
+    "C:\\Users\\SharonAumaOwuor\\.nuget\\packages\\syncfusion.officechart.net.core\\20.2.0.45\\syncfusion.officechart.net.core.20.2.0.45.nupkg.sha512",
+    "C:\\Users\\SharonAumaOwuor\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
