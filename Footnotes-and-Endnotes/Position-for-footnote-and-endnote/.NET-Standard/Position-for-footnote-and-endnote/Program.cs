@@ -17,7 +17,7 @@ namespace Position_for_footnote_and_endnote
 				IWParagraph paragraph = section.AddParagraph();
                 //Appends the text to paragraph
                 paragraph.AppendText("First paragraph in First section");
-                //Appends the footnotes as it sets the footnote
+                //Appends the footnotes
                 WFootnote footnote = paragraph.AppendFootnote(FootnoteType.Footnote) as WFootnote;
                 //Sets the footnote character format
                 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
@@ -32,7 +32,7 @@ namespace Position_for_footnote_and_endnote
                 paragraph = section.AddParagraph();
                 //Inserts the text into the paragraph
                 paragraph.AppendText("Paragraph in Second section.");
-                //Appends the endnotes. Sets the footnote or endnote
+                //Appends the endnotes
                 WFootnote endnote = paragraph.AppendFootnote(FootnoteType.Endnote) as WFootnote;
                 //Sets the footnote character format
                 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
