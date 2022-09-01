@@ -29,7 +29,7 @@ namespace Insert_Row_with_same_formatting
                     //Insert new paragraph to the first cell.
                     WParagraph cellParagraph = row.Cells[0].AddParagraph() as WParagraph;
                     //Set text and character format.
-                    IWTextRange textRange = cellParagraph.AppendText("Hello World");
+                    IWTextRange textRange = cellParagraph.AppendText("Third Row");
                     textRange.CharacterFormat.Bold = true;
                     //Insert new row into the table in specific index.
                     table.Rows.Insert(2, row);
