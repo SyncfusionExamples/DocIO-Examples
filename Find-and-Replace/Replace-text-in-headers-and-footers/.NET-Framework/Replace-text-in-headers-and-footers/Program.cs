@@ -12,14 +12,14 @@ namespace Replace_text_in_headers_and_footers
         {
 
             //Load the template document.
-            using (WordDocument document = new WordDocument(Path.GetFullPath(@"../../Template.docx"), FormatType.Docx))
+            using (WordDocument document = new WordDocument(Path.GetFullPath(@"../../Data/Input.docx"), FormatType.Docx))
             {
                 //Create paragraph for header.  
                 WParagraph headerParagraph = new WParagraph(document);
                 //Align paragraph horizontally to the right.
                 headerParagraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
                 //Append picture in the paragraph.
-                WPicture picture = headerParagraph.AppendPicture(Image.FromFile(@"../../AdventureCycle.jpg")) as WPicture;
+                WPicture picture = headerParagraph.AppendPicture(Image.FromFile(@"../../Data/AdventureCycle.jpg")) as WPicture;
                 //Set width and height for the picture.
                 picture.Height = 65f;
                 picture.Width = 200f;

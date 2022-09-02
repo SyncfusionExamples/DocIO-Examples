@@ -9,7 +9,7 @@ namespace Replace_text_in_headers_and_footers
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Loads the template document
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -18,7 +18,7 @@ namespace Replace_text_in_headers_and_footers
                     WParagraph headerParagraph = new WParagraph(document);
                     //Align paragraph horizontally to the right.
                     headerParagraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;                   
-                    FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../AdventureCycle.jpg"), FileMode.Open, FileAccess.ReadWrite);
+                    FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Data/AdventureCycle.jpg"), FileMode.Open, FileAccess.ReadWrite);
                     //Append picture in the paragraph.
                     WPicture picture = headerParagraph.AppendPicture(imageStream) as WPicture;
                     //Set width and height for the picture.
