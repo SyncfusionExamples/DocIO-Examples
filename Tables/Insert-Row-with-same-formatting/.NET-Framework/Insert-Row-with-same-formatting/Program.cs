@@ -25,7 +25,7 @@ namespace Insert_Row_with_same_formatting
                 }
                 //Insert new paragraph to the first cell.
                 WParagraph cellParagraph = row.Cells[0].AddParagraph() as WParagraph;
-                //Set text and character format.
+                //Set text.
                 IWTextRange textRange = cellParagraph.AppendText("New row's first cell");
                 //Insert a row into the table in specific index.
                 table.Rows.Insert(2, row);
