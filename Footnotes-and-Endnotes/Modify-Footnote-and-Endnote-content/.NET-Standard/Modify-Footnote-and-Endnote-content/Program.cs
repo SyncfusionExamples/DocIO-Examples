@@ -34,11 +34,11 @@ namespace Modify_Footnote_and_Endnote_content
                     paragraph = textBody.Paragraphs[1];
                     //Gets the endnote at index 0
                     WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
-                    //Clear footnote content.
+                    //Clear endnote content.
                     endnote.TextBody.ChildEntities.Clear();
                     //Add Paragraph to body of footnote.
                     WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
-                    //Sets the footnote character format.
+                    //Sets the endnote character format.
                     endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
                     //Append footnotes text.
                     endnoteParagraph.AppendText(" Endnote is modified.");
