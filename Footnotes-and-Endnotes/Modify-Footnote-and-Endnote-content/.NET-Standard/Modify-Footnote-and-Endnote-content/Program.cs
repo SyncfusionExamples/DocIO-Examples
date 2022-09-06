@@ -43,12 +43,13 @@ namespace Modify_Footnote_and_Endnote_content
                     endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
                     //Append footnotes text.
                     endnoteParagraph.AppendText("Endnote is modified.");
-                    using (FileStream outputStream = new FileStream(@"../../../Result.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(@"../../../Sample.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
                     }
                 }
+            
             }
         }        
     }
