@@ -27,8 +27,7 @@ namespace Modify_Footnote_and_Endnote_content
                     //Sets the footnote character format.
                     footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
                     //Append footnotes text.
-                    footnoteParagraph.AppendText("Footnote is modified.");
-
+                    footnoteParagraph.AppendText(" Footnote is modified.");
                     //Gets the textbody of the third section
                     textBody = document.Sections[2].Body;
                     //Gets the paragraph at index 1
@@ -42,14 +41,13 @@ namespace Modify_Footnote_and_Endnote_content
                     //Sets the footnote character format.
                     endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
                     //Append footnotes text.
-                    endnoteParagraph.AppendText("Endnote is modified.");
+                    endnoteParagraph.AppendText(" Endnote is modified.");
                     using (FileStream outputStream = new FileStream(@"../../../Sample.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
                     }
-                }
-            
+                }            
             }
         }        
     }
