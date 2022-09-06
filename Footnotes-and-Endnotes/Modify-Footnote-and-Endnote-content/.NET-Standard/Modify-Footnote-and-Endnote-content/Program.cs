@@ -36,11 +36,11 @@ namespace Modify_Footnote_and_Endnote_content
                     WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
                     //Clear endnote content.
                     endnote.TextBody.ChildEntities.Clear();
-                    //Add Paragraph to body of footnote.
+                    //Add Paragraph to body of endnote.
                     WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
                     //Sets the endnote character format.
                     endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-                    //Append footnotes text.
+                    //Append endnotes text.
                     endnoteParagraph.AppendText(" Endnote is modified.");
                     using (FileStream outputStream = new FileStream(@"../../../Sample.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                     {
