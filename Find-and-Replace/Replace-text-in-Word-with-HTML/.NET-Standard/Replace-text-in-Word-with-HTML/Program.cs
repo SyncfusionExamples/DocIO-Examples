@@ -29,7 +29,7 @@ namespace Replace_text_in_Word_with_HTML
                             //Append HTML string in the temporary word document.
                             htmlsection.Body.InsertXHTML(htmlString);
                         }
-                        //Replace the content placeholder text with desired Word document.
+                        //Replace the placeholder text with content of HTML document.
                         document.Replace(new Regex("«([a-zA-Z0-9 ]*:*[a-zA-Z0-9 ]+)»"), replaceDoc, true);
                     }
                     //Create file stream.
