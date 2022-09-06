@@ -13,7 +13,7 @@ namespace Hide_backgrounds_in_print_layout_view
                 //Load word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
-                    //Sets the background type as gradient.
+                    //Set the background type as gradient.
                     document.Background.Type = BackgroundType.Gradient;
                     //Set color for gradient.
                     document.Background.Gradient.Color1 = Syncfusion.Drawing.Color.LightGray;
@@ -21,7 +21,7 @@ namespace Hide_backgrounds_in_print_layout_view
                     //Set the shading style.
                     document.Background.Gradient.ShadingStyle = GradientShadingStyle.DiagonalUp;
                     document.Background.Gradient.ShadingVariant = GradientShadingVariant.ShadingDown;
-                    //Set whether background colors and images are shown when a document is displayed in print layout view.
+                    //Disable a flag to hide background in print layout view.
                     document.Settings.DisplayBackgrounds = false;
                     //Create file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
