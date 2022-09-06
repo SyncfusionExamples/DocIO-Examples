@@ -32,7 +32,7 @@ namespace Modify_Footnote_and_Endnote_content
                     textBody = document.Sections[2].Body;
                     //Gets the paragraph at index 1
                     paragraph = textBody.Paragraphs[1];
-                    //Gets the footnote at index 0
+                    //Gets the endnote at index 0
                     WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
                     //Clear footnote content.
                     endnote.TextBody.ChildEntities.Clear();
