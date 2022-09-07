@@ -9,38 +9,34 @@ namespace Modify_Footnote_and_Endnote_content
     {
         static void Main(string[] args)
         {
-            using (FileStream inputStream = new FileStream(@"../../../Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream inputStream = new FileStream(@"../../../Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Loads the template document as stream
+                //Load file stream into Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    //Gets the textbody of the first section
-                    WTextBody textBody = document.Sections[0].Body;
-                    //Gets the paragraph at index 6
-                    WParagraph paragraph = textBody.Paragraphs[6];
-                    //Gets the footnote at index 0
+                    //Access paragraph in Word document.
+                    WParagraph paragraph = document.Sections[0].Paragraphs[6] as WParagraph;
+                    //Get the footnote at index 0.
                     WFootnote footnote = paragraph.ChildEntities[0] as WFootnote;
                     //Clear footnote content.
                     footnote.TextBody.ChildEntities.Clear();
-                    //Add Paragraph to body of footnote.
+                    //Add new paragraph to body of footnote.
                     WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
-                    //Sets the footnote character format.
+                    //Set the footnote character format.
                     footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-                    //Append footnotes text.
+                    //Append footnote text.
                     footnoteParagraph.AppendText(" Footnote is modified.");
-                    //Gets the textbody of the third section
-                    textBody = document.Sections[2].Body;
-                    //Gets the paragraph at index 1
-                    paragraph = textBody.Paragraphs[1];
-                    //Gets the endnote at index 0
+                    //Access paragraph in Word document.
+                    paragraph = document.Sections[2].Paragraphs[1] as WParagraph;
+                    //Get the endnote at index 0.
                     WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
                     //Clear endnote content.
                     endnote.TextBody.ChildEntities.Clear();
-                    //Add Paragraph to body of endnote.
+                    //Add new paragraph to body of endnote.
                     WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
-                    //Sets the endnote character format.
+                    //Set the endnote character format.
                     endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-                    //Append endnotes text.
+                    //Append endnote text.
                     endnoteParagraph.AppendText(" Endnote is modified.");
                     using (FileStream outputStream = new FileStream(@"../../../Sample.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                     {
