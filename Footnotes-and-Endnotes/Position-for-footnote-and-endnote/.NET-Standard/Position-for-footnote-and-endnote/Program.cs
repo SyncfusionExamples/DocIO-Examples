@@ -8,51 +8,55 @@ namespace Position_for_footnote_and_endnote
     {
         static void Main(string[] args)
         {
-            //Creates a new Word document.
+            //Create a new Word document.
             using (WordDocument document = new WordDocument())
             {
-				//Creates a section.
-				IWSection section = document.AddSection();
-				//Adds a paragraph to a section.
-				IWParagraph paragraph = section.AddParagraph();
-                //Appends the text to paragraph
+                //Create a section.
+                IWSection section = document.AddSection();
+                //Add a paragraph to a section.
+                IWParagraph paragraph = section.AddParagraph();
+                //Append the text to paragraph.
                 paragraph.AppendText("First paragraph in First section");
-                //Appends the footnotes
+                //Append the footnote.
                 WFootnote footnote = paragraph.AppendFootnote(FootnoteType.Footnote) as WFootnote;
-                //Sets the footnote character format
+                //Set the footnote character format.
                 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-                //Adds footnote text
+                //Set the numbering format for footnote.
+                document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic;
+                //Add footnote text.
                 paragraph = footnote.TextBody.AddParagraph();
                 paragraph.AppendText("Footnote content");
-                //Sets the footnote position
+                //Set the footnote position.
                 document.FootnotePosition = FootnotePosition.PrintImmediatelyBeneathText;
-                //Adds the new section to the document
+                //Add the new section to the document.
                 section = document.AddSection();
-                //Adds a paragraph to a section
+                //Add a paragraph to a section.
                 paragraph = section.AddParagraph();
-                //Inserts the text into the paragraph
+                //Append text into the paragraph.
                 paragraph.AppendText("Paragraph in Second section.");
-                //Appends the endnotes
+                //Append the endnote.
                 WFootnote endnote = paragraph.AppendFootnote(FootnoteType.Endnote) as WFootnote;
-                //Sets the footnote character format
+                //Set the endnote character format.
                 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-                //Adds endnote text
+                //Set the numbering format for endnote.
+                document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman;
+                //Add endnote text.
                 paragraph = endnote.TextBody.AddParagraph();
                 paragraph.AppendText("Endnote of second section");
-                //Sets the endnote position
+                //Set the endnote position
                 document.EndnotePosition = EndnotePosition.DisplayEndOfSection;
-                //Adds the new section to the document
+                //Add the new section to the document.
                 section = document.AddSection();
-                //Sets a section break
+                //Set a section break.
                 section.BreakCode = SectionBreakCode.NoBreak;
-                //Adds a paragraph to a section
+                //Add a new paragraph to a section.
                 paragraph = section.AddParagraph();
-                //Inserts the text into the paragraph
+                //Append text into the paragraph.
                 paragraph.AppendText("Paragraph in third Section.");
-                //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                //Create file stream.
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
-                    //Saves the Word document to file stream.
+                    //Save the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);
                 }
             }
