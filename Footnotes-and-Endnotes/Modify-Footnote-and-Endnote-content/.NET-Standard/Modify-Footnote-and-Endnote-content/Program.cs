@@ -16,11 +16,11 @@ namespace Modify_Footnote_and_Endnote_content
                 {
                     //Access paragraph in Word document.
                     WParagraph paragraph = document.Sections[0].Paragraphs[6] as WParagraph;
-                    //Get the footnote at index 0.
+                    //Access footnote in paragraph.
                     WFootnote footnote = paragraph.ChildEntities[0] as WFootnote;
                     //Clear footnote content.
                     footnote.TextBody.ChildEntities.Clear();
-                    //Add new paragraph to body of footnote.
+                    //Add new paragraph to body of the footnote.
                     WParagraph footnoteParagraph = footnote.TextBody.AddParagraph() as WParagraph;
                     //Set the footnote character format.
                     footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
@@ -28,11 +28,11 @@ namespace Modify_Footnote_and_Endnote_content
                     footnoteParagraph.AppendText(" Footnote is modified.");
                     //Access paragraph in Word document.
                     paragraph = document.Sections[2].Paragraphs[1] as WParagraph;
-                    //Get the endnote at index 0.
+                    //Access endnote in paragraph.
                     WFootnote endnote = paragraph.ChildEntities[0] as WFootnote;
                     //Clear endnote content.
                     endnote.TextBody.ChildEntities.Clear();
-                    //Add new paragraph to body of endnote.
+                    //Add new paragraph to body of the endnote.
                     WParagraph endnoteParagraph = endnote.TextBody.AddParagraph() as WParagraph;
                     //Set the endnote character format.
                     endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
