@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="20.2.0.46" />
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>
