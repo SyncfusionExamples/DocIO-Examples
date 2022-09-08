@@ -15,13 +15,13 @@ namespace Position_for_footnote_and_endnote
                 IWSection section = document.AddSection();
                 //Add a paragraph to a section.
                 IWParagraph paragraph = section.AddParagraph();
-                //Append the text to paragraph.
+                //Append the text to the paragraph.
                 paragraph.AppendText("First paragraph in First section");
                 //Append the footnote.
                 WFootnote footnote = paragraph.AppendFootnote(FootnoteType.Footnote) as WFootnote;
                 //Set the footnote character format.
                 footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-                //Set the numbering format for footnote.
+                //Set the numbering format for the footnote.
                 document.FootnoteNumberFormat = FootEndNoteNumberFormat.Arabic;
                 //Add footnote text.
                 paragraph = footnote.TextBody.AddParagraph();
@@ -38,7 +38,7 @@ namespace Position_for_footnote_and_endnote
                 WFootnote endnote = paragraph.AppendFootnote(FootnoteType.Endnote) as WFootnote;
                 //Set the endnote character format.
                 endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
-                //Set the numbering format for endnote.
+                //Set the numbering format for the endnote.
                 document.EndnoteNumberFormat = FootEndNoteNumberFormat.LowerCaseRoman;
                 //Add endnote text.
                 paragraph = endnote.TextBody.AddParagraph();
