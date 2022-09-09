@@ -10,10 +10,10 @@ namespace Hide_backgrounds_in_print_layout_view
         {
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Load word document.
+                //Load the file stream into the Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
-                    //Disable a flag to hide background in print layout view.
+                    //Disable a flag to hide the background in the print layout view.
                     document.Settings.DisplayBackgrounds = false;
                     //Create file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
