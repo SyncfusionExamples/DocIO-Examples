@@ -11,12 +11,11 @@ namespace Remove_background_in_Word_document
         {
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Load word document.
+                //Load the file stream into the Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
-                    //Remove the existing background in Word document.
+                    //Remove the existing background in the Word document.
                     document.Background.Type = BackgroundType.NoBackground;
-
                     //Create file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
