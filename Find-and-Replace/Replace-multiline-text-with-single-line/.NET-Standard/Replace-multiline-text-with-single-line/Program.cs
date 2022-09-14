@@ -15,7 +15,7 @@ namespace Replace_multiline_text_with_single_line
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
                 {
                     //Replace the text extended to several paragraphs with simple text.
-                    document.ReplaceSingleLine(new Regex("«(.*)»"), "Replaced paragraph");
+                    document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), "Thank you for Payment");
                     //Create file stream.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {

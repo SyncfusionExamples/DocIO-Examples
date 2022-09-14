@@ -15,7 +15,7 @@ namespace Replace_pattern_text_with_normal_text
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
                     //Replace all occurrences of the given pattern of text with normal text.
-                    document.Replace(new Regex("{[A-Za-z]+}"), "Cycles Company");
+                    document.Replace(new Regex("{[A-Za-z]+}"), "cycles company");
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
