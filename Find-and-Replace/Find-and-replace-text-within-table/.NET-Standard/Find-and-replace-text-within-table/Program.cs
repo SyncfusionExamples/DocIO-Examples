@@ -14,39 +14,40 @@ namespace Find_and_replace_text_within_table
                 //Loads the template document
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
-                    //Create paragraph for header.     
-                    WParagraph headerParagraph = new WParagraph(document);
-                    //Align paragraph horizontally to the right.
-                    headerParagraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;                   
-                    FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Data/AdventureCycle.jpg"), FileMode.Open, FileAccess.ReadWrite);
-                    //Append picture in the paragraph.
-                    WPicture picture = headerParagraph.AppendPicture(imageStream) as WPicture;
-                    //Set width and height for the picture.
-                    picture.Height = 65f;
-                    picture.Width = 200f;
-                    //Create text body part.
-                    TextBodyPart headerBodyPart = new TextBodyPart(document);
-                    headerBodyPart.BodyItems.Add(headerParagraph);
-                    //Replace all entries of a given regular expression with the text body part along with its formatting in header.
-                    document.Replace(new Regex("^<<(.*)>>"), headerBodyPart, false);
-
-                    //Create paragraph for footer.
-                    WParagraph footerParagraph = new WParagraph(document);
-                    //Align the paragraph horizontally to the right.
-                    footerParagraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
-                    //Add the text.
-                    footerParagraph.AppendText(" Page ");
-                    //Add page number field.
-                    footerParagraph.AppendField(" CurrentPageNumber", FieldType.FieldPage);
-                    //Add the text.
-                    footerParagraph.AppendText(" of ");
-                    //Add number of page field.
-                    footerParagraph.AppendField(" TotalNumberOfPages ", FieldType.FieldNumPages);
-                    //Create text body part.
-                    TextBodyPart footerBodyPart = new TextBodyPart(document);
-                    footerBodyPart.BodyItems.Add(footerParagraph);
-                    //Replace all entries of a given regular expression with the text body part along with its formatting in footer.
-                    document.Replace(new Regex("^//(.*)"), footerBodyPart, false);
+                    //Iterate through the document sections.
+                    foreach (WSection section in document.Sections)
+                    {
+                        foreach (Entity entity in section.Body.ChildEntities)
+                        {
+                            if (entity.EntityType == EntityType.Table)
+                            {
+                                WTable table = (WTable)entity;
+                                //Iterate through the rows of table.
+                                foreach (WTableRow row in table.Rows)
+                                {
+                                    //Iterate through the cells of rows.
+                                    foreach (WTableCell cell in row.Cells)
+                                    {
+                                        //Iterates through the paragraphs of the cell.
+                                        foreach (Entity ent in cell.ChildEntities)
+                                        {
+                                            if (ent.EntityType == EntityType.Paragraph)
+                                            {
+                                                WParagraph paragraph = ent as WParagraph;
+                                                //Find the selection of text inside the paragraph.
+                                                TextSelection[] textSelections = document.FindAll("Suppliers", false, true);
+                                                for (int i = 0; i < textSelections.Length; i++)
+                                                {
+                                                    //Replace the specified regular expression with a TextSelection in the paragraph.
+                                                    paragraph.Replace(new Regex("^//(.*)"), textSelections[i]);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath("../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the document.
