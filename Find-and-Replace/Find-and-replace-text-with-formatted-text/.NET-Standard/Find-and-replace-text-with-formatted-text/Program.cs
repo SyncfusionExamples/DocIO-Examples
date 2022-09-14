@@ -14,9 +14,9 @@ namespace Find_and_replace_text_with_formatted_text
                 //Open an existing Word document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
                 {
-                    //Find the first occurrence of particular text in the document.
+                    //Find the first occurrence of a particular text in the document.
                     TextSelection selection = document.Find(new Regex ("^«(.*)»"));
-                    //Replace a particular text with the selected text along with formatting.
+                    //Replace the particular text with the selected text along with formatting.
                     document.Replace("Bear", selection, false, false, true);
                     //Create file stream.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
