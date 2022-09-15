@@ -68,7 +68,7 @@ namespace Customize_TOC_entries_style
                 //Update the table of contents.
                 document.UpdateTableOfContents();
                 //Save the file in the given path.
-                Stream docStream = File.Create(Path.GetFullPath(@"../../../TocEntryStyle.docx"));
+                Stream docStream = File.Create(Path.GetFullPath(@"../../../Sample.docx"));
                 document.Save(docStream, FormatType.Docx);
                 docStream.Dispose();
             }
