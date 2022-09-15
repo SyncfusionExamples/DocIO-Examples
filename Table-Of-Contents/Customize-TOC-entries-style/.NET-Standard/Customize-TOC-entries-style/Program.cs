@@ -74,7 +74,8 @@ namespace Customize_TOC_entries_style
             }
         }
         /// <summary>
-        /// Add Heading and Apply BuiltinStyle.      
+        /// Add Heading and Apply BuiltinStyle. 
+        /// </summary>
         private static void AddHeading(WSection section, BuiltinStyle builtinStyle, string headingText, string paragraghText)
         {
             WParagraph newPara = section.AddParagraph() as WParagraph;
