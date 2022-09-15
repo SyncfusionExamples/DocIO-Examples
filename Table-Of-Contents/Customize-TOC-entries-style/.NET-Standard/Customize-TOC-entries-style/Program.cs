@@ -9,7 +9,7 @@ namespace Customize_TOC_entries_style
     {
         static void Main(string[] args)
         {
-            //Creates a new Word document.
+            //Create a new Word document.
             using (WordDocument document = new WordDocument())
             {
                 document.EnsureMinimal();
@@ -22,10 +22,10 @@ namespace Customize_TOC_entries_style
                 para = document.LastSection.AddParagraph() as WParagraph;
                 //Insert TOC field in the Word document.
                 TableOfContent toc = para.AppendTOC(1, 3);
-                //Sets the heading levels 1 to 3, to include in TOC.
+                //Set the heading levels 1 to 3, to include in TOC.
                 toc.LowerHeadingLevel = 1;
                 toc.UpperHeadingLevel = 3;
-                //Adds content to the Word document with built-in heading styles.
+                //Add content to the Word document with built-in heading styles.
                 WSection section = document.LastSection;
                 WParagraph newPara = section.AddParagraph() as WParagraph;
                 newPara.AppendBreak(BreakType.PageBreak);
@@ -33,7 +33,7 @@ namespace Customize_TOC_entries_style
                 AddHeading(section, BuiltinStyle.Heading2, "Section 1", "This is the built-in heading 2 style. A document can contain any number of sections. Sections are used to apply same formatting for a group of paragraphs. You can insert sections by inserting section breaks.");
                 AddHeading(section, BuiltinStyle.Heading3, "Paragraph 1", "This is the built-in heading 3 style. Each section contains any number of paragraphs. A paragraph is a set of statements that gives a meaning for the text.");
                 AddHeading(section, BuiltinStyle.Heading3, "Paragraph 2", "This is the built-in heading 3 style. This demonstrates the paragraphs at the same level and style as that of the previous one. A paragraph can have any number formatting. This can be attained by formatting each text range in the paragraph.");
-                //Adds a new section to the Word document.
+                //Add a new section to the Word document.
                 section = document.AddSection() as WSection;
                 section.PageSetup.Margins.All = 72;
                 section.BreakCode = SectionBreakCode.NewPage;
@@ -65,21 +65,16 @@ namespace Customize_TOC_entries_style
                 toc3style.CharacterFormat.Italic = true;
                 toc3style.ParagraphFormat.LeftIndent = 22;
 
-                //Updates the table of contents.
+                //Update the table of contents.
                 document.UpdateTableOfContents();
-                //Saves the file in the given path
+                //Save the file in the given path.
                 Stream docStream = File.Create(Path.GetFullPath(@"../../../TocEntryStyle.docx"));
                 document.Save(docStream, FormatType.Docx);
                 docStream.Dispose();
             }
         }
         /// <summary>
-        /// Add Heading BuiltinStyle
-        /// </summary>
-        /// <param name="section"></param>
-        /// <param name="builtinStyle"></param>
-        /// <param name="headingText"></param>
-        /// <param name="paragraghText"></param>
+        /// Add Heading and Apply BuiltinStyle.      
         private static void AddHeading(WSection section, BuiltinStyle builtinStyle, string headingText, string paragraghText)
         {
             WParagraph newPara = section.AddParagraph() as WParagraph;
@@ -90,8 +85,5 @@ namespace Customize_TOC_entries_style
             section.AddParagraph();
         }
     }
-            
-                
-        
     
 }
