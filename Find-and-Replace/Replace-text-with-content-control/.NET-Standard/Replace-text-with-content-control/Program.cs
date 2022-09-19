@@ -9,10 +9,10 @@ namespace Replace_text_with_content_control
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Load an existing Word document.
-                using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+                using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
                     //Add block content control into the Word document.
                     BlockContentControl blockContentControl = new BlockContentControl(document, ContentControlType.RichText);
@@ -23,31 +23,28 @@ namespace Replace_text_with_content_control
                     //Get first row of the table.
                     WTableRow row = table.Rows[0];
                     //Add a new paragraph to the first cell of the table.
-                    IWParagraph cellPara = row.Cells[0].AddParagraph();
+                    IWParagraph cellParagraph = row.Cells[0].AddParagraph();
                     row.Cells[0].CellFormat.VerticalAlignment = VerticalAlignment.Top;
                     FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Data/image.png"), FileMode.Open, FileAccess.ReadWrite);
                     //Append a picture to the cell.
-                    WPicture picture = cellPara.AppendPicture(imageStream) as WPicture;
+                    WPicture picture = cellParagraph.AppendPicture(imageStream) as WPicture;
                     picture.Height = 88.3f;
                     picture.Width = 142.2f;
                     //Add a new paragraph to the next cell.
-                    cellPara = row.Cells[1].AddParagraph();
+                    cellParagraph = row.Cells[1].AddParagraph();
                     row.Cells[1].CellFormat.VerticalAlignment = VerticalAlignment.Top;
-                    cellPara.ParagraphFormat.BeforeSpacing = 12f;
+                    cellParagraph.ParagraphFormat.BeforeSpacing = 12f;
                     //Append text to the cell.
-                    IWTextRange txt = cellPara.AppendText("Mountain-200");
-                    cellPara.ParagraphFormat.AfterSpacing = 3f;
+                    IWTextRange text = cellParagraph.AppendText("Mountain-200");
+                    cellParagraph.ParagraphFormat.AfterSpacing = 3f;
                     //Set the text format.
-                    txt.CharacterFormat.Bold = true;
-                    txt.CharacterFormat.FontName = "Arial";
-                    txt.CharacterFormat.FontSize = 16f;
+                    text.CharacterFormat.Bold = true;
+                    text.CharacterFormat.FontName = "Arial";
+                    text.CharacterFormat.FontSize = 16f;
                     //Add a new paragraph.
-                    cellPara = row.Cells[1].AddParagraph();
+                    cellParagraph = row.Cells[1].AddParagraph();
                     //Append texts to the paragraph of a cell.
-                    txt = cellPara.AppendText("Product No: BK-M68B-38");
-                    txt = cellPara.AppendText("\nSize: 38");
-                    txt = cellPara.AppendText("\nWeight: 25");
-                    txt = cellPara.AppendText("\nPrice: $2,294.99\n\n");
+                    text = cellParagraph.AppendText("Product No: BK-M68B-38\nSize: 38\nWeight: 25\nPrice: $2,294.99\n\n");
                     //Specify the table borders border type.
                     table.TableFormat.Borders.BorderType = BorderStyle.Single;
 
