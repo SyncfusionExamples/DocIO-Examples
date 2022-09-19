@@ -14,7 +14,9 @@ namespace Find_and_replace_text_within_table
             {              
                 //Access table in Word document.
                 WTable table = document.Sections[0].Tables[0] as WTable;
-                FindAndReplaceInTable(table, document); 
+                //Find the first occurrence of a particular text in the Word document.
+                TextSelection textSelection = document.Find("Adventure Works Cycles", false, true);
+                FindAndReplaceInTable(table,textSelection); 
                 //Save the document.
                 document.Save(Path.GetFullPath("../../Sample.docx"), FormatType.Docx);
             }
@@ -24,7 +26,7 @@ namespace Find_and_replace_text_within_table
         /// </summary>
         /// <param name="table"></param>
         /// <param name="paragraph"></param>
-        private static void FindAndReplaceInTable(WTable table, WordDocument document)
+        private static void FindAndReplaceInTable(WTable table,TextSelection textSelection)
         {
             //Iterate through the rows of table.
             foreach (WTableRow row in table.Rows)
@@ -38,15 +40,13 @@ namespace Find_and_replace_text_within_table
                         if (entity.EntityType == EntityType.Paragraph)
                         {
                             WParagraph wParagraph=entity as WParagraph;
-                            //Find the first occurrence of a particular text in the Word document.
-                            TextSelection textSelection = document.Find("Suppliers", false, true);
                                 //Replace the specified regular expression with a TextSelection in the paragraph.
-                                wParagraph.Replace(new Regex("^//(.*)"), textSelection);
+                                wParagraph.Replace(new Regex("<<(.*)>>"), textSelection);
                             
                         }
                         else if (entity.EntityType == EntityType.Table)
                         {
-                            FindAndReplaceInTable(entity as WTable, document);
+                            FindAndReplaceInTable(entity as WTable,textSelection);
                         }
                     }
                 }
