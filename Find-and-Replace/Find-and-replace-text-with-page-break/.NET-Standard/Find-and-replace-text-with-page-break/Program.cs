@@ -9,7 +9,7 @@ namespace Find_and_replace_text_with_page_break
     {
         static void Main(string[] args)
         {
-            //Create filestream.
+            //Create file stream.
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Open an existing Word document.
