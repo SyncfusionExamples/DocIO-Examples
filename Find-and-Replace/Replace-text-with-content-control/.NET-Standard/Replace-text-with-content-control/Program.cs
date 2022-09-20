@@ -44,7 +44,7 @@ namespace Replace_text_with_content_control
                     //Add a new paragraph.
                     cellParagraph = row.Cells[1].AddParagraph();
                     //Append texts to the paragraph of a cell.
-                    text = cellParagraph.AppendText("Product No: BK-M68B-38\nSize: 38\nWeight: 25\nPrice: $2,294.99\n\n");
+                    cellParagraph.AppendText("Product No: BK-M68B-38\nSize: 38\nWeight: 25\nPrice: $2,294.99\n\n");
                     //Specify the table borders border type.
                     table.TableFormat.Borders.BorderType = BorderStyle.Single;
 
