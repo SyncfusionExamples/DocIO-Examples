@@ -9,9 +9,10 @@ namespace Find_and_replace_text_with_page_break
     {
         static void Main(string[] args)
         {
+            //Create filestream.
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opens an existing Word document.
+                //Open an existing Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
                     //Add new paragraph to the section.
@@ -26,7 +27,7 @@ namespace Find_and_replace_text_with_page_break
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
-                        //Saves the Word document to file stream.
+                        //Save the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);
                     }
                 }
