@@ -49,7 +49,7 @@ namespace Replace_text_with_content_control
                     table.TableFormat.Borders.BorderType = BorderStyle.Single;
                     //Create a textbody part object.
                     TextBodyPart textBodyPart = new TextBodyPart(document);
-                    //Add the textbodyPart to the block content control.
+                    //Add the block content control to the textbodyPart.
                     textBodyPart.BodyItems.Add(blockContentControl);
                     //Replace all entries of a given regular expression with the text body part.
                     document.Replace(new Regex("<<(.*)>>"), textBodyPart);
