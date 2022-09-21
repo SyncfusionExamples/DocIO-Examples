@@ -14,7 +14,7 @@ namespace Replace_text_with_content_control
                 //Load an existing Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    //Add block content control into the Word document.
+                    //Create a BlockContentControl object.
                     BlockContentControl blockContentControl = new BlockContentControl(document, ContentControlType.RichText);
                     //Add a new table to the block content control.
                     WTable table = blockContentControl.TextBody.AddTable() as WTable;
@@ -47,8 +47,9 @@ namespace Replace_text_with_content_control
                     cellParagraph.AppendText("Product No: BK-M68B-38\nSize: 38\nWeight: 25\nPrice: $2,294.99\n\n");
                     //Specify the table borders border type.
                     table.TableFormat.Borders.BorderType = BorderStyle.Single;
-
+                    //Create a textbody part object.
                     TextBodyPart textBodyPart = new TextBodyPart(document);
+                    //Add the textbodyPart to the block content control.
                     textBodyPart.BodyItems.Add(blockContentControl);
                     //Replace all entries of a given regular expression with the text body part.
                     document.Replace(new Regex("<<(.*)>>"), textBodyPart);
