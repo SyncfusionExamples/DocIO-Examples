@@ -14,7 +14,7 @@ namespace Replace_text_with_content_control
                 //Load an existing Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    //Create a BlockContentControl object.
+                    //Create a BlockContentControl.
                     BlockContentControl blockContentControl = new BlockContentControl(document, ContentControlType.RichText);
                     //Add a new table to the block content control.
                     WTable table = blockContentControl.TextBody.AddTable() as WTable;
@@ -43,7 +43,7 @@ namespace Replace_text_with_content_control
                     text.CharacterFormat.FontSize = 16f;
                     //Add a new paragraph.
                     cellParagraph = row.Cells[1].AddParagraph();
-                    //Append texts to the paragraph of a cell.
+                    //Append text to the paragraph of a cell.
                     cellParagraph.AppendText("Product No: BK-M68B-38\nSize: 38\nWeight: 25\nPrice: $2,294.99\n\n");
                     //Specify the table borders border type.
                     table.TableFormat.Borders.BorderType = BorderStyle.Single;
