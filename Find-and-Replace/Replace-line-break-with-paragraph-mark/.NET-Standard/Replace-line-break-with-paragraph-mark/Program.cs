@@ -57,7 +57,7 @@ namespace Replace_line_break_with_paragraph_mark
                     case EntityType.Paragraph:
                         WParagraph paragraph = bodyItemEntity as WParagraph;
                         //Iterate through the paragraph.
-                        IterateParagraph(paragraph.Items);
+                        IterateParagraphItems(paragraph.Items);
                         break;
                     case EntityType.Table:
                         //Iterate through table.
@@ -90,7 +90,7 @@ namespace Replace_line_break_with_paragraph_mark
         /// <summary>
         /// Iterate paragraph child elements.
         /// </summary>
-        private static void IterateParagraph(ParagraphItemCollection paraItems)
+        private static void IterateParagraphItems(ParagraphItemCollection paraItems)
         {
             for (int i = 0; i < paraItems.Count; i++)
             {
@@ -108,14 +108,14 @@ namespace Replace_line_break_with_paragraph_mark
                             int paraIndex = ownerPara.OwnerTextBody.ChildEntities.IndexOf(ownerPara);
 
                             //Create new paragraph by cloning the existing paragraph.
-                            WParagraph newPara = ownerPara.Clone() as WParagraph;
-                            //Remove the child items after the line break from the old paragraph including line break.
-                            for (int j = breakIndex; j < ownerPara.ChildEntities.Count;)
+                            WParagraph newPara = ownerPara.Clone() as WParagraph;                           
+                            //Remove paragraph child entities from the index of break item.
+                            while (breakIndex <ownerPara.ChildEntities.Count)
                             {
-                                ownerPara.ChildEntities.RemoveAt(j);
-                            }
+                                ownerPara.ChildEntities.RemoveAt(breakIndex);                                
+                            }            
                             int newParaItemsCount = ownerPara.ChildEntities.Count;
-                            //Remove the child items before the line break from the new paragraph including line break.
+                            // Remove paragraph child entities from index zero upto the end of paragraph break item.
                             while (newParaItemsCount + 1 != 0)
                             {
                                 newPara.ChildEntities.RemoveAt(0);
@@ -138,7 +138,7 @@ namespace Replace_line_break_with_paragraph_mark
                     case EntityType.InlineContentControl:
                         //Iterate the paragraph items of inline content control.
                         InlineContentControl inlineContentControl = entity as InlineContentControl;
-                        IterateParagraph(inlineContentControl.ParagraphItems);
+                        IterateParagraphItems(inlineContentControl.ParagraphItems);
                         break;
                 }
             }
