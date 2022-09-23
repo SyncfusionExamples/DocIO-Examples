@@ -8,7 +8,7 @@ namespace Replace_line_break_with_paragraph_mark
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Input2.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Open an existing Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -106,21 +106,14 @@ namespace Replace_line_break_with_paragraph_mark
                             WParagraph ownerPara = breakItem.OwnerParagraph;
                             int breakIndex = ownerPara.ChildEntities.IndexOf(breakItem);
                             int paraIndex = ownerPara.OwnerTextBody.ChildEntities.IndexOf(ownerPara);
-
                             //Create new paragraph by cloning the existing paragraph.
                             WParagraph newPara = ownerPara.Clone() as WParagraph;                           
                             //Remove paragraph child entities from the index of break item.
-                            while (breakIndex <ownerPara.ChildEntities.Count)
-                            {
-                                ownerPara.ChildEntities.RemoveAt(breakIndex);                                
-                            }            
-                            int newParaItemsCount = ownerPara.ChildEntities.Count;
-                            // Remove paragraph child entities from index zero upto the end of paragraph break item.
-                            while (newParaItemsCount + 1 != 0)
-                            {
-                                newPara.ChildEntities.RemoveAt(0);
-                                newParaItemsCount--;
-                            }
+                            while (breakIndex <ownerPara.ChildEntities.Count)                           
+                            ownerPara.ChildEntities.RemoveAt(breakIndex);
+                            // Remove paragraph child entities from index zero upto index of break in cloned paragraph.
+                            for (int j = 0; j < breakIndex + 1; j++)
+                            newPara.ChildEntities.RemoveAt(0); 
                             //Insert the new paragraph next to the line break paragraph.
                             ownerPara.OwnerTextBody.ChildEntities.Insert(paraIndex + 1, newPara);
                         }
