@@ -39,9 +39,9 @@ namespace GenerateRandomMathsQuestions
         {
             InitializeComponent();
             ImageSourceConverter img = new ImageSourceConverter();
-            image1.Source = (ImageSource)img.ConvertFromString(@"..\..\DocIO\docio_header.png");
-            this.Icon = (ImageSource)img.ConvertFromString(@"..\..\DocIO\sfLogo.ico");
-            path = @"..\..\DocIO\";
+            image1.Source = (ImageSource)img.ConvertFromString(@"../../DocIO/docio_header.png");
+            this.Icon = (ImageSource)img.ConvertFromString(@"../../DocIO/sfLogo.ico");
+            path = @"../../DocIO/";
             textBox1.Text = "Choose File";      
             textBox2.Text = "Choose Output path";
             openFileDialog1.InitialDirectory = new DirectoryInfo(path).FullName;
@@ -79,9 +79,9 @@ namespace GenerateRandomMathsQuestions
                 }
                 string date = DateTime.Now.ToString("dd-mm-yyyy HH-mm-ss");
                 //Gets the document with random questions
-                GenerateQuestionDocument(table, listNumbers, this.textBox2.Text + @"\Questions-"+ date + ".docx");
+                GenerateQuestionDocument(table, listNumbers, this.textBox2.Text + @"/Questions-"+ date + ".docx");
                 //Gets the document with answers
-                GenerateAnswerDocument(table, listNumbers, this.textBox2.Text + @"\Answers-" + date + ".docx");
+                GenerateAnswerDocument(table, listNumbers, this.textBox2.Text + @"/Answers-" + date + ".docx");
                 document.Close();
                 System.Windows.MessageBox.Show("The questions and answer key documents have been generated in the following location: " + "["+ this.textBox2.Text + "]");
                
@@ -133,7 +133,7 @@ namespace GenerateRandomMathsQuestions
         private static void GenerateAnswerDocument(WTable wTable, List<int> num, String saveFilepath)
         {
             //Creates the document
-            WordDocument tempDocument = new WordDocument(path + @"\Answers Template.docx");
+            WordDocument tempDocument = new WordDocument(path + @"/Answers Template.docx");
             CreateTable(num.Count, tempDocument);
             WTable table = tempDocument.Sections[0].Tables[0] as WTable;
             table.AutoFit(AutoFitType.FitToContent);
@@ -185,7 +185,7 @@ namespace GenerateRandomMathsQuestions
         {
 
             //Creates the document
-            WordDocument tempDocument = new WordDocument(path + @"\Questions Template.docx");
+            WordDocument tempDocument = new WordDocument(path + @"/Questions Template.docx");
             //Adds a section into Word document
             IWSection section = tempDocument.LastSection;
             section.AddParagraph();
