@@ -50,7 +50,7 @@ namespace Create_Word_document
                 IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
                 // Gets the image stream.
-                IWPicture picture = paragraph.AppendPicture(new Bitmap(Path.GetFullPath(@"..\..\Data\AdventureCycle.jpg"))) as WPicture;
+                IWPicture picture = paragraph.AppendPicture(new Bitmap(Path.GetFullPath(@"../../Data/AdventureCycle.jpg"))) as WPicture;
                 picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
                 picture.VerticalOrigin = VerticalOrigin.Margin;
                 picture.VerticalPosition = -45;
@@ -105,7 +105,7 @@ namespace Create_Word_document
                 paragraph.ParagraphFormat.AfterSpacing = 0;
                 paragraph.BreakCharacterFormat.FontSize = 12f;
                 //Appends picture to the paragraph.
-                picture = paragraph.AppendPicture(new Bitmap(Path.GetFullPath(@"..\..\Data\Mountain-200.jpg"))) as WPicture;
+                picture = paragraph.AppendPicture(new Bitmap(Path.GetFullPath(@"../../Data/Mountain-200.jpg"))) as WPicture;
                 picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
                 picture.VerticalOrigin = VerticalOrigin.Paragraph;
                 picture.VerticalPosition = 4.5f;
@@ -181,7 +181,7 @@ namespace Create_Word_document
                 paragraph.ParagraphFormat.LineSpacing = 12f;
 
                 //Appends picture to the paragraph.
-                picture = paragraph.AppendPicture(new Bitmap(Path.GetFullPath(@"..\..\Data\Mountain-300.jpg"))) as WPicture;
+                picture = paragraph.AppendPicture(new Bitmap(Path.GetFullPath(@"../../Data/Mountain-300.jpg"))) as WPicture;
                 picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
                 picture.VerticalOrigin = VerticalOrigin.Paragraph;
                 picture.VerticalPosition = 8.2f;
@@ -195,7 +195,7 @@ namespace Create_Word_document
                 paragraph.ApplyStyle("Heading 1");
                 paragraph.ParagraphFormat.LineSpacing = 12f;
                 //Appends picture to the paragraph.
-                picture = paragraph.AppendPicture(new Bitmap(Path.GetFullPath(@"..\..\Data\Road-550-W.jpg"))) as WPicture;
+                picture = paragraph.AppendPicture(new Bitmap(Path.GetFullPath(@"../../Data/Road-550-W.jpg"))) as WPicture;
                 picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
                 picture.VerticalOrigin = VerticalOrigin.Paragraph;
                 picture.VerticalPosition = 3.75f;
@@ -232,7 +232,7 @@ namespace Create_Word_document
                 section.AddParagraph();
 
                 //Saves the Word document.
-                document.Save(Path.GetFullPath(@"..\..\Sample.docx"));
+                document.Save(Path.GetFullPath(@"../../Sample.docx"));
             }
 
             MessageBox.Show("Word document generated successfully");
