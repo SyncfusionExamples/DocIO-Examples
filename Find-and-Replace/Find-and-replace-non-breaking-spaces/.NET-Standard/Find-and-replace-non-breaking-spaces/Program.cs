@@ -16,7 +16,7 @@ namespace Find_and_replace_non_breaking_spaces
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
                 {
                     //Replace all occurrences of non-breaking spaces with regular spaces.
-                    document.Replace(ControlChar.NonBreakingSpace, ControlChar.Space, true, false);
+                    document.Replace(ControlChar.NonBreakingSpace, ControlChar.Space, false, false);
                     //Create a file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
