@@ -13,7 +13,7 @@ namespace Customize_Word_to_HTML_conversion
             {
                 HTMLExport export = new HTMLExport();
                 //The images in the input document are copied to this folder.
-                wordDocument.SaveOptions.HtmlExportImagesFolder = @"D:\Images\";
+                wordDocument.SaveOptions.HtmlExportImagesFolder = @"D:/Images/";
                 //The headers and footers in the input are exported.
                 wordDocument.SaveOptions.HtmlExportHeadersFooters = true;
                 //Exports the text form fields as editables.
