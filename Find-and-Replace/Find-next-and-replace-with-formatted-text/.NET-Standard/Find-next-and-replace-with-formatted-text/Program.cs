@@ -15,11 +15,11 @@ namespace Find_next_and_replace_with_formatted_text
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    //Access the paragraph in the Word document.
+                    //Access the specific paragraph in the Word document.
                     TextBodyItem textBodyItem = document.Sections[0].Paragraphs[3] as WParagraph;
-                    //Get the next entry of the specified regex from the text body item.
+                    //Find the next occurrence of specified text from the previous paragraph.
                     TextSelection textSelections = document.FindNext(textBodyItem, new Regex("Adventure Works Cycles"));
-                    //Find the text that extends to several paragraphs and replace it with the desired content.
+                    //Replace the text extended to two paragraphs with the above selected text.
                     document.ReplaceSingleLine("CompanyName", textSelections, true, true);
                     //Create a file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
