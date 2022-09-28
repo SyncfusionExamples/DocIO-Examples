@@ -2,13 +2,13 @@
 using Syncfusion.DocIO.DLS;
 using System.IO;
 
-namespace Replace_section_break_with_page_break
+namespace Change_section_break_as_page_break
 {
     class Program
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Open an existing Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
