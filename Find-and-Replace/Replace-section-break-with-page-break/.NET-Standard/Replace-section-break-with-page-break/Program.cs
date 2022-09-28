@@ -27,7 +27,6 @@ namespace Replace_section_break_with_page_break
         /// <summary>
         /// Replace the section break with page break in the Word document.
         /// </summary>
-        /// <param name="document"></param>
         private static void ReplaceSectionBreakWithPageBreak(WordDocument document)
         {
             //Add page break and removes section break by moving the section items to the first section.
