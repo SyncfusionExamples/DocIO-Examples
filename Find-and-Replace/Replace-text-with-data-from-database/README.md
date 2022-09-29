@@ -7,7 +7,7 @@ This example shows how to find a text in a Word document and replace it with a t
 
 2. Create database with column "TextToFind" and "ReplacementText" as the screenshot shown below.
 <p align="center">
-<img src="Images/Database_Screenshot.png" alt="Screenshot of database"/>
+<img src="Images/Database_Screenshot.png" alt="Database_Screenshot"/>
 </p>
 3. Open the solution file using Visual Studio.
 
