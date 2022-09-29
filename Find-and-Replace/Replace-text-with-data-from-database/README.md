@@ -15,4 +15,4 @@ This example shows how to find a text in a Word document and replace it with a t
 
 5. Rebuild the solution to install the required NuGet packages.
 
-5. Run the application.
+6. Run the application.
