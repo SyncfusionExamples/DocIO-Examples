@@ -18,6 +18,7 @@ namespace Replace_text_with_data_from_database
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
                 {
+                    //Create sql connection to get data from the database.
                     SqlConnection sqlConnection = new SqlConnection("Data Source=" + datasource + ";Initial Catalog=" + database + ";Integrated Security=True");
                     //Retrive data from the table 'FindReplace' using SqlCommand.
                     SqlCommand sqlCommand = new SqlCommand("Select * from FindReplace");
@@ -28,7 +29,7 @@ namespace Replace_text_with_data_from_database
                     dataAdapter.SelectCommand.CommandTimeout = 0;
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
-                    //Find and replace text with other text from SQL server.
+                    //Iterate DataRow to find and replace text with other text from the database.
                     foreach (DataRow row in dataTable.Rows)
                     {
                         //First column contains text to find.
