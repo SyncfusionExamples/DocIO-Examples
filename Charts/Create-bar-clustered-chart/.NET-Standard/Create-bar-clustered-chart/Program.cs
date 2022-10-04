@@ -13,9 +13,9 @@ namespace Create_bar_clustered_chart
             using (WordDocument document = new WordDocument())
             {
                 // Add a section to the document.
-                IWSection sec = document.AddSection();
+                IWSection section = document.AddSection();
                 //Add a paragraph to the section.
-                IWParagraph paragraph = sec.AddParagraph();
+                IWParagraph paragraph = section.AddParagraph();
                 //Create and append the chart to the paragraph.
                 WChart chart = paragraph.AppendChart(446, 270);
                 //Set chart type.
