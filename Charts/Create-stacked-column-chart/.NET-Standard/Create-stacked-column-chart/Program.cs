@@ -13,16 +13,16 @@ namespace Create_stacked_column_chart
             using (WordDocument document = new WordDocument())
             {
                 // Add a section to the document.
-                IWSection sec = document.AddSection();
+                IWSection section = document.AddSection();
                 //Add a paragraph to the section.
-                IWParagraph paragraph = sec.AddParagraph();
+                IWParagraph paragraph = section.AddParagraph();
                 //Create and append the chart to the paragraph.
                 WChart chart = paragraph.AppendChart(446, 270);
                 //Set chart type.
                 chart.ChartType = OfficeChartType.Column_Stacked;
                 //Assign data.
                 AddChartData(chart);
-                //Set chart series in column for assigned data region
+                //Set chart series in column for assigned data region.
                 chart.IsSeriesInRows = false;
                 //Set a Chart Title.
                 chart.ChartTitle = "Stacked Column Chart";
