@@ -22,19 +22,19 @@ namespace Create_stacked_column_chart
                 chart.ChartType = OfficeChartType.Column_Stacked;
                 //Assign data.
                 AddChartData(chart);
-                //Set chart series in column for assigned data region.
+                //Set chart series in the column for assigned data region.
                 chart.IsSeriesInRows = false;
                 //Set a Chart Title.
                 chart.ChartTitle = "Stacked Column Chart";
                 //Set Datalabels.
                 IOfficeChartSerie series1 = chart.Series.Add("Series 1");
-                //Set the data range of chart series – start row, start column, end row and end column.
+                //Set the data range of chart series – start row, start column, end row, and end column.
                 series1.Values = chart.ChartData[2, 2, 4, 2];
                 IOfficeChartSerie series2 = chart.Series.Add("Series 2");
-                //Set the data range of chart series start row, start column, end row and end column.
+                //Set the data range of chart series start row, start column, end row, and end column.
                 series2.Values = chart.ChartData[2, 3, 4, 3];
                 IOfficeChartSerie series3 = chart.Series.Add("Series 3");
-                //Set the data range of chart series start row, start column, end row and end column.
+                //Set the data range of chart series start row, start column, end row, and end column.
                 series3.Values = chart.ChartData[2, 4, 4, 4];
                 //Set the data range of the category axis.
                 chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 4, 1];
