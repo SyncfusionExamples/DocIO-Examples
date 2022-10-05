@@ -13,28 +13,28 @@ namespace Create_stacked_column_chart
             using (WordDocument document = new WordDocument())
             {
                 // Add a section to the document.
-                IWSection sec = document.AddSection();
+                IWSection section = document.AddSection();
                 //Add a paragraph to the section.
-                IWParagraph paragraph = sec.AddParagraph();
+                IWParagraph paragraph = section.AddParagraph();
                 //Create and append the chart to the paragraph.
                 WChart chart = paragraph.AppendChart(446, 270);
                 //Set chart type.
                 chart.ChartType = OfficeChartType.Column_Stacked;
                 //Assign data.
                 AddChartData(chart);
-                //Set chart series in column for assigned data region
+                //Set chart series in the column for assigned data region.
                 chart.IsSeriesInRows = false;
                 //Set a Chart Title.
                 chart.ChartTitle = "Stacked Column Chart";
                 //Set Datalabels.
                 IOfficeChartSerie series1 = chart.Series.Add("Series 1");
-                //Set the data range of chart series – start row, start column, end row and end column.
+                //Set the data range of chart series – start row, start column, end row, and end column.
                 series1.Values = chart.ChartData[2, 2, 4, 2];
                 IOfficeChartSerie series2 = chart.Series.Add("Series 2");
-                //Set the data range of chart series start row, start column, end row and end column.
+                //Set the data range of chart series start row, start column, end row, and end column.
                 series2.Values = chart.ChartData[2, 3, 4, 3];
                 IOfficeChartSerie series3 = chart.Series.Add("Series 3");
-                //Set the data range of chart series start row, start column, end row and end column.
+                //Set the data range of chart series start row, start column, end row, and end column.
                 series3.Values = chart.ChartData[2, 4, 4, 4];
                 //Set the data range of the category axis.
                 chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 4, 1];
