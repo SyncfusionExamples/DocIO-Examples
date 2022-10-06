@@ -1,9 +1,9 @@
-﻿using Syncfusion.DocIO;
+﻿using System.IO;
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.OfficeChart;
-using System.IO;
 
-namespace Create_bar_clustered_chart
+namespace Create_clustered_bar_chart
 {
     class Program
     {
@@ -22,22 +22,31 @@ namespace Create_bar_clustered_chart
                 chart.ChartType = OfficeChartType.Bar_Clustered;
                 //Assign data.
                 AddChartData(chart);
+                //Set chart series in the column for assigned data region.
+                chart.IsSeriesInRows = false;
                 //Set a Chart Title.
-                chart.ChartTitle = "Bar clustered chart";
+                chart.ChartTitle = "Clustered Bar chart";
                 //Set Datalabels.
                 IOfficeChartSerie series1 = chart.Series.Add("Series 1");
-                //Set the data range of chart series – start row, start column, end row and end column.
+                //Set the data range of chart series – start row, start column, end row, and end column.
                 series1.Values = chart.ChartData[2, 2, 4, 2];
                 IOfficeChartSerie series2 = chart.Series.Add("Series 2");
-                //Set the data range of chart series start row, start column, end row and end column.
+                //Set the data range of chart series start row, start column, end row, and end column.
                 series2.Values = chart.ChartData[2, 3, 4, 3];
                 IOfficeChartSerie series3 = chart.Series.Add("Series 3");
-                //Set the data range of chart series start row, start column, end row and end column.
+                //Set the data range of chart series start row, start column, end row, and end column.
                 series3.Values = chart.ChartData[2, 4, 4, 4];
                 //Set the data range of the category axis.
                 chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 4, 1];
 
-                //Set legend position.
+                series1.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+                series2.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+                series3.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+                series1.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center;
+                series2.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center;
+                series3.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center;
+                //Set legend.
+                chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
                 //Save the file in the given path.
                 Stream docStream = File.Create(Path.GetFullPath(@"../../../Sample.docx"));
@@ -69,6 +78,7 @@ namespace Create_bar_clustered_chart
             chart.ChartData.SetValue(4, 2, 4);
             chart.ChartData.SetValue(4, 3, 4);
             chart.ChartData.SetValue(4, 4, 3);
-        }
-    }   
+        
+         }   
+    }
 }
