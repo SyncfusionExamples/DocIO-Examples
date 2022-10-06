@@ -49,10 +49,12 @@ namespace Create_stacked_column_chart
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
-                //Save the file in the given path.
-                Stream docStream = File.Create(Path.GetFullPath(@"../../../Sample.docx"));
-                document.Save(docStream, FormatType.Docx);
-                docStream.Dispose();
+                //Create a file stream.
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                {
+                    //Save the Word document to the file stream.
+                    document.Save(outputFileStream, FormatType.Docx);
+                }
             }            
         }
         /// <summary>
