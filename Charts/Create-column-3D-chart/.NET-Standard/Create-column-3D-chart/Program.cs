@@ -50,10 +50,12 @@ namespace Create_column_3D_chart
                 chart.Elevation = 15;
                 chart.Perspective = 0;
 
-                //Save the file in the given path.
-                Stream docStream = File.Create(Path.GetFullPath(@"../../../Sample.docx"));
-                document.Save(docStream, FormatType.Docx);
-                docStream.Dispose();
+                //Create a file stream.
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                {
+                    //Save the Word document to the file stream.
+                    document.Save(outputFileStream, FormatType.Docx);
+                }
             }
         }
         /// <summary>
