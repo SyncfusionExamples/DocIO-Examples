@@ -25,16 +25,24 @@ namespace Create_bubble_chart
                 chart.ChartData.SetValue(2, 1, -10);
                 chart.ChartData.SetValue(3, 1, -20);
                 chart.ChartData.SetValue(4, 1, -30);
-                chart.ChartData.SetValue(5, 1, 10);
-                chart.ChartData.SetValue(6, 1, 20);
-                chart.ChartData.SetValue(7, 1, 30);
+                chart.ChartData.SetValue(5, 1, -40);
+                chart.ChartData.SetValue(6, 1, -50);
+                chart.ChartData.SetValue(7, 1, 10);
+                chart.ChartData.SetValue(8, 1, 20);
+                chart.ChartData.SetValue(9, 1, 30);
+                chart.ChartData.SetValue(10, 1, 40);
+                chart.ChartData.SetValue(11, 1, 50);
                 chart.ChartData.SetValue(1, 2, "Y-Values");
                 chart.ChartData.SetValue(2, 2, -100);
                 chart.ChartData.SetValue(3, 2, -200);
                 chart.ChartData.SetValue(4, 2, -300);
-                chart.ChartData.SetValue(5, 2, 100);
-                chart.ChartData.SetValue(6, 2, 200);
-                chart.ChartData.SetValue(7, 2, 300);
+                chart.ChartData.SetValue(5, 2, -400);
+                chart.ChartData.SetValue(6, 2, -500);
+                chart.ChartData.SetValue(7, 2, 100);
+                chart.ChartData.SetValue(8, 2, 200);
+                chart.ChartData.SetValue(9, 2, 300);
+                chart.ChartData.SetValue(10, 2, 400);
+                chart.ChartData.SetValue(11, 2, 500);
                 chart.ChartData.SetValue(1, 3, "Size");
                 chart.ChartData.SetValue(2, 3, 1);
                 chart.ChartData.SetValue(3, 3, -1);
@@ -42,14 +50,18 @@ namespace Create_bubble_chart
                 chart.ChartData.SetValue(5, 3, -1);
                 chart.ChartData.SetValue(6, 3, 1);
                 chart.ChartData.SetValue(7, 3, -1);
+                chart.ChartData.SetValue(8, 3, 1);
+                chart.ChartData.SetValue(9, 3, -1);
+                chart.ChartData.SetValue(10, 3, 1);
+                chart.ChartData.SetValue(11, 3, -1);
                 //Set a Chart Title.
                 chart.ChartTitle = "Bubble Chart";
                 //Set Datalabels.
                 IOfficeChartSerie series = chart.Series.Add();
                 //Set the data range of chart series – start row, start column, end row, and end column.
-                series.CategoryLabels = chart.ChartData[2, 1, 7, 1];
-                series.Values = chart.ChartData[2, 2, 7, 2];
-                series.Bubbles = chart.ChartData[2, 3, 7, 3];
+                series.CategoryLabels = chart.ChartData[2, 1, 11, 1];
+                series.Values = chart.ChartData[2, 2, 11, 2];
+                series.Bubbles = chart.ChartData[2, 3, 11, 3];
                 series.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
                 series.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition.Center;
                 //Set legend.
