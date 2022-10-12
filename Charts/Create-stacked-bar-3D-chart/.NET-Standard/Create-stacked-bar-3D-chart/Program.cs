@@ -46,7 +46,7 @@ namespace Create_stacked_bar_3D_chart
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
-                //Set rotation, elevation and perspective values.
+                //Set rotation and elevation.
                 chart.Rotation = 90;
                 chart.Elevation = 90;
 
