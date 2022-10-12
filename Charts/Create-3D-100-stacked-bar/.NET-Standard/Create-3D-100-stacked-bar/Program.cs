@@ -28,7 +28,7 @@ namespace Create_3D_100_stacked_bar
                 chart.ChartTitle = "3D 100% Stacked Bar Chart";
                 //Set Datalabels.
                 IOfficeChartSerie series1 = chart.Series.Add("Series 1");
-                //Set the data range of chart series – start row, start column, end row, and end column.
+                ////Set the data range of chart series – start row, start column, end row, and end column.
                 series1.Values = chart.ChartData[2, 2, 4, 2];
                 IOfficeChartSerie series2 = chart.Series.Add("Series 2");
                 //Set the data range of chart series start row, start column, end row, and end column.
@@ -38,7 +38,7 @@ namespace Create_3D_100_stacked_bar
                 series3.Values = chart.ChartData[2, 4, 4, 4];
                 //Set the data range of the category axis.
                 chart.PrimaryCategoryAxis.CategoryLabels = chart.ChartData[2, 1, 4, 1];
-
+                
                 series1.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
                 series2.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
                 series3.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
@@ -46,7 +46,7 @@ namespace Create_3D_100_stacked_bar
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
-                //Set rotation, elevation and perspective values.
+                //Set rotation and elevation.
                 chart.Rotation = 90;
                 chart.Elevation = 90;
 
