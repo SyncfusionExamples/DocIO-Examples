@@ -66,30 +66,5 @@ namespace Create_3D_100_stacked_area_chart
                 }
             }
         }
-        /// <summary>
-        /// Set the values for the chart.
-        /// </summary>
-        private static void AddChartData(WChart chart)
-        {
-            //Set the value for chart data.
-            chart.ChartData.SetValue(1, 2, "Series1");
-            chart.ChartData.SetValue(1, 3, "Series2");
-            chart.ChartData.SetValue(1, 4, "Series3");
-
-            chart.ChartData.SetValue(2, 1, "Category1");
-            chart.ChartData.SetValue(2, 2, 5);
-            chart.ChartData.SetValue(2, 3, 4);
-            chart.ChartData.SetValue(2, 4, 3);
-
-            chart.ChartData.SetValue(3, 1, "Category2");
-            chart.ChartData.SetValue(3, 2, 4);
-            chart.ChartData.SetValue(3, 3, 5);
-            chart.ChartData.SetValue(3, 4, 2);
-
-            chart.ChartData.SetValue(4, 1, "Category3");
-            chart.ChartData.SetValue(4, 2, 4);
-            chart.ChartData.SetValue(4, 3, 4);
-            chart.ChartData.SetValue(4, 4, 3);
-        }
     }    
 }
