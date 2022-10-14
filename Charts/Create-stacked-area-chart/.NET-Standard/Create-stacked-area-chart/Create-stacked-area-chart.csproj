@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RootNamespace>Create-clustered_bar_chart</RootNamespace>
+    <RootNamespace>Create_stacked_area_chart</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
