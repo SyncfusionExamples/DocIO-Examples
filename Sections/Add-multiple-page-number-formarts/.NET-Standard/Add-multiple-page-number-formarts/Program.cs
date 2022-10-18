@@ -8,7 +8,7 @@ namespace Add_multiple_page_number_formarts
     {
         static void Main(string[] args)
         {
-            //Creates a new Word document.
+            //Create a new Word document.
             using (WordDocument document = new WordDocument())
             {
                 //Add a section to the document.
@@ -36,7 +36,7 @@ namespace Add_multiple_page_number_formarts
                 //Create a file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
-                    //Saves the Word document to file stream.
+                    //Save the Word document to the file stream.
                     document.Save(outputFileStream, FormatType.Docx);
                 }
             }
