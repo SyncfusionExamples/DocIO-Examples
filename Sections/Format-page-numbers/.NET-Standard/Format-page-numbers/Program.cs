@@ -32,7 +32,7 @@ namespace Format_page_numbers
                 section = document.AddSection();
                 section.PageSetup.PageStartingNumber = 1;
                 section.PageSetup.RestartPageNumbering = true;
-                section.PageSetup.PageNumberStyle = PageNumberStyle.RomanLower;
+                section.PageSetup.PageNumberStyle = PageNumberStyle.LetterUpper;
                 //Add a paragraph to a section.
                 paragraph = section.AddParagraph();
                 //Append the text to the created paragraph.
