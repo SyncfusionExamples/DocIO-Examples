@@ -17,7 +17,7 @@ namespace Change_bullet_symbol_in_list
                     //Access the list style in a Word document.
                     ListStyle style = document.ListStyles[0];
                     WListLevel levelOne = style.Levels[0];
-                    //Define the character and pattern for level 0.
+                    //Define the character and pattern for level 1.
                     levelOne.PatternType = ListPatternType.Bullet;
                     levelOne.BulletCharacter = "\u0076";
                     levelOne.CharacterFormat.FontName = "Wingdings";
