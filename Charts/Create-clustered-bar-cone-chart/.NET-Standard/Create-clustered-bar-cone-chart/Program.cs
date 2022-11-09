@@ -60,9 +60,6 @@ namespace Create_clustered_bar_cone_chart
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
-                //Set rotation and elevation.
-                chart.Rotation = 20;
-                chart.Elevation = 20;
                 //Set chart type.
                 chart.ChartType = OfficeChartType.Cone_Bar_Clustered;
                 //Create a file stream.
