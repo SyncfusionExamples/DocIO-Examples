@@ -26,16 +26,15 @@ namespace Find_and_modify_hyperlink_address
                                 {
                                     //Get the hyperlink field.
                                     Hyperlink link = new Hyperlink(item as WField);
-                                    if (link.Type == HyperlinkType.WebLink)
+                                    if (link.Type == HyperlinkType.WebLink && link.TextToDisplay == "support")
                                     {
                                         //Modify the url of the hyperlink.
-                                        link.Uri = "http://www.google.com";
+                                        link.Uri = "http://support.syncfusion.com/";
                                     }
-                                    else if (link.Type == HyperlinkType.EMailLink)
+                                    else if (link.Type == HyperlinkType.EMailLink && link.TextToDisplay == "Email")
                                     {
                                         //Modify the url of the hyperlink.
                                         link.Uri = "sales@syncfusion.com";
-                                        break;
                                     }
                                 }
                             }
