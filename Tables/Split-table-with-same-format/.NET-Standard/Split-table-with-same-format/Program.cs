@@ -1,6 +1,5 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System;
 using System.IO;
 
 namespace Split_table_with_same_format
