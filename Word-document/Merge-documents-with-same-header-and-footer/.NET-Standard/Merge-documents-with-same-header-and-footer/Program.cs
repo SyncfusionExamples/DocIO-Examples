@@ -1,7 +1,5 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using Syncfusion.Office;
-using System;
 using System.IO;
 
 namespace Merge_documents_with_same_header_and_footer
@@ -49,7 +47,6 @@ namespace Merge_documents_with_same_header_and_footer
                         }
                     }
                 }
-
             }
         }
     }
