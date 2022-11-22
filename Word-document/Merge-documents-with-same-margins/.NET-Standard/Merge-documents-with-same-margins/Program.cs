@@ -19,11 +19,13 @@ namespace Merge_documents_with_same_margins
                         //Open the destination document.
                         using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
                         {
-                            //Access pagesetup in the source document.
-                            WPageSetup pageSetup = sourceDocument.LastSection.PageSetup;
-                            //Access section in the destination document.
-                            WSection section = destinationDocument.Sections[0];
-                            section.PageSetup.Margins = pageSetup.Margins;
+                            //Access pagesetup in the destination document.
+                            WPageSetup destinationPageSetup = destinationDocument.LastSection.PageSetup;
+                            //Access section in the source document.
+                            foreach (WSection section in sourceDocument.Sections)
+                            {
+                                section.PageSetup.Margins = destinationPageSetup.Margins;
+                            }
                             //Import the contents of source document at the end of destination document.
                             destinationDocument.ImportContent(sourceDocument, ImportOptions.UseDestinationStyles);
                             //Create a file stream.
