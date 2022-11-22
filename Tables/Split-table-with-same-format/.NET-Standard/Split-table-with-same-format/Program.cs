@@ -16,10 +16,9 @@ namespace Split_table_with_same_format
                 {
                     //Access table in a Word document.
                     WTable table = document.Sections[0].Tables[0] as WTable;
-                    //Clone the table.
-                    WTable clonedTable = table.Clone();
+                    //The row at which the table is being split.
                     int rowIndex = 2;
-                    SplitTable(table, clonedTable, rowIndex);
+                    WTable clonedTable = SplitTable(table, rowIndex);
                     //Add the second table.
                     table.OwnerTextBody.ChildEntities.Add(clonedTable);
                     //Create a file stream.
@@ -34,8 +33,10 @@ namespace Split_table_with_same_format
         /// <summary>
         /// Split the table depending on the row index.
         /// </summary>
-        private static void SplitTable(WTable table, WTable clonedTable, int rowIndex)
+        private static WTable SplitTable(WTable table, int rowIndex)
         {
+            //Clone the table.
+            WTable clonedTable = table.Clone();
             //Remove rows from the table.
             while (rowIndex < table.Rows.Count)
             {
@@ -46,6 +47,7 @@ namespace Split_table_with_same_format
                 clonedTable.Rows.Remove(clonedTable.Rows[0]);
                 rowIndex--;
             }
+            return clonedTable;
         }
     }
 }
