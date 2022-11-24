@@ -18,9 +18,9 @@ namespace Split_table_with_same_format
                     WTable table = document.Sections[0].Tables[0] as WTable;
                     //The row at which the table is being split.
                     int rowIndex = 2;
-                    WTable clonedTable = SplitTable(table, rowIndex);
+                    WTable secondTable = SplitTable(table, rowIndex);
                     //Add the second table.
-                    table.OwnerTextBody.ChildEntities.Add(clonedTable);
+                    table.OwnerTextBody.ChildEntities.Add(secondTable);
                     //Create a file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
@@ -37,11 +37,12 @@ namespace Split_table_with_same_format
         {
             //Clone the table.
             WTable clonedTable = table.Clone();
-            //Remove rows from the table.
+            //Remove splitted rows from the table.
             while (rowIndex < table.Rows.Count)
             {
                 table.Rows.Remove(table.Rows[rowIndex]);
             }
+            //Remove initial rows from the cloned table.
             while (rowIndex != 0)
             {
                 clonedTable.Rows.Remove(clonedTable.Rows[0]);
