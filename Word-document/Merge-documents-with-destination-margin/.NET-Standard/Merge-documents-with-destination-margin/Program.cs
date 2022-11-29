@@ -27,7 +27,7 @@ namespace Merge_documents_with_destination_margin
                             foreach (WSection sourceSection in sourceDocument.Sections)
                             {
                                 sourceSection.PageSetup.Margins = destinationDocumentPageSetup.Margins;
-                                //Clone and copy the source document sections to the destination document.
+                                //Clone and merge the source document sections to the destination document.
                                 destinationDocument.Sections.Add(sourceSection.Clone());
                             }
                             //Create a file stream.
