@@ -1,6 +1,6 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using Syncfusion.Drawing;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Replace_text_within_bookmark_content
@@ -17,7 +17,8 @@ namespace Replace_text_within_bookmark_content
                 {
                     string bookmarkName = "Description", textToFind = "Price", textToReplace = "Amount";
                     //Replace a text within the bookmark.
-                    ReplaceBookmarkText(document, bookmarkName, textToFind, textToReplace);
+                    ReplaceBookmarkText(document, "Description", "Price", "Amount");
+                    ReplaceBookmarkText(document, "Address", "290", "two hundred and ninety");
                     //Create a file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
