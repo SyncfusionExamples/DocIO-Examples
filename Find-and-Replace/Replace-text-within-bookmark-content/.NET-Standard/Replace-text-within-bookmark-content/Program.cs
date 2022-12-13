@@ -15,9 +15,9 @@ namespace Replace_text_within_bookmark_content
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
+                    string bookmarkName = "Description", textToFind = "Price", textToReplace = "Amount";
                     //Replace a text within the bookmark.
-                    ReplaceBookmarkText(document, "Description");
-                    ReplaceBookmarkText(document, "Adventure");
+                    ReplaceBookmarkText(document, bookmarkName, textToFind, textToReplace);
                     //Create a file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
@@ -27,7 +27,7 @@ namespace Replace_text_within_bookmark_content
                 }
             }
         }
-        public static void ReplaceBookmarkText(WordDocument document, string bookmarkName)
+        public static void ReplaceBookmarkText(WordDocument document, string bookmarkName, string textToFind, string textToReplace)
         {
             //Check whether the bookmark name is valid.
             if (string.IsNullOrEmpty(bookmarkName) || document.Bookmarks.FindByName(bookmarkName) == null)
@@ -40,7 +40,7 @@ namespace Replace_text_within_bookmark_content
             //Get paragraph from the textBody part.
             foreach (TextBodyItem item in textBodyPart.BodyItems)
             {
-                IterateTextBody(item);
+                IterateTextBody(item, textToFind, textToReplace);
             }
             //Replace the bookmark content with text body part.
             bookmarksNavigator.ReplaceBookmarkContent(textBodyPart);
@@ -48,15 +48,14 @@ namespace Replace_text_within_bookmark_content
         /// <summary>
         /// Iterate text body items.
         /// </summary>
-        public static void IterateTextBody(TextBodyItem item)
+        public static void IterateTextBody(TextBodyItem item, string textToFind, string textToReplace)
         {
             switch (item.EntityType)
             {
                 case EntityType.Paragraph:
                     WParagraph paragraph = (WParagraph)item;
                     //Replace a text in the bookmark content.
-                    paragraph.Replace(new System.Text.RegularExpressions.Regex("Price"), "Amount");
-                    paragraph.Replace(new System.Text.RegularExpressions.Regex("2000"), "two thousand");
+                    paragraph.Replace(new System.Text.RegularExpressions.Regex(textToFind), textToReplace);
                     break;
                 case EntityType.Table:
                     WTable table = (WTable)item;
@@ -66,7 +65,7 @@ namespace Replace_text_within_bookmark_content
                         {
                             foreach (TextBodyItem bodyitem in cell.ChildEntities)
                             {
-                                IterateTextBody(bodyitem);
+                                IterateTextBody(bodyitem, textToFind, textToReplace);
                             }
                         }
                     }
