@@ -1,6 +1,5 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System.Collections.Generic;
 using System.IO;
 
 namespace Replace_text_within_bookmark_content
