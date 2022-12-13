@@ -18,6 +18,8 @@ namespace Create_exploded_doughnut_chart
                 IWParagraph paragraph = section.AddParagraph();
                 //Create and append the chart to the paragraph.
                 WChart chart = paragraph.AppendChart(446, 270);
+                //Set chart type.
+                chart.ChartType = OfficeChartType.Doughnut_Exploded;
                 //Set chart data.
                 chart.ChartData.SetValue(2, 1, "Food");
                 chart.ChartData.SetValue(3, 1, "Fruits");
@@ -44,8 +46,6 @@ namespace Create_exploded_doughnut_chart
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
-                //Set chart type.
-                chart.ChartType = OfficeChartType.Doughnut_Exploded;
                 //Create a file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
