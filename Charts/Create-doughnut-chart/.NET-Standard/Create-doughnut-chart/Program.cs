@@ -18,6 +18,8 @@ namespace Create_doughnut_chart
                 IWParagraph paragraph = section.AddParagraph();
                 //Create and append the chart to the paragraph.
                 WChart chart = paragraph.AppendChart(446, 270);
+                //Set chart type.
+                chart.ChartType = OfficeChartType.Doughnut;
                 //Set chart data.
                 chart.ChartData.SetValue(1, 1, "Company");
                 chart.ChartData.SetValue(2, 1, "Company A");
@@ -55,8 +57,6 @@ namespace Create_doughnut_chart
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
-                //Set chart type.
-                chart.ChartType = OfficeChartType.Doughnut;
                 //Create a file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
