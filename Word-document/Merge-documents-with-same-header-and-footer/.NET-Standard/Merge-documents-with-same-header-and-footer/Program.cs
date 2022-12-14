@@ -30,6 +30,7 @@ namespace Merge_documents_with_same_header_and_footer
                                 //Clear the header and footer of the source document.
                                 sourceSection.HeadersFooters.Header.ChildEntities.Clear();
                                 sourceSection.HeadersFooters.Footer.ChildEntities.Clear();
+                                //Add the destination document header and footer to the source document.
                                 foreach (Entity entity in firstDocumentHeader)
                                 {
                                     sourceSection.HeadersFooters.Header.ChildEntities.Add(entity.Clone());
