@@ -14,7 +14,6 @@ namespace Replace_text_within_bookmark_content
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    string bookmarkName = "Description", textToFind = "Price", textToReplace = "Amount";
                     //Replace a text within the bookmark.
                     ReplaceBookmarkText(document, "Description", "Price", "Amount");
                     ReplaceBookmarkText(document, "Address", "290", "two hundred and ninety");
@@ -63,14 +62,18 @@ namespace Replace_text_within_bookmark_content
                     {
                         foreach (WTableCell cell in row.Cells)
                         {
-                            foreach (TextBodyItem bodyitem in cell.ChildEntities)
+                            foreach (TextBodyItem bodyItem in cell.ChildEntities)
                             {
-                                IterateTextBody(bodyitem, textToFind, textToReplace);
+                                IterateTextBody(bodyItem, textToFind, textToReplace);
                             }
                         }
                     }
                     break;
-
+                case EntityType.BlockContentControl:
+                    WTextBody body = (item as IBlockContentControl).TextBody;
+                    foreach (TextBodyItem bodyitem in body.ChildEntities)
+                        IterateTextBody(bodyitem, textToFind, textToReplace);
+                    break;
             }
         }
     }
