@@ -54,7 +54,7 @@ namespace Create_line_chart
                 //Set Datalabels.
                 IOfficeChartSerie series1 = chart.Series[0];
                 IOfficeChartSerie series2 = chart.Series[1];
-                IOfficeChartSerie series3 = chart.Series[1];
+                IOfficeChartSerie series3 = chart.Series[2];
 
                 series1.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
                 series2.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
