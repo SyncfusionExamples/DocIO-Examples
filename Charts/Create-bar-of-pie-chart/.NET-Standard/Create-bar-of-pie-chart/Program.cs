@@ -3,7 +3,7 @@ using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.OfficeChart;
 
-namespace Create_pie_chart
+namespace Create_bar_of_pie_chart
 {
     class Program
     {
@@ -19,7 +19,7 @@ namespace Create_pie_chart
                 //Create and append the chart to the paragraph.
                 WChart chart = paragraph.AppendChart(446, 270);
                 //Set chart type.
-                chart.ChartType = OfficeChartType.Pie;
+                chart.ChartType = OfficeChartType.Pie_Bar;
                 //Set chart data.
                 chart.ChartData.SetValue(2, 1, "Food");
                 chart.ChartData.SetValue(3, 1, "Fruits");
@@ -38,11 +38,11 @@ namespace Create_pie_chart
                 //Set chart series in the column for assigned data region.
                 chart.IsSeriesInRows = false;
                 //Set a Chart Title.
-                chart.ChartTitle = "Pie Chart";
+                chart.ChartTitle = "Bar of Pie Chart";
                 //Set Datalabels.
-                IOfficeChartSerie serie = chart.Series[0];
+                IOfficeChartSerie series1 = chart.Series[0];
 
-                serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+                series1.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
