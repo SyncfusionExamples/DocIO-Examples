@@ -40,9 +40,9 @@ namespace Create_bar_of_pie_chart
                 //Set a Chart Title.
                 chart.ChartTitle = "Bar of Pie Chart";
                 //Set Datalabels.
-                IOfficeChartSerie series1 = chart.Series[0];
+                IOfficeChartSerie serie = chart.Series[0];
 
-                series1.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
+                serie.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
