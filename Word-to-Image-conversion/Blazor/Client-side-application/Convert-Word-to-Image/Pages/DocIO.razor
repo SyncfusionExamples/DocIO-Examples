@@ -1,0 +1,36 @@
+﻿@page "/docio"
+@inject Microsoft.JSInterop.IJSRuntime JS
+@inject HttpClient client
+@using Syncfusion.DocIO
+@using Syncfusion.DocIORenderer
+@using Syncfusion.DocIO.DLS
+@using System.IO
+
+<h2>Syncfusion DocIO library (Essential DocIO)</h2>
+<p>Syncfusion Blazor DocIO library (Essential DocIO) used to create, read, edit, and convert DocIO files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@WordToImage">Convert Word to Image</button>
+
+@functions {
+    async void WordToImage()
+    {
+        using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.docx"))
+        {
+            //Open an existing Word document.
+            using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
+            {
+                //Initialize the DocIORenderer for Word to Image conversion.
+                using (DocIORenderer render = new DocIORenderer())
+                {
+                    //Convert an entire Word document to images.
+                    Stream[] imageStreams = document.RenderAsImages();
+                    for (int i = 0; i < imageStreams.Length; i++)
+                    {
+                        imageStreams[i].Position = 0;
+                        //Download image file in the browser.
+                        await JS.SaveAs("WordToImage_" + i + ".jpeg", (imageStreams[i] as MemoryStream).ToArray());
+                    }
+                }
+            }
+        }
+    }
+}
