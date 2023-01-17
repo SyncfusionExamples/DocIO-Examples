@@ -19,7 +19,7 @@ namespace Mail_merge_using_image_from_URL
                     //Specifies the field names and field values.
                     string[] fieldNames = new string[] { "Logo" };
                     string[] fieldValues = new string[] { "https://www.syncfusion.com/downloads/support/directtrac/general/AdventureCycle-1316159971.png" };
-                    //Executes the mail merge with groups.
+                    //Executes the mail merge.
                     document.MailMerge.Execute(fieldNames, fieldValues);
                     //Creates file stream.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
@@ -50,7 +50,7 @@ namespace Mail_merge_using_image_from_URL
 
                 //Gets the picture, to be merged for image merge field
                 WPicture picture = args.Picture;
-                //Resizes the picture
+                //Resizes the picture.
                 picture.Height = 50;
                 picture.Width = 100;
             }
