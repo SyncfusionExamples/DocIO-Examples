@@ -210,7 +210,7 @@ namespace EssentialDocIOSamples
         private void Form1_Load(object sender, EventArgs e)
         {
             this.textBox.Text = "DocToImage.docx";
-            dataPath = new DirectoryInfo(Application.StartupPath + @"..\..\..\Data\").FullName;
+            dataPath = new DirectoryInfo(Application.StartupPath + @"../../../Data/").FullName;
             this.textBox.Tag = dataPath + "DocToImage.docx";
         }
         #endregion
@@ -243,7 +243,7 @@ namespace EssentialDocIOSamples
         private void button1_Click(object sender, System.EventArgs e)
         {
             //Loads the image for showing document rendering progress.
-            this.descriptionLabel.Image = Image.FromFile(new DirectoryInfo(Application.StartupPath + @"..\..\..\Images\Animation.gif").FullName);
+            this.descriptionLabel.Image = Image.FromFile(new DirectoryInfo(Application.StartupPath + @"../../../Images/Animation.gif").FullName);
             BackgroundWorker worker = new BackgroundWorker();
             //Hooks DoWork event.
             worker.DoWork += worker_DoWork;

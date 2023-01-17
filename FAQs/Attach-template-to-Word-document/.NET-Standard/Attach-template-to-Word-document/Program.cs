@@ -14,7 +14,7 @@ namespace Attach_template_to_Word_document
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
                     //Attaches the template document to the source document.
-                    document.AttachedTemplate.Path = @"D:\Data\Template.docx";
+                    document.AttachedTemplate.Path = @"D:/Data/Template.docx";
                     //Updates the styles of the document from the attached template each time the document is opened.
                     document.UpdateStylesOnOpen = true;
                     //Creates file stream.
