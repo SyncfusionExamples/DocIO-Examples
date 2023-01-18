@@ -14,13 +14,15 @@ namespace Mail_merge_using_image_from_URL
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
-                    //Uses the mail merge events handler for image fields.
+                    //Uses the mail merge event handler for image fields.
                     document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeField_ProductImage);
                     //Specifies the field names and field values.
                     string[] fieldNames = new string[] { "Logo" };
                     string[] fieldValues = new string[] { "https://www.syncfusion.com/downloads/support/directtrac/general/AdventureCycle-1316159971.png" };
                     //Executes the mail merge.
                     document.MailMerge.Execute(fieldNames, fieldValues);
+                    //Unhooks the mail merge event handler.
+                    document.MailMerge.MergeImageField -= new MergeImageFieldEventHandler(MergeField_ProductImage);
                     //Creates file stream.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
@@ -48,11 +50,11 @@ namespace Mail_merge_using_image_from_URL
                 //Set the retrieved image from the memory stream.
                 args.ImageStream = ms;
 
-                //Gets the picture, to be merged for image merge field
+                //Gets the picture to be merged for image merge field.
                 WPicture picture = args.Picture;
                 //Resizes the picture.
-                picture.Height = 50;
-                picture.Width = 100;
+                picture.Height = 80;
+                picture.Width = 150;
             }
         }
         #endregion
