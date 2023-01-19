@@ -54,7 +54,7 @@ namespace Create_3D_surface_chart
                 //Set chart series in the column for assigned data region.
                 chart.IsSeriesInRows = false;
                 //Set a Chart Title.
-                chart.ChartTitle = "3D Surafce Chart";
+                chart.ChartTitle = "3D Surface Chart";
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;

@@ -1,9 +1,9 @@
-﻿using System.IO;
-using Syncfusion.DocIO;
+﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.OfficeChart;
+using System.IO;
 
-namespace Create_contour_surface_chart
+namespace Create_3D_nocolor_surface_chart
 {
     class Program
     {
@@ -50,14 +50,18 @@ namespace Create_contour_surface_chart
                 //Set region of Chart data.
                 chart.DataRange = chart.ChartData[1, 1, 7, 4];
                 //Set chart type.
-                chart.ChartType = OfficeChartType.Surface_Contour;
+                chart.ChartType = OfficeChartType.Surface_NoColor_3D;
                 //Set chart series in the column for assigned data region.
                 chart.IsSeriesInRows = false;
                 //Set a Chart Title.
-                chart.ChartTitle = "Contour Surface Chart";
+                chart.ChartTitle = "3D no-color Surface Chart";
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
+                //Set elevation, rotation, and perspective.
+                chart.Rotation = 20;
+                chart.Elevation = 20;
+                chart.Perspective = 20;
                 //Create a file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
@@ -65,6 +69,6 @@ namespace Create_contour_surface_chart
                     document.Save(outputFileStream, FormatType.Docx);
                 }
             }
-        }
-    }
+        }              
+    }    
 }
