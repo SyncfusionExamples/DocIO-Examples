@@ -1,7 +1,7 @@
-convert Word document to PDF in Blazor WebAssembly (WASM)
+Convert Word document to PDF in Blazor WebAssembly (WASM)
 ---------------------------------------------------------
 
-This application shows how to convert Word document to PDF in Blazor WebAssembly (WASM).
+This example illustrates how to convert Word document to PDF in Blazor WebAssembly (WASM).
 
 Steps to convert Word document to PDF in Blazor WebAssembly (WASM)
 ------------------------------------------------------------------
