@@ -1,15 +1,15 @@
-﻿using Syncfusion.DocIO;
+﻿using System.IO;
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.OfficeChart;
-using System.IO;
 
-namespace Create_3D_nocolor_surface_chart
+namespace Create_wireframe_3D_surface_chart
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //Create a new Word document.
+            //Creates a new Word document.
             using (WordDocument document = new WordDocument())
             {
                 //Add a section to the document.
@@ -62,13 +62,13 @@ namespace Create_3D_nocolor_surface_chart
                 chart.Rotation = 20;
                 chart.Elevation = 20;
                 chart.Perspective = 20;
-                //Create a file stream.
+                //Creates file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
-                    //Save the Word document to the file stream.
+                    //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);
                 }
             }
-        }              
-    }    
+        }
+    }
 }
