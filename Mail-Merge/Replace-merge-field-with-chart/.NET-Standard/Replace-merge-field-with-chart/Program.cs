@@ -23,6 +23,8 @@ namespace Replace_merge_field_with_chart
                     document.MailMerge.MergeField += new MergeFieldEventHandler(MergeField_EmployeeGraph);
                     //Performs Mail merge.
                     document.MailMerge.ExecuteGroup(dataTable);
+                    //Unhooks the event after mail merge execution.
+                    document.MailMerge.MergeField -= new MergeFieldEventHandler(MergeField_EmployeeGraph);
                     //Creates file stream.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
@@ -30,18 +32,16 @@ namespace Replace_merge_field_with_chart
                         document.Save(outputStream, FormatType.Docx);
                     }
                 }
-            }
+            }          
             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Result.docx")) { UseShellExecute = true });
         }
-
         #region Helper methods
         /// <summary>
         /// Gets the employee data to perform mail merge. 
         /// </summary>
         /// <returns></returns>
         public static List<Employees> GetEmployeeData()
-        {
-            
+        {           
             //Creates graph data for first employee.
             List<object[]> graphDetailsForEmployee1 = new List<object[]>();
             graphDetailsForEmployee1.Add(new object[] { "Month", "Highest Sale", "Average Sale", "Lowest Sale" });
@@ -71,11 +71,10 @@ namespace Replace_merge_field_with_chart
             employeeData.Add(new Employees("Nancy", "Davolio", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", graphDetailsForEmployee1));
             employeeData.Add(new Employees("Andrew", "Fuller", "2", "908 W. Capital Way", "Tacoma", "USA", graphDetailsForEmployee2));
             employeeData.Add(new Employees("Margaret", "Peacock", "3", "4110 Old Redmond Rd.", "Redmond", "USA", graphDetailsForEmployee3));
-
             return employeeData;
         }
         /// <summary>
-        /// 
+        /// Represents the method that handles MergeField event.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -95,7 +94,6 @@ namespace Replace_merge_field_with_chart
                 args.Text = string.Empty;
                 //Inserts the chart at corresponding field location.
                 paragraph.ChildEntities.Insert(indexOfField, chart);
-
             }
         }
         /// <summary>
@@ -104,7 +102,6 @@ namespace Replace_merge_field_with_chart
         /// <param name="document"></param>
         private static WChart CreateChart(WordDocument document, List<object[]> graphDetails)
         {
-
             //Create the new chart.
             WChart chart = new WChart(document);
             chart.Width = 410;
@@ -133,7 +130,6 @@ namespace Replace_merge_field_with_chart
             chart.PrimaryValueAxis.HasMajorGridLines = false;
             return chart;
         }
-
         /// <summary>
         /// Set the values for the chart.
         /// </summary>
@@ -145,9 +141,8 @@ namespace Replace_merge_field_with_chart
             //Get the value from the DataTable and set the value for chart data
             foreach (object[] row in graphDetails)
             {
-                foreach (object val in row)
+                foreach (object value in row)
                 {
-                    object value = val.ToString();
                     chart.ChartData.SetValue(rowIndex, colIndex, value);
                     colIndex++;
                     if (colIndex == 5)
@@ -160,6 +155,9 @@ namespace Replace_merge_field_with_chart
         #endregion
     }
     #region Helper Class
+    /// <summary>
+    /// Represents a class to maintain employee details.
+    /// </summary>
     public class Employees
     {
             public string FirstName { get; set; }
