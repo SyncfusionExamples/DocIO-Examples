@@ -43,36 +43,34 @@ namespace Replace_merge_field_with_chart
         {
             
             //Creates graph data for first employee.
-            List<string[]> graphDetails = new List<string[]>();
-            graphDetails.Add(new string[] { "Month", "Highest Sale", "Average Sale", "Lowest Sale" });
-            graphDetails.Add(new string[] { "September", "67", "55", "12" });
-            graphDetails.Add(new string[] { "October", "74", "71", "70" });
-            graphDetails.Add(new string[] { "November", "81", "74", "60" });
-            graphDetails.Add(new string[] { "December", "96", "71", "20"});
+            List<object[]> graphDetailsForEmployee1 = new List<object[]>();
+            graphDetailsForEmployee1.Add(new object[] { "Month", "Highest Sale", "Average Sale", "Lowest Sale" });
+            graphDetailsForEmployee1.Add(new object[] { "September", 67, 55, 12 });
+            graphDetailsForEmployee1.Add(new object[] { "October", 74, 71, 70 });
+            graphDetailsForEmployee1.Add(new object[] { "November", 81, 74, 60 });
+            graphDetailsForEmployee1.Add(new object[] { "December", 96, 71, 20});
 
-            //Creates graph data for first employee.
-            List<string[]> graphDetails2 = new List<string[]>();
-            graphDetails2.Add(new string[] { "Month", "Highest Sale", "Average Sale", "Lowest Sale" });
-            graphDetails2.Add(new string[] { "September", "100", "65", "50" });
-            graphDetails2.Add(new string[] { "October", "72", "34", "15" });
-            graphDetails2.Add(new string[] { "November", "150", "81", "63" });
-            graphDetails2.Add(new string[] { "December", "91", "75", "50" });
+            //Creates graph data for the second employee.
+            List<object[]> graphDetailsForEmployee2 = new List<object[]>();
+            graphDetailsForEmployee2.Add(new object[] { "Month", "Highest Sale", "Average Sale", "Lowest Sale" });
+            graphDetailsForEmployee2.Add(new object[] { "September", 100, 65, 50 });
+            graphDetailsForEmployee2.Add(new object[] { "October", 72, 34, 15 });
+            graphDetailsForEmployee2.Add(new object[] { "November", 150, 81, 63 });
+            graphDetailsForEmployee2.Add(new object[] { "December", 91, 75, 50 });
 
-            //Creates graph data for first employee.
-            List<string[]> graphDetails3 = new List<string[]>();
-            graphDetails3.Add(new string[] { "Month", "Highest Sale", "Average Sale", "Lowest Sale" });
-            graphDetails3.Add(new string[] { "September", "58", "26", "14" });
-            graphDetails3.Add(new string[] { "October", "55", "45", "30" });
-            graphDetails3.Add(new string[] { "November", "62", "51", "23" });
-            graphDetails3.Add(new string[] { "December", "72", "45", "11" });
+            //Creates graph data for the third employee.
+            List<object[]> graphDetailsForEmployee3 = new List<object[]>();
+            graphDetailsForEmployee3.Add(new object[] { "Month", "Highest Sale", "Average Sale", "Lowest Sale" });
+            graphDetailsForEmployee3.Add(new object[] { "September", 58, 26, 14 });
+            graphDetailsForEmployee3.Add(new object[] { "October", 55, 45, 30 });
+            graphDetailsForEmployee3.Add(new object[] { "November", 62, 51, 23 });
+            graphDetailsForEmployee3.Add(new object[] { "December", 72, 45, 11 });
 
             //Adds all details in employee data collection for all employees.
             List<Employees> employeeData = new List<Employees>();
-            employeeData.Add(new Employees("Nancy", "Davolio", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", graphDetails));
-            employeeData.Add(new Employees("Andrew", "Fuller", "2", "908 W. Capital Way", "Tacoma", "USA", graphDetails2));
-            employeeData.Add(new Employees("Margaret", "Peacock", "3", "4110 Old Redmond Rd.", "Redmond", "USA", graphDetails3));
-
-            
+            employeeData.Add(new Employees("Nancy", "Davolio", "1", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "USA", graphDetailsForEmployee1));
+            employeeData.Add(new Employees("Andrew", "Fuller", "2", "908 W. Capital Way", "Tacoma", "USA", graphDetailsForEmployee2));
+            employeeData.Add(new Employees("Margaret", "Peacock", "3", "4110 Old Redmond Rd.", "Redmond", "USA", graphDetailsForEmployee3));
 
             return employeeData;
         }
@@ -89,7 +87,7 @@ namespace Replace_merge_field_with_chart
                 //Gets their owner row.
                 WParagraph paragraph = args.CurrentMergeField.OwnerParagraph;
                 //Gets the field value.
-                List<string[]> graphDetails = args.FieldValue as List<string[]>;
+                List<object[]> graphDetails = args.FieldValue as List<object[]>;
                 //Creates the chart.
                 WChart chart = CreateChart(paragraph.Document, graphDetails);
                 int indexOfField = paragraph.ChildEntities.IndexOf(args.CurrentMergeField);
@@ -104,26 +102,26 @@ namespace Replace_merge_field_with_chart
         /// Creates the chart based on the graph data.
         /// </summary>
         /// <param name="document"></param>
-        private static WChart CreateChart(WordDocument document, List<string[]> graphDetails)
+        private static WChart CreateChart(WordDocument document, List<object[]> graphDetails)
         {
 
             //Create the new chart.
             WChart chart = new WChart(document);
-            chart.Width = 446;
-            chart.Height = 150;
+            chart.Width = 410;
+            chart.Height = 250;
             chart.ChartType = OfficeChartType.Column_Clustered;
             //Assign data.
             AddChartData(chart, graphDetails);
             //Set a chart title.
             chart.ChartTitle = "Sales Report";
             //Set Datalabels.
-            IOfficeChartSerie serie1 = chart.Series.Add("Highest Mark");
+            IOfficeChartSerie serie1 = chart.Series.Add("Highest Sale");
             //Set the data range of chart series – start row, start column, end row and end column.
             serie1.Values = chart.ChartData[2, 2, 5, 2];
-            IOfficeChartSerie serie2 = chart.Series.Add("Average Mark");
+            IOfficeChartSerie serie2 = chart.Series.Add("Average Sale");
             //Set the data range of chart series start row, start column, end row and end column.
             serie2.Values = chart.ChartData[2, 3, 5, 3];
-            IOfficeChartSerie serie3 = chart.Series.Add("Mark");
+            IOfficeChartSerie serie3 = chart.Series.Add("Lowest Sale");
             //Set the data range of chart series start row, start column, end row and end column.
             serie3.Values = chart.ChartData[2, 4, 5, 4];
             //Set the data range of the category axis.
@@ -139,17 +137,17 @@ namespace Replace_merge_field_with_chart
         /// <summary>
         /// Set the values for the chart.
         /// </summary>
-        private static void AddChartData(WChart chart, List<string[]> graphDetails)
+        private static void AddChartData(WChart chart, List<object[]> graphDetails)
         {
             //Set the value for chart data.
             int rowIndex = 1;
             int colIndex = 1;
             //Get the value from the DataTable and set the value for chart data
-            foreach (string[] row in graphDetails)
+            foreach (object[] row in graphDetails)
             {
-                foreach (string val in row)
+                foreach (object val in row)
                 {
-                    string value = val.ToString();
+                    object value = val.ToString();
                     chart.ChartData.SetValue(rowIndex, colIndex, value);
                     colIndex++;
                     if (colIndex == 5)
@@ -161,17 +159,17 @@ namespace Replace_merge_field_with_chart
         }
         #endregion
     }
-
+    #region Helper Class
     public class Employees
-        {
+    {
             public string FirstName { get; set; }
             public string LastName { get; set; }
             public string EmployeeID { get; set; }
             public string Address { get; set; }
             public string City { get; set; }    
             public string Country { get; set; }
-            public List<string[]> GraphDetails { get; set; }
-            public Employees(string firstName, string lastName, string employeeID, string address, string city, string country, List<string[]> graphDetails)
+            public List<object[]> GraphDetails { get; set; }
+            public Employees(string firstName, string lastName, string employeeID, string address, string city, string country, List<object[]> graphDetails)
             {
                 FirstName = firstName;
                 LastName = lastName;
@@ -179,10 +177,8 @@ namespace Replace_merge_field_with_chart
                 Address = address;
                 City = city;              
                 Country = country;
-                GraphDetails = graphDetails;
-
-                
-
+                GraphDetails = graphDetails;               
             }
-        }  
+    }
+    #endregion
 }
