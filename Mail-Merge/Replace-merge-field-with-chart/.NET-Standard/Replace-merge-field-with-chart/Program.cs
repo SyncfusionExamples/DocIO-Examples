@@ -1,6 +1,5 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-
 using Syncfusion.OfficeChart;
 using System.Collections.Generic;
 using System.IO;
