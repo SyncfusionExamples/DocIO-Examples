@@ -57,6 +57,8 @@ namespace Create_open_high_low_close_chart
                 chart.ChartType = OfficeChartType.Stock_OpenHighLowClose;
                 //Set a Chart Title.
                 chart.ChartTitle = "Open-High-Low-Close Chart";
+                //Set primary category axis.
+                chart.PrimaryCategoryAxis.NumberFormat = "dd-MMM-yy";
                 //Set Datalabels.
                 IOfficeChartSerie series1 = chart.Series[0];
                 IOfficeChartSerie series2 = chart.Series[1];
@@ -82,7 +84,6 @@ namespace Create_open_high_low_close_chart
                 series4.DataPoints.DefaultDataPoint.DataLabels.IsSeriesName = true;
                 series4.SerieFormat.MarkerStyle = OfficeChartMarkerType.Circle;
                 series4.SerieFormat.MarkerForegroundColorIndex = OfficeKnownColors.Lavender;
-
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;

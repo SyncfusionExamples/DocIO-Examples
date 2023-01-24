@@ -51,6 +51,8 @@ namespace Create_high_low_close_chart
                 chart.ChartType = OfficeChartType.Stock_HighLowClose;
                 //Set a Chart Title.
                 chart.ChartTitle = "High-Low-Close Chart";
+                //Set primary category axis.
+                chart.PrimaryCategoryAxis.NumberFormat = "dd-MMM-yy";
                 //Set Datalabels.
                 IOfficeChartSerie series1 = chart.Series[0];
                 IOfficeChartSerie series2 = chart.Series[1];
