@@ -61,17 +61,17 @@ namespace Create_high_low_close_chart
                 series1.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
                 series1.DataPoints.DefaultDataPoint.DataLabels.IsSeriesName = true;
                 series1.SerieFormat.MarkerStyle = OfficeChartMarkerType.Circle;
-                series1.SerieFormat.MarkerForegroundColorIndex = OfficeKnownColors.LightGreen;
+                series1.SerieFormat.MarkerBackgroundColorIndex = OfficeKnownColors.LightGreen;
 
                 series2.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
                 series2.DataPoints.DefaultDataPoint.DataLabels.IsSeriesName = true;
                 series2.SerieFormat.MarkerStyle = OfficeChartMarkerType.Circle;
-                series2.SerieFormat.MarkerForegroundColorIndex = OfficeKnownColors.Red;
+                series2.SerieFormat.MarkerBackgroundColorIndex = OfficeKnownColors.Red;
 
                 series3.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
                 series3.DataPoints.DefaultDataPoint.DataLabels.IsSeriesName = true;
                 series3.SerieFormat.MarkerStyle = OfficeChartMarkerType.Circle;
-                series3.SerieFormat.MarkerForegroundColorIndex = OfficeKnownColors.Light_yellow;
+                series3.SerieFormat.MarkerBackgroundColorIndex = OfficeKnownColors.Light_yellow;
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
