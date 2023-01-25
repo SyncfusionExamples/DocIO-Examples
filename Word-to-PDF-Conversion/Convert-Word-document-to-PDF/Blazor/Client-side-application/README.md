@@ -17,7 +17,7 @@ Steps to convert Word document to PDF in Blazor WebAssembly (WASM)
 </ItemGroup>
 ```
 
-N> Install this `wasm-tools` and `wasm-tools-net6` by using `dotnet workload install wasm-tools` and `dotnet workload install wasm-tools-net6` commands in your command prompt respectively, while facing issues related to skiasharp, during runtime.
+> **Note:** Install this `wasm-tools` and `wasm-tools-net6` by using `dotnet workload install wasm-tools` and `dotnet workload install wasm-tools-net6` commands in your command prompt respectively, while facing issues related to skiasharp, during runtime.
 
 5. Enable the following property in the [Blazor WASM csproj](https://github.com/SyncfusionExamples/DocIO-Examples/blob/main/Word-to-PDF-Conversion/Convert-Word-document-to-PDF/Blazor/Client-side-application/Convert-Word-to-PDF/Convert-Word-to-PDF.csproj) file.
 
