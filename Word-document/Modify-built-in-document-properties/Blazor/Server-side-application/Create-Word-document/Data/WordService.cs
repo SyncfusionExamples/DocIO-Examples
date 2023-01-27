@@ -11,7 +11,7 @@ namespace Create_Word_document.Data
         public MemoryStream CreateWord()
         {
             FileStream sourceStreamPath = new FileStream(@"wwwroot/data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            //Creating a new document.
+            //Opening a document.
             using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
             {
                 //Accesses the built-in document properties

@@ -16,7 +16,7 @@
         {
             using (Stream inputStream = await client.GetStreamAsync("sample-data/HelloWorld.docx"))
             {
-                //Creating a new document.
+                //Opening a document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
                     //Appends text to the last paragraph of the document.

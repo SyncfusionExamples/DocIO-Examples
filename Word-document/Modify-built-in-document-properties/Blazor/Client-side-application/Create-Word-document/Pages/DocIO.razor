@@ -16,7 +16,7 @@
         {
             using (Stream inputStream = await client.GetStreamAsync("sample-data/Template.docx"))
             {
-                //Creating a new document.
+                //Opening a document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
                     //Accesses the built-in document properties

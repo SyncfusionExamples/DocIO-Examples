@@ -11,7 +11,7 @@ namespace Create_Word_document.Data
         public MemoryStream CreateWord()
         {
             FileStream sourceStreamPath = new FileStream(@"wwwroot/data/HelloWorld.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            //Creating a new document.
+            //Opening a document.
             using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
             {
                 //Appends text to the last paragraph of the document.
