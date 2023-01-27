@@ -9,27 +9,27 @@ namespace Generate_certificates_for_employees
     {
         static void Main(string[] args)
         {
-            //Creates new Word document instance for Word processing
+            //Creates new Word document instance for Word processing.
             using (WordDocument document = new WordDocument())
             {
-                //Opens the Word template document
+                //Opens the Word template document.
                 document.Open(Path.GetFullPath(@"../../Template.docx"), FormatType.Docx);
-                //Loads the database
+                //Loads the database.
                 OleDbConnection conn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + @"../../EmployeeList.mdb");
-                //Opens the database connection
+                //Opens the database connection.
                 conn.Open();
                 OleDbCommand command = new OleDbCommand("Select * from Employees", conn);
-                //Executes the command to read the data from database
+                //Executes the command to read the data from database.
                 OleDbDataReader reader = command.ExecuteReader();
-                //Perform mail merge
+                //Perform mail merge.
                 document.MailMerge.Execute(reader);
-                //Dispose the command
+                //Dispose the command.
                 command.Dispose();
-                //Closes the reader
+                //Closes the reader.
                 reader.Close();
-                //Closes the database connection
+                //Closes the database connection.
                 conn.Dispose();
-                //Saves the Word document
+                //Saves the Word document.
                 document.Save(Path.GetFullPath(@"../../Sample.docx"));
             }
         }
