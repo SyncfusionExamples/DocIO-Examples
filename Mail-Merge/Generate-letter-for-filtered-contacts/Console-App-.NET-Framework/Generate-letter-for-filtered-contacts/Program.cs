@@ -9,16 +9,16 @@ namespace Group_customers_based_on_products
     {
         static void Main(string[] args)
         {
-            //Creates new Word document instance for Word processing
+            //Creates new Word document instance for Word processing.
             using (WordDocument document = new WordDocument())
             {
-                //Opens the Word template document
+                //Opens the Word template document.
                 document.Open(Path.GetFullPath(@"../../LetterTemplate.docx"), FormatType.Docx);
                 //Get the contact details.
                 DataTable table = GetContacts();
-                //Creates a DataView for DataTable
+                //Creates a DataView for DataTable.
                 DataView dataView = new DataView(table);
-                //Filter the customers from USA
+                //Filter the customers from USA.
                 dataView.RowFilter = "Country = 'USA'";
                 //Perform mail merge.
                 document.MailMerge.ExecuteGroup(dataView);
@@ -34,9 +34,9 @@ namespace Group_customers_based_on_products
         /// <returns></returns>
         private static DataTable GetContacts()
         {
-            //Creates new DataTable instance 
+            //Creates new DataTable instance. 
             DataTable table = new DataTable("Contacts");
-            //Add columns for the DataTable
+            //Add columns for the DataTable.
             table.Columns.Add("ContactName");
             table.Columns.Add("CompanyName");
             table.Columns.Add("Address");
@@ -44,7 +44,7 @@ namespace Group_customers_based_on_products
             table.Columns.Add("Country");
             table.Columns.Add("Phone");
 
-            //Add records in DataTable
+            //Add records in DataTable.
             DataRow row = table.NewRow();
             row["ContactName"] = "Fran Wilson";
             row["CompanyName"]= "Lonesome Pine Restaurant";
