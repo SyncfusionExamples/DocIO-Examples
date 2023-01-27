@@ -22,9 +22,8 @@ namespace Group_customers_based_on_products
                 dataView.RowFilter = "Country = 'USA'";
                 //Perform mail merge.
                 document.MailMerge.ExecuteGroup(dataView);
-                //Saves the Word document
+                //Saves the Word document.
                 document.Save(Path.GetFullPath(@"../../Sample.docx"), FormatType.Docx);
-
             }
         }
         #region Helper methods
