@@ -9,16 +9,16 @@ namespace Generate_letter_for_candidates_in_sorted_order
     {
         static void Main(string[] args)
         {
-            //Creates new Word document instance for Word processing
+            //Creates new Word document instance for Word processing.
             using (WordDocument document = new WordDocument())
             {
-                //Opens the Word template document
+                //Opens the Word template document.
                 document.Open(Path.GetFullPath(@"../../Template.docx"), FormatType.Docx);
-                //Gets the data view
+                //Gets the data view.
                 DataView dataView = GetDataView();
-                //Performs mail merge
+                //Performs mail merge.
                 document.MailMerge.Execute(dataView);
-                //Saves the Word document
+                //Saves the Word document.
                 document.Save(Path.GetFullPath(@"../../Sample.docx"), FormatType.Docx);
             }
         }
@@ -29,12 +29,12 @@ namespace Generate_letter_for_candidates_in_sorted_order
         /// <returns></returns>
         private static DataView GetDataView()
         {
-            //Creates new DataTable instance 
+            //Creates new DataTable instance. 
             DataTable table = new DataTable();
-            //Add columns
+            //Add columns.
             table.Columns.Add("CandidateName");
             table.Columns.Add("DateOfJoining");
-            //Add records
+            //Add records.
             DataRow row = table.NewRow();
             row["CandidateName"] = "Maria Anders";
             row["DateOfJoining"] = "1/21/2020";
@@ -52,9 +52,9 @@ namespace Generate_letter_for_candidates_in_sorted_order
             row["DateOfJoining"] = "1/22/2020";
             table.Rows.Add(row);
 
-            //Creates new DataView using DataTable
+            //Creates new DataView using DataTable.
             DataView dataView = new DataView(table);
-            //Sort the column in ascending order based on CandidateName
+            //Sort the column in ascending order based on CandidateName.
             dataView.Sort = "CandidateName ASC";
             return dataView;
         }
