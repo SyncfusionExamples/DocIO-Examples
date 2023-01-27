@@ -1,0 +1,41 @@
+﻿@page "/DocIO"
+@inject Microsoft.JSInterop.IJSRuntime JS
+@inject HttpClient client
+@using Syncfusion.DocIO
+@using Syncfusion.DocIO.DLS
+@using System.IO
+
+<h2>Syncfusion DocIO library (Essential DocIO)</h2>
+<p>Syncfusion Blazor DocIO library (Essential DocIO) used to create, read, edit, and convert DocIO files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@CreateWord">Create Word</button>
+
+@code {
+    @functions {
+
+        async void CreateWord()
+        {
+            using (Stream inputStream = await client.GetStreamAsync("sample-data/Template.docx"))
+            {
+                //Creating a new document.
+                using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
+                {
+                    //Accesses the built-in document properties
+                    Console.WriteLine("Title - {0}", document.BuiltinDocumentProperties.Title);
+                    Console.WriteLine("Author - {0}", document.BuiltinDocumentProperties.Author);
+                    //Modifies or sets the category and company Built-in document properties
+                    document.BuiltinDocumentProperties.Category = "Sales reports";
+                    document.BuiltinDocumentProperties.Company = "Northwind traders";
+
+                    //Saves the Word document to MemoryStream.
+                    using (MemoryStream stream = new MemoryStream())
+                    {
+                        document.Save(stream, FormatType.Docx);
+                        stream.Position = 0;
+                        //Download the Word document in the browser.
+                        await JS.SaveAs("Sample.docx", stream.ToArray());
+                    }
+                }
+            }
+        }
+    }
+}
