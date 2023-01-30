@@ -1,6 +1,6 @@
 # Create envelopes for mailing in C#
 
-This example illustrates how to create envelopes for mailing to a list of recipients using the [Execute(IEnumerable dataSource)](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.DocIO.Base~Syncfusion.DocIO.DLS.MailMerge~Execute(IEnumerable).html) API.
+This example illustrates how to create envelopes for mailing to a list of recipients using the [Execute(IEnumerable dataSource)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Collections_IEnumerable) API.
 
 # How to run the project
 
