@@ -1,6 +1,6 @@
 # Generate payroll for multiple employees 
 
-This Console application (.NET Framework) shows how to generate payroll for multiple employees in a Word document by retrieving the employee details from database using the [Execute(IDataReader)](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.DocIO.Base~Syncfusion.DocIO.DLS.MailMerge~Execute(IDataReader).html) API.
+This example illustrates how to generate payroll for multiple employees in a Word document by retrieving the employee details from database using the [Execute(IDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_IDataReader) API.
 
 # How to run the project
 
