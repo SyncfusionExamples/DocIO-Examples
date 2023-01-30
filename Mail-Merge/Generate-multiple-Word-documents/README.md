@@ -1,6 +1,6 @@
 # Generate multiple Word documents in C#
 
-This example shows how to generate multiple Word documents for each record in [DataTable](https://docs.microsoft.com/en-us/dotnet/api/system.data.datatable?view=netframework-4.8) using the [Execute(DataRow row)](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.DocIO.Base~Syncfusion.DocIO.DLS.MailMerge~Execute(DataRow).html) API.
+This example illustrates how to generate multiple Word documents for each record in [DataTable](https://docs.microsoft.com/en-us/dotnet/api/system.data.datatable?view=netframework-4.8) using the [Execute(DataRow row)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataRow) API.
 
 # How to run the project
 
