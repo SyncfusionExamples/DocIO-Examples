@@ -1,6 +1,6 @@
 # Generate certificates for employees
 
-This Console application (.NET Framework) shows how to generate certificates for best employees in an organization by retrieving the employee details from database using the [Execute(OleDbDataReader)](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.DocIO.Base~Syncfusion.DocIO.DLS.MailMerge~Execute(OleDbDataReader).html) API.
+This example illustrates how to generate certificates for best employees in an organization by retrieving the employee details from database using the [Execute(OleDbDataReader)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_OleDb_OleDbDataReader_) API.
 
 # How to run the project
 
