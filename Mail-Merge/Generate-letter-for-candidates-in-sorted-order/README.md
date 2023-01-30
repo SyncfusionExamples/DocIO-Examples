@@ -1,6 +1,6 @@
 # Generate letter for candidates in sorted order
 
-This Console application (.NET Framework) shows how to generate letter for candidates in the sorted order from the [DataView](https://docs.microsoft.com/en-us/dotnet/api/system.data.dataview?view=netframework-4.8) using the [Execute(DataView)](https://help.syncfusion.com/cr/cref_files/file-formats/Syncfusion.DocIO.Base~Syncfusion.DocIO.DLS.MailMerge~Execute(DataView).html) API.
+This example illustrates how to generate letter for candidates in the sorted order from the [DataView](https://docs.microsoft.com/en-us/dotnet/api/system.data.dataview?view=netframework-4.8) using the [Execute(DataView)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataView) API.
 
 # How to run the project
 
