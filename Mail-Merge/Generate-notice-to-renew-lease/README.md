@@ -1,6 +1,6 @@
 # Generate notice to renew lease
 
-This Console application (.NET Framework) shows how to generate tenant’s notice to renew lease as a Word document using the data from [DataTable](https://docs.microsoft.com/en-us/dotnet/api/system.data.datatable?view=netframework-4.8) by using the [Execute(DataTable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataTable) API.
+This example illustartes how to generate tenant’s notice to renew lease as a Word document using the data from [DataTable](https://docs.microsoft.com/en-us/dotnet/api/system.data.datatable?view=netframework-4.8) by using the [Execute(DataTable)](https://help.syncfusion.com/cr/file-formats/Syncfusion.DocIO.DLS.MailMerge.html#Syncfusion_DocIO_DLS_MailMerge_Execute_System_Data_DataTable) API.
 
 # How to run the project
 
