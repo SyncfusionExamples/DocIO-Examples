@@ -70,12 +70,10 @@ namespace Reset_page_numbers_after_each_record
             var bodyItemsToMove = entityCollection.Cast<TextBodyItem>()
                                               .Skip(numBodyItemsToStay)
                                               .ToList();
-
             //Create a new section that is positioned after the current section.
             var newSection = new WSection(bodyItem.Document);
             //Add new section as a sibling of current section.
             AddSiblings(currentSection, new[] { newSection });
-
             // Cut and paste each marked body item from the current section to the new section.
             foreach (var bodyItemToMove in bodyItemsToMove)
             {
@@ -95,7 +93,6 @@ namespace Reset_page_numbers_after_each_record
             {
                 throw new ApplicationException("Entity is not index-able as it does not have a valid container.");
             }
-
             return container.ChildEntities.IndexOf(entity);
         }
         /// <summary>
@@ -122,7 +119,6 @@ namespace Reset_page_numbers_after_each_record
                 {
                     return (WSection)parentEntity;
                 }
-
                 parentEntity = parentEntity.Owner;
             }
 
@@ -176,7 +172,6 @@ namespace Reset_page_numbers_after_each_record
         public string Region { get; set; }
         public string Country { get; set; }
         public string Title { get; set; }
-        public string Photo { get; set; }
         public Employee(string firstName,  string lastName, string employeeId, string title, string address, string city, string region, string country)
         {
             FirstName = firstName;
