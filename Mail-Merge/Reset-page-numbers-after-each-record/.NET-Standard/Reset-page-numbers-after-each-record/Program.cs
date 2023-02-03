@@ -19,7 +19,7 @@ namespace Reset_page_numbers_after_each_record
                     //Gets the employee details as IEnumerable collection.
                     List<Employee> employeeList = GetEmployees();
                     //Creates an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection.
-                    MailMergeDataTable dataSource = new MailMergeDataTable("Employees", employeeList); 
+                    MailMergeDataTable dataSource = new MailMergeDataTable("Employees", employeeList);
                     //Performs Mail merge.
                     document.MailMerge.ExecuteGroup(dataSource);
 
@@ -58,12 +58,19 @@ namespace Reset_page_numbers_after_each_record
                     }
                 }
             }
+    
         }
+        #region Helper Methods
+        /// <summary>
+        /// Insert Section break code
+        /// </summary>
+        /// <param name="bodyItem"></param>
+        /// <param name="breakCode"></param>
+        /// <returns></returns>
         private static WSection InsertSectionBreak(TextBodyItem bodyItem, WSection srcSection)
         {
-            //Get the current section of the body item.
+            //Get the current section of the body item
             var currentSection = GetSection(bodyItem);
-
             // Identify all the items in the same Section that are positioned after the bodyItem. These body items need to be cut and pasted to the new section.
             int numBodyItemsToStay = GetIndex(bodyItem) + 1;
             var entityCollection = currentSection.Body.ChildEntities;
@@ -72,7 +79,9 @@ namespace Reset_page_numbers_after_each_record
                                               .ToList();
             //Create a new section that is positioned after the current section.
             var newSection = new WSection(bodyItem.Document);
-            //Add new section as a sibling of current section.
+            //Updates the section properties of the template document.
+            CopySectionProperties(newSection, srcSection);
+            //Add new section as a sibling of current section
             AddSiblings(currentSection, new[] { newSection });
             // Cut and paste each marked body item from the current section to the new section.
             foreach (var bodyItemToMove in bodyItemsToMove)
@@ -82,7 +91,7 @@ namespace Reset_page_numbers_after_each_record
             return newSection;
         }
         /// <summary>
-        /// Get the index of the particular entity.
+        /// Get the index of the particular entity
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -93,14 +102,15 @@ namespace Reset_page_numbers_after_each_record
             {
                 throw new ApplicationException("Entity is not index-able as it does not have a valid container.");
             }
+
             return container.ChildEntities.IndexOf(entity);
         }
         /// <summary>
-        /// Geth the section of the specified entity.
+        /// Geth the section of the specified entity
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        private static WSection GetSection(IEntity  entity)
+        private static WSection GetSection(IEntity entity)
         {
             if (entity is WSection)
             {
@@ -119,14 +129,29 @@ namespace Reset_page_numbers_after_each_record
                 {
                     return (WSection)parentEntity;
                 }
+
                 parentEntity = parentEntity.Owner;
             }
-
             // Unable to find the Section this entity belongs to. This entity is most likely not attached to any containers yet.
             return null;
         }
         /// <summary>
-        /// Add new section as sibling of current section.
+        /// Copy page setup
+        /// </summary>
+        /// <param name="section"></param>
+        /// <param name="sectionToCopyFrom"></param>
+        private static void CopySectionProperties(IWSection newSection, IWSection srcSection)
+        {
+            //Updates section break code.
+            newSection.BreakCode = srcSection.BreakCode;
+            //Updates column size.
+            foreach (Column column in srcSection.Columns)
+            {
+                newSection.AddColumn(column.Width, column.Space);
+            }
+        }
+        /// <summary>
+        /// Add new section as sibling of current section
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
@@ -134,54 +159,52 @@ namespace Reset_page_numbers_after_each_record
         public static void AddSiblings<T>(IEntity entity, IEnumerable<T> newSiblings) where T : class, IEntity
         {
             int newIndex = GetIndex(entity) + 1;
-
             ICompositeEntity container = entity.Owner as ICompositeEntity;
             if (container == null)
             {
                 throw new ApplicationException("Unable to add new siblings to this entity as it does not have a valid container.");
             }
-
             foreach (var newSibling in newSiblings)
             {
                 container.ChildEntities.Insert(newIndex++, newSibling);
             }
-        }
-
+        }   
         /// <summary>
         /// Gets the employee details to perform mail merge.
         /// </summary>
         public static List<Employee> GetEmployees()
         {
             List<Employee> employees = new List<Employee>();
-            employees.Add(new Employee("Nancy", "Smith", "1","Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA"));
-            employees.Add(new Employee("Andrew", "Fuller","2", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA"));
-            employees.Add(new Employee("Roland", "Mendel","3", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA"));
+            employees.Add(new Employee("Nancy", "Smith", "1", "Sales Representative", "505 - 20th Ave. E. Apt. 2A,", "Seattle", "WA", "USA"));
+            employees.Add(new Employee("Andrew", "Fuller", "2", "Vice President, Sales", "908 W. Capital Way", "Tacoma", "WA", "USA"));
+            employees.Add(new Employee("Roland", "Mendel", "3", "Sales Representative", "722 Moss Bay Blvd.", "Kirkland", "WA", "USA"));
             return employees;
         }
-    }
-    /// <summary>
-    /// Represents a class to maintain employee details.
-    /// </summary>
-    public class Employee
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string EmployeeID {get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string Region { get; set; }
-        public string Country { get; set; }
-        public string Title { get; set; }
-        public Employee(string firstName,  string lastName, string employeeId, string title, string address, string city, string region, string country)
+        /// <summary>
+        /// Represents a class to maintain employee details.
+        /// </summary>
+        public class Employee
         {
-            FirstName = firstName;
-            LastName = lastName;
-            EmployeeID = employeeId;
-            Title = title;
-            Address = address;
-            City = city;
-            Region = region;
-            Country = country;
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string EmployeeID { get; set; }
+            public string Address { get; set; }
+            public string City { get; set; }
+            public string Region { get; set; }
+            public string Country { get; set; }
+            public string Title { get; set; }
+            public Employee(string firstName, string lastName, string employeeId, string title, string address, string city, string region, string country)
+            {
+                FirstName = firstName;
+                LastName = lastName;
+                EmployeeID = employeeId;
+                Title = title;
+                Address = address;
+                City = city;
+                Region = region;
+                Country = country;
+            }
         }
+        #endregion
     }
 }
