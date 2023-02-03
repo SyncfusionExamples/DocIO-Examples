@@ -49,7 +49,7 @@ namespace Set_column_space_for_column_charts
                 chart.DataRange = chart.ChartData[1, 1, 6, 4];
                 //Set chart series in the column for assigned data region.
                 chart.IsSeriesInRows = false;
-                //Set a Chart Title.
+                //Set Chart Title.
                 chart.ChartTitle = "Column Chart";
                 //Set Datalabels.
                 IOfficeChartSerie serie1 = chart.Series[0];
@@ -58,7 +58,7 @@ namespace Set_column_space_for_column_charts
 
                 //Set the gap between the category.
                 serie1.SerieFormat.CommonSerieOptions.GapWidth = 200;
-                //Set the gap between each series (from -100 to 100).
+                //Set the gap between each series.
                 serie1.SerieFormat.CommonSerieOptions.Overlap = -10;
                 //Set legend.
                 chart.HasLegend = true;
