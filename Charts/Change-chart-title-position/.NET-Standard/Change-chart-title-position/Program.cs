@@ -21,13 +21,13 @@ namespace Change_chart_title_position
                 WChart chart = paragraph.AppendChart(446, 270);
                 //Set chart type.
                 chart.ChartType = OfficeChartType.Pie;
-
-                //Set position for title area.
+                //Set chart title.
+                chart.ChartTitle = "Sales Report";
+                //Set position for title area using manual layout.
                 chart.ChartTitleArea.Layout.ManualLayout.LeftMode = LayoutModes.edge;
                 chart.ChartTitleArea.Layout.ManualLayout.TopMode = LayoutModes.edge;
                 chart.ChartTitleArea.Layout.ManualLayout.Left = 0.041214980185031891;
                 chart.ChartTitleArea.Layout.ManualLayout.Top = 0.0560000017285347;
-
                 //Set chart data.
                 chart.ChartData.SetValue(1, 1, "");
                 chart.ChartData.SetValue(1, 2, "Sales");
@@ -51,8 +51,6 @@ namespace Change_chart_title_position
                 chart.ChartData.SetValue(10, 2, 29.171);
                 chart.ChartData.SetValue(11, 1, "Elizabeth Lincoln");
                 chart.ChartData.SetValue(11, 2, 25.696);
-                //Set chart title.
-                chart.ChartTitle = "Sales Report";
                 //Create a new chart series with the name “Sales”.
                 IOfficeChartSerie pieSeries = chart.Series.Add("Sales");
                 pieSeries.Values = chart.ChartData[2, 2, 11, 2];
