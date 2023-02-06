@@ -17,7 +17,7 @@ namespace Add_line_numbers
                     //Iterate each section.
                     foreach (WSection section in document.Sections)
                     {
-                        //Set the line number distance from text.
+                        //Set the line number distance from a text.
                         section.PageSetup.LineNumberingDistanceFromText = 10;
                         //Set the numbering mode.
                         section.PageSetup.LineNumberingMode = LineNumberingMode.Continuous;
