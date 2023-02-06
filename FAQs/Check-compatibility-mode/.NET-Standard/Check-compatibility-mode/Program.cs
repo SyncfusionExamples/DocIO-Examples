@@ -1,5 +1,6 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
+using System;
 using System.IO;
 
 namespace Check_compatibility_mode
@@ -13,8 +14,9 @@ namespace Check_compatibility_mode
                 //Open the Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
-                    //Set the compatibility mode.
-                    document.Settings.CompatibilityMode = CompatibilityMode.Word2003;
+                    //Get the compatibility mode.
+                    CompatibilityMode compatibilityMode = document.Settings.CompatibilityMode;
+                    Console.WriteLine(compatibilityMode);
 
                     //Create a file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
