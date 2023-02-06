@@ -25,29 +25,23 @@ namespace Set_Yaxis_interval_for_column_charts
                 chart.ChartData.SetValue(1, 1, "Items");
                 chart.ChartData.SetValue(1, 2, "Amount(in $)");
                 chart.ChartData.SetValue(1, 3, "Count");
-
                 chart.ChartData.SetValue(2, 1, "Beverages");
                 chart.ChartData.SetValue(2, 2, 277);
                 chart.ChartData.SetValue(2, 3, 925);
-
                 chart.ChartData.SetValue(3, 1, "Condiments");
                 chart.ChartData.SetValue(3, 2, 177);
                 chart.ChartData.SetValue(3, 3, 378);
-
                 chart.ChartData.SetValue(4, 1, "Confections");
                 chart.ChartData.SetValue(4, 2, 387);
                 chart.ChartData.SetValue(4, 3, 880);
-
                 chart.ChartData.SetValue(5, 1, "Dairy Products");
                 chart.ChartData.SetValue(5, 2, 1008);
                 chart.ChartData.SetValue(5, 3, 581);
-
                 chart.ChartData.SetValue(6, 1, "Grains/Cereals");
                 chart.ChartData.SetValue(6, 2, 1500);
                 chart.ChartData.SetValue(6, 3, 189);
                 //Set chart series in the column for assigned data region.
                 chart.IsSeriesInRows = false;
-
                 IOfficeChartSerie serie1 = chart.Series.Add("Amount(in $)");
                 //Set the data range of chart series – start row, start column, end row, end column.
                 serie1.Values = chart.ChartData[2, 2, 6, 2];
@@ -63,7 +57,6 @@ namespace Set_Yaxis_interval_for_column_charts
                 //Set the minimum and maximum value of the Y-Axis.
                 chart.PrimaryValueAxis.MinimumValue = 0;
                 chart.PrimaryValueAxis.MaximumValue = 1600;
-
                 //Sets the interval for Y-Axis
                 chart.PrimaryValueAxis.MajorUnit = 200;
 
