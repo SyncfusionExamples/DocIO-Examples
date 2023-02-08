@@ -1,0 +1,34 @@
+﻿using Syncfusion.DocIO;
+using Syncfusion.DocIO.DLS;
+using System.IO;
+
+namespace Insert_author_name
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.ReadWrite))
+            {
+                //Opens the template document.
+                using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
+                {   //Get the section in a Word document.
+                    IWSection section = document.LastSection;
+                    //Add paragraph to the document section.
+                    IWParagraph paragraph = section.AddParagraph();
+                    paragraph.AppendText("Author: ");
+                    //Add field to represent Author from document properties.
+                    paragraph.AppendField("Author", FieldType.FieldDocProperty);
+                    //Updates the fields in Word document.
+                    document.UpdateDocumentFields();
+                    //Creates file stream.
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    {
+                        //Saves the Word document to file stream.
+                        document.Save(outputStream, FormatType.Docx);
+                    }
+                }
+            }
+        }
+    }
+}
