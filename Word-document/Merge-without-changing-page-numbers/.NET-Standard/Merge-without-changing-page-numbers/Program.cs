@@ -87,6 +87,9 @@ namespace Merge_without_changing_page_numbers
             section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
             section.HeadersFooters.FirstPageFooter.AddParagraph();
         }
+        /// <summary>
+        /// Check if header and footer is empty.
+        /// </summary>
         private static bool IsEmptyHeaderFooter(WSection section)
         {
             if (section.HeadersFooters.OddHeader.ChildEntities.Count > 0
