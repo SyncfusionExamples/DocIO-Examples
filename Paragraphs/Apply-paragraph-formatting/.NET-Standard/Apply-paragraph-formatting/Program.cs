@@ -25,11 +25,11 @@ namespace Apply_paragraph_formatting
                     paragraph.ParagraphFormat.LineSpacing = 10f;
                     paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
                     //Access paragraph in a Word document.
-                    paragraph = document.Sections[0].Paragraphs[8] as WParagraph;
+                    paragraph = document.Sections[0].Paragraphs[7] as WParagraph;
                     //Apply keep lines together property to the paragraph.
                     paragraph.ParagraphFormat.Keep = true;
                     //Access paragraph in a Word document.
-                    paragraph = document.Sections[0].Paragraphs[22] as WParagraph;
+                    paragraph = document.Sections[0].Paragraphs[20] as WParagraph;
                     //Apply keep with next property to the paragraph.
                     paragraph.ParagraphFormat.KeepFollow = true;
                     //Create a file stream.
