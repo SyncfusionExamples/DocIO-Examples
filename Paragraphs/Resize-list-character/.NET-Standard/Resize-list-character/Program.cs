@@ -10,26 +10,26 @@ namespace Resize_list_character
         {
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Creates a new Word document.
+                //Open the template document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
-                    //Gets the textbody content.
+                    //Get the textbody content and adds it to document section.
                     WTextBody textbody = document.Sections[0].Body;
-                    //Iterates through the paragraphs.
+                    //Iterate through thedocument paragraphs.
                     foreach (WParagraph paragraph in textbody.Paragraphs)
                     {
-                        //Gets the symbol from the paragraph items.
+                        //Get the symbol from the paragraph items.
                         foreach (ParagraphItem item in paragraph.ChildEntities)
                         {
-                            //If paragraph has list, then change the list character size
+                            //Change the list character size.
                             if (paragraph.ListFormat != null && paragraph.ListFormat.CurrentListLevel != null)
                                 paragraph.ListFormat.CurrentListLevel.CharacterFormat.FontSize = 25;
                         }
                     }
-                    //Creates file stream.
+                    //Create file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
-                        //Saves the Word document to file stream.
+                        //Save the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);
                     }
                 }
