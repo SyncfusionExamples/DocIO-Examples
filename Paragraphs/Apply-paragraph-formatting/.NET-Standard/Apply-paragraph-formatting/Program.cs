@@ -15,8 +15,10 @@ namespace Apply_paragraph_formatting
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    //Access paragraph in a Word document.
-                    WParagraph paragraph = document.Sections[0].Paragraphs[4] as WParagraph;
+                    //Access the section in a Word document.
+                    IWSection section = document.Sections[0];
+                    //Access the paragraph in a Word document.
+                    IWParagraph paragraph = section.Paragraphs[4];
                     //Apply paragraph formatting.
                     paragraph.ParagraphFormat.AfterSpacing = 18f;
                     paragraph.ParagraphFormat.BeforeSpacing = 18f;
@@ -24,12 +26,12 @@ namespace Apply_paragraph_formatting
                     paragraph.ParagraphFormat.FirstLineIndent = 10f;
                     paragraph.ParagraphFormat.LineSpacing = 10f;
                     paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
-                    //Access paragraph in a Word document.
-                    paragraph = document.Sections[0].Paragraphs[7] as WParagraph;
+                    //Access the paragraph in a Word document.
+                    paragraph = section.Paragraphs[7];
                     //Apply keep lines together property to the paragraph.
                     paragraph.ParagraphFormat.Keep = true;
-                    //Access paragraph in a Word document.
-                    paragraph = document.Sections[0].Paragraphs[20] as WParagraph;
+                    //Access the paragraph in a Word document.
+                    paragraph = section.Paragraphs[6];
                     //Apply keep with next property to the paragraph.
                     paragraph.ParagraphFormat.KeepFollow = true;
                     //Create a file stream.
