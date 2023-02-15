@@ -10,21 +10,22 @@ namespace Insert_author_name
         {
             using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
-                //Opens the template document.
+                //Open the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
-                {   //Get the section in a Word document.
+                {   
+                    //Get the section in a Word document.
                     IWSection section = document.LastSection;
                     //Add paragraph to the document section.
                     IWParagraph paragraph = section.AddParagraph();
                     paragraph.AppendText("Author: ");
                     //Add field to represent Author from document properties.
                     paragraph.AppendField("Author", FieldType.FieldDocProperty);
-                    //Updates the fields in Word document.
+                    //Update the fields in Word document.
                     document.UpdateDocumentFields();
-                    //Creates file stream.
+                    //Create file stream.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
-                        //Saves the Word document to file stream.
+                        //Save the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
                     }
                 }
