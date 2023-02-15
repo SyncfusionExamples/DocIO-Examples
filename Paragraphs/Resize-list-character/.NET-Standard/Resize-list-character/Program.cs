@@ -48,7 +48,6 @@ namespace Resize_list_character
         /// <summary>
         /// Iterate through document textbody.
         /// </summary>
-        /// <param name="textBody"></param>
         private static void IterateTextBody(WTextBody textBody)
         {
             //Iterate through each of the child items of WTextBody
@@ -80,7 +79,6 @@ namespace Resize_list_character
         /// <summary>
         /// Iterate through document table.
         /// </summary>
-        /// <param name="table"></param>
         private static void IterateTable(WTable table)
         {
             //Iterate the row collection in a table
