@@ -9,27 +9,37 @@ namespace Apply_paragraph_formatting
     {
         static void Main(string[] args)
         {
-            //Creates a new Word document.
-            using (WordDocument document = new WordDocument())
+            //Open the file as a stream.
+            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Adds new section to the document.
-                IWSection section = document.AddSection();
-                //Adds new paragraph to the section.
-                IWParagraph paragraph = section.AddParagraph();
-                //Adds new text to the paragraph.
-                IWTextRange firstText = paragraph.AppendText("Paragraphs are the basic elements of the Word document. It can contain text and images.");
-                //Applies paragraph formatting.
-                paragraph.ParagraphFormat.AfterSpacing = 18f;
-                paragraph.ParagraphFormat.BeforeSpacing = 18f;
-                paragraph.ParagraphFormat.BackColor = Color.LightGray;
-                paragraph.ParagraphFormat.FirstLineIndent = 10f;
-                paragraph.ParagraphFormat.LineSpacing = 10f;
-                paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Right;
-                //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                //Load the file stream into a Word document.
+                using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    //Saves the Word document to file stream.
-                    document.Save(outputFileStream, FormatType.Docx);
+                    //Access the section in a Word document.
+                    IWSection section = document.Sections[0];
+                    //Access the paragraph in a Word document.
+                    IWParagraph paragraph = section.Paragraphs[4];
+                    //Apply paragraph formatting.
+                    paragraph.ParagraphFormat.AfterSpacing = 18f;
+                    paragraph.ParagraphFormat.BeforeSpacing = 18f;
+                    paragraph.ParagraphFormat.BackColor = Color.LightGray;
+                    paragraph.ParagraphFormat.FirstLineIndent = 10f;
+                    paragraph.ParagraphFormat.LineSpacing = 10f;
+                    paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;
+                    //Access the paragraph in a Word document.
+                    paragraph = section.Paragraphs[7];
+                    //Apply keep lines together property to the paragraph.
+                    paragraph.ParagraphFormat.Keep = true;
+                    //Access the paragraph in a Word document.
+                    paragraph = section.Paragraphs[6];
+                    //Apply keep with next property to the paragraph.
+                    paragraph.ParagraphFormat.KeepFollow = true;
+                    //Create a file stream.
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    {
+                        //Save the Word document to the file stream.
+                        document.Save(outputFileStream, FormatType.Docx);
+                    }
                 }
             }
         }
