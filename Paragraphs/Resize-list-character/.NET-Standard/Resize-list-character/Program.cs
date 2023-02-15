@@ -13,9 +13,10 @@ namespace Resize_list_character
                 //Open the template document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
+                    //Iterate through each section of the Word document.
                     foreach (WSection section in document.Sections)
                     {
-                        //Accesse the Body of section where all the contents in document are apart.
+                        //Access the Body of section where all the contents in document are apart.
                         WTextBody sectionBody = section.Body;
                         IterateTextBody(sectionBody);
                         IterateHeaderFooter(section);
@@ -31,7 +32,7 @@ namespace Resize_list_character
             }
         }
         /// <summary>
-        /// Iterate through source document section.
+        /// Iterate through the headers and footers.
         /// </summary>
         private static void IterateHeaderFooter(WSection section)
         {
