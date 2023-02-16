@@ -8,32 +8,68 @@ namespace Remove_headers_and_footers
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2VVhkQlFadV5JXGFWfVJpTGpQdk5xdV9DaVZUTWY/P1ZhSXxRd0djXn5ZcXVQRWVfVEA=");
+            //Open the file as a stream.
+            using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"../../../DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opens an input Word template.
-                using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
+                //Load the file stream into a Word document.
+                using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
                 {
-                    //Iterate to each section in the Word document.
-                    foreach (WSection section in document.Sections)
+                    //Get the headers and footers from destination document.
+                    //EntityCollection firstpageheader = destinationDocument.Sections[0].HeadersFooters.FirstPageHeader.ChildEntities;
+                    //EntityCollection firstpagefooter = destinationDocument.Sections[0].HeadersFooters.FirstPageFooter.ChildEntities;
+                    //EntityCollection evenheader = destinationDocument.Sections[0].HeadersFooters.EvenHeader.ChildEntities;
+                    //EntityCollection evenfooter = destinationDocument.Sections[0].HeadersFooters.EvenFooter.ChildEntities;
+                    //EntityCollection oddheader = destinationDocument.Sections[0].HeadersFooters.OddHeader.ChildEntities;
+                    //EntityCollection oddfooter = destinationDocument.Sections[0].HeadersFooters.OddFooter.ChildEntities;
+                    //Open the source document as a stream.
+                    using (FileStream sourceDocumentPathStream = new FileStream(Path.GetFullPath(@"../../../SourceDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                     {
-                        //Remove the first page header.
-                        section.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
-                        //Remove the first page footer.
-                        section.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
-                        //Remove the odd footer.
-                        section.HeadersFooters.OddFooter.ChildEntities.Clear();
-                        //Remove the odd header.
-                        section.HeadersFooters.OddHeader.ChildEntities.Clear();
-                        //Remove the even header.
-                        section.HeadersFooters.EvenHeader.ChildEntities.Clear();
-                        //Remove the even footer.
-                        section.HeadersFooters.EvenFooter.ChildEntities.Clear();
+                        //Open the source document.
+                        using (WordDocument sourceDocument = new WordDocument(sourceDocumentPathStream, FormatType.Docx))
+                        {
+                            int count = 0;
+                            //Iterate source document.
+                            foreach (WSection sourceDocumentSection in sourceDocument.Sections)
+                            {
+                                
+                                //Remove the first page header.
+                                sourceDocumentSection.HeadersFooters.FirstPageHeader.ChildEntities.Clear();
+                                //Remove the first page footer.
+                                sourceDocumentSection.HeadersFooters.FirstPageFooter.ChildEntities.Clear();
+                                //Remove the even header.
+                                sourceDocumentSection.HeadersFooters.EvenHeader.ChildEntities.Clear();
+                                //Remove the even footer.
+                                sourceDocumentSection.HeadersFooters.EvenFooter.ChildEntities.Clear();
+                                //Remove the odd header.
+                                sourceDocumentSection.HeadersFooters.OddHeader.ChildEntities.Clear();
+                                //Remove the odd footer.
+                                sourceDocumentSection.HeadersFooters.OddFooter.ChildEntities.Clear();
+                                //sourceDocumentSection.HeadersFooters.LinkToPrevious = true;
+                                //destinationDocument.Sections.Add(sourceDocumentSection.Clone());
+                                //foreach (Entity èntity in firstpageheader)
+                                //    (sourceDocumentSection.HeadersFooters.FirstPageHeader as HeaderFooter).ChildEntities.Add(èntity.Clone());
+                                //foreach (Entity èntity in firstpagefooter)
+                                //    (sourceDocumentSection.HeadersFooters.FirstPageFooter as HeaderFooter).ChildEntities.Add(èntity.Clone());
+                                //foreach (Entity èntity in evenheader)
+                                //    (sourceDocumentSection.HeadersFooters.EvenHeader as HeaderFooter).ChildEntities.Add(èntity.Clone());
+                                //foreach (Entity èntity in evenfooter)
+                                //    (sourceDocumentSection.HeadersFooters.EvenFooter as HeaderFooter).ChildEntities.Add(èntity.Clone());
+                                //foreach (Entity èntity in oddheader)
+                                //    (sourceDocumentSection.HeadersFooters.OddHeader as HeaderFooter).ChildEntities.Add(èntity.Clone());
+                                //foreach (Entity èntity in oddfooter)
+                                //    (sourceDocumentSection.HeadersFooters.OddFooter as HeaderFooter).ChildEntities.Add(èntity.Clone());
+                            }
+                            destinationDocument.ImportContent(sourceDocument,ImportOptions.UseDestinationStyles);
+                            count++;
+                        }
+                        
                     }
-                    //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    //Create a file stream.
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
-                        //Saves the Word document to file stream.
-                        document.Save(outputFileStream, FormatType.Docx);
+                        //Save the Word document to the file stream.
+                        destinationDocument.Save(outputFileStream, FormatType.Docx);
                     }
                 }
             }
