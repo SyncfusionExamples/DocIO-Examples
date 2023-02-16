@@ -77,7 +77,6 @@ namespace Create_high_low_close_chart
                 series3.SerieFormat.MarkerBackgroundColorIndex = OfficeKnownColors.Light_yellow;
                 series3.SerieFormat.LineProperties.LinePattern = OfficeChartLinePattern.Solid;
                 series3.SerieFormat.LineProperties.LineColor = Color.Black;
-
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
