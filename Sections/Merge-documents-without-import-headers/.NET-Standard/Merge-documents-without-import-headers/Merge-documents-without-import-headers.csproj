@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RootNamespace>Reset_page_numbers_after_each_record</RootNamespace>
+    <RootNamespace>Merge_documents_without_import_headers</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
