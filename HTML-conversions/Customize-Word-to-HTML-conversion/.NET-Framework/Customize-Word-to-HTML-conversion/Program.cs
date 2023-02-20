@@ -24,6 +24,8 @@ namespace Customize_Word_to_HTML_conversion
                 wordDocument.SaveOptions.HtmlExportCssStyleSheetFileName = "UserDefinedFileName.css";
                 //Export the Word document image as Base-64 embedded image.
                 wordDocument.SaveOptions.HTMLExportImageAsBase64 = false;
+                //Set value to omit XML declaration in the exported html file.
+                wordDocument.SaveOptions.HtmlExportOmitXmlDeclaration = true;
                 //Saves the document as html file.
                 export.SaveAsXhtml(wordDocument, Path.GetFullPath(@"../../WordtoHtml.html"));
             }
