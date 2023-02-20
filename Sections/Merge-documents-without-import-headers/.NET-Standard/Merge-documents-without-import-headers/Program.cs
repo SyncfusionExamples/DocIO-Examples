@@ -9,19 +9,19 @@ namespace Merge_documents_without_import_headers
         static void Main(string[] args)
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2VVhkQlFadV5JXGFWfVJpTGpQdk5xdV9DaVZUTWY/P1ZhSXxRd0djXn5ZcXVQRWVfVEA=");
-            //Open the file as a stream.
+            //Load the destination Word document as a stream.
             using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"../../../DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Load the file stream into a Word document.
+                //Open the destination Word document.
                 using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
                 {
-                    //Open the source document as a stream.
+                    //Load the source Word document as a stream.
                     using (FileStream sourceDocumentPathStream = new FileStream(Path.GetFullPath(@"../../../SourceDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                     {
-                        //Open the source document.
+                        //Open the source Word document.
                         using (WordDocument sourceDocument = new WordDocument(sourceDocumentPathStream, FormatType.Docx))
                         {
-                            //Iterate source document.
+                            //Iterate source Word document sections.
                             foreach (WSection sourceDocumentSection in sourceDocument.Sections)
                             {
                                 //Remove the first page header.
@@ -37,6 +37,7 @@ namespace Merge_documents_without_import_headers
                                 //Remove the odd footer.
                                 sourceDocumentSection.HeadersFooters.OddFooter.ChildEntities.Clear();
                             }
+                            //Merge source Word document content to destination Word document.
                             destinationDocument.ImportContent(sourceDocument);
                         }
                     }
