@@ -12,7 +12,7 @@ namespace Insert_author_name
             {
                 //Open the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
-                {   
+                {
                     //Get the section in a Word document.
                     IWSection section = document.LastSection;
                     //Add paragraph to the document section.
