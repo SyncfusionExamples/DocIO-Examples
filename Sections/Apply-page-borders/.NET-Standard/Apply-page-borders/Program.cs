@@ -9,20 +9,19 @@ namespace Apply_page_borders
     {
         static void Main(string[] args)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2VVhkQlFadV5JXGFWfVJpTGpQdk5xdV9DaVZUTWY/P1ZhSXxRd0djXn5ZcXVQRWVfVEA=");
             //Create a new Word document.
             using (WordDocument document = new WordDocument())
             {
                 //Add a section to the document.
                 IWSection section = document.AddSection();
                 //Set the borders style.
-                section.PageSetup.Borders.BorderType = BorderStyle.Single;
+                section.PageSetup.Borders.BorderType = BorderStyle.Double;
                 //Set the color of the borders.
-                section.PageSetup.Borders.Color = Color.Black;
+                section.PageSetup.Borders.Color = Color.Blue;
                 //Set the linewidth of the borders.
-                section.PageSetup.Borders.LineWidth = 0.5f;
+                section.PageSetup.Borders.LineWidth = 0.75f;
                 //Set whether the borders should be drawn with shadows.
-                section.PageSetup.Borders.Shadow = false;
+                section.PageSetup.Borders.Shadow = true;
                 //Add a paragraph to a section.
                 IWParagraph paragraph = section.AddParagraph();
                 paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
@@ -36,3 +35,4 @@ namespace Apply_page_borders
         }
     }
 }
+
