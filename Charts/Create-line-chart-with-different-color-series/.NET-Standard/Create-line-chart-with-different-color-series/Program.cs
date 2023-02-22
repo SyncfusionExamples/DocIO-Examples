@@ -61,9 +61,9 @@ namespace Create_line_chart_with_different_color_series
                 series2.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
                 series3.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
                 //Set different colors for the series.
-                series1.SerieFormat.LineProperties.LineColor = Color.Blue;
-                series2.SerieFormat.LineProperties.LineColor = Color.Black;
-                series3.SerieFormat.LineProperties.LineColor = Color.Red;
+                series1.SerieFormat.LineProperties.LineColor = Color.Green;
+                series2.SerieFormat.LineProperties.LineColor = Color.Purple;
+                series3.SerieFormat.LineProperties.LineColor = Color.Turquoise;
                 //Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
