@@ -13,14 +13,14 @@ namespace Reset_page_numbers_after_each_record
         {
             using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
-                //Loads an existing Word document into DocIO instance.
+                //Open the input Word document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
                 {
-                    //Gets the employee details as IEnumerable collection.
+                    //Get the employee details as IEnumerable collection.
                     List<Employee> employeeList = GetEmployees();
-                    //Creates an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection.
+                    //Create an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection.
                     MailMergeDataTable dataSource = new MailMergeDataTable("Employees", employeeList);
-                    //Performs Mail merge.
+                    //Perform Mail merge.
                     document.MailMerge.ExecuteGroup(dataSource);
 
                     #region Split Word document by sections
@@ -36,24 +36,24 @@ namespace Reset_page_numbers_after_each_record
                         //Insert section break
                         InsertSectionBreak(para, srcSection);
                         WSection curSection = GetSection(para);
-                        //Removes the place holder.
+                        //Remove the place holder.
                         curSection.Body.ChildEntities.Remove(para);
                     }
                     #endregion
 
                     #region Resets the page number
-                    //Iterates each section from Word document.
+                    //Iterate each section from Word document.
                     foreach (WSection section in document.Sections)
                     {
-                        //Resets the page number.
+                        //Reset the page number.
                         section.PageSetup.RestartPageNumbering = true;
                         section.PageSetup.PageStartingNumber = 1;
                     }
                     #endregion
-                    //Creates file stream.
+                    //Create file stream.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
-                        //Saves the Word document to file stream.
+                        //Save the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
                     }
                 }
@@ -78,7 +78,7 @@ namespace Reset_page_numbers_after_each_record
                                               .ToList();
             //Create a new section that is positioned after the current section.
             var newSection = new WSection(bodyItem.Document);
-            //Updates the section properties of the template document.
+            //Update the section properties of the template document.
             CopySectionProperties(newSection, srcSection);
             //Add new section as a sibling of current section
             AddSiblings(currentSection, new[] { newSection });
@@ -105,7 +105,7 @@ namespace Reset_page_numbers_after_each_record
             return container.ChildEntities.IndexOf(entity);
         }
         /// <summary>
-        /// Geth the section of the specified entity
+        /// Get the section of the specified entity
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -141,9 +141,9 @@ namespace Reset_page_numbers_after_each_record
         /// <param name="sectionToCopyFrom"></param>
         private static void CopySectionProperties(IWSection newSection, IWSection srcSection)
         {
-            //Updates section break code.
+            //Update section break code.
             newSection.BreakCode = srcSection.BreakCode;
-            //Updates column size.
+            //Update column size.
             foreach (Column column in srcSection.Columns)
             {
                 newSection.AddColumn(column.Width, column.Space);
@@ -169,7 +169,7 @@ namespace Reset_page_numbers_after_each_record
             }
         }   
         /// <summary>
-        /// Gets the employee details to perform mail merge.
+        /// Get the employee details to perform mail merge.
         /// </summary>
         public static List<Employee> GetEmployees()
         {
@@ -180,7 +180,7 @@ namespace Reset_page_numbers_after_each_record
             return employees;
         }
         /// <summary>
-        /// Represents a class to maintain employee details.
+        /// Represent a class to maintain employee details.
         /// </summary>
         public class Employee
         {
