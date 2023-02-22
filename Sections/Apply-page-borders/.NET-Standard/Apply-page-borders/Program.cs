@@ -15,7 +15,7 @@ namespace Apply_page_borders
                 //Add a section to the document.
                 IWSection section = document.AddSection();
                 //Set the borders style.
-                section.PageSetup.Borders.BorderType = BorderStyle.Double;
+                section.PageSetup.Borders.BorderType = BorderStyle.Single;
                 //Set the color of the borders.
                 section.PageSetup.Borders.Color = Color.Blue;
                 //Set the linewidth of the borders.
