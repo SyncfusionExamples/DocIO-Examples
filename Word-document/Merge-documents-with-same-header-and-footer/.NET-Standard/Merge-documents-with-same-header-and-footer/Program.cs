@@ -11,11 +11,12 @@ namespace Merge_documents_with_same_header_and_footer
     {
         static void Main(string[] args)
         {
-            //Open the file as a stream.
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2VVhkQlFadV5JXGFWfVJpTGpQdk5xdV9DaVZUTWY/P1ZhSXxRd0djXn5ZcXVQRWVfVEA=");
+            //Open the destination document as a stream.
             using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Load the file stream into a Word document.
-                using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
+                //Open the destination document.
+                using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
                 {
                     //Get the Source document names from the folder.
                     string[] sourceDocumentNames = Directory.GetFiles(@"../../../Data/SourceDocuments/");
