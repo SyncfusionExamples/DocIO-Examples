@@ -21,10 +21,10 @@ namespace Apply_page_borders
                 //Set the linewidth of the borders.
                 section.PageSetup.Borders.LineWidth = 0.75f;
                 //Set the page border margins.
-                section.PageSetup.Borders.Top.Space = 1f;
-                section.PageSetup.Borders.Bottom.Space = 1f;
-                section.PageSetup.Borders.Right.Space = 4f;
-                section.PageSetup.Borders.Left.Space = 4f;
+                section.PageSetup.Borders.Top.Space = 5f;
+                section.PageSetup.Borders.Bottom.Space = 5f;
+                section.PageSetup.Borders.Right.Space = 5f;
+                section.PageSetup.Borders.Left.Space = 5f;
                 //Add a paragraph to a section.
                 IWParagraph paragraph = section.AddParagraph();
                 paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
