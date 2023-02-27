@@ -26,12 +26,11 @@ namespace Save_image_in_folder_in_Word_to_HTML
                 }
             }
         }
-        //The following code examples show the event handler to customize the image path and save the image in an external folder.
         static int imageCount = 0;
         static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
         {
-
-            string imagepath = @"C:\OfficeWork\Image_" + imageCount + ".png";
+            //The following code examples show the event handler to customize the image path and save the image in an external folder.
+            string imagepath = @"D:\Temp\Image_" + imageCount + ".png";
             //Save the image stream as a file.
             using (FileStream fileStreamOutput = File.Create(imagepath))
                 args.ImageStream.CopyTo(fileStreamOutput);
