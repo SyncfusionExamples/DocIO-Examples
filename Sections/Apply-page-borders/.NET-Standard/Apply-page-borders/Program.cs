@@ -12,7 +12,7 @@ namespace Apply_page_borders
             //Create a new Word document.
             using (WordDocument document = new WordDocument())
             {
-                //Add a section to the document.
+                //Add a section to the Word document.
                 IWSection section = document.AddSection();
                 //Set the borders style.
                 section.PageSetup.Borders.BorderType = BorderStyle.Single;
@@ -20,8 +20,11 @@ namespace Apply_page_borders
                 section.PageSetup.Borders.Color = Color.Blue;
                 //Set the linewidth of the borders.
                 section.PageSetup.Borders.LineWidth = 0.75f;
-                //Set whether the borders should be drawn with shadows.
-                section.PageSetup.Borders.Shadow = true;
+                //Set the page border margins.
+                section.PageSetup.Borders.Top.Space = 1f;
+                section.PageSetup.Borders.Bottom.Space = 1f;
+                section.PageSetup.Borders.Right.Space = 4f;
+                section.PageSetup.Borders.Left.Space = 4f;
                 //Add a paragraph to a section.
                 IWParagraph paragraph = section.AddParagraph();
                 paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
