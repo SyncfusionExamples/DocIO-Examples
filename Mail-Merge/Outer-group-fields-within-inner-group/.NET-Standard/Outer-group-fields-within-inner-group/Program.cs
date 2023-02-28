@@ -15,18 +15,20 @@ namespace Outer_group_fields_within_inner_group
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
-                   //Creates the commends.
-                   ArrayList cmds = new ArrayList();
-                   cmds.Add(new DictionaryEntry("Bills", ""));
-                   cmds.Add(new DictionaryEntry("ProductDetails", "BillId = %Bills.BillId%"));
-                   cmds.Add(new DictionaryEntry("Price", "DetailID = %ProductDetails.DetailID%"));
+                   //Creates the commands which contains the queries to get the data from dataset.
+                   ArrayList commands = new ArrayList();
+                   commands.Add(new DictionaryEntry("Bills", ""));
+                   commands.Add(new DictionaryEntry("ProductDetails", "BillId = %Bills.BillId%"));
+                   commands.Add(new DictionaryEntry("Price", "DetailID = %ProductDetails.DetailID%"));
 
-                   //Creates the Data set
+                   //Creates the Data set that contains data to perform mail merge.
                    DataSet dataSet = GetDataSet();
+                   //Removes group which contain empty merge fields.
                    document.MailMerge.RemoveEmptyGroup = true;
+                   //Removes paragraphs which contain empty merge fields.
                    document.MailMerge.RemoveEmptyParagraphs = true;
-                   //Excutes the nested mail merge
-                   document.MailMerge.ExecuteNestedGroup(dataSet, cmds);
+                   //Excutes the nested mail merge.
+                   document.MailMerge.ExecuteNestedGroup(dataSet, commands);
                     //Creates file stream.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
