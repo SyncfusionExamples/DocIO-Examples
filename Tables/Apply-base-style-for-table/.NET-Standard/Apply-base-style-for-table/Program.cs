@@ -12,7 +12,7 @@ namespace Apply_base_style_for_table
             //Create a new Word document.
             using (WordDocument document = new WordDocument())
             {
-                //Add one section and paragraph in document.
+                //Add one section and paragraph to the document.
                 document.EnsureMinimal();
                 //Add a table to the Word document.
                 WTable table = document.LastSection.AddTable() as WTable;
@@ -26,15 +26,15 @@ namespace Apply_base_style_for_table
                 //Add a new custom table style.
                 WTableStyle tableStyle = document.AddTableStyle("CustomStyle1") as WTableStyle;
                 tableStyle.TableProperties.RowStripe = 1;
-                //Apply conditional formatting for first row.
+                //Apply conditional formatting for the first row.
                 ConditionalFormattingStyle firstRowStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
                 firstRowStyle.CharacterFormat.Bold = true;
-                //Apply conditional formatting for odd row.
+                //Apply conditional formatting for the odd row.
                 ConditionalFormattingStyle oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
                 oddRowBandingStyle.CharacterFormat.Italic = true;
                 // Apply built in table style as base style for CustomStyle1.
                 tableStyle.ApplyBaseStyle(BuiltinTableStyle.TableContemporary);
-                //Applies the custom table style to the table
+                //Appliy the custom table style to the table.
                 table.ApplyStyle("CustomStyle1");
 
                 document.LastSection.AddParagraph();
@@ -48,23 +48,23 @@ namespace Apply_base_style_for_table
                 table[2, 0].AddParagraph().AppendText("Row 3 Cell 1");
                 table[2, 1].AddParagraph().AppendText("Row 3 Cell2");
 
-                //Adds a new custom table style.
+                //Add a new custom table style.
                 tableStyle = document.AddTableStyle("CustomStyle2") as WTableStyle;
                 tableStyle.TableProperties.RowStripe = 1;
-                //Apply conditional formatting for first row.
+                //Apply conditional formatting for the first row.
                 firstRowStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
                 firstRowStyle.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
-                //Apply conditional formatting for odd row.
+                //Apply conditional formatting for the odd row.
                 oddRowBandingStyle = tableStyle.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
                 oddRowBandingStyle.CharacterFormat.TextColor = Color.Red;
 
                 //Add a new custom table style.
                 WTableStyle tableStyle2 = document.AddTableStyle("CustomStyle3") as WTableStyle;
                 tableStyle2.TableProperties.RowStripe = 1;
-                //Apply conditional formatting for first row.
+                //Apply conditional formatting for the first row.
                 ConditionalFormattingStyle firstRowStyle2 = tableStyle2.ConditionalFormattingStyles.Add(ConditionalFormattingType.FirstRow);
                 firstRowStyle2.CellProperties.BackColor = Color.Blue;
-                //Apply conditional formatting for odd row.
+                //Apply conditional formatting for the odd row.
                 ConditionalFormattingStyle oddRowStyle2 = tableStyle2.ConditionalFormattingStyles.Add(ConditionalFormattingType.OddRowBanding);
                 oddRowStyle2.CellProperties.BackColor = Color.Yellow;
                 //Apply custom table style as base style for another custom table style.
