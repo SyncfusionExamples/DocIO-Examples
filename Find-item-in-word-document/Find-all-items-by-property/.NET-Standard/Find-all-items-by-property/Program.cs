@@ -16,12 +16,13 @@ namespace Find_all_items_by_property
                 {
                     //Find all footnote and endnote by EntityType in Word document.
                     List<Entity> footNotes = document.FindAllItemsByProperty(EntityType.Footnote, null, null);
-                    //Remove footnotes and endnotes.
+                    //Remove the footnotes and endnotes.
                     for (int i = 0; i < footNotes.Count; i++)
                     {
                         WFootnote footnote = footNotes[i] as WFootnote;
                         footnote.OwnerParagraph.ChildEntities.Remove(footnote);
                     }
+
                     //Find all fields by FieldType.
                     List<Entity> fields = document.FindAllItemsByProperty(EntityType.Field, "FieldType", FieldType.FieldHyperlink.ToString());
                     //Iterate the hyperlink field and change URL.

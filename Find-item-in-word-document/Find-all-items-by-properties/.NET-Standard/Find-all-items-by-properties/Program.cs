@@ -20,31 +20,33 @@ namespace Find_all_items_by_properties
                     //Find all block content controls by Title and Tag. 
                     List<Entity> blockContentControls = document.FindAllItemsByProperties(EntityType.BlockContentControl, propertyNames, propertyValues);
 
-                    //Iterates the block content controls and remove the block content controls.
+                    //Iterate the block content controls and remove the block content controls.
                     for (int i = 0; i < blockContentControls.Count; i++)
                     {
                         BlockContentControl blockContentControl = blockContentControls[i] as BlockContentControl;
                         blockContentControl.OwnerTextBody.ChildEntities.Remove(blockContentControl);
                     }
+
                     propertyNames = new string[] { "ContentControlProperties.Title", "ContentControlProperties.Tag" };
                     propertyValues = new string[] { "Contact", "Contact" };
 
-                    //Find all inline content controls by Title and Tag. 
+                    //Find all the inline content controls by Title and Tag. 
                     List<Entity> inlineContentControls = document.FindAllItemsByProperties(EntityType.InlineContentControl, propertyNames, propertyValues);
 
-                    //Iterates the inline content controls and remove the inline content controls.
+                    //Iterate the inline content controls and remove the inline content controls.
                     for (int i = 0; i < inlineContentControls.Count; i++)
                     {
                         InlineContentControl inlineContentControl = inlineContentControls[i] as InlineContentControl;
                         inlineContentControl.OwnerParagraph.ChildEntities.Remove(inlineContentControl);
                     }
+
                     propertyNames = new string[] { "CharacterFormat.Bold", "CharacterFormat.Italic" };
                     propertyValues = new string[] { true.ToString(), true.ToString() };
 
-                    //Find all bold and italic text.
+                    //Find all the bold and italic text.
                     List<Entity> textRanges = document.FindAllItemsByProperties(EntityType.TextRange, propertyNames, propertyValues);
 
-                    //Iterates the textRanges and remove the bold and italic.
+                    //Iterate the textRanges and remove the bold and italic.
                     for (int i = 0; i < textRanges.Count; i++)
                     {
                         WTextRange textRange = textRanges[i] as WTextRange;

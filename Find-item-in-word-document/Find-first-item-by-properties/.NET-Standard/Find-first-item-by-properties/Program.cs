@@ -16,7 +16,7 @@ namespace Find_first_item_by_properties
                 {
                     string[] propertyNames = { "ChartType", "ChartTitle" };
                     string[] propertyValues = { OfficeChartType.Pie.ToString(), "Sales" };
-                    //Find chart by ChartType and ChartTitle.
+                    //Find the chart by ChartType and ChartTitle.
                     WChart chart = document.FindItemByProperties(EntityType.Chart, propertyNames, propertyValues) as WChart;
                     //Rename the ChartTitle.
                     if (chart != null)
@@ -24,7 +24,7 @@ namespace Find_first_item_by_properties
 
                     propertyNames = new string[] { "Title", "Rows.Count" };
                     propertyValues = new string[] { "SupplierDetails", "6" };
-                    //Find table by Title and Rows Count
+                    //Find the table by Title and Rows Count
                     WTable table = document.FindItemByProperties(EntityType.Table, propertyNames, propertyValues) as WTable;
                     //Remove the table in document.
                     if (table != null)
