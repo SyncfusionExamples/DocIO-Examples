@@ -27,16 +27,16 @@ namespace Customize_image
         }
         private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
         {
-            //Set image stream based on image name from input Markdown.
+            //Set the image stream based on the image name from the input Markdown.
             if (args.Uri == "Image_1.png")
                 args.ImageStream = new FileStream("Image_1.png", FileMode.Open);
             else if (args.Uri == "Image_2.png")
                 args.ImageStream = new FileStream("Image_2.png", FileMode.Open);
-            //Retrive image from website and use
+            //Retrive the image from the website and use it.
             else if (args.Uri.StartsWith("https://"))
             {
                 WebClient client = new WebClient();
-                //Download the image as stream.
+                //Download the image as a stream.
                 byte[] image = client.DownloadData(args.Uri);
                 Stream stream = new MemoryStream(image);
                 //Set the retrieved image from the input Markdown.
