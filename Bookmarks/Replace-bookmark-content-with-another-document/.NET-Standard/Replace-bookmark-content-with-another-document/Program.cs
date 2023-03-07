@@ -8,12 +8,12 @@ namespace Replace_bookmark_content_with_another_document
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Open destination Word document.
-                using (WordDocument templateDocument = new WordDocument(fileStreamPath, FormatType.Automatic))
+                using (WordDocument templateDocument = new WordDocument(fileStreamPath, FormatType.Automatic)) 
                 {
-                    using (FileStream sourceFileStream = new FileStream(Path.GetFullPath(@"../../../Data/variation.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    using (FileStream sourceFileStream = new FileStream(Path.GetFullPath(@"../../../Data/SourceDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                     {
                         //Open an source Word document for copying all the content.
                         using (WordDocument sourceDocument = new WordDocument(sourceFileStream, FormatType.Automatic))
