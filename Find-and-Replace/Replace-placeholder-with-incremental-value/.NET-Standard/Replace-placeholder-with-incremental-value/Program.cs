@@ -23,10 +23,10 @@ namespace Replace_placeholder_with_incremental_value
                         textRange.Text = counter.ToString();
                         counter++;
                     }
-                    //Creates file stream.
+                    //Create file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
-                        //Saves the Word document to file stream.
+                        //Save the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);
                     }
                 }               
