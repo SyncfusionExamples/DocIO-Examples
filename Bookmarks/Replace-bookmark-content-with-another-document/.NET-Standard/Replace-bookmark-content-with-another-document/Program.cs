@@ -8,20 +8,20 @@ namespace Replace_bookmark_content_with_another_document
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/DestinationWordDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Open destination Word document.
-                using (WordDocument templateDocument = new WordDocument(fileStreamPath, FormatType.Automatic)) 
+                using (WordDocument destinationWordDocument = new WordDocument(fileStreamPath, FormatType.Automatic)) 
                 {
-                    using (FileStream sourceFileStream = new FileStream(Path.GetFullPath(@"../../../Data/SourceDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    using (FileStream sourceFileStream = new FileStream(Path.GetFullPath(@"../../../Data/SourceWordDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                     {
-                        //Open an source Word document for copying all the content.
-                        using (WordDocument sourceDocument = new WordDocument(sourceFileStream, FormatType.Automatic))
+                        //Open the source Word document to copy all the content.
+                        using (WordDocument sourceWordDocument = new WordDocument(sourceFileStream, FormatType.Automatic))
                         {
                             //Get all the content as Word document part.
-                            WordDocumentPart wordDocumentPart = new WordDocumentPart(sourceDocument);
+                            WordDocumentPart wordDocumentPart = new WordDocumentPart(sourceWordDocument);
                             //Create the bookmark navigator instance to access the bookmark.
-                            BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(templateDocument);
+                            BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(destinationWordDocument);
                             //Move the virtual cursor to the location before the end of the bookmark "Adventure_Bkmk".
                             bookmarkNavigator.MoveToBookmark("Adventure_Bkmk");
                             //Replace the bookmark content with Word document part.
@@ -30,7 +30,7 @@ namespace Replace_bookmark_content_with_another_document
                             using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                             {
                                 //Save the Word document to file stream.
-                                templateDocument.Save(outputFileStream, FormatType.Docx);
+                                destinationWordDocument.Save(outputFileStream, FormatType.Docx);
                             }
                         }
                     }
