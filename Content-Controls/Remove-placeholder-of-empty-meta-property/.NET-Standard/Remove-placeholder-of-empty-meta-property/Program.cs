@@ -10,40 +10,40 @@ namespace Remove_placeholder_of_empty_meta_property
         static void Main(string[] args)
         {
             //Open the file as a stream.
-            using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read))
+            using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Data/Test4Mock_Modified.docx"), FileMode.Open, FileAccess.Read))
             {
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
                 {
-                    //Iterate section in the Word hdocument.
+                    //Iterate section in the Word document.
                     foreach (WSection section in document.Sections)
                     {
-                        //Access the Body of section where all the contents in document are apart.
+                        //Access the Body of the section where all the contents in the document are apart.
                         WTextBody sectionBody = section.Body;
                         IterateTextBody(sectionBody);
                     }
                     //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
-                        //Save the Word document to the file stream.
-                        document.Save(outputFileStream, FormatType.Docx);
+                        //Save the Word document to the file stream.
+                        document.Save(outputFileStream, FormatType.Docx);
                     }
                 }
             }
             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Sample.docx")) { UseShellExecute = true });
         }
         /// <summary>
-        /// Iterate TextBody of the Word document.
+        /// Iterate the TextBody of the Word document.
         /// </summary>
         private static void IterateTextBody(WTextBody textBody)
         {
-            //Iterate through child entities of WTextBody.
+            //Iterate through child entities of the WTextBody.
             for (int i = 0; i < textBody.ChildEntities.Count; i++)
             {
-                //IEntity is the basic unit in DocIO DOM. 
-                //Access the body items (should be either paragraph, table or block content control) as IEntity.
+                //IEntity is the basic unit in the DocIO DOM. 
+                //Access the body items (should be either paragraph, table, or block content control) as IEntity.
                 IEntity bodyItemEntity = textBody.ChildEntities[i];
-                //Get the element type by using EntityType.
+                //Get the element type by using the EntityType.
                 switch (bodyItemEntity.EntityType)
                 {
                     case EntityType.Paragraph:
@@ -59,7 +59,7 @@ namespace Remove_placeholder_of_empty_meta_property
                         BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                         //Check whether the content control is xml mapped with meta property.
                         //Also check whether the corresponding meta property value is empty.
-                        //If value is empty, remove the content control.
+                        //If the value is empty, remove the content control.
                         if (IsRemoveContentControl(blockContentControl))
                         {
                             textBody.ChildEntities.Remove(blockContentControl);
@@ -80,7 +80,7 @@ namespace Remove_placeholder_of_empty_meta_property
                 //Iterate the cell collection in a table row.
                 foreach (WTableCell cell in row.Cells)
                 {
-                    //Reuse the code meant for iterating TextBody.
+                    //Reuse the code meant for iterating the TextBody.
                     IterateTextBody(cell);
                 }
             }
@@ -97,7 +97,7 @@ namespace Remove_placeholder_of_empty_meta_property
                 switch (entity.EntityType)
                 {
                     case EntityType.TextBox:
-                        //Iterate to the body items of textbox.
+                        //Iterate to the body items of the textbox.
                         WTextBox textBox = entity as WTextBox;
                         IterateTextBody(textBox.TextBoxBody);
                         break;
@@ -110,7 +110,7 @@ namespace Remove_placeholder_of_empty_meta_property
                         InlineContentControl inlineContentControl = entity as InlineContentControl;
                         //Check whether the content control is xml mapped with meta property.
                         //Also check whether the corresponding meta property value is empty.
-                        //If value is empty, remove the content control.
+                        //If the value is empty, remove the content control.
                         if (IsRemoveContentControl(inlineContentControl))
                         {
                             paraItems.Remove(inlineContentControl);
@@ -124,7 +124,7 @@ namespace Remove_placeholder_of_empty_meta_property
         /// Check whether the content control is xml mapped with meta property.
         /// </summary>
         /// <param name="entity">The content control.</param>
-        /// <returns>Returns true if content control is need to remove. Otherwise, false.</returns>
+        /// <returns>Returns true if content control is needed to remove. Otherwise, false.</returns>
         private static bool IsRemoveContentControl(IEntity entity)
         {
             switch (entity.EntityType)
@@ -151,18 +151,18 @@ namespace Remove_placeholder_of_empty_meta_property
         /// </summary>
         /// <param name="title">The content control title.</param>
         /// <param name="document">The Word document.</param>
-        /// <returns>Returns true if meta property value is empty. Otherwise, false.</returns>
+        /// <returns>Returns true if the meta property value is empty. Otherwise, false.</returns>
         private static bool IsEmptyMetaProperty(string title, WordDocument document)
         {
             MetaProperties metaProperties = document.ContentTypeProperties;
             //Iterate through the child entities of metaproperties.
             for (int i = 0; i < metaProperties.Count; i++)
             {
-                //Check for particular display name of meta data and ensure its value is empty or not.
+                //Check for a particular display name of metadata and ensure its value is empty or not.
                 if (metaProperties[i].DisplayName == title && metaProperties[i].Value == null)
                     return true;
             }
             return false;
         }
-    }   
+    }
 }
