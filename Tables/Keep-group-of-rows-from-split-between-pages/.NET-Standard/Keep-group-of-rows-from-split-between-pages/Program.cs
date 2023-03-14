@@ -8,7 +8,6 @@ namespace Keep_group_of_rows_from_split_between_pages
     {
         static void Main(string[] args)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2VVhkQlFadV5JXGFWfVJpTGpQdk5xdV9DaVZUTWY/P1ZhSXxRd0djXn5ZcXVQRWVfVEA=");
             //Create a Word document.
             using (WordDocument document = new WordDocument())
             {
