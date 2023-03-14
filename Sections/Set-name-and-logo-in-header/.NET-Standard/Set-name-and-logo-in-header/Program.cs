@@ -8,8 +8,7 @@ namespace Set_name_and_logo_in_header
     {
         static void Main(string[] args)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2VVhkQlFadV5JXGFWfVJpTGpQdk5xdV9DaVZUTWY/P1ZhSXxRd0djXn5ZcXVQRWVfVEA=");
-            //Creates a new Word document.
+            //Create a new Word document.
             using (WordDocument document = new WordDocument())
             {
                 IWSection section = document.AddSection();
