@@ -9,7 +9,6 @@ namespace Remove_placeholder_of_empty_meta_property
     {
         static void Main(string[] args)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2VVhkQlFadV5JXGFWfVJpTGpQdk5xdV9DaVZUTWY/P1ZhSXxRd0djXn5ZcXVQRWVfVEA=");
             //Open the file as a stream.
             using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read))
             {
@@ -124,9 +123,10 @@ namespace Remove_placeholder_of_empty_meta_property
         /// <summary>
         /// Check whether the content control is xml mapped with meta property.
         /// </summary>
+        /// <param name="entity">The content control.</param>
+        /// <returns>Returns true if content control is need to remove. Otherwise, false.</returns>
         private static bool IsRemoveContentControl(IEntity entity)
         {
-
             switch (entity.EntityType)
             {
                 case EntityType.BlockContentControl:
@@ -149,6 +149,9 @@ namespace Remove_placeholder_of_empty_meta_property
         /// <summary>
         /// Check whether the corresponding meta property value is empty.
         /// </summary>
+        /// <param name="title">The content control title.</param>
+        /// <param name="document">The Word document.</param>
+        /// <returns>Returns true if meta property value is empty. Otherwise, false.</returns>
         private static bool IsEmptyMetaProperty(string title, WordDocument document)
         {
             MetaProperties metaProperties = document.ContentTypeProperties;
