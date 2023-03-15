@@ -12,27 +12,26 @@ namespace Outer_group_fields_within_inner_group
         {
             using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
-                //Opens the template document.
+                //Open the template Word document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
-                   //Creates the commands which contains the queries to get the data from dataset.
-                   ArrayList commands = new ArrayList();
-                   commands.Add(new DictionaryEntry("Bills", ""));
-                   commands.Add(new DictionaryEntry("ProductDetails", "BillId = %Bills.BillId%"));
-                   commands.Add(new DictionaryEntry("Price", "DetailID = %ProductDetails.DetailID%"));
-
-                   //Creates the Data set that contains data to perform mail merge.
-                   DataSet dataSet = GetDataSet();
-                   //Removes group which contain empty merge fields.
-                   document.MailMerge.RemoveEmptyGroup = true;
-                   //Removes paragraphs which contain empty merge fields.
-                   document.MailMerge.RemoveEmptyParagraphs = true;
-                   //Excutes the nested mail merge.
-                   document.MailMerge.ExecuteNestedGroup(dataSet, commands);
-                    //Creates file stream.
+                    //Create the commands which contain the queries to get the data from the dataset.
+                    ArrayList commands = new ArrayList();
+                    commands.Add(new DictionaryEntry("Bills", ""));
+                    commands.Add(new DictionaryEntry("ProductDetails", "BillId = %Bills.BillId%"));
+                    commands.Add(new DictionaryEntry("Price", "DetailID = %ProductDetails.DetailID%"));
+                    //Create the data set that contains data to perform the mail merge.
+                    DataSet dataSet = GetDataSet();
+                    //Remove groups that contain empty merge fields. 
+                    document.MailMerge.RemoveEmptyGroup = true;
+                    //Remove paragraphs that contain empty merge fields. 
+                    document.MailMerge.RemoveEmptyParagraphs = true;
+                    //Execute the nested mail merge.
+                    document.MailMerge.ExecuteNestedGroup(dataSet, commands);
+                    //Create a file stream.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
-                        //Saves the Word document to file stream.
+                        //Save a Word document to the file stream.
                         document.Save(outputStream, FormatType.Docx);
                     }
                 }
@@ -40,7 +39,7 @@ namespace Outer_group_fields_within_inner_group
         }
             #region Helpher Methods
             /// <summary>
-            /// Creates data set
+            /// Create a data set to perform the mail merge.
             /// </summary>
             private static DataSet GetDataSet()
             {
