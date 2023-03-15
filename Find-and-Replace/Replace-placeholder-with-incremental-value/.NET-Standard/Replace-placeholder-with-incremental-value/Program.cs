@@ -24,7 +24,7 @@ namespace Replace_placeholder_with_incremental_value
                         counter++;
                     }
                     //Create file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);

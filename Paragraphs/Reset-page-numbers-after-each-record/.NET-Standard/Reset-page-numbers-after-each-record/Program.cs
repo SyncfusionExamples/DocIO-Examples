@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Syncfusion.DocIORenderer;
 
 namespace Reset_page_numbers_after_each_record
 {
@@ -49,6 +50,8 @@ namespace Reset_page_numbers_after_each_record
                         section.PageSetup.RestartPageNumbering = true;
                         section.PageSetup.PageStartingNumber = 1;
                     }
+                    //Updates fields in Word document.
+                    document.UpdateDocumentFields(true);
                     #endregion
                     //Create file stream.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
