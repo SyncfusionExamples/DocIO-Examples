@@ -11,13 +11,13 @@ namespace Merge_without_changing_page_numbers
         static void Main(string[] args)
         {
             //Open the file as a stream.
-            using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"../../../DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Load the file stream into a Word document.
                 using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
                 {
                     //Get the Source document names from the folder.
-                    string[] sourceDocumentNames = Directory.GetFiles(@"../../../Data/");
+                    string[] sourceDocumentNames = Directory.GetFiles(@"../../../Data/SourceDocuments/");
                     foreach (string subDocumentName in sourceDocumentNames)
                     {
                         //Open the source document files as a stream.
