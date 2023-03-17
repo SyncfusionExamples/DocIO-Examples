@@ -17,11 +17,11 @@ namespace Keep_group_of_rows_from_split_between_pages
                 int rowCount = 200;
                 //Set number of row set.
                 int rowSet = 3;
-                //Create table with specified number of rows.
+                //Create a table with specified number of rows.
                 IWTable innerTable = CreateTable(rowCount, rowSet, document);
-                //Create outer table.
+                //Create the outer table.
                 IWTable outerTable = section.AddTable();
-                //Keep a group of rows in same page when one of the group row placed on next page.
+                //Keep a group of rows in the same page when one of the row in group is placed on next page.
                 KeepGroupOfRows(innerTable, outerTable, rowSet);
                 //Create a file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
@@ -32,13 +32,13 @@ namespace Keep_group_of_rows_from_split_between_pages
             }
         }
         /// <summary>
-        /// Create the main table.
+        /// Create a table.
         /// </summary>        
         private static IWTable CreateTable(int rowCount, int rowSet, WordDocument document)
         {
             //Create inner table.
             WTable table = new WTable(document);
-            //Specifie the total number of rows & columns.
+            //Specify the total number of rows & columns.
             table.ResetCells(rowCount, 1);
             int dataNum = 1;
             //Add text to table's row.
@@ -54,7 +54,7 @@ namespace Keep_group_of_rows_from_split_between_pages
             return table;
         }
         /// <summary>
-        /// Add rows to outer table by keeping them in groups.
+        /// Add rows to the outer table by keeping them in groups.
         /// </summary>
         private static void KeepGroupOfRows(IWTable innerTable, IWTable outerTable, int rowSet)
         {
