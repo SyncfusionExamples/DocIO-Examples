@@ -17,12 +17,14 @@ namespace Reset_page_numbers_after_each_record
                 //Open the input Word document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
                 {
+                    #region Perform the mail merge
                     //Get the employee details as IEnumerable collection.
                     List<Employee> employeeList = GetEmployees();
                     //Create an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection.
                     MailMergeDataTable dataSource = new MailMergeDataTable("Employees", employeeList);
                     //Perform Mail merge.
                     document.MailMerge.ExecuteGroup(dataSource);
+                    #endregion
 
                     #region Split Word document by sections
                     //Find all the occurance of place holder - #SectionBreak#
@@ -66,9 +68,6 @@ namespace Reset_page_numbers_after_each_record
         /// <summary>
         /// Insert Section break code
         /// </summary>
-        /// <param name="bodyItem"></param>
-        /// <param name="breakCode"></param>
-        /// <returns></returns>
         private static WSection InsertSectionBreak(TextBodyItem bodyItem, WSection srcSection)
         {
             //Get the current section of the body item
@@ -95,8 +94,6 @@ namespace Reset_page_numbers_after_each_record
         /// <summary>
         /// Get the index of the particular entity
         /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
         private static int GetIndex(IEntity entity)
         {
             ICompositeEntity container = entity.Owner as ICompositeEntity;
@@ -110,8 +107,6 @@ namespace Reset_page_numbers_after_each_record
         /// <summary>
         /// Get the section of the specified entity
         /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
         private static WSection GetSection(IEntity entity)
         {
             if (entity is WSection)
@@ -138,10 +133,8 @@ namespace Reset_page_numbers_after_each_record
             return null;
         }
         /// <summary>
-        /// Copy page setup
+        /// Copy page section properties.
         /// </summary>
-        /// <param name="section"></param>
-        /// <param name="sectionToCopyFrom"></param>
         private static void CopySectionProperties(IWSection newSection, IWSection srcSection)
         {
             //Update section break code.
@@ -153,11 +146,8 @@ namespace Reset_page_numbers_after_each_record
             }
         }
         /// <summary>
-        /// Add new section as sibling of current section
+        /// Add new section as sibling of current section.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="entity"></param>
-        /// <param name="newSiblings"></param>
         public static void AddSiblings<T>(IEntity entity, IEnumerable<T> newSiblings) where T : class, IEntity
         {
             int newIndex = GetIndex(entity) + 1;
