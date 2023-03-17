@@ -10,7 +10,7 @@ namespace Remove_placeholder_of_empty_meta_property
         static void Main(string[] args)
         {
             //Open the file as a stream.
-            using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Data/Test4Mock_Modified.docx"), FileMode.Open, FileAccess.Read))
+            using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read))
             {
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
