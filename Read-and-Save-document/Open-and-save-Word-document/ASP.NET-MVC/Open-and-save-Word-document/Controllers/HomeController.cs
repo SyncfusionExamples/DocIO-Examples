@@ -26,7 +26,7 @@ namespace Open_and_save_Word_document.Controllers
                 IWTextRange text = paragraph.AppendText("In 2000, Adventure Works Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the Adventure Works Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.");
                 text.CharacterFormat.FontSize = 12f;
 
-                //Save the Word document to the disk in a DOCX format.
+                //Save the Word document and download as attachment.
                 document.Save("Sample.docx", FormatType.Docx, HttpContext.ApplicationInstance.Response, HttpContentDisposition.Attachment);
             }
 
