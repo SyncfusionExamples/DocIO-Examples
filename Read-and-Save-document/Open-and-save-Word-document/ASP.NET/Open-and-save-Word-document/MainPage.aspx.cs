@@ -15,8 +15,9 @@ namespace Open_and_save_Word_document
         }
         protected void OnButtonClicked(object sender, EventArgs e)
         {
+            string filePath = Server.MapPath("~/App_Data/Input.docx");
             //Open an existing Word document.
-            using (WordDocument document = new WordDocument(Server.MapPath("~/App_Start/Input.docx")))
+            using (WordDocument document = new WordDocument(filePath))
             {
                 //Access the section in a Word document.
                 IWSection section = document.Sections[0];
