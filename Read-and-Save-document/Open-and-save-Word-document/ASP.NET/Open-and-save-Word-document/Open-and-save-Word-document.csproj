@@ -47,17 +47,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Syncfusion.Compression.Base, Version=19.4450.0.43, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>..\packages\Syncfusion.Compression.Base.19.4.0.43\lib\net45\Syncfusion.Compression.Base.dll</HintPath>
+    <Reference Include="Syncfusion.Compression.Base, Version=20.4460.0.54, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Compression.Base.20.4.0.54\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.DocIO.Base, Version=19.4450.0.43, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>..\packages\Syncfusion.DocIO.AspNet.19.4.0.43\lib\net45\Syncfusion.DocIO.Base.dll</HintPath>
+    <Reference Include="Syncfusion.DocIO.Base, Version=20.4460.0.54, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocIO.AspNet.20.4.0.54\lib\net46\Syncfusion.DocIO.Base.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Syncfusion.Licensing, Version=19.4450.0.43, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Syncfusion.Licensing.19.4.0.43\lib\net45\Syncfusion.Licensing.dll</HintPath>
+    <Reference Include="Syncfusion.Licensing, Version=20.4460.0.54, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.20.4.0.54\lib\net46\Syncfusion.Licensing.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.OfficeChart.Base, Version=19.4450.0.43, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>..\packages\Syncfusion.OfficeChart.Base.19.4.0.43\lib\net45\Syncfusion.OfficeChart.Base.dll</HintPath>
+    <Reference Include="Syncfusion.OfficeChart.Base, Version=20.4460.0.54, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.OfficeChart.Base.20.4.0.54\lib\net46\Syncfusion.OfficeChart.Base.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
