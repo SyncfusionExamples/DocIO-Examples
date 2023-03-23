@@ -29,8 +29,6 @@ namespace Open_and_save_Word_document
                 textRange.CharacterFormat.FontSize = 12f;
                 //Save the Word document.
                 document.Save(Path.GetFullPath(@"../../Sample.docx"), FormatType.Docx);
-                //Close the Word document.
-                document.Close();
             }
             MessageBox.Show("Word document generated successfully");
         }
