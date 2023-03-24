@@ -1,7 +1,3 @@
-Syncfusion .NET Word Library
-----------------------------
-
-The Syncfusion [.NET Word library](https://www.syncfusion.com/document-processing/word-framework/net/word-library?utm_source=github&utm_medium=github&utm_campaign=github-docio-examples) (Essential DocIO) allows you to add advanced Word document processing functionalities to any .NET application and does not require Microsoft Word application to be installed in the machine. It is a non-UI component that provides a full-fledged document instance model similar to the Microsoft Office COM libraries to iterate with the document elements explicitly and perform necessary manipulation. Using this library, you can create, read, edit and convert Word documents programmatically.
 
 Key Features
 ------------
