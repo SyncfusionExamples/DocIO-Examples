@@ -16,7 +16,7 @@
         {
             using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.docx"))
             {
-                //Opening a Word document.
+                //Open an existing Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
                     //Access the section in a Word document.

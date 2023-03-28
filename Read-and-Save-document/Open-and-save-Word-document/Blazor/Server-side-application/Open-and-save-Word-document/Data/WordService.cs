@@ -1,6 +1,5 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System;
 using System.IO;
 
 
@@ -10,9 +9,9 @@ namespace Open_and_save_Word_document.Data
     {
         public MemoryStream OpenAndSaveWord()
         {
-            using (FileStream sourceStreamPath = new FileStream(@"wwwroot/data/Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opening a document.
+                //Open an existing Word document.
                 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
                 {
                     //Access the section in a Word document.
@@ -25,7 +24,7 @@ namespace Open_and_save_Word_document.Data
                     IWTextRange textRange = paragraph.AppendText("In 2000, AdventureWorks Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the AdventureWorks Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.") as IWTextRange;
                     textRange.CharacterFormat.FontSize = 12f;
 
-                    //Saves the Word document to MemoryStream.
+                    //Save the Word document to MemoryStream.
                     MemoryStream stream = new MemoryStream();
                     document.Save(stream, FormatType.Docx);
                     stream.Position = 0;
