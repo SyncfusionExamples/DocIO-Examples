@@ -7,7 +7,7 @@ namespace Open_and_save_Word_document.Data
 {
     public class WordService
     {
-        public MemoryStream OpenAndSaveWord()
+        public MemoryStream OpenAndSaveDocument()
         {
             using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
