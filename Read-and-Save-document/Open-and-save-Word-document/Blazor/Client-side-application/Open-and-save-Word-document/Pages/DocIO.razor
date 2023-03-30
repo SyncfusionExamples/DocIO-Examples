@@ -7,12 +7,12 @@
 
 <h2>Syncfusion DocIO library (DocIO)</h2>
 <p>Syncfusion Blazor DocIO library (DocIO) used to create, read, edit, and convert DocIO files in your applications without Microsoft Office dependencies.</p>
-<button class="btn btn-primary" @onclick="@OpenAndSaveWord">Open and save Word</button>
+<button class="btn btn-primary" @onclick="@OpenAndSaveDocument">Open and save Document</button>
 
 @code {
     @functions {
 
-        async void OpenAndSaveWord()
+        async void OpenAndSaveDocument()
         {
             using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.docx"))
             {
