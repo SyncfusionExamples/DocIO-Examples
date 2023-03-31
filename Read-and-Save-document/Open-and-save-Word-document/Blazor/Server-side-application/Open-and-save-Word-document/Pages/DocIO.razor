@@ -4,9 +4,9 @@
 @inject Open_and_save_Word_document.Data.WordService service
 @inject Microsoft.JSInterop.IJSRuntime JS
 
-<h2>Syncfusion DocIO library (Essential DocIO)</h2>
-<p>Syncfusion DocIO library (Essential DocIO) is a Blazor DocIO library used to create, read, edit, and convert Word files in your applications without Microsoft Office dependencies.</p>
-<button class="btn btn-primary" @onclick="@CreateWord">Create Word</button>
+<h2>Syncfusion DocIO library (DocIO)</h2>
+<p>Syncfusion DocIO library (DocIO) is a Blazor DocIO library used to create, read, edit, and convert Word files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@OpenAndSaveDocument">Open and save Document</button>
 
 
 @code {
@@ -15,9 +15,9 @@
     /// <summary>
     /// Create and download the Word document
     /// </summary>
-    protected async void CreateWord()
+    protected async void OpenAndSaveDocument()
     {
-        documentStream = service.CreateWord();
+        documentStream = service.OpenAndSaveDocument();
         await JS.SaveAs("Sample.docx", documentStream.ToArray());
     }
 }
