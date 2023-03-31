@@ -33,9 +33,9 @@ namespace Merge_without_changing_page_numbers
                                     //If it has an empty header and footer, add an empty paragraph.
                                     if (IsEmptyHeaderFooter(section))
                                         RemoveEmptyHeaderFooter(section);
-                                    //Iterate and check if the header and footer contain the PAGE and NUMPAGE fields.
+                                    //Iterate and check if the header and footer contain the PAGE and NUMPAGES fields.
                                     //If PAGE field, set the RestartPageNumbering and PageStartingNumber API’s.
-                                    //If NUMPAGE field, remove the numpage field and add text based on the total number of pages.
+                                    //If NUMPAGES field, remove the NUMPAGES field and add text based on the total number of pages.
                                     else
                                         IterateHeaderFooter(section);
                                 }
