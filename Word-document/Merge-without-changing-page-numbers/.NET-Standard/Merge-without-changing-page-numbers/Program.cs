@@ -172,7 +172,7 @@ namespace Merge_without_changing_page_numbers
                                 section.PageSetup.PageStartingNumber = 1;
                             }
                         }
-                        //Check the NUMPAGE field.
+                        //Check the NUMPAGES field.
                         else if (field.FieldType == FieldType.FieldNumPages)
                         {
                             RemoveNumPageField(field);
@@ -197,7 +197,7 @@ namespace Merge_without_changing_page_numbers
             return baseEntity;
         }
         /// <summary>
-        /// Remove the NUMPage field.
+        /// Remove the NUMPAGES field.
         /// </summary>
         private static void RemoveNumPageField(WField field)
         {
