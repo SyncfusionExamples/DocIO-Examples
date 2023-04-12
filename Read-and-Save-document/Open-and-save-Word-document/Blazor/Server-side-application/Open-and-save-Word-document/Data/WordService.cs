@@ -1,6 +1,5 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System;
 using System.IO;
 
 
@@ -8,17 +7,24 @@ namespace Open_and_save_Word_document.Data
 {
     public class WordService
     {
-        public MemoryStream CreateWord()
+        public MemoryStream OpenAndSaveDocument()
         {
-            using (FileStream sourceStreamPath = new FileStream(@"wwwroot/data/HelloWorld.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opening a document.
+                //Open an existing Word document.
                 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
                 {
-                    //Appends text to the last paragraph of the document.
-                    document.LastParagraph.AppendText("Hello World");
+                    //Access the section in a Word document.
+                    IWSection section = document.Sections[0];
+                    //Add new paragraph to the section.
+                    IWParagraph paragraph = section.AddParagraph();
+                    paragraph.ParagraphFormat.FirstLineIndent = 36;
+                    paragraph.BreakCharacterFormat.FontSize = 12f;
+                    //Add new text to the paragraph.
+                    IWTextRange textRange = paragraph.AppendText("In 2000, AdventureWorks Cycles bought a small manufacturing plant, Importadores Neptuno, located in Mexico. Importadores Neptuno manufactures several critical subcomponents for the AdventureWorks Cycles product line. These subcomponents are shipped to the Bothell location for final product assembly. In 2001, Importadores Neptuno, became the sole manufacturer and distributor of the touring bicycle product group.") as IWTextRange;
+                    textRange.CharacterFormat.FontSize = 12f;
 
-                    //Saves the Word document to MemoryStream.
+                    //Save the Word document to MemoryStream.
                     MemoryStream stream = new MemoryStream();
                     document.Save(stream, FormatType.Docx);
                     stream.Position = 0;
