@@ -15,11 +15,11 @@ namespace Set_name_and_logo_in_header
                 {
                     //Get the Word document section.
                     IWSection section = document.Sections[0];
-                    //Add paragraph to the header.
+                    //Add a paragraph to the header.
                     IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
                     // Get the image stream.
                     FileStream imageStream = new FileStream(@"../../../Data/Logo.jpg", FileMode.Open, FileAccess.Read);
-                    //Append picture to the created paragraph.
+                    //Append the picture to the created paragraph.
                     IWPicture picture = paragraph.AppendPicture(imageStream);
                     //Set the picture properties.
                     picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
@@ -41,7 +41,7 @@ namespace Set_name_and_logo_in_header
 
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
-                        //Save the Word document to file stream.
+                        //Save a Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);
                     }
                 }
