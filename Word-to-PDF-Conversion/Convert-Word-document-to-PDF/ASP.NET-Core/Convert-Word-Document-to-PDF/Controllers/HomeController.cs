@@ -29,7 +29,7 @@ namespace Convert_Word_Document_to_PDF.Controllers
             using (FileStream docStream = new FileStream(Path.GetFullPath("Data/Template.docx"), FileMode.Open, FileAccess.Read))
             {
                 //Loads file stream into Word document
-                using (WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic))
+                using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic))
                 {
                     //Instantiation of DocIORenderer for Word to PDF conversion
                     using (DocIORenderer render = new DocIORenderer())
