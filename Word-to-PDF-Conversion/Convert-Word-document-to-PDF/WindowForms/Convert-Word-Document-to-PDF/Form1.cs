@@ -37,7 +37,12 @@ namespace Convert_Word_Document_to_PDF
                     }
                 };               
             }
-            MessageBox.Show("PDF converted successfully");
+
+            //Launch the PDF file
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../Sample.pdf")) { UseShellExecute = true };
+            process.Start();
+            System.Diagnostics.Process.Start(Path.GetFullPath(@"../../Sample.pdf"));
         }
     }
 }
