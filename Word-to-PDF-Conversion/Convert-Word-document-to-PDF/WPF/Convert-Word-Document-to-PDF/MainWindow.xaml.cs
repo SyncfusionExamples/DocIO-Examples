@@ -34,7 +34,6 @@ namespace Convert_Word_Document_to_PDF
                     }
                 };
             }
-
             //Launch the PDF document
             if (System.Windows.MessageBox.Show("Do you want to view the PDF document?", "Pdf document created",
   MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
@@ -42,7 +41,6 @@ namespace Convert_Word_Document_to_PDF
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
                 process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../Sample.pdf")) { UseShellExecute = true };
                 process.Start();
-
             }
         }       
     }
