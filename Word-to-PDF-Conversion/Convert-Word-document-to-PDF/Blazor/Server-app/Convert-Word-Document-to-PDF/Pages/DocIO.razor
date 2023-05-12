@@ -1,0 +1,21 @@
+﻿@page "/docio"
+@using System.IO;
+@using Convert_Word_Document_to_PDF;
+@inject Convert_Word_Document_to_PDF.Data.WordService service
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h2>Syncfusion DocIO library (Essential DocIO)</h2>
+<p>Syncfusion DocIO library (Essential DocIO) is a Blazor DocIO library used to create, read, edit, and convert Word files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@ConvertWordtoPDF">Convert Word to PDF</button>
+
+@code {
+    MemoryStream documentStream;
+    /// <summary>
+    /// Create and download the PDF document
+    /// </summary>
+    protected async void ConvertWordtoPDF()
+    {
+        documentStream = service.ConvertWordtoPDF();
+        await JS.SaveAs("Sample.pdf", documentStream.ToArray());
+    }
+}
