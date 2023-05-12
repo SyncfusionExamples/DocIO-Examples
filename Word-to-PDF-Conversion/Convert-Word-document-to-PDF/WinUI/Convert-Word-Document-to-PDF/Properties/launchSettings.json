@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Convert-Word-Document-to-PDF (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Convert-Word-Document-to-PDF (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
