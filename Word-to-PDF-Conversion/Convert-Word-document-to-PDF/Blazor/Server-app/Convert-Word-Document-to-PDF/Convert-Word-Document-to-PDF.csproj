@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="*" />
-    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="21.2.3" />
+    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>
