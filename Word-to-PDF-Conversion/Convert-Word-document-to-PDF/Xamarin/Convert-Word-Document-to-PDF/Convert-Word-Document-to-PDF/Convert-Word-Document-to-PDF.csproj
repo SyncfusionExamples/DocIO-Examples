@@ -11,17 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Assets\**" />
-    <EmbeddedResource Remove="Assets\**" />
-    <None Remove="Assets\**" />
+    <None Remove="Assets\Input.docx" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Template\Input.docx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Template\Input.docx">
+    <EmbeddedResource Include="Assets\Input.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

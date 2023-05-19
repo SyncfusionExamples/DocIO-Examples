@@ -15,7 +15,7 @@ namespace Convert_Word_Document_to_PDF
             //Open the file as Stream
             using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read))
             {
-                //Loads file stream into Word document
+                //Loads an existing  Word document
                 using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
                 {
                     //Instantiation of DocIORenderer for Word to PDF conversion

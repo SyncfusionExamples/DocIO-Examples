@@ -42,27 +42,10 @@ class SaveWindows : ISave
             FileSavePicker savePicker = new FileSavePicker();
             savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
             savePicker.SuggestedFileName = filename;
-            switch (contentType)
+            if(contentType == "application/pdf")
             {
-                case "application/vnd.openxmlformats-officedocument.presentationml.presentation":
-                    savePicker.FileTypeChoices.Add("PowerPoint Presentation", new List<string>() { ".pptx", });
-                    break;
-
-                case "application/msexcel":
-                    savePicker.FileTypeChoices.Add("Excel Files", new List<string>() { ".xlsx", });
-                    break;
-
-                case "application/msword":
-                    savePicker.FileTypeChoices.Add("Word Document", new List<string>() { ".docx" });
-                    break;
-
-                case "application/pdf":
-                    savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
-                    break;
-                case "application/html":
-                    savePicker.FileTypeChoices.Add("HTML Files", new List<string>() { ".html" });
-                    break;
-            }
+                savePicker.FileTypeChoices.Add("Adobe PDF Document", new List<string>() { ".pdf" });
+            }          
             storageFile = await savePicker.PickSaveFileAsync();
 
             using (Stream outStream = await storageFile.OpenStreamForWriteAsync())

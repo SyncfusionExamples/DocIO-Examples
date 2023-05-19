@@ -24,8 +24,8 @@ namespace Convert_Word_Document_to_PDF
         {
             //Loading an existing Word document
             Assembly assembly = typeof(App).GetTypeInfo().Assembly;
-            Stream streams = assembly.GetManifestResourceStream("Convert-Word-Document-to-PDF.Template.Input.docx");
-            using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Convert-Word-Document-to-PDF.Template.Input.docx"), FormatType.Docx))
+
+            using (WordDocument document = new WordDocument(assembly.GetManifestResourceStream("Convert-Word-Document-to-PDF.Assets.Input.docx"), FormatType.Docx))
             {
                 //Instantiation of DocIORenderer for Word to PDF conversion
                 using (DocIORenderer render = new DocIORenderer())
@@ -33,7 +33,7 @@ namespace Convert_Word_Document_to_PDF
                     //Converts Word document into PDF document
                     using (PdfDocument pdfDocument = render.ConvertToPDF(document))
                     {
-                        //Saves the Word document to MemoryStream.
+                        //Saves the PDF document to MemoryStream.
                         MemoryStream stream = new MemoryStream();
                         pdfDocument.Save(stream);
 
