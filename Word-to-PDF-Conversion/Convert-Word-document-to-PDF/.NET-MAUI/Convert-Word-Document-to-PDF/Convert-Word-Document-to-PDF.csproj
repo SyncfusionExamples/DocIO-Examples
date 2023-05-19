@@ -49,14 +49,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Platforms\Android\Resources\xml\provider_paths.xml" />
-	  <None Remove="Template\Input.docx" />
+	  <AndroidResource Remove="Template\**" />
+	  <Compile Remove="Template\**" />
+	  <EmbeddedResource Remove="Template\**" />
+	  <MauiCss Remove="Template\**" />
+	  <MauiXaml Remove="Template\**" />
+	  <None Remove="Template\**" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="Template\Input.docx">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </EmbeddedResource>
+	  <None Remove="Platforms\Android\Resources\xml\provider_paths.xml" />
 	</ItemGroup>
 
 	<ItemGroup>
