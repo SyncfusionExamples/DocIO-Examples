@@ -14,7 +14,7 @@
 @functions {
     async void WordToPDF()
     {
-        using (Stream inputStream = await client.GetStreamAsync("sample-data/Input.docx"))
+        using (Stream inputStream = await client.GetStreamAsync("Data/Input.docx"))
         {
             //Open an existing Word document.
             using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
