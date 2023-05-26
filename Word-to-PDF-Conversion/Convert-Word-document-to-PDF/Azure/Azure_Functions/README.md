@@ -2,7 +2,7 @@
 
 * Download the Azure Functions sample and deploy it to Azure.
 * Download the console application project.
-Open the solution file in Visual Studio.
+* Open the solution file in Visual Studio.
 * Go to the **Azure portal**.
 * Locate and click on the App Service option.
 * Select the appropriate **App Service**.
