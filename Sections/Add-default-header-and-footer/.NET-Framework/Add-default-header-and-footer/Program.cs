@@ -13,19 +13,15 @@ namespace Add_default_header_and_footer
             {
                 // Add a new section to the document.
                 IWSection section = wordDocument.AddSection();
-                //Adds a header paragraph to the section.
-                IWParagraph headerPar = section.AddParagraph();
-                //Appends some text to the header paragraph in document.
+                //Adds a paragraph to the header.
+                IWParagraph headerPar = section.HeadersFooters.Header.AddParagraph();
+                //Appends some text to the paragraph in document.
                 headerPar.AppendText("Header text");
-                // Add the header paragraph to the header section.
-                section.HeadersFooters.Header.Paragraphs.Add(headerPar);
-                //Adds a footer paragraph to the section.
-                IWParagraph footerPar = section.AddParagraph();
-                //Appends some text to the footer paragraph in document.
+                //Adds a paragraph to the footer.
+                IWParagraph footerPar = section.HeadersFooters.Footer.AddParagraph();
+                //Appends some text to the paragraph in document.
                 footerPar.AppendText("Footer text");
-                //Add the footer paragraph to the Footer section. 
-                section.HeadersFooters.Footer.Paragraphs.Add(footerPar);
-                //Save the PDF file.
+                //Save the Word document.
                 wordDocument.Save(Path.GetFullPath(@"../../Result.docx"));
             }
         }
