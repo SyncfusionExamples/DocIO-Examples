@@ -52,7 +52,7 @@ namespace Convert_Word_Document_to_PDF.Controllers
                     try
                     {
                         //Open using Syncfusion
-                        using (WordDocument document = new WordDocument(stream, Syncfusion.DocIO.FormatType.Docx))
+                        using (WordDocument document = new WordDocument(stream, FormatType.Docx))
                         {
                             stream.Dispose();
                                                     
