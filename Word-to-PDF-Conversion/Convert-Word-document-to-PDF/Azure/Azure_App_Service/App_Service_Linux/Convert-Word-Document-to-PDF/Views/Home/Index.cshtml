@@ -1,0 +1,32 @@
+﻿@{Html.BeginForm("WordToPDF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" });
+ 
+    {
+        <div class="Common">
+            <div class="tablediv">
+               <div class="rowdiv">
+                    This sample illustrates how to convert Word document to PDF using .NET Word library (DocIO) and .NET PDF library (PDF).
+                </div>
+                &nbsp;
+                <div class="rowdiv" style="border-width: 0.5px;border-style:solid; border-color: lightgray; padding: 1px 5px 7px 5px">
+                    Click the button to view the resultant PDF document being converted from Word document using DocIO. Please note that PDF viewer is required to view the resultant PDF.
+                    <div class="rowdiv" style="margin-top: 10px">
+                        <div class="celldiv">
+                            Select Document :
+                            @Html.TextBox("file", "", new { type = "file", accept = ".docx" }) <br />
+                        </div>
+                        <div class="rowdiv" style="margin-top: 8px">
+                            <input class="buttonStyle" type="submit" value="Convert to PDF" name="button" style="width:150px;height:27px" />
+                            <br />
+                            <div class="text-danger">
+                                @ViewBag.Message
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+      
+            </div>
+        </div>
+        Html.EndForm();
+    }
+}
