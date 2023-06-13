@@ -69,7 +69,7 @@ namespace Convert_Word_Document_to_Image
             else
             {
                 StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
-                stFile = await local.CreateFileAsync("wordtoimage.jpeg", CreationCollisionOption.ReplaceExisting);
+                stFile = await local.CreateFileAsync("WordToImage.Jpeg", CreationCollisionOption.ReplaceExisting);
             }
             if (stFile != null)
             {

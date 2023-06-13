@@ -28,14 +28,14 @@ namespace Convert_Word_Document_to_Image
                 //Convert the first page of the Word document into an image.
                 Image image = document.RenderAsImages(0, ImageType.Bitmap);
                 //Save the image as jpeg.
-                image.Save(Path.GetFullPath(@"../../wordtoimage.jpeg"));
+                image.Save(Path.GetFullPath(@"../../WordToImage.Jpeg"));
             }
 
             //Launch the Image file
             System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../wordtoimage.jpeg")) { UseShellExecute = true };
+            process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../WordToImage.Jpeg")) { UseShellExecute = true };
             process.Start();
-            System.Diagnostics.Process.Start(Path.GetFullPath(@"../../wordtoimage.jpeg"));
+            System.Diagnostics.Process.Start(Path.GetFullPath(@"../../WordToImage.Jpeg"));
         }
     }
 }

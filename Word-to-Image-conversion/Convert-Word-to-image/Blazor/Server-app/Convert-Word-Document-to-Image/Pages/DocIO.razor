@@ -15,6 +15,6 @@
     protected async void ConvertWordtoImage()
     {
         documentStream = service.ConvertWordtoImage();
-        await JS.SaveAs("wordtoimage.jpeg", documentStream.ToArray());
+        await JS.SaveAs("WordToImage.Jpeg", documentStream.ToArray());
     }
 }

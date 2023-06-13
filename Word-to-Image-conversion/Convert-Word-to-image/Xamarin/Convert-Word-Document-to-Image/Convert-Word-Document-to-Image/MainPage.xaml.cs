@@ -34,7 +34,7 @@ namespace Convert_Word_Document_to_Image
                     //Reset the stream position.
                     imageStream.Position = 0;
                     //Save the stream as file.
-                    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("wordtoimage.jpeg", "application/jpeg", imageStream as MemoryStream);
+                    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToImage.Jpeg", "application/jpeg", imageStream as MemoryStream);
                    
                 }
             }

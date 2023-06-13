@@ -31,7 +31,7 @@ public partial class MainPage : ContentPage
                 imageStream.Position = 0;
                 //save and Launch the Image 
                 SaveService saveService = new();
-                saveService.SaveAndView("wordtoimage.jpeg", "application/jpeg", imageStream as MemoryStream);
+                saveService.SaveAndView("WordToImage.Jpeg", "application/jpeg", imageStream as MemoryStream);
             }
         }
     }

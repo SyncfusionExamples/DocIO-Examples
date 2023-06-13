@@ -48,7 +48,7 @@ namespace Convert_Word_Document_to_Image
                     Stream imageStream = document.RenderAsImages(0, ExportImageFormat.Jpeg);
                     //Reset the stream position.
                     imageStream.Position = 0;
-                    SaveHelper.SaveAndLaunch("wordtoimage.jpeg", imageStream as MemoryStream);
+                    SaveHelper.SaveAndLaunch("WordToImage.Jpeg", imageStream as MemoryStream);
                 }
             }
         }

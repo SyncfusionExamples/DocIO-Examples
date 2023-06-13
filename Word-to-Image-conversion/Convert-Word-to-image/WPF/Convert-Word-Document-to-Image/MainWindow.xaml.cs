@@ -35,7 +35,7 @@ namespace Convert_Word_Document_to_Image
                 //Convert the first page of the Word document into an image.
                 System.Drawing.Image image = document.RenderAsImages(0, ImageType.Bitmap);
                 //Save the image as jpeg.
-                image.Save(Path.GetFullPath(@"../../wordtoimage.jpeg"));
+                image.Save(Path.GetFullPath(@"../../WordToImage.Jpeg"));
             }
 
             //Launch the  Image
@@ -43,7 +43,7 @@ namespace Convert_Word_Document_to_Image
   MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
             {
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../wordtoimage.jpeg")) { UseShellExecute = true };
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../WordToImage.Jpeg")) { UseShellExecute = true };
                 process.Start();
             }
         }

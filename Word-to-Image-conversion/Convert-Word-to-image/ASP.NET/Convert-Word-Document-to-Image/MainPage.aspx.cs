@@ -29,8 +29,8 @@ namespace Convert_Word_Document_to_Image
                 {
                     //Convert the first page of the Word document into an image.
                     System.Drawing.Image image = wordDocument.RenderAsImages(0, ImageType.Bitmap);
-                    //Save the image as jpeg.
-                    ExportAsImage(image, "WordToImage.jpeg", ImageFormat.Jpeg, HttpContext.Current.Response);
+                    //Save the Image as Jpeg.
+                    ExportAsImage(image, "WordToImage.Jpeg", ImageFormat.Jpeg, HttpContext.Current.Response);
                 }
             }
         }

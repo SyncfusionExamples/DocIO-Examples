@@ -27,7 +27,7 @@ namespace Convert_Word_document_to_Image
             if (!Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
             {
                 FileSavePicker savePicker = new();
-                if (extension == ".jpeg")
+                if (extension == ".Jpeg")
                 {
                     savePicker.DefaultFileExtension = ".jpeg";
                     savePicker.SuggestedFileName = filename;
