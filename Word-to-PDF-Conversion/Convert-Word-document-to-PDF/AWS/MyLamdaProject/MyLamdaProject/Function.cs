@@ -49,8 +49,11 @@ namespace MyLamdaProject
 
             //Save the PDF document  
             pdf.Save(stream);
+            //Releases all resources used by the Word document and DocIO Renderer objects
             document.Close();
             render.Dispose();
+            //Closes the PDF document
+            pdf.Close();
             return Convert.ToBase64String(stream.ToArray());
         }
         /// <summary>
