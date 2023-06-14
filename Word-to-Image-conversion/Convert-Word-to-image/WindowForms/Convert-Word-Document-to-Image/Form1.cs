@@ -34,7 +34,6 @@ namespace Convert_Word_Document_to_Image
             //Launch the Image file
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../WordToImage.Jpeg")) { UseShellExecute = true };
-            process.Start();
             System.Diagnostics.Process.Start(Path.GetFullPath(@"../../WordToImage.Jpeg"));
         }
     }
