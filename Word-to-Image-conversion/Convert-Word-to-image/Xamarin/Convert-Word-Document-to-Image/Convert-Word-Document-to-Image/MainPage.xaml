@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Convert_Word_Document_to_Image.MainPage">
+
+    <StackLayout  VerticalOptions="Center">
+        <Button Text="Convert WordtoImage" Clicked="OnButtonClicked" HorizontalOptions="Center"/>
+    </StackLayout>
+
+</ContentPage>
