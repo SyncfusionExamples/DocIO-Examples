@@ -37,7 +37,7 @@ namespace Convert_Word_Document_to_Image
                 //Set the contentDisposition as attachment.
                 response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
                 {
-                    FileName = "wordtoimage.jpeg"
+                    FileName = "WordToImage.Jpeg"
                 };
                 //Set the content type as Word document mime type.
                 response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/jpeg");

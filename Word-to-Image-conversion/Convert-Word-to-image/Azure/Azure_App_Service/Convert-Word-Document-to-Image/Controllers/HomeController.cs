@@ -61,7 +61,7 @@ namespace Convert_Word_Document_to_Image.Controllers
                                 //Reset the stream position.
                                 imageStream.Position = 0;
                                 //Save the image file.
-                                return File(imageStream, "application/jpeg", "sample.jpeg");
+                                return File(imageStream, "application/jpeg", "WordToImage.Jpeg");
                             }
                         }
                     }

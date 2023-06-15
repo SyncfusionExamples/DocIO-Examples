@@ -38,7 +38,7 @@ namespace ConvertWordtoImage
                 //Gets the responce from the Azure Functions.
                 HttpWebResponse res = (HttpWebResponse)req.GetResponse();
                 //Saves the Image stream.
-                FileStream fileStream = File.Create("wordtoimage.jpeg");
+                FileStream fileStream = File.Create("WordToImage.Jpeg");
                 res.GetResponseStream().CopyTo(fileStream);
                 //Dispose the streams
                 inputStream.Dispose();
@@ -50,7 +50,7 @@ namespace ConvertWordtoImage
             }
 
             //Launch the output Image.
-            System.Diagnostics.Process.Start("wordtoimage.jpeg");
+            System.Diagnostics.Process.Start("WordToImage.Jpeg");
         }
     }
 }
