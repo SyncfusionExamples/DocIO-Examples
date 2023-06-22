@@ -11,19 +11,19 @@ namespace Change_X_axis_label_position
         {
             using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open))
             {
-                //Loads an existing Word document.
+                //Load an existing Word document.
                 using (WordDocument wordDocument = new WordDocument(fileStream, Syncfusion.DocIO.FormatType.Automatic))
                 {
-                    // Gets the paragraph.
+                    // Get the paragraph.
                     WParagraph paragraph = wordDocument.LastParagraph;
-                    //Gets the chart entity.
+                    //Get the chart entity.
                     WChart chart = paragraph.ChildEntities[0] as WChart;
-                    //Sets X-axis label position to the bottom of the chart.
+                    //Set X-axis label position to the bottom of the chart.
                     chart.PrimaryCategoryAxis.TickLabelPosition = OfficeTickLabelPosition.TickLabelPosition_Low;
-                    //Creates a file stream.
+                    //Create a file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
-                        //Saves the Word document to the file stream.
+                        //Save the Word document to the file stream.
                         wordDocument.Save(outputFileStream, FormatType.Docx);
                     }
                 }
