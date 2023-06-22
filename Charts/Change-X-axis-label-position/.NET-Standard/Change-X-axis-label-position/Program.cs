@@ -20,7 +20,7 @@ namespace Change_X_axis_label_position
                     //Gets the chart entity
                     WChart chart = paragraph.ChildEntities[0] as WChart;
 
-                    //Set X-axis lable position to the bottom of the chart.
+                    //Set X-axis label position to the bottom of the chart.
                     chart.PrimaryCategoryAxis.TickLabelPosition = OfficeTickLabelPosition.TickLabelPosition_Low;
 
                     //Create a file stream.
