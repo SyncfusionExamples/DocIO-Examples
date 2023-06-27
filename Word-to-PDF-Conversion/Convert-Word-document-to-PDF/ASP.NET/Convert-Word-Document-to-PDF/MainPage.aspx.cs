@@ -31,10 +31,8 @@ namespace Convert_Word_Document_to_PDF
                     {
                         //Saves the PDF document to MemoryStream.
                         MemoryStream stream = new MemoryStream();
-                        pdfDocument.Save("sample.pdf", HttpContext.Current.Response, HttpReadType.Save);
-                        stream.Position = 0;
-                    }
-                    
+                        pdfDocument.Save("sample.pdf", HttpContext.Current.Response, HttpReadType.Save);                       
+                    }                   
                 }
             }
         }
