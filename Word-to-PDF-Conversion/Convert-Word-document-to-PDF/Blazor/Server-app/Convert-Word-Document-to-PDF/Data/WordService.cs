@@ -11,7 +11,7 @@ namespace Convert_Word_Document_to_PDF.Data
         public MemoryStream ConvertWordtoPDF()
         {
             //Open the file as Stream
-            using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream sourceStreamPath = new FileStream(@"wwwroot/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Open an existing Word document.
                 using (WordDocument document = new WordDocument(sourceStreamPath, FormatType.Automatic))
