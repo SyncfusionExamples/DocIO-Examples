@@ -16,7 +16,7 @@ namespace WordtoImage
         static void Main(string[] args)
         {
             //Create a new AmazonLambdaClient
-            AmazonLambdaClient client = new AmazonLambdaClient("AKIASCRGFNWJOUHF377K", "jxIegIbWEL6wc4DMYqKWUzUCHH5zV94/fCefXD29", RegionEndpoint.USEast1);
+            AmazonLambdaClient client = new AmazonLambdaClient("awsaccessKeyID", "awsSecreteAccessKey", RegionEndpoint.USEast1);
             //Create new InvokeRequest with published function name.
             InvokeRequest invoke = new InvokeRequest
             {
