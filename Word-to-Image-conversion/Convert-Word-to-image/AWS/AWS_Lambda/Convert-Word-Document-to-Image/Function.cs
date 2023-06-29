@@ -33,7 +33,7 @@ public class Function
                     Stream imageStream = wordDocument.RenderAsImages(0, ExportImageFormat.Jpeg);
                     //Reset the stream position.
                     imageStream.Position = 0;
-                    //Save the document into stream
+                    //Save the image file into stream.
                     MemoryStream stream = new MemoryStream();
                     imageStream.CopyTo(stream);
                     return Convert.ToBase64String(stream.ToArray());
