@@ -24,13 +24,15 @@ namespace Find_and_replace_text_with_image
             //Creating a new document.
             using (WordDocument document = new WordDocument(Path.GetFullPath(@"../../Data/Input.docx"), FormatType.Docx))
             {
+                //Finds  image placeholder text in the Word document
+                TextSelection textSelection = document.Find("{ImagePlaceHolder}", false, false);
                 //Replaces the image placeholder text with desired image
                 WParagraph paragraph = new WParagraph(document);
                 WPicture picture = paragraph.AppendPicture(Image.FromFile(Path.GetFullPath(@"../../Data/Image.png"))) as WPicture;
                 TextSelection newSelection = new TextSelection(paragraph, 0, 1);
                 TextBodyPart bodyPart = new TextBodyPart(document);
                 bodyPart.BodyItems.Add(paragraph);
-                document.Replace("{ImagePlaceHolder}", bodyPart, true, true);
+                document.Replace(textSelection.SelectedText, bodyPart, true, true);
                 //Saves and closes the document
                 document.Save(Path.GetFullPath(@"../../Sample.docx"));
             }
