@@ -1,0 +1,12 @@
+﻿@{
+    Html.BeginForm("ConvertWordToPDF", "Home", FormMethod.Get);
+    {
+        <div>
+            <input type="submit" value="Convert Word to PDF" style="width:175px;height:27px" />
+        </div>
+        <div>
+            @ViewBag.Message
+        </div>
+    }
+    Html.EndForm();
+}
