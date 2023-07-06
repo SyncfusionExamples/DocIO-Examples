@@ -33,18 +33,12 @@ namespace Replace_EMF_with_PNG_image
                     }
                 }
             }
-
-            
-
-
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             process.StartInfo = new System.Diagnostics.ProcessStartInfo("Output.pdf")
             {
                 UseShellExecute = true
             };
             process.Start();
-
-
         }
 
         /// <summary>
