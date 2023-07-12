@@ -234,7 +234,7 @@ public class Function
         //Appends paragraph.
         section.AddParagraph();
 
-        //Save the Word document into stream
+        //Save the Word document.
         MemoryStream stream = new MemoryStream();
         document.Save(stream, FormatType.Docx);
         return Convert.ToBase64String(stream.ToArray());
