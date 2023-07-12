@@ -1,0 +1,12 @@
+﻿@{
+    Html.BeginForm("ConvertWordToImage", "Home", FormMethod.Get);
+    {
+        <div>
+            <input type="submit" value="Convert Word to Image" style="width:185px;height:27px" />
+        </div>
+        <div>
+            @ViewBag.Message
+        </div>
+    }
+    Html.EndForm();
+}
