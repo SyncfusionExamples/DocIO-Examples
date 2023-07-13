@@ -34,8 +34,6 @@ namespace Open_and_Save_Word_Document
                 MemoryStream memoryStream = new MemoryStream();
                 //Saves the Word document file.
                 document.Save(memoryStream, FormatType.Docx);
-                //Reset the memory stream position.
-                memoryStream.Position = 0;
                 //Create the response to return.
                 HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
                 //Set the Word document saved stream as content of response.
