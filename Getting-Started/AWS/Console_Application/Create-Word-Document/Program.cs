@@ -15,13 +15,19 @@ namespace Create_Word_Document
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Please enter your AWS Access Key ID :");
+            string awsAccessKeyID = Console.ReadLine();
+            Console.WriteLine("Please enter your AWS Secret Access Key :");
+            string awsSecretAccessKey = Console.ReadLine();
+            Console.WriteLine("Please enter your Function Name :");
+            string functionName = Console.ReadLine();
             //Create a new AmazonLambdaClient
-            AmazonLambdaClient client = new AmazonLambdaClient("awsaccessKeyID", "awsSecreteAccessKey", RegionEndpoint.USEast2);
+            AmazonLambdaClient client = new AmazonLambdaClient(awsAccessKeyID, awsSecretAccessKey, RegionEndpoint.USEast2);
 
             //Create new InvokeRequest with published function name.
             InvokeRequest invoke = new InvokeRequest
             {
-                FunctionName = "MyNewFunction",
+                FunctionName = functionName,
                 InvocationType = InvocationType.RequestResponse,
                 Payload = "\"Test\""
             };
