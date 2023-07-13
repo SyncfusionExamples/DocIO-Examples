@@ -240,7 +240,6 @@ namespace Create_Word_Document.Controllers
                 //Saves the Word document to MemoryStream.
                 MemoryStream stream = new MemoryStream();
                 document.Save(stream, FormatType.Docx);
-                stream.Position = 0;
 
                 //Download Word document in the browser.
                 return File(stream, "application/msword", "Sample.docx");
