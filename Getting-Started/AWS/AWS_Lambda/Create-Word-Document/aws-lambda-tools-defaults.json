@@ -17,7 +17,7 @@
     "framework"             : "net6.0",
     "function-name"         : "Create-Word",
     "package-type"          : "Zip",
-    "function-role"         : "arn:aws:iam::142887710098:role/LambdaRole",
+    "function-role"         : "arn:aws:iam::1428877144330098:role/LambdaRole",
     "function-subnets"      : "",
     "function-security-groups" : "",
     "tracing-mode"             : "PassThrough",
