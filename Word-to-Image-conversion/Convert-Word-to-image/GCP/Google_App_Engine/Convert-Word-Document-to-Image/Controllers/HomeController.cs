@@ -34,7 +34,6 @@ namespace Convert_Word_Document_to_Image.Controllers
                         {
                             //Converts the first page of word document to image
                             imageStream = (MemoryStream)document.RenderAsImages(0, ExportImageFormat.Jpeg);
-                            imageStream.Position = 0;
                         }
                     }
                 }
