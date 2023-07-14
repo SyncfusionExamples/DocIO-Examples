@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Open_and_Save_Word_Document": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7065",
+      "launchBrowser": false
+    }
+  }
+}
