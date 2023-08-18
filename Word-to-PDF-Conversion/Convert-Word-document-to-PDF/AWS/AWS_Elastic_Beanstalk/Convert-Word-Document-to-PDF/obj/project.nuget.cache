@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "Mmsil+CRxDIIkXT91NaarszGGrO2ue7rhsfnP2b3UrgrhSixuu1PP1syrwqohK82qAUXReEd/kg9OdjX9tGOBw==",
+  "success": true,
+  "projectFilePath": "D:\\Documentation\\DocIO-Examples\\Word-to-PDF-Conversion\\Convert-Word-document-to-PDF\\AWS\\AWS_Elastic_Beanstalk\\Convert-Word-Document-to-PDF\\Convert-Word-Document-to-PDF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\harfbuzzsharp\\2.8.2.2\\harfbuzzsharp.2.8.2.2.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\2.8.2.2\\harfbuzzsharp.nativeassets.macos.2.8.2.2.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\2.8.2.2\\harfbuzzsharp.nativeassets.win32.2.8.2.2.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\skiasharp\\2.88.2\\skiasharp.2.88.2.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.2\\skiasharp.harfbuzz.2.88.2.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\2.88.2\\skiasharp.nativeassets.linux.nodependencies.2.88.2.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.2\\skiasharp.nativeassets.macos.2.88.2.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.2\\skiasharp.nativeassets.win32.2.88.2.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\syncfusion.compression.net.core\\22.1.39\\syncfusion.compression.net.core.22.1.39.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\syncfusion.docio.net.core\\22.1.39\\syncfusion.docio.net.core.22.1.39.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\syncfusion.dociorenderer.net.core\\22.1.39\\syncfusion.dociorenderer.net.core.22.1.39.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\syncfusion.licensing\\22.1.39\\syncfusion.licensing.22.1.39.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\syncfusion.officechart.net.core\\22.1.39\\syncfusion.officechart.net.core.22.1.39.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\syncfusion.pdf.net.core\\22.1.39\\syncfusion.pdf.net.core.22.1.39.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\syncfusion.skiasharphelper.net.core\\22.1.39\\syncfusion.skiasharphelper.net.core.22.1.39.nupkg.sha512",
+    "C:\\Users\\VenkateshMurugananda\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
