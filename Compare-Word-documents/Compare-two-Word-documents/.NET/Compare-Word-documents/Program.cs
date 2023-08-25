@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using Syncfusion.DocIO;
@@ -30,19 +31,14 @@ namespace ConsoleApp1
                         //Loads Revised file stream into Word document.
                         using (WordDocument revisedWordDocument = new WordDocument(revisedDocStream, FormatType.Docx))
                         {
-                            // Create a memory stream to store the comparison result.
-                            MemoryStream stream = new MemoryStream();
-
                             // Compare the original and revised Word documents.
                             originalWordDocument.Compare(revisedWordDocument);
-							
-							//Reset the stream position.
-							stream.Position = 0;
-							
-                            //Save the stream as file.
-                            using (FileStream fileStreamOutput = File.Create("Result.docx"))
+
+                            //Creates file stream.
+                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                             {
-                                stream.CopyTo(fileStreamOutput);
+                                //Saves the Word document to file stream.
+                                originalWordDocument.Save(outputFileStream, FormatType.Docx);
                             }
                         }                      
                     }
