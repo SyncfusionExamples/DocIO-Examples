@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-namespace ConsoleApp1
+namespace Compare_Word_documents
 {
     internal class Program
     {
