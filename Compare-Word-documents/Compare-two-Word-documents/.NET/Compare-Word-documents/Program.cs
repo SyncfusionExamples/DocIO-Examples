@@ -19,30 +19,26 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //Open the Original file as Stream.
-            using (FileStream originalDocStream = new FileStream(Path.GetFullPath(@"../../../Data/OriginalDocument.docx"), FileMode.Open, FileAccess.Read))
-            {
-                //Open the Revised file as Stream
-                using (FileStream revisedDocStream = new FileStream(Path.GetFullPath(@"../../../Data/RevisedDocument.docx"), FileMode.Open, FileAccess.Read))
-                {
-                    //Loads Original file stream into Word document.
-                    using (WordDocument originalWordDocument = new WordDocument(originalDocStream, FormatType.Docx))
-                    {
-                        //Loads Revised file stream into Word document.
-                        using (WordDocument revisedWordDocument = new WordDocument(revisedDocStream, FormatType.Docx))
-                        {
-                            // Compare the original and revised Word documents.
-                            originalWordDocument.Compare(revisedWordDocument);
+            string originalFilePath = Path.GetFullPath(@"../../../Data/OriginalDocument.docx");
+            string revisedFilePath = Path.GetFullPath(@"../../../Data/RevisedDocument.docx");
+            string resultFilePath = Path.GetFullPath(@"../../../Result.docx");
 
-                            //Creates file stream.
-                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
-                            {
-                                //Saves the Word document to file stream.
-                                originalWordDocument.Save(outputFileStream, FormatType.Docx);
-                            }
-                        }                      
-                    }
-                }              
+
+            using (FileStream orgDocStream = new FileStream(originalFilePath, FileMode.Open, FileAccess.Read))
+            using (FileStream revisedStream = new FileStream(revisedFilePath, FileMode.Open, FileAccess.Read))
+            //Open the original Word document.
+            using (WordDocument originalDocument = new WordDocument(orgDocStream, FormatType.Docx))
+            //Open the revised Word document.
+            using (WordDocument revisedDocument = new WordDocument(revisedStream, FormatType.Docx))
+            {
+                //Compare original document with revised document.
+                originalDocument.Compare(revisedDocument);
+
+                //Save the output Word document.
+                using (FileStream resultStream = new FileStream(resultFilePath, FileMode.Create, FileAccess.ReadWrite))
+                {
+                    originalDocument.Save(resultStream, FormatType.Docx);
+                }
             }
         }       
     }
