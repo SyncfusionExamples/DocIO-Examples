@@ -35,7 +35,10 @@ namespace ConsoleApp1
 
                             // Compare the original and revised Word documents.
                             originalWordDocument.Compare(revisedWordDocument);
-
+							
+							//Reset the stream position.
+							stream.Position = 0;
+							
                             //Save the stream as file.
                             using (FileStream fileStreamOutput = File.Create("Result.docx"))
                             {
