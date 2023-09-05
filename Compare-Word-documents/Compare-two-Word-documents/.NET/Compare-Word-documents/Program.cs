@@ -18,32 +18,30 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //Open the Original file as Stream.
-            using (FileStream originalDocStream = new FileStream(Path.GetFullPath(@"../../../Data/OriginalDocument.docx"), FileMode.Open, FileAccess.Read))
+            //Loads the original document.
+            using (FileStream originalDocumentStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/OriginalDocument.docx"), FileMode.Open, FileAccess.Read))
             {
-                //Open the Revised file as Stream
-                using (FileStream revisedDocStream = new FileStream(Path.GetFullPath(@"../../../Data/RevisedDocument.docx"), FileMode.Open, FileAccess.Read))
+                using (WordDocument originalDocument = new WordDocument(originalDocumentStreamPath, FormatType.Docx))
                 {
-                    //Loads Original file stream into Word document.
-                    using (WordDocument originalWordDocument = new WordDocument(originalDocStream, FormatType.Docx))
+                    //Loads the revised document
+                    using (FileStream revisedDocumentStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/RevisedDocument.docx"), FileMode.Open, FileAccess.Read))
                     {
-                        //Loads Revised file stream into Word document.
-                        using (WordDocument revisedWordDocument = new WordDocument(revisedDocStream, FormatType.Docx))
+                        using (WordDocument revisedDocument = new WordDocument(revisedDocumentStreamPath, FormatType.Docx))
                         {
                             // Create a memory stream to store the comparison result.
                             MemoryStream stream = new MemoryStream();
 
                             // Compare the original and revised Word documents.
-                            originalWordDocument.Compare(revisedWordDocument);
+                            originalDocument.Compare(revisedDocument);
 
                             //Save the stream as file.
                             using (FileStream fileStreamOutput = File.Create("Result.docx"))
                             {
                                 stream.CopyTo(fileStreamOutput);
                             }
-                        }                      
-                    }
-                }              
+                        }
+                    }                 
+                }                           
             }
         }       
     }
