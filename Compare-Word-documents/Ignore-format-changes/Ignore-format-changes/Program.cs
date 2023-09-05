@@ -20,32 +20,29 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             //Open the Original file as Stream.
-            using (FileStream originalDocStream = new FileStream(Path.GetFullPath(@"../../../Data/OriginalDocument.docx"), FileMode.Open, FileAccess.Read))
+            using (FileStream originalDocumentStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/OriginalDocument.docx"), FileMode.Open, FileAccess.Read))
             {
-                //Open the Revised file as Stream
-                using (FileStream revisedDocStream = new FileStream(Path.GetFullPath(@"../../../Data/RevisedDocument.docx"), FileMode.Open, FileAccess.Read))
+                //Loads Original file stream into Word document.
+                using (WordDocument originalDocument = new WordDocument(originalDocumentStreamPath, FormatType.Docx))
                 {
-                    //Loads Original file stream into Word document.
-                    using (WordDocument originalWordDocument = new WordDocument(originalDocStream, FormatType.Docx))
+                    //Open the Revised file as Stream
+                    using (FileStream revisedDocumentStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/RevisedDocument.docx"), FileMode.Open, FileAccess.Read))
                     {
                         //Loads Revised file stream into Word document.
-                        using (WordDocument revisedWordDocument = new WordDocument(revisedDocStream, FormatType.Docx))
-                        {                            
+                        using (WordDocument revisedDocument = new WordDocument(revisedDocumentStreamPath, FormatType.Docx))
+                        {
                             //Sets the Comparison option detect format changes, whether to detect format changes while comparing two Word documents.
                             ComparisonOptions compareOptions = new ComparisonOptions();
                             compareOptions.DetectFormatChanges = false;
 
                             //Compares the original document with revised document.
-                            originalDocument.Compare(revisedDocument, "Your name", DateTime.Now, compareOptions);
+                            originalDocument.Compare(revisedDocument, "Nancy Davolio", DateTime.Now.AddDays(-1), compareOptions);
 
-                            //Creates file stream.
-                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
-                            {
-                                //Saves the Word document to file stream.
-                                originalWordDocument.Save(outputFileStream, FormatType.Docx);
-                            }
+                            //Saves the Word document to MemoryStream
+                            MemoryStream stream = new MemoryStream();
+                            originalDocument.Save(stream, FormatType.Docx);
                         }
-                    }
+                    }                  
                 }
             }
         }
