@@ -34,7 +34,7 @@ namespace Compare_Word_Documents.Controllers
                         using (WordDocument revisedDocument = new WordDocument(revisedDocumentStreamPath, FormatType.Docx))
                         {
                             //Compare original document with revised document.
-                            originalDocument.Compare(revisedDocument);
+                            originalDocument.Compare(revisedDocument, "Nancy Davolio", DateTime.Now.AddDays(-1));
                             // Create a memory stream to store the comparison result.
                             MemoryStream stream = new MemoryStream();
 
