@@ -28,17 +28,12 @@ namespace ConsoleApp1
                     {
                         using (WordDocument revisedDocument = new WordDocument(revisedDocumentStreamPath, FormatType.Docx))
                         {
-                            // Create a memory stream to store the comparison result.
-                            MemoryStream stream = new MemoryStream();
-
                             // Compare the original and revised Word documents.
                             originalDocument.Compare(revisedDocument);
 
-                            //Save the stream as file.
-                            using (FileStream fileStreamOutput = File.Create("Result.docx"))
-                            {
-                                stream.CopyTo(fileStreamOutput);
-                            }
+                            //Saves the Word document to MemoryStream
+                            MemoryStream stream = new MemoryStream();
+                            originalDocument.Save(stream, FormatType.Docx);
                         }
                     }                 
                 }                           
