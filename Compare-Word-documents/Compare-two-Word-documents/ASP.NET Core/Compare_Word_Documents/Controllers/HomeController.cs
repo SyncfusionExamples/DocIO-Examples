@@ -22,28 +22,32 @@ namespace Compare_Word_Documents.Controllers
         }
         public ActionResult CompareWordDocuments()
         {
-            string originalFilePath = Path.GetFullPath("Data/OriginalDocument.docx");
-            string revisedFilePath = Path.GetFullPath("Data/RevisedDocument.docx");
 
-            using (FileStream orgDocStream = new FileStream(originalFilePath, FileMode.Open, FileAccess.Read))
-            using (FileStream revisedStream = new FileStream(revisedFilePath, FileMode.Open, FileAccess.Read))
-            //Open the original Word document
-            using (WordDocument originalDocument = new WordDocument(orgDocStream, FormatType.Docx))
-            //Open the revised Word document
-            using (WordDocument revisedDocument = new WordDocument(revisedStream, FormatType.Docx))
+            //Loads the original document.
+            using (FileStream originalDocumentStreamPath = new FileStream(Path.GetFullPath("Data/OriginalDocument.docx"), FileMode.Open, FileAccess.Read))
             {
-                //Compare original document with revised document
-                originalDocument.Compare(revisedDocument, "Andrew Fuller", DateTime.Now);
-                // Create a memory stream to store the comparison result.
-                MemoryStream stream = new MemoryStream();
+                using (WordDocument originalDocument = new WordDocument(originalDocumentStreamPath, FormatType.Docx))
+                {
+                    //Loads the revised document.
+                    using (FileStream revisedDocumentStreamPath = new FileStream(Path.GetFullPath("Data/RevisedDocument.docx"), FileMode.Open, FileAccess.Read))
+                    {
+                        using (WordDocument revisedDocument = new WordDocument(revisedDocumentStreamPath, FormatType.Docx))
+                        {
+                            //Compare original document with revised document.
+                            originalDocument.Compare(revisedDocument);
+                            // Create a memory stream to store the comparison result.
+                            MemoryStream stream = new MemoryStream();
 
-                // Save the compared document into the MemoryStream.
-                originalDocument.Save(stream, FormatType.Docx);
+                            // Save the compared document into the MemoryStream.
+                            originalDocument.Save(stream, FormatType.Docx);
 
-                //Download Word document in the browser.
-                return File(stream, "application/docx", "Result.docx");
-           
-            }
+                            //Download Word document in the browser.
+                            return File(stream, "application/docx", "Result.docx");
+
+                        }
+                    }
+                }
+            }                    
         }
 
         public IActionResult Privacy()
