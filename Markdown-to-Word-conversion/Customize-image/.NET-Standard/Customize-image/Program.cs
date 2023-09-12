@@ -42,6 +42,17 @@ namespace Customize_image
                 //Set the retrieved image from the input Markdown.
                 args.ImageStream = stream;
             }
+            //Retrieve the image from the base64 string and use it.
+            else if (args.Uri.StartsWith("data:image/"))
+            {
+                string src = args.Uri;
+                int startIndex = src.IndexOf(",");
+                src = src.Substring(startIndex + 1);
+                byte[] image = System.Convert.FromBase64String(src);
+                Stream stream = new MemoryStream(image);
+                //Set the retrieved image from the input Markdown.
+                args.ImageStream = stream;
+            }
         }
     }
 }
