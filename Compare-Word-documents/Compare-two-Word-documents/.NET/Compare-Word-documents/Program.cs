@@ -31,12 +31,10 @@ namespace Compare_Word_documents
                             // Compare the original and revised Word documents.
                             originalDocument.Compare(revisedDocument);
 
-                            //Saves the Word document to MemoryStream
-                            MemoryStream stream = new MemoryStream();
+                            //Save the Word document.
                             using (FileStream fileStreamOutput = File.Create("Output.docx"))
                             {
-                                //Copy the converted image stream into created output stream.
-                                stream.CopyTo(fileStreamOutput);
+                                originalDocument.Save(fileStreamOutput, FormatType.Docx);
                             }
                         }
                     }                 

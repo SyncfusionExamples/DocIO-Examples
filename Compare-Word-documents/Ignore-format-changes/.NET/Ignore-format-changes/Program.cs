@@ -38,9 +38,11 @@ namespace ConsoleApp1
                             //Compares the original document with revised document.
                             originalDocument.Compare(revisedDocument, "Nancy Davolio", DateTime.Now.AddDays(-1), compareOptions);
 
-                            //Saves the Word document to MemoryStream
-                            MemoryStream stream = new MemoryStream();
-                            originalDocument.Save(stream, FormatType.Docx);
+                            //Save the Word document.
+                            using (FileStream fileStreamOutput = File.Create("Output.docx"))
+                            {
+                                originalDocument.Save(fileStreamOutput, FormatType.Docx);
+                            }
                         }
                     }                  
                 }

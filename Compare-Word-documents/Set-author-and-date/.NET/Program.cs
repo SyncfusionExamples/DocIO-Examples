@@ -31,9 +31,11 @@ namespace Set_author_and_date
                             // Compare the original and revised Word documents.
                             originalDocument.Compare(revisedDocument, "Nancy Davolio", DateTime.Now.AddDays(-1));
 
-                            //Saves the Word document to MemoryStream
-                            MemoryStream stream = new MemoryStream();
-                            originalDocument.Save(stream, FormatType.Docx);
+                            //Save the Word document.
+                            using (FileStream fileStreamOutput = File.Create("Output.docx"))
+                            {
+                                originalDocument.Save(fileStreamOutput, FormatType.Docx);
+                            }
                         }
                     }
                 }
