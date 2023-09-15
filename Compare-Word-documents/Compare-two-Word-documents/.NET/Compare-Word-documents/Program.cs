@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-namespace ConsoleApp1
+namespace Compare_Word_documents
 {
     internal class Program
     {
@@ -33,7 +33,11 @@ namespace ConsoleApp1
 
                             //Saves the Word document to MemoryStream
                             MemoryStream stream = new MemoryStream();
-                            originalDocument.Save(stream, FormatType.Docx);
+                            using (FileStream fileStreamOutput = File.Create("Output.docx"))
+                            {
+                                //Copy the converted image stream into created output stream.
+                                stream.CopyTo(fileStreamOutput);
+                            }
                         }
                     }                 
                 }                           
