@@ -1,0 +1,23 @@
+﻿@page "/docio"
+@using System.IO;
+@using Convert_Word_to_Markdown;
+@inject Convert_Word_to_Markdown.Data.WordService service
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h2>Syncfusion DocIO library (Essential DocIO)</h2>
+<p>Syncfusion DocIO library (Essential DocIO) is a Blazor DocIO library used to create, read, edit, and convert Word files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@ConvertWordToMD">Convert to Markdown</button>
+
+
+@code {
+    MemoryStream documentStream;
+
+    /// <summary>
+    /// Convert Word to Markdown and download the Markdown file.
+    /// </summary>
+    protected async void ConvertWordToMD()
+    {
+        documentStream = service.ConvertWordToMD();
+        await JS.SaveAs("WordToMd.md", documentStream.ToArray());
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Convert-Word-Document-to-Image (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Convert-Word-Document-to-Image (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

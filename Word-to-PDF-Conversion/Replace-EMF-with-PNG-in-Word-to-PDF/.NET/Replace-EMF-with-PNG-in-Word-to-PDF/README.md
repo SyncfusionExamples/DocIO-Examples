@@ -1,0 +1,3 @@
+# Limitation of System.Drawing.Common
+
+​Please note that the conversion of metafile image formats (wmf or emf) to bitmap image formats (JPEG or PNG) externally using the System.Drawing.Common package, which is only applicable in a Windows environment. For more information regarding this limitation, please refer to this [link](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only). Therefore, it is important to acknowledge that there is no cross-platform solution available for converting metafile image formats to PNG files.

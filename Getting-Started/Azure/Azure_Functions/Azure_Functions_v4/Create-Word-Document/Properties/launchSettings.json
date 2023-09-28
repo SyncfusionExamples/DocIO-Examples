@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Create_Word_Document": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7082",
+      "launchBrowser": false
+    }
+  }
+}

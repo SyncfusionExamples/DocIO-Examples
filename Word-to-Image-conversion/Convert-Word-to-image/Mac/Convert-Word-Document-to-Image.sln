@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert-Word-Document-to-Image", "Convert-Word-Document-to-Image\Convert-Word-Document-to-Image.csproj", "{FFB41F62-7141-405F-904B-D3D07D98AA5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFB41F62-7141-405F-904B-D3D07D98AA5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFB41F62-7141-405F-904B-D3D07D98AA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFB41F62-7141-405F-904B-D3D07D98AA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFB41F62-7141-405F-904B-D3D07D98AA5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DABEC2EA-BC07-4005-AF70-9758419E94C9}
+	EndGlobalSection
+EndGlobal

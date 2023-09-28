@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Convert_Word_Document_to_PDF": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7067",
+      "launchBrowser": false
+    }
+  }
+}
