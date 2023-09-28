@@ -51,7 +51,6 @@ namespace Insert_comment_to_Word_document
                     }
                 }
             }
-            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Result.docx")) { UseShellExecute = true });
         }
     }
 }
