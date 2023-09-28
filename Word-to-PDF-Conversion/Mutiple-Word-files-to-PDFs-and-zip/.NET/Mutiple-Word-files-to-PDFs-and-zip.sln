@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mutiple-Word-files-to-PDFs-and-zip", "Mutiple-Word-files-to-PDFs-and-zip\Mutiple-Word-files-to-PDFs-and-zip.csproj", "{6298A54B-F92E-4FEF-8DDA-4D5D7F18B890}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6298A54B-F92E-4FEF-8DDA-4D5D7F18B890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6298A54B-F92E-4FEF-8DDA-4D5D7F18B890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6298A54B-F92E-4FEF-8DDA-4D5D7F18B890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6298A54B-F92E-4FEF-8DDA-4D5D7F18B890}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03E0BB5D-5052-4520-B44C-1E25008959F3}
+	EndGlobalSection
+EndGlobal
