@@ -22,7 +22,6 @@ namespace Find_and_replace_text_with_image
                         WParagraph paragraph = new WParagraph(document);
                         FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Data" + textSelections[i].SelectedText + ".png"), FileMode.Open, FileAccess.ReadWrite);
                         WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
-                        TextSelection newSelection = new TextSelection(paragraph, 0, 1);
                         TextBodyPart bodyPart = new TextBodyPart(document);
                         bodyPart.BodyItems.Add(paragraph);
                         document.Replace(textSelections[i].SelectedText, bodyPart, true, true);

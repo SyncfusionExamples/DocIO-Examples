@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Find-and-replace-text-with-chart", "Find-and-replace-text-with-chart\Find-and-replace-text-with-chart.csproj", "{6DC22CF0-0561-4C68-9D83-5C0971490748}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DC22CF0-0561-4C68-9D83-5C0971490748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC22CF0-0561-4C68-9D83-5C0971490748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC22CF0-0561-4C68-9D83-5C0971490748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC22CF0-0561-4C68-9D83-5C0971490748}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D05EB822-AE02-4DFA-B932-C32E99F9BFA9}
+	EndGlobalSection
+EndGlobal
