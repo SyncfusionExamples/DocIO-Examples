@@ -18,19 +18,40 @@ namespace Find_and_replace_text_with_TOC
                     TextSelection[] selections = document.FindAll("[Insert TOC]", true, true);
                     WTextRange textrange = selections[0].GetAsOneRange();
                     WParagraph paragraph = textrange.OwnerParagraph;
+                    int index = paragraph.ChildEntities.IndexOf(textrange);
                     //Remove the existing text
                     paragraph.ChildEntities.Remove(textrange);
-                    //Append the TOC
-                    paragraph.AppendTOC(1, 3);
+                    //Insert the TOC
+                    InsertTOC(document, paragraph, index);
                     //Update the TOC
                     document.UpdateTableOfContents();
                     //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Data/Result_check.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Data/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);
                     }
                 }
+            }
+        }
+        /// <summary>
+        /// Insert the TOC in the index of given paragraph
+        /// </summary>
+        /// <param name="document"></param>
+        /// <param name="ownerPara"></param>
+        /// <param name="index"></param>
+        private static void InsertTOC(WordDocument document, WParagraph ownerPara, int index)
+        {
+            //Create a new paragraph
+            WParagraph newPara = new WParagraph(document);
+            //Append TOC to the new paragraph
+            newPara.AppendTOC(1, 3);
+            //Insert the child entities of new paragraph to the owner paragraph at the given index.
+            for (int i = 0; i < newPara.ChildEntities.Count; i++)
+            {
+                ownerPara.ChildEntities.Insert(index, newPara.ChildEntities[i]);
+                index++;
+                i--;
             }
         }
     }

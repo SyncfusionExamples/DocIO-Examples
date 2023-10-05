@@ -30,13 +30,24 @@ namespace Find_and_replace_text_with_chart
                     }
                 }
             }
-        }
+        } 
+        /// <summary>
+        /// Create a bar chart inside a new paragraph.
+        /// </summary>
+        /// <param name="document"></param>
+        /// <returns></returns>
         private static WParagraph CreateBarChart(WordDocument document)
         {
+            //Create new paragraph
             WParagraph paragraph = new WParagraph(document);
+            //Append new chart
             WChart barchart = paragraph.AppendChart(400, 300);
+            //Set type as bar chart
             barchart.ChartType = OfficeChartType.Bar_Clustered;
+            //Add data for the bar chart
             AddBarChartData(barchart);
+
+            //Set the other parts of the chart.
             barchart.ChartTitle = "Purchase Details";
             barchart.ChartTitleArea.FontName = "Calibri";
             barchart.ChartTitleArea.Size = 14;
@@ -59,9 +70,13 @@ namespace Find_and_replace_text_with_chart
             barchart.PrimaryCategoryAxis.MajorTickMark = OfficeTickMark.TickMark_None;
             barchart.PrimaryValueAxis.MajorTickMark = OfficeTickMark.TickMark_None;
 
+            //Return the new paragraph that has bar chart in it.
             return paragraph;
         }
-
+        /// <summary>
+        /// Add the data for bar chart
+        /// </summary>
+        /// <param name="chart"></param>
         private static void AddBarChartData(WChart chart)
         {
             chart.ChartData.SetValue(1, 2, "Sum of Future Expenses");
