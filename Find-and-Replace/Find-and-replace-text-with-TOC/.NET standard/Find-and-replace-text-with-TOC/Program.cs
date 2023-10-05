@@ -47,11 +47,10 @@ namespace Find_and_replace_text_with_TOC
             //Append TOC to the new paragraph
             newPara.AppendTOC(1, 3);
             //Insert the child entities of new paragraph to the owner paragraph at the given index.
-            for (int i = 0; i < newPara.ChildEntities.Count; i++)
+            for (int i = 0; i < newPara.ChildEntities.Count;)
             {
                 ownerPara.ChildEntities.Insert(index, newPara.ChildEntities[i]);
                 index++;
-                i--;
             }
         }
     }
