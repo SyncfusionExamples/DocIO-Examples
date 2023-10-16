@@ -18,7 +18,7 @@ Key Features
 *   Support to insert and edit the [form fields](https://help.syncfusion.com/file-formats/docio/working-with-form-fields?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples).
 *   Support to protect the document to [restrict access](https://help.syncfusion.com/file-formats/docio/working-with-security?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples#protecting-word-document-from-editing) to the elements present within the document.
 *   Ability to [encrypt and decrypt](https://help.syncfusion.com/file-formats/docio/working-with-security?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) Word documents.
-*   Support to insert and extract OLE objects.
+*   Support to [insert and extract OLE](https://help.syncfusion.com/file-formats/docio/working-with-paragraph#working-with-ole-objects?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) objects.
 *   Support to run the DocIO applications in multi-thread and its thread safe.
 
 Compatible Microsoft Word Versions
