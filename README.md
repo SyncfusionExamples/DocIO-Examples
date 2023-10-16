@@ -30,12 +30,13 @@ Compatible Microsoft Word Versions
 *   Microsoft Word 2013
 *   Microsoft Word 2016
 *   Microsoft Word 2019
+*   Microsoft 365
 
 Supported File Formats
 ----------------------
 
 *   Creates, reads, and edits popular text file formats like DOC, DOT, DOCM, DOTM, DOCX, DOTX, HTML, RTF, TXT, and XML (WordML).
-*   Converts Word documents also to PDF, Image, and ODT files.
+*   Converts Word documents also to [PDF](https://help.syncfusion.com/file-formats/docio/word-to-pdf?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples), [Image](https://help.syncfusion.com/file-formats/docio/word-to-image?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples), and [ODT](https://help.syncfusion.com/file-formats/docio/word-to-odt?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) files.
 
 How to run the examples
 -----------------------
@@ -52,7 +53,7 @@ Resources
 *   **Documentation:** [Syncfusion Word library](https://help.syncfusion.com/file-formats/docio/overview?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
 *   **Online demo:** [Syncfusion Word library - Online demos](https://ej2.syncfusion.com/aspnetcore/DocIO/SalesInvoice?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples#/material)
 *   **Blog:** [Syncfusion Word library - Blog](https://www.syncfusion.com/blogs/category/docio?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
-*   **Knowledge Base:** [Syncfusion Word library - Knowledge Base](https://www.syncfusion.com/kb/windowsforms/docio?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
+*   **Knowledge Base:** [Syncfusion Word library - Knowledge Base](https://www.syncfusion.com/kb/aspnetcore/docio?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
 *   **Ebooks:** [Syncfusion Word library - Ebooks](https://www.syncfusion.com/succinctly-free-ebooks?utm_source=nuget&utm_medium=listing&utm_campaign=aspnetcore-docio-nuget)
 *   **FAQ:** [Syncfusion Word library - FAQ](https://www.syncfusion.com/faq/?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
 
