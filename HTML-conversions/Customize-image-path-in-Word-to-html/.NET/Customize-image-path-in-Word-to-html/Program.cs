@@ -17,7 +17,7 @@ namespace Customize_image_path_in_Word_to_html
                 {
                     //Hook the event to customize the image. 
                     document.SaveOptions.ImageNodeVisited += SaveImage;
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Sample.html"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../WordToHTML.html"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                     {
                         //Save the Word file.
                         document.Save(outputStream, FormatType.Html);
