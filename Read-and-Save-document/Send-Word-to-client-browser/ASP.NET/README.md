@@ -1,0 +1,1 @@
+If you are using [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core/) package in ASP.NET Web Forms application, refer this sample to download saved document in client browser.
