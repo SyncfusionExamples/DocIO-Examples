@@ -29,7 +29,7 @@ namespace Send_Word_to_client_browser
                 //Appends the text to the created paragraph.
                 paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
 
-				#region Save and download document
+#region SaveAndDownloadDocument
                 //Saves the Word document to disk in DOCX format.
                 MemoryStream stream = new MemoryStream();
                 document.Save(stream,FormatType.Docx);
@@ -38,7 +38,7 @@ namespace Send_Word_to_client_browser
                 Response.AddHeader("Content-Disposition", "attachment; filename=\"Sample.docx\"");
                 stream.CopyTo(Response.OutputStream);
                 Response.End();
-				#endregion
+#endregion
             }
         }
     }
