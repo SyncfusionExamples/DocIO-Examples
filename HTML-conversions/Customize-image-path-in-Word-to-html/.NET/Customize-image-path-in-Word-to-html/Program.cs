@@ -19,7 +19,7 @@ namespace Customize_image_path_in_Word_to_html
                     document.SaveOptions.ImageNodeVisited += SaveImage;
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../WordToHTML.html"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                     {
-                        //Save the Word file.
+                        //Save the HTML file.
                         document.Save(outputStream, FormatType.Html);
                     }
                 }
