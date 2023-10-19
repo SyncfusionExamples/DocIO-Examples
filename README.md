@@ -11,6 +11,8 @@ Key Features
 *   Advanced [Mail merge](https://help.syncfusion.com/file-formats/docio/working-with-mailmerge?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) support with different data sources.
 *   Ability to create or edit Word 97-2003 and later version documents (DOCX), and convert them to commonly used file formats such as [RTF](https://help.syncfusion.com/file-formats/docio/rtf?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples), [WordML](https://help.syncfusion.com/file-formats/docio/word-file-formats?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples#word-processing-xml-xml), [TXT](https://help.syncfusion.com/file-formats/docio/text?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples), [HTML](https://help.syncfusion.com/file-formats/docio/html?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) and vice versa.
 *   Ability to export a Word document as an [Image](https://help.syncfusion.com/file-formats/docio/word-to-image?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) and [PDF](https://help.syncfusion.com/file-formats/docio/word-to-pdf?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
+*   Ability to [merge](https://help.syncfusion.com/file-formats/docio/word-document/merging-word-documents?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) and [split](https://help.syncfusion.com/file-formats/docio/word-document/split-word-documents?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) Word documents.
+*   Support to [compare](https://help.syncfusion.com/file-formats/docio/word-document/compare-word-documents?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) two DOCX format documents.
 *   Ability to create and manipulate [charts](https://help.syncfusion.com/file-formats/docio/working-with-charts?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples), [Shapes](https://help.syncfusion.com/file-formats/docio/working-with-shapes?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples), and [Group shape](https://help.syncfusion.com/file-formats/docio/working-with-shapes?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples#grouping-shapes) in DOCX and WordML format documents.
 *   Ability to read and write [Built-In and Custom Document Properties](https://help.syncfusion.com/file-formats/docio/working-with-word-document?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples#working-with-word-document-properties).
 *   Ability to [find and replace](https://help.syncfusion.com/file-formats/docio/working-with-find-and-replace?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) text with its original formatting.
@@ -18,7 +20,7 @@ Key Features
 *   Support to insert and edit the [form fields](https://help.syncfusion.com/file-formats/docio/working-with-form-fields?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples).
 *   Support to protect the document to [restrict access](https://help.syncfusion.com/file-formats/docio/working-with-security?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples#protecting-word-document-from-editing) to the elements present within the document.
 *   Ability to [encrypt and decrypt](https://help.syncfusion.com/file-formats/docio/working-with-security?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) Word documents.
-*   Support to insert and extract OLE objects.
+*   Support to [insert and extract OLE](https://help.syncfusion.com/file-formats/docio/working-with-paragraph#working-with-ole-objects?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) objects.
 *   Support to run the DocIO applications in multi-thread and its thread safe.
 
 Compatible Microsoft Word Versions
@@ -30,12 +32,13 @@ Compatible Microsoft Word Versions
 *   Microsoft Word 2013
 *   Microsoft Word 2016
 *   Microsoft Word 2019
+*   Microsoft 365
 
 Supported File Formats
 ----------------------
 
-*   Creates, reads, and edits popular text file formats like DOC, DOT, DOCM, DOTM, DOCX, DOTX, HTML, RTF, TXT, and XML (WordML).
-*   Converts Word documents also to PDF, Image, and ODT files.
+*   Creates, reads, and edits popular text file formats like [DOC](https://help.syncfusion.com/file-formats/docio/word-file-formats?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples#doc-to-docx-and-docx-to-doc), DOT, [DOCM](https://help.syncfusion.com/file-formats/docio/word-file-formats?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples#macros), DOTM, [DOCX](https://help.syncfusion.com/file-formats/docio/word-file-formats?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples#doc-to-docx-and-docx-to-doc), [DOTX](https://help.syncfusion.com/file-formats/docio/word-file-formats?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples#templates), [HTML](https://help.syncfusion.com/file-formats/docio/html?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples), [RTF](https://help.syncfusion.com/file-formats/docio/rtf?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples), [TXT](https://help.syncfusion.com/file-formats/docio/text?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples), and [XML (WordML)](https://help.syncfusion.com/file-formats/docio/word-file-formats#word-processing-xml-xml?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples).
+*   Converts Word documents also to [PDF](https://help.syncfusion.com/file-formats/docio/word-to-pdf?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples), [Image](https://help.syncfusion.com/file-formats/docio/word-to-image?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples), and [ODT](https://help.syncfusion.com/file-formats/docio/word-to-odt?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples) files.
 
 How to run the examples
 -----------------------
@@ -52,7 +55,7 @@ Resources
 *   **Documentation:** [Syncfusion Word library](https://help.syncfusion.com/file-formats/docio/overview?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
 *   **Online demo:** [Syncfusion Word library - Online demos](https://ej2.syncfusion.com/aspnetcore/DocIO/SalesInvoice?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples#/material)
 *   **Blog:** [Syncfusion Word library - Blog](https://www.syncfusion.com/blogs/category/docio?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
-*   **Knowledge Base:** [Syncfusion Word library - Knowledge Base](https://www.syncfusion.com/kb/windowsforms/docio?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
+*   **Knowledge Base:** [Syncfusion Word library - Knowledge Base](https://www.syncfusion.com/kb/aspnetcore/docio?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
 *   **Ebooks:** [Syncfusion Word library - Ebooks](https://www.syncfusion.com/succinctly-free-ebooks?utm_source=nuget&utm_medium=listing&utm_campaign=aspnetcore-docio-nuget)
 *   **FAQ:** [Syncfusion Word library - FAQ](https://www.syncfusion.com/faq/?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
 
