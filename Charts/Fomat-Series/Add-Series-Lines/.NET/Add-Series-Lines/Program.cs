@@ -24,19 +24,19 @@ namespace Add_Series_Lines
                 //Set HasSeriesLines  property to true.
                 chart.Series[0].SerieFormat.CommonSerieOptions.HasSeriesLines = true;
 
-                //Apply formats to DropLines.
+                //Apply formats to Series Lines.
                 chart.Series[0].SerieFormat.CommonSerieOptions.PieSeriesLine.LineColor = Syncfusion.Drawing.Color.Red;
                 chart.Series[0].SerieFormat.CommonSerieOptions.PieSeriesLine.LinePattern = OfficeChartLinePattern.Solid;
                 chart.Series[0].SerieFormat.CommonSerieOptions.PieSeriesLine.LineWeight = OfficeChartLineWeight.Medium;
 
-                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                 {
                     //Save the Word file.
                     document.Save(outputStream, FormatType.Docx);
                 }
                 // Open the Word document located at the specified path using the default associated program.
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Sample.docx"))
+                process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Result.docx"))
                 {
                     UseShellExecute = true
                 };
