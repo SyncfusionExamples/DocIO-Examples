@@ -43,7 +43,7 @@ namespace Create_Word_document
             style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
 
             IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
-            // Gets the image stream.
+            // Get the image stream.
             IWPicture picture = paragraph.AppendPicture(new Bitmap(@"../../Data/AdventureCycle.jpg")) as WPicture;
             picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
             picture.VerticalOrigin = VerticalOrigin.Margin;
@@ -60,7 +60,7 @@ namespace Create_Word_document
             textRange.CharacterFormat.FontName = "Calibri";
             textRange.CharacterFormat.TextColor = Color.Red;
 
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = section.AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
@@ -68,14 +68,14 @@ namespace Create_Word_document
             textRange.CharacterFormat.FontSize = 18f;
             textRange.CharacterFormat.FontName = "Calibri";
 
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = section.AddParagraph();
             paragraph.ParagraphFormat.FirstLineIndent = 36;
             paragraph.BreakCharacterFormat.FontSize = 12f;
             textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
             textRange.CharacterFormat.FontSize = 12f;
 
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = section.AddParagraph();
             paragraph.ParagraphFormat.FirstLineIndent = 36;
             paragraph.BreakCharacterFormat.FontSize = 12f;
@@ -89,16 +89,16 @@ namespace Create_Word_document
             textRange.CharacterFormat.FontSize = 16f;
             textRange.CharacterFormat.FontName = "Calibri";
 
-            //Appends table.
+            //Append table.
             IWTable table = section.AddTable();
             table.ResetCells(3, 2);
             table.TableFormat.Borders.BorderType = Syncfusion.DocIO.DLS.BorderStyle.None;
             table.TableFormat.IsAutoResized = true;
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = table[0, 0].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.BreakCharacterFormat.FontSize = 12f;
-            //Appends picture to the paragraph.
+            //Append picture to the paragraph.
             picture = paragraph.AppendPicture(new Bitmap(@"../../Data/Mountain-200.jpg")) as WPicture;
             picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
             picture.VerticalOrigin = VerticalOrigin.Paragraph;
@@ -108,13 +108,13 @@ namespace Create_Word_document
             picture.WidthScale = 79;
             picture.HeightScale = 79;
 
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = table[0, 1].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.AppendText("Mountain-200");
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = table[0, 1].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
@@ -132,19 +132,19 @@ namespace Create_Word_document
             textRange = paragraph.AppendText("Price: $2,294.99\r") as WTextRange;
             textRange.CharacterFormat.FontSize = 12f;
             textRange.CharacterFormat.FontName = "Times New Roman";
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = table[0, 1].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.BreakCharacterFormat.FontSize = 12f;
 
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = table[1, 0].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.AppendText("Mountain-300 ");
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = table[1, 0].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
@@ -162,17 +162,17 @@ namespace Create_Word_document
             textRange = paragraph.AppendText("Price: $1,079.99\r") as WTextRange;
             textRange.CharacterFormat.FontSize = 12f;
             textRange.CharacterFormat.FontName = "Times New Roman";
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = table[1, 0].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.BreakCharacterFormat.FontSize = 12f;
 
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = table[1, 1].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.LineSpacing = 12f;
-            //Appends picture to the paragraph.
+            //Append picture to the paragraph.
             picture = paragraph.AppendPicture(new Bitmap(@"../../Data/Mountain-300.jpg")) as WPicture;
             picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
             picture.VerticalOrigin = VerticalOrigin.Paragraph;
@@ -182,11 +182,11 @@ namespace Create_Word_document
             picture.WidthScale = 75;
             picture.HeightScale = 75;
 
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = table[2, 0].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.LineSpacing = 12f;
-            //Appends picture to the paragraph.
+            //Append picture to the paragraph.
             picture = paragraph.AppendPicture(new Bitmap(@"../../Data/Road-550-W.jpg")) as WPicture;
             picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
             picture.VerticalOrigin = VerticalOrigin.Paragraph;
@@ -196,13 +196,13 @@ namespace Create_Word_document
             picture.WidthScale = 92;
             picture.HeightScale = 92;
 
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = table[2, 1].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.AppendText("Road-150 ");
-            //Appends paragraph.
+            //Append paragraph.
             paragraph = table[2, 1].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
@@ -220,10 +220,10 @@ namespace Create_Word_document
             textRange = paragraph.AppendText("Price: $3,578.27\r") as WTextRange;
             textRange.CharacterFormat.FontSize = 12f;
             textRange.CharacterFormat.FontName = "Times New Roman";
-            //Appends paragraph.
+            //Append paragraph.
             section.AddParagraph();
 
-            //Saves the Word document
+            //Save the Word document
             document.Save(@"../../Sample.docx");
         }
     }
