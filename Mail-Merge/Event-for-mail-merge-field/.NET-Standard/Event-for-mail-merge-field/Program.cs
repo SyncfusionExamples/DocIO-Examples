@@ -35,11 +35,7 @@ namespace Event_for_mail_merge_field
         /// </summary>      
         private static void ApplyAlternateRecordsTextColor(object sender, MergeFieldEventArgs args)
         {
-            //Sets text color to the alternate mail merge record.
-            if (args.RowIndex % 2 == 0)
-            {
-                args.TextRange.CharacterFormat.TextColor = Color.FromArgb(255, 102, 0);
-            }
+            args.Text += "Additional Information";
         }
 
         /// <summary>
