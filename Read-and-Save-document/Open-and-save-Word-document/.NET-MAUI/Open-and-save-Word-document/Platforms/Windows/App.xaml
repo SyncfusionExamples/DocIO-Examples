@@ -1,0 +1,8 @@
+﻿<maui:MauiWinUIApplication
+    x:Class="Open_and_save_Word_document.WinUI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:maui="using:Microsoft.Maui"
+    xmlns:local="using:Open_and_save_Word_document.WinUI">
+
+</maui:MauiWinUIApplication>

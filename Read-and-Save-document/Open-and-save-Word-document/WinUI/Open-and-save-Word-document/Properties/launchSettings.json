@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Open-and-save-Word-document (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Open-and-save-Word-document (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
