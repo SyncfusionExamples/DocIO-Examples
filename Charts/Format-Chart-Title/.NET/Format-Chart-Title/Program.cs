@@ -40,13 +40,6 @@ namespace Format_Chart_Title
                     //Save the Word file.
                     document.Save(outputStream, FormatType.Docx);
                 }
-                // Open the Word document located at the specified path using the default associated program.
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Result.docx"))
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
