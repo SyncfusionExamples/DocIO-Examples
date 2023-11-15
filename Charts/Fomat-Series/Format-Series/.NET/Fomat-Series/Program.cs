@@ -74,13 +74,6 @@ namespace Fomat_Series
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);
                 }
-                // Open the Word document located at the specified path using the default associated program.
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Result.docx"))
-                {
-                    UseShellExecute = true
-                };
-                process.Start();
             }
         }
     }
