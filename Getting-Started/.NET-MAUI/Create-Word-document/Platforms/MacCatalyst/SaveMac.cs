@@ -53,78 +53,79 @@ namespace Create_Word_document.Services
             return null;
         }
     }
-}
 
-public class QLPreviewItemFileSystem : QLPreviewItem
-{
-    readonly string _fileName, _filePath;
 
-    public QLPreviewItemFileSystem(string fileName, string filePath)
+    public class QLPreviewItemFileSystem : QLPreviewItem
     {
-        _fileName = fileName;
-        _filePath = filePath;
-    }
+        readonly string _fileName, _filePath;
 
-    public override string PreviewItemTitle
-    {
-        get
+        public QLPreviewItemFileSystem(string fileName, string filePath)
         {
-            return _fileName;
+            _fileName = fileName;
+            _filePath = filePath;
+        }
+
+        public override string PreviewItemTitle
+        {
+            get
+            {
+                return _fileName;
+            }
+        }
+        public override NSUrl PreviewItemUrl
+        {
+            get
+            {
+                return NSUrl.FromFilename(_filePath);
+            }
         }
     }
-    public override NSUrl PreviewItemUrl
+
+    public class QLPreviewItemBundle : QLPreviewItem
     {
-        get
+        readonly string _fileName, _filePath;
+        public QLPreviewItemBundle(string fileName, string filePath)
         {
-            return NSUrl.FromFilename(_filePath);
+            _fileName = fileName;
+            _filePath = filePath;
+        }
+
+        public override string PreviewItemTitle
+        {
+            get
+            {
+                return _fileName;
+            }
+        }
+        public override NSUrl PreviewItemUrl
+        {
+            get
+            {
+                var documents = NSBundle.MainBundle.BundlePath;
+                var lib = Path.Combine(documents, _filePath);
+                var url = NSUrl.FromFilename(lib);
+                return url;
+            }
         }
     }
-}
 
-public class QLPreviewItemBundle : QLPreviewItem
-{
-    readonly string _fileName, _filePath;
-    public QLPreviewItemBundle(string fileName, string filePath)
+    public class PreviewControllerDS : QLPreviewControllerDataSource
     {
-        _fileName = fileName;
-        _filePath = filePath;
-    }
+        private readonly QLPreviewItem _item;
 
-    public override string PreviewItemTitle
-    {
-        get
+        public PreviewControllerDS(QLPreviewItem item)
         {
-            return _fileName;
+            _item = item;
         }
-    }
-    public override NSUrl PreviewItemUrl
-    {
-        get
+
+        public override nint PreviewItemCount(QLPreviewController controller)
         {
-            var documents = NSBundle.MainBundle.BundlePath;
-            var lib = Path.Combine(documents, _filePath);
-            var url = NSUrl.FromFilename(lib);
-            return url;
+            return (nint)1;
         }
-    }
-}
 
-public class PreviewControllerDS : QLPreviewControllerDataSource
-{
-    private readonly QLPreviewItem _item;
-
-    public PreviewControllerDS(QLPreviewItem item)
-    {
-        _item = item;
-    }
-
-    public override nint PreviewItemCount(QLPreviewController controller)
-    {
-        return (nint)1;
-    }
-
-    public override IQLPreviewItem GetPreviewItem(QLPreviewController controller, nint index)
-    {
-        return _item;
+        public override IQLPreviewItem GetPreviewItem(QLPreviewController controller, nint index)
+        {
+            return _item;
+        }
     }
 }
