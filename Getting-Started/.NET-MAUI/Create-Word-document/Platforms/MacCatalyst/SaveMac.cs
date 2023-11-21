@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using UIKit;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Create_Word_document.Services
 {
@@ -19,92 +20,112 @@ namespace Create_Word_document.Services
             stream.CopyTo(fileStream);
             fileStream.Flush();
             fileStream.Dispose();
-#pragma warning disable CA1416 //This call site is reachable on: 'iOS' 14.2 and later, 'maccatalyst' 14.2 and later. 'UIApplication.KeyWindow.get' is unsupported on: 'ios' 13.0 and later, 'maccatalyst' 13.0 and later.
-            //Launch the file
-            UIViewController? currentController = UIApplication.SharedApplication!.KeyWindow!.RootViewController;
-#pragma warning restore CA1416 //This call site is reachable on: 'iOS' 14.2 and later, 'maccatalyst' 14.2 and later. 'UIApplication.KeyWindow.get' is unsupported on: 'ios' 13.0 and later, 'maccatalyst' 13.0 and later.
-            while (currentController!.PresentedViewController != null)
-                currentController = currentController.PresentedViewController;
-            UIView? currentView = currentController.View;
+            UIWindow? window = GetKeyWindow();
+            if (window != null && window.RootViewController != null)
+            {
+                UIViewController? uiViewController = window.RootViewController;
+                if (uiViewController != null)
+                {
+                    QLPreviewController qlPreview = new();
+                    QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
+                    qlPreview.DataSource = new PreviewControllerDS(item);
+                    uiViewController.PresentViewController((UIViewController)qlPreview, true, null);
+                }
+            }
 
-            QLPreviewController qlPreview = new();
-            QLPreviewItem item = new QLPreviewItemBundle(filename, filePath);
-            qlPreview.DataSource = new PreviewControllerDS(item);
-            currentController.PresentViewController((UIViewController)qlPreview, true, null);
         }
-    }
-}
-
-public class QLPreviewItemFileSystem : QLPreviewItem
-{
-    readonly string _fileName, _filePath;
-
-    public QLPreviewItemFileSystem(string fileName, string filePath)
-    {
-        _fileName = fileName;
-        _filePath = filePath;
-    }
-
-    public override string PreviewItemTitle
-    {
-        get
+        public UIWindow? GetKeyWindow()
         {
-            return _fileName;
+            foreach (var scene in UIApplication.SharedApplication.ConnectedScenes)
+            {
+                if (scene is UIWindowScene windowScene)
+                {
+                    foreach (var window in windowScene.Windows)
+                    {
+                        if (window.IsKeyWindow)
+                        {
+                            return window;
+                        }
+                    }
+                }
+            }
+
+            return null;
         }
     }
-    public override NSUrl PreviewItemUrl
+
+
+    public class QLPreviewItemFileSystem : QLPreviewItem
     {
-        get
+        readonly string _fileName, _filePath;
+
+        public QLPreviewItemFileSystem(string fileName, string filePath)
         {
-            return NSUrl.FromFilename(_filePath);
+            _fileName = fileName;
+            _filePath = filePath;
         }
-    }
-}
 
-public class QLPreviewItemBundle : QLPreviewItem
-{
-    readonly string _fileName, _filePath;
-    public QLPreviewItemBundle(string fileName, string filePath)
-    {
-        _fileName = fileName;
-        _filePath = filePath;
-    }
-
-    public override string PreviewItemTitle
-    {
-        get
+        public override string PreviewItemTitle
         {
-            return _fileName;
+            get
+            {
+                return _fileName;
+            }
         }
-    }
-    public override NSUrl PreviewItemUrl
-    {
-        get
+        public override NSUrl PreviewItemUrl
         {
-            var documents = NSBundle.MainBundle.BundlePath;
-            var lib = Path.Combine(documents, _filePath);
-            var url = NSUrl.FromFilename(lib);
-            return url;
+            get
+            {
+                return NSUrl.FromFilename(_filePath);
+            }
         }
     }
-}
 
-public class PreviewControllerDS : QLPreviewControllerDataSource
-{
-    private readonly QLPreviewItem _item;
-
-    public PreviewControllerDS(QLPreviewItem item)
+    public class QLPreviewItemBundle : QLPreviewItem
     {
-        _item = item;
+        readonly string _fileName, _filePath;
+        public QLPreviewItemBundle(string fileName, string filePath)
+        {
+            _fileName = fileName;
+            _filePath = filePath;
+        }
+
+        public override string PreviewItemTitle
+        {
+            get
+            {
+                return _fileName;
+            }
+        }
+        public override NSUrl PreviewItemUrl
+        {
+            get
+            {
+                var documents = NSBundle.MainBundle.BundlePath;
+                var lib = Path.Combine(documents, _filePath);
+                var url = NSUrl.FromFilename(lib);
+                return url;
+            }
+        }
     }
 
-    public override nint PreviewItemCount(QLPreviewController controller)
+    public class PreviewControllerDS : QLPreviewControllerDataSource
     {
-        return (nint)1;
-    }
+        private readonly QLPreviewItem _item;
 
-    public override IQLPreviewItem GetPreviewItem(QLPreviewController controller, nint index)
-    {
-        return _item;
+        public PreviewControllerDS(QLPreviewItem item)
+        {
+            _item = item;
+        }
+
+        public override nint PreviewItemCount(QLPreviewController controller)
+        {
+            return (nint)1;
+        }
+
+        public override IQLPreviewItem GetPreviewItem(QLPreviewController controller, nint index)
+        {
+            return _item;
+        }
     }
 }
