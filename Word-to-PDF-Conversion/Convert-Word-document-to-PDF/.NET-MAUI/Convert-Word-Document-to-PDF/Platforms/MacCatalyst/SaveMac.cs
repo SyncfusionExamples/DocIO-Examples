@@ -52,7 +52,6 @@ namespace Convert_Word_Document_to_PDF.SaveServices
             }
 
             return null;
-			}
         }
     }
     public class QLPreviewItemFileSystem : QLPreviewItem
