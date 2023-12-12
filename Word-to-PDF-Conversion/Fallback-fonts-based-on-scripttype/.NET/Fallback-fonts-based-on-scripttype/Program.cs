@@ -13,19 +13,19 @@ namespace Fallback_fonts_based_on_scripttype
             //Loads an existing Word document file stream
             using WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx);
             //Adds fallback font for "Arabic" script type
-            wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman, Courier New, Segoe UI, Tahoma, Traditional Arabic");
+            wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Arabic, "Arial, Times New Roman");
             //Adds fallback font for "Hebrew" script type
-            wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Times New Roman, David, Courier New, Microsoft Sans Serif");
+            wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hebrew, "Arial, Courier New");
             //Adds fallback font for "Hindi" script type
-            wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI, Utsaah");
+            wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Hindi, "Mangal, Nirmala UI");
             //Adds fallback font for "Chinese" script type
-            wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU, MS Gothic, SimSun");
+            wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "DengXian, MingLiU");
             //Adds fallback font for "Japanese" script type
-            wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho, MS Gothic");
+            wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Mincho, MS Mincho");
             //Adds fallback font for "Thai" script type
             wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Thai, "Tahoma, Microsoft Sans Serif");
             //Adds fallback font for "Korean" script type
-            wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang, Dotum, Gulim");
+            wordDocument.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic, Batang");
             //Instantiation of DocIORenderer for Word to PDF conversion.
             using DocIORenderer render = new DocIORenderer();
             //Converts Word document into PDF document.
