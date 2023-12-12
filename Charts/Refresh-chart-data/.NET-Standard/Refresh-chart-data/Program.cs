@@ -17,8 +17,9 @@ namespace Refresh_chart_data
                     WParagraph paragraph = document.LastParagraph;
                     //Gets the chart entity from the paragraph items.
                     WChart chart = paragraph.ChildEntities[0] as WChart;
-                    //Refreshes chart data.
-                    chart.Refresh();
+                    // Refreshes the chart data. Set `true` to evaluate Excel formulas before refreshing,
+                    // or `false` to refresh only the data without evaluating formulas.
+                    chart.Refresh(false);
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Initialize-default-fallback-fonts", "Initialize-default-fallback-fonts\Initialize-default-fallback-fonts.csproj", "{AA4B5A73-E9A4-465D-98A9-33450B770972}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA4B5A73-E9A4-465D-98A9-33450B770972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA4B5A73-E9A4-465D-98A9-33450B770972}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA4B5A73-E9A4-465D-98A9-33450B770972}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA4B5A73-E9A4-465D-98A9-33450B770972}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3D990B9-C4A8-4095-99DB-1199DDFB8423}
+	EndGlobalSection
+EndGlobal
