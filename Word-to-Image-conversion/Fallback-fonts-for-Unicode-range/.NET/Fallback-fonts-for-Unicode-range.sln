@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34310.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fallback-fonts-for-custom-range", "Fallback-fonts-for-custom-range\Fallback-fonts-for-custom-range.csproj", "{5339BECC-6DDE-48E9-9A7A-C77C7E47A70B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fallback-fonts-for-Unicode-range", "Fallback-fonts-for-Unicode-range\Fallback-fonts-for-Unicode-range.csproj", "{5339BECC-6DDE-48E9-9A7A-C77C7E47A70B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
