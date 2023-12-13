@@ -7,9 +7,9 @@ namespace Initialize_default_fallback_fonts
     {
         static void Main(string[] args)
         {
-            //Opens the file as stream
+            //Opens the file as stream.
             using FileStream inputStream = new FileStream(@"../../../Template.docx", FileMode.Open, FileAccess.Read);
-            //Loads an existing Word document file stream
+            //Loads an existing Word document file stream.
             using WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx);
             //Initialize the default fallback fonts collection.
             wordDocument.FontSettings.FallbackFonts.InitializeDefault();
