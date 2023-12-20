@@ -11,6 +11,6 @@ document.EnsureMinimal();
 //Append an matrix equation using LaTeX.
 document.LastParagraph.AppendMath(@"\begin{matrix}a&b\\\end{matrix}");
 
-//Save the Word document.
+//Save the Word document
 using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
 document.Save(outputStream, FormatType.Docx);
