@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\SubSuperScript\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{33AF6045-A3EA-49CA-A538-DC10EBA65CBB}|SubSuperScript\\SubSuperScript.csproj|d:\\subsuperscript\\subsuperscript\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33AF6045-A3EA-49CA-A538-DC10EBA65CBB}|SubSuperScript\\SubSuperScript.csproj|solutionrelative:subsuperscript\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33AF6045-A3EA-49CA-A538-DC10EBA65CBB}|SubSuperScript\\SubSuperScript.csproj|d:\\subsuperscript\\subsuperscript\\subsuperscript.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{33AF6045-A3EA-49CA-A538-DC10EBA65CBB}|SubSuperScript\\SubSuperScript.csproj|solutionrelative:subsuperscript\\subsuperscript.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SubSuperScript",
+              "DocumentMoniker": "D:\\SubSuperScript\\SubSuperScript\\SubSuperScript.csproj",
+              "RelativeDocumentMoniker": "SubSuperScript\\SubSuperScript.csproj",
+              "ToolTip": "D:\\SubSuperScript\\SubSuperScript\\SubSuperScript.csproj",
+              "RelativeToolTip": "SubSuperScript\\SubSuperScript.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2023-12-20T07:02:43.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\SubSuperScript\\SubSuperScript\\Program.cs",
+              "RelativeDocumentMoniker": "SubSuperScript\\Program.cs",
+              "ToolTip": "D:\\SubSuperScript\\SubSuperScript\\Program.cs",
+              "RelativeToolTip": "SubSuperScript\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-20T07:02:35.735Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

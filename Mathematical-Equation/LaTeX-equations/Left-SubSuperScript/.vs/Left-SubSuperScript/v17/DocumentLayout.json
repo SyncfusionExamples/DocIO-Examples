@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Left-SubSuperScript\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0CAD7315-F005-4826-89E2-4C118A535D4F}|Left-SubSuperScript\\Left-SubSuperScript.csproj|d:\\left-subsuperscript\\left-subsuperscript\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CAD7315-F005-4826-89E2-4C118A535D4F}|Left-SubSuperScript\\Left-SubSuperScript.csproj|solutionrelative:left-subsuperscript\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CAD7315-F005-4826-89E2-4C118A535D4F}|Left-SubSuperScript\\Left-SubSuperScript.csproj|d:\\left-subsuperscript\\left-subsuperscript\\left-subsuperscript.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0CAD7315-F005-4826-89E2-4C118A535D4F}|Left-SubSuperScript\\Left-SubSuperScript.csproj|solutionrelative:left-subsuperscript\\left-subsuperscript.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Left-SubSuperScript",
+              "DocumentMoniker": "D:\\Left-SubSuperScript\\Left-SubSuperScript\\Left-SubSuperScript.csproj",
+              "RelativeDocumentMoniker": "Left-SubSuperScript\\Left-SubSuperScript.csproj",
+              "ToolTip": "D:\\Left-SubSuperScript\\Left-SubSuperScript\\Left-SubSuperScript.csproj",
+              "RelativeToolTip": "Left-SubSuperScript\\Left-SubSuperScript.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2023-12-20T07:05:31.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Left-SubSuperScript\\Left-SubSuperScript\\Program.cs",
+              "RelativeDocumentMoniker": "Left-SubSuperScript\\Program.cs",
+              "ToolTip": "D:\\Left-SubSuperScript\\Left-SubSuperScript\\Program.cs",
+              "RelativeToolTip": "Left-SubSuperScript\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-20T07:05:27.755Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Delimiter\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B3E53B85-DF50-401C-9E99-42625DFF5ACC}|Delimiter\\Delimiter.csproj|d:\\delimiter\\delimiter\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3E53B85-DF50-401C-9E99-42625DFF5ACC}|Delimiter\\Delimiter.csproj|solutionrelative:delimiter\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3E53B85-DF50-401C-9E99-42625DFF5ACC}|Delimiter\\Delimiter.csproj|d:\\delimiter\\delimiter\\delimiter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B3E53B85-DF50-401C-9E99-42625DFF5ACC}|Delimiter\\Delimiter.csproj|solutionrelative:delimiter\\delimiter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Delimiter",
+              "DocumentMoniker": "D:\\Delimiter\\Delimiter\\Delimiter.csproj",
+              "RelativeDocumentMoniker": "Delimiter\\Delimiter.csproj",
+              "ToolTip": "D:\\Delimiter\\Delimiter\\Delimiter.csproj",
+              "RelativeToolTip": "Delimiter\\Delimiter.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2023-12-20T06:08:19.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Delimiter\\Delimiter\\Program.cs",
+              "RelativeDocumentMoniker": "Delimiter\\Program.cs",
+              "ToolTip": "D:\\Delimiter\\Delimiter\\Program.cs",
+              "RelativeToolTip": "Delimiter\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-20T06:08:14.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

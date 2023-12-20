@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34321.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radical", "Radical\Radical.csproj", "{18D4F3D8-511B-4D17-B888-289D7A63A5CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18D4F3D8-511B-4D17-B888-289D7A63A5CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18D4F3D8-511B-4D17-B888-289D7A63A5CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18D4F3D8-511B-4D17-B888-289D7A63A5CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18D4F3D8-511B-4D17-B888-289D7A63A5CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39F1D47A-CED3-4C6D-8B28-93A31283FBBB}
+	EndGlobalSection
+EndGlobal
