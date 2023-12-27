@@ -9,7 +9,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an border box equation using LaTeX.
-document.LastParagraph.AppendMath(@"\boxed{x^2 + y^2 = z^2}");
+document.LastParagraph.AppendMath(@"\boxed{{x}^2+{y}^2={z}^2}");
 
 //Save the Word document.
 using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
