@@ -9,7 +9,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an subsuperscript equation using LaTeX.
-document.LastParagraph.AppendMath(@"a^b");
+document.LastParagraph.AppendMath(@"{a}^{b}");
 
 //Save the Word document.
 using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
