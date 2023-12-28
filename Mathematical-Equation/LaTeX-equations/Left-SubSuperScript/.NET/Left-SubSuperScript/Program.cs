@@ -9,7 +9,7 @@ using WordDocument document = new WordDocument();
 document.EnsureMinimal();
 
 //Append an left subsuperscript equation using LaTeX.
-document.LastParagraph.AppendMath(@"{_40^{20}}100");
+document.LastParagraph.AppendMath(@"{_{40}^{20}}100");
 
 //Save the Word document.
 using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
