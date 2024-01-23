@@ -1,4 +1,4 @@
-Steps followed in the sample:
+## Steps followed in the sample:
 
 1. Creates new Word document.
 2. Gets the dynamic data from the database.
