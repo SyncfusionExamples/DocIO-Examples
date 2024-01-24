@@ -4,7 +4,7 @@ using Syncfusion.Drawing;
 using Syncfusion.OfficeChart;
 using System.IO;
 
-namespace Create_chart_from_scratch
+namespace Remove_chart_title
 {
     class Program
     {
@@ -21,8 +21,10 @@ namespace Create_chart_from_scratch
                 WChart chart = paragraph.AppendChart(446, 270);
                 //Sets chart type.
                 chart.ChartType = OfficeChartType.Pie;
+
                 //Sets chart title.
                 chart.ChartTitle = string.Empty;
+
                 //Sets data for chart.
                 chart.ChartData.SetValue(1, 1, "");
                 chart.ChartData.SetValue(1, 2, "Sales");
