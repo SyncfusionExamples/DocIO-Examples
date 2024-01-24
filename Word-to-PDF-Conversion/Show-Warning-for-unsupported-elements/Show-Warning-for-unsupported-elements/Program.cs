@@ -26,16 +26,7 @@ namespace Show_Warning_for_unsupported_elements
                                 pdfDocument.Save(outputFile);
                                 outputFile.Dispose();
 
-                                PdfDocument.ClearFontCache();
-
                                 Console.WriteLine("Success");
-
-                                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                                process.StartInfo = new System.Diagnostics.ProcessStartInfo("Output.pdf")
-                                {
-                                    UseShellExecute = true
-                                };
-                                process.Start();
                             }
                             else
                             {
