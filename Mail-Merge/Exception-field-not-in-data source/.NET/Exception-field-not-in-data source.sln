@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exception-field-not-in-data source", "Exception-field-not-in-data source\Exception-field-not-in-data source.csproj", "{9F4C32DD-7C56-4F27-AD55-ED758CA7E54B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F4C32DD-7C56-4F27-AD55-ED758CA7E54B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F4C32DD-7C56-4F27-AD55-ED758CA7E54B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F4C32DD-7C56-4F27-AD55-ED758CA7E54B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F4C32DD-7C56-4F27-AD55-ED758CA7E54B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C42DCC1C-F1C1-46A0-8B37-5F59B5EBD5B6}
+	EndGlobalSection
+EndGlobal
