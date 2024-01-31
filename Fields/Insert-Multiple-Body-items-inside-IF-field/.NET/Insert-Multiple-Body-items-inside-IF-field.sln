@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insert-Multiple-Body-items-inside-IF-field", "Insert-Multiple-Body-items-inside-IF-field\Insert-Multiple-Body-items-inside-IF-field.csproj", "{769D252E-31D7-4446-B293-862D552004C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{769D252E-31D7-4446-B293-862D552004C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{769D252E-31D7-4446-B293-862D552004C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{769D252E-31D7-4446-B293-862D552004C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{769D252E-31D7-4446-B293-862D552004C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E950FA69-ACFD-43B5-96C4-17BF1F6E6DC9}
+	EndGlobalSection
+EndGlobal
