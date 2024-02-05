@@ -52,14 +52,19 @@ namespace Merge_field_inside_IF_field
             field.FieldCode = "IF ";
             //To insert Merge field after "IF" field code increment the index.
             fieldIndex++;
+            //Insert the quote before Expression1
             InsertText("\"", ref fieldIndex, paragraph);
             InsertMergeField("Gender", ref fieldIndex, paragraph);
+            //Insert the quote after Expression1, operator and before Expression2
             InsertText("\" = \"", ref fieldIndex, paragraph);
             InsertMergeField("Gender", ref fieldIndex, paragraph);
+            //Insert the quote after Expression2 and before true statement
             InsertText("\" \"", ref fieldIndex, paragraph);
             InsertMergeField("Male", ref fieldIndex, paragraph);
+            //Insert the quote after true statement and before false statement
             InsertText("\" \"", ref fieldIndex, paragraph);
             InsertMergeField("Female", ref fieldIndex, paragraph);
+            //Insert the quote after false statement
             InsertText("\"", ref fieldIndex, paragraph);
         }
         /// <summary>
