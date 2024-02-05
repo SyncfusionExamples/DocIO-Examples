@@ -27,8 +27,8 @@ namespace Merge_field_inside_IF_field
             InsertIfFieldCode(paragraph, field);
 
             //Execute Mail merge.
-            string[] fieldName = { "Gender" };
-            string[] fieldValue = { "M" };
+            string[] fieldName = { "Gender", "Male", "Female" };
+            string[] fieldValue = { "M", "Mr.Andrew", "Miss.Nancy" };
             document.MailMerge.Execute(fieldName, fieldValue);
             //Update the fields.
             document.UpdateDocumentFields();
@@ -52,66 +52,31 @@ namespace Merge_field_inside_IF_field
             field.FieldCode = "IF ";
             //To insert Merge field after "IF" field code increment the index.
             fieldIndex++;
-            InsertExpression1(ref fieldIndex, paragraph);
-            InsertOperator(ref fieldIndex, paragraph);
-            InsertExpression2(ref fieldIndex, paragraph);
-            InsertTrueStatement(ref fieldIndex, paragraph);
-            InsertFalseStatement(ref fieldIndex, paragraph);
-        }
-        /// <summary>
-        /// Insert expression 1
-        /// </summary>
-        private static void InsertExpression1(ref int fieldIndex, WParagraph paragraph)
-        {
-            //Insert merge field.
+            //Insert the quote before Expression1
+            InsertText("\"", ref fieldIndex, paragraph);
             InsertMergeField("Gender", ref fieldIndex, paragraph);
+            //Insert the quote after Expression1, operator and before Expression2
+            InsertText("\" = \"", ref fieldIndex, paragraph);
+            InsertMergeField("Gender", ref fieldIndex, paragraph);
+            //Insert the quote after Expression2 and before true statement
+            InsertText("\" \"", ref fieldIndex, paragraph);
+            InsertMergeField("Male", ref fieldIndex, paragraph);
+            //Insert the quote after true statement and before false statement
+            InsertText("\" \"", ref fieldIndex, paragraph);
+            InsertMergeField("Female", ref fieldIndex, paragraph);
+            //Insert the quote after false statement
+            InsertText("\"", ref fieldIndex, paragraph);
         }
         /// <summary>
-        /// Insert operand
+        /// Insert text such as quote, operator.
         /// </summary>
-        private static void InsertOperator(ref int fieldIndex, WParagraph paragraph)
+        private static void InsertText( string text,ref int fieldIndex, WParagraph paragraph)
         {
             //Insert the Operator in a textrange.
-            WTextRange text = new WTextRange(paragraph.Document);
-            text.Text = " = ";
+            WTextRange textRange = new WTextRange(paragraph.Document);
+            textRange.Text = text;
             //Insert the textrange as field code item.
-            paragraph.Items.Insert(fieldIndex, text);
-            fieldIndex++;
-        }
-        /// <summary>
-        /// Insert expression 2
-        /// </summary>
-        private static void InsertExpression2(ref int fieldIndex, WParagraph paragraph)
-        {
-            //Insert the expression 2 in a textrange.
-            WTextRange text = new WTextRange(paragraph.Document);
-            text.Text = "\"M\" ";
-            //Insert the textrange as field code item.
-            paragraph.Items.Insert(fieldIndex, text);
-            fieldIndex++;
-        }
-        /// <summary>
-        /// Insert true statement
-        /// </summary>
-        private static void InsertTrueStatement(ref int fieldIndex, WParagraph paragraph)
-        {
-            //Insert the true statement in a textrange.
-            WTextRange text = new WTextRange(paragraph.Document);
-            text.Text = "\"Male\" ";
-            //Insert the textrange as field code item.
-            paragraph.Items.Insert(fieldIndex, text);
-            fieldIndex++;
-        }
-        /// <summary>
-        /// Insert false statement
-        /// </summary>
-        private static void InsertFalseStatement(ref int fieldIndex, WParagraph paragraph)
-        {
-            //Insert the false statement in a textrange.
-            WTextRange text = new WTextRange(paragraph.Document);
-            text.Text = "\"Female\"";
-            //Insert the textrange as field code item.
-            paragraph.Items.Insert(fieldIndex, text);
+            paragraph.Items.Insert(fieldIndex, textRange);
             fieldIndex++;
         }
         /// <summary>
