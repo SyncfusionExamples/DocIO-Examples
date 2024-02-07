@@ -8,13 +8,13 @@ namespace Mail_merge_with_string_arrays
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"D:\Support\549873\Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
-                    string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City" };
-                    string[] fieldValues = new string[] { "1001", "Peter", "+122-2222222", "London" };
+                    string[] fieldNames = new string[] { "data" };
+                    string[] fieldValues = new string[] { "Maintenance" };
                     //Performs the mail merge.
                     document.MailMerge.Execute(fieldNames, fieldValues);
                     //Creates file stream.

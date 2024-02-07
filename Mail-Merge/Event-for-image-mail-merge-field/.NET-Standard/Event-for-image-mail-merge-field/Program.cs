@@ -41,7 +41,8 @@ namespace Event_for_image_mail_merge_field
             {
                 string ProductFileName = args.FieldValue.ToString();
                 //Gets the image from file system
-                FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Data/" + ProductFileName), FileMode.Open, FileAccess.Read);
+                byte[] imageBytes = File.ReadAllBytes(@"../../../Data/" + ProductFileName);
+                MemoryStream imageStream = new MemoryStream(imageBytes);
                 args.ImageStream = imageStream;
                 //Gets the picture, to be merged for image merge field
                 WPicture picture = args.Picture;

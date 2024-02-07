@@ -7,6 +7,7 @@ using Syncfusion.DocIORenderer;
 using Syncfusion.Pdf;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using SkiaSharp;
 
 namespace Convert_Word_Document_to_PDF.Controllers
 {
@@ -51,25 +52,41 @@ namespace Convert_Word_Document_to_PDF.Controllers
                     Request.Form.Files[0].CopyTo(stream);
                     try
                     {
-                        //Open using Syncfusion
-                        using (WordDocument document = new WordDocument(stream, FormatType.Docx))
+                        //var docBytes = Convert.FromBase64String(content);
+                        // Open the file as Stream.
+                        using (MemoryStream inputStream = new MemoryStream())
                         {
-                            stream.Dispose();
-                                                    
-                            // Creates a new instance of DocIORenderer class.
-                            using (DocIORenderer render = new DocIORenderer())
+                            // Load an existing Word document.
+                            using (Syncfusion.DocIO.DLS.WordDocument wordDocument = new Syncfusion.DocIO.DLS.WordDocument(stream, Syncfusion.DocIO.FormatType.Automatic))
                             {
-                                // Converts Word document into PDF document
-                                using (PdfDocument pdf = render.ConvertToPDF(document))
-                                {                                                                     
-                                    MemoryStream memoryStream = new MemoryStream();
-                                    // Save the PDF document
-                                    pdf.Save(memoryStream);
-                                    memoryStream.Position = 0;
-                                    return File(memoryStream, "application/pdf", "WordToPDF.pdf");
-                                }                                                           
-                            } 
-                        }                                                
+                                wordDocument.FontSettings.FallbackFonts.InitializeDefault();
+
+
+                                // Create an instance of DocIORenderer.
+                                using (DocIORenderer renderer = new DocIORenderer())
+                                {
+                                    renderer.Settings.EmbedFonts = true;
+                                    renderer.Settings.EmbedCompleteFonts = true;
+
+                                    // Convert Word document into PDF document.
+                                    using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
+                                    {
+                                        MemoryStream outputStream = new MemoryStream();
+                                        pdfDocument.Save(outputStream);
+                                        outputStream.Position = 0;
+                                        return File(outputStream, "application/pdf", "WordToPDF.pdf");
+                                        //return new JsonResult(new Dictionary<string, string>()
+                                        //{
+                                        //    {"content", Convert.ToBase64String(outputStream.ToArray())},
+                                        //});
+                                    }
+                                }
+                            }
+                        }
+                        //return new JsonResult(new Dictionary<string, string>()
+                        //{
+                        //    {"content", "Completed"},
+                        //});
                     }
                     catch (Exception ex)
                     {
@@ -86,7 +103,11 @@ namespace Convert_Word_Document_to_PDF.Controllers
                 ViewBag.Message = string.Format("Browse a Word document and then click the button to convert as a PDF document");
             }
             return View("Index");
-        }      
+        }
+        private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
+        {
+            Console.WriteLine(args.OriginalFontName);
+        }
         public IActionResult Privacy()
         {
             return View();
