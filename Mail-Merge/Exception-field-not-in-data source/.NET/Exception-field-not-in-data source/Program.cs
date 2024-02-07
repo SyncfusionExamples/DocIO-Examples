@@ -57,19 +57,16 @@ namespace Exception_field_not_in_data_source
             //Add columns.
             dataTable.Columns.Add("EmployeeId");
             dataTable.Columns.Add("City");
-            //dataTable.Columns.Add("Designation");
             //Add records.
             DataRow row;
             row = dataTable.NewRow();
             row["EmployeeId"] = "1001";
             row["City"] = null;
-            //row["Designation"] = "SD";
             dataTable.Rows.Add(row);
 
             row = dataTable.NewRow();
             row["EmployeeId"] = "1002";
             row["City"] = "";
-            //row["Designation"] = null;
             dataTable.Rows.Add(row);
 
             row = dataTable.NewRow();

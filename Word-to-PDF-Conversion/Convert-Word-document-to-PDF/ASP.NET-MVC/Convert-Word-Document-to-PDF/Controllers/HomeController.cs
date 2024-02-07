@@ -16,7 +16,7 @@ namespace Convert_Word_Document_to_PDF.Controllers
         public ActionResult ConvertWordtoPDF()
         {
             //Open the file as Stream
-            using (FileStream docStream = new FileStream(Server.MapPath("~/App_Data/sample.docx"), FileMode.Open, FileAccess.Read))
+            using (FileStream docStream = new FileStream(Server.MapPath("~/App_Data/Template.docx"), FileMode.Open, FileAccess.Read))
             {
                 //Loads file stream into Word document
                 using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic))
