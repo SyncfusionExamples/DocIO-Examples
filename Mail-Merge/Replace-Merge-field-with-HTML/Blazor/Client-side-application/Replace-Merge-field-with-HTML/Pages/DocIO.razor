@@ -1,0 +1,116 @@
+﻿@page "/DocIO"
+@inject Microsoft.JSInterop.IJSRuntime JS
+@inject HttpClient client
+@using Syncfusion.DocIO
+@using Syncfusion.DocIO.DLS
+@using System.Collections.Generic
+@using System.IO
+@using System.Data
+
+<h2>Syncfusion DocIO library (Essential DocIO)</h2>
+<p>Syncfusion Blazor DocIO library (Essential DocIO) used to create, read, edit, and convert DocIO files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@ReplaceHTML">Perform Mail merge</button>
+
+@code {
+    @functions {
+        static Dictionary<WParagraph, Dictionary<int, string>> paraToInsertHTML = new Dictionary<WParagraph, Dictionary<int, string>>();
+        async void ReplaceHTML()
+        {
+            using (Stream inputStream = await client.GetStreamAsync("Data/Template.docx"))
+            {
+                //Opens the template document.
+                using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
+                {
+                    //Creates the mail merge events handler to replace merge field with HTML.
+                    document.MailMerge.MergeField += new MergeFieldEventHandler(MergeFieldEvent);
+                    string htmlString = await client.GetStringAsync("Data/File.html");
+                    //Gets data to perform the mail merge.
+                    DataTable table = GetDataTable(htmlString);
+                    //Performs the mail merge.
+                    document.MailMerge.Execute(table);
+                    //Append HTML to paragraph.
+                    InsertHtml();
+                    //Removes the mail merge events handler.
+                    document.MailMerge.MergeField -= new MergeFieldEventHandler(MergeFieldEvent);
+                    //Saves the Word document instance.
+                    //Saves the Word document to MemoryStream.
+                    using (MemoryStream stream = new MemoryStream())
+                    {
+                        document.Save(stream, FormatType.Docx);
+                        stream.Position = 0;
+                        //Download the Word document in the browser.
+                        await JS.SaveAs("Sample.docx", stream.ToArray());
+                    }
+                }
+            }
+        }
+
+        #region Helper methods
+        /// <summary>
+        /// Replaces merge field with HTML string by using MergeFieldEventHandler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public static void MergeFieldEvent(object sender, MergeFieldEventArgs args)
+        {
+            if (args.TableName.Equals("HTML"))
+            {
+                if (args.FieldName.Equals("ProductList"))
+                {
+                    //Gets the current merge field owner paragraph.
+                    WParagraph paragraph = args.CurrentMergeField.OwnerParagraph;
+                    //Gets the current merge field index in the current paragraph.
+                    int mergeFieldIndex = paragraph.ChildEntities.IndexOf(args.CurrentMergeField);
+                    //Maintain HTML in collection.
+                    Dictionary<int, string> fieldValues = new Dictionary<int, string>();
+                    fieldValues.Add(mergeFieldIndex, args.FieldValue.ToString());
+                    //Maintain paragraph in collection.
+                    paraToInsertHTML.Add(paragraph, fieldValues);
+                    //Set field value as empty.
+                    args.Text = string.Empty;
+                }
+            }
+        }
+        /// <summary>
+        /// Gets the data to perform mail merge
+        /// </summary>
+        /// <returns></returns>
+        private static DataTable GetDataTable(string htmlString)
+        {
+            DataTable dataTable = new DataTable("HTML");
+            dataTable.Columns.Add("CustomerName");
+            dataTable.Columns.Add("Address");
+            dataTable.Columns.Add("Phone");
+            dataTable.Columns.Add("ProductList");
+            DataRow datarow = dataTable.NewRow();
+            dataTable.Rows.Add(datarow);
+            datarow["CustomerName"] = "Nancy Davolio";
+            datarow["Address"] = "59 rue de I'Abbaye, Reims 51100, France";
+            datarow["Phone"] = "1-888-936-8638";
+            datarow["ProductList"] = htmlString;
+            return dataTable;
+        }
+        /// <summary>
+        /// Append HTML to paragraph.
+        /// </summary>
+        private static void InsertHtml()
+        {
+            //Iterates through each item in the dictionary.
+            foreach (KeyValuePair<WParagraph, Dictionary<int, string>> dictionaryItems in paraToInsertHTML)
+            {
+                WParagraph paragraph = dictionaryItems.Key as WParagraph;
+                Dictionary<int, string> values = dictionaryItems.Value as Dictionary<int, string>;
+                //Iterates through each value in the dictionary.
+                foreach (KeyValuePair<int, string> valuePair in values)
+                {
+                    int index = valuePair.Key;
+                    string fieldValue = valuePair.Value;
+                    //Inserts HTML string at the same position of mergefield in Word document.
+                    paragraph.OwnerTextBody.InsertXHTML(fieldValue, paragraph.OwnerTextBody.ChildEntities.IndexOf(paragraph), index);
+                }
+            }
+            paraToInsertHTML.Clear();
+        }
+        #endregion
+    }
+}
