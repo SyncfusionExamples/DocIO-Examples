@@ -12,9 +12,6 @@ namespace Reduce_pdf_size
             WordDocument wordDocument = new WordDocument(@"../../Data/Template.docx", FormatType.Docx);
             DocToPDFConverter converter = new DocToPDFConverter();
 
-            // Enable fast rendering
-            converter.Settings.EnableFastRendering = true;
-
             // Adjust image quality and resolution
             converter.Settings.ImageQuality = 50;
             converter.Settings.ImageResolution = 640;
