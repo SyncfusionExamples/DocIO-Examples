@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reduce-pdf-size", "Reduce-pdf-size\Reduce-pdf-size.csproj", "{DF1ABF50-C203-46AF-AA31-1B20D5770BA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF1ABF50-C203-46AF-AA31-1B20D5770BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF1ABF50-C203-46AF-AA31-1B20D5770BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF1ABF50-C203-46AF-AA31-1B20D5770BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF1ABF50-C203-46AF-AA31-1B20D5770BA3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DDC8FC9-1C3D-4D51-AE20-3F3E7D5CB3D2}
+	EndGlobalSection
+EndGlobal
