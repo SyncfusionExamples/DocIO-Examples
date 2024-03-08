@@ -4,18 +4,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <WasmNativeStrip>true</WasmNativeStrip>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.12" PrivateAssets="all" />
-    <PackageReference Include="SkiaSharp.NativeAssets.WebAssembly" Version="2.88.2" />
-    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="20.4.0.38" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <NativeFileReference Include="$(SkiaSharpStaticLibraryPath)\2.0.23\*.a" />
+    <PackageReference Include="SkiaSharp.Views.Blazor" Version="2.88.6" />
+    <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>
