@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Replace-OLE-object-with-text", "Replace-OLE-object-with-text\Replace-OLE-object-with-text.csproj", "{296FE9C9-0D32-4FBC-A31C-33EECF197775}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Replace-all-OLE-objects-with-text", "Replace-all-OLE-objects-with-text\Replace-all-OLE-objects-with-text.csproj", "{296FE9C9-0D32-4FBC-A31C-33EECF197775}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
