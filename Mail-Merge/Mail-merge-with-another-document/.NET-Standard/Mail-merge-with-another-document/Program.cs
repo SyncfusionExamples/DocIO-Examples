@@ -40,6 +40,30 @@ namespace Mail_merge_with_another_document
                 }
             }
         }
+        private static void MailMerge_MergeField(object sender, MergeFieldEventArgs args)
+        {
+            if(args.FieldName == "Description")
+            {
+                //Get the owner paragraph
+                WParagraph para = args.CurrentMergeField.OwnerParagraph;
+                //Get the index of current field
+                int index = para.Items.IndexOf(args.CurrentMergeField);
+                //Add the bookmark to the begining of the field
+                string bkmkName = "Bkmk_" + count;
+                BookmarkStart bkmkStart = new BookmarkStart(para.Document, bkmkName);
+                Bookmark bookmark = new Bookmark(bkmkStart);
+                para.Items.Insert(index, bkmkStart);
+                BookmarkEnd bkmkEnd = new BookmarkEnd(para.Document, bkmkName);
+                para.Items.Insert(index + 1, bkmkEnd);
+                //Add the bookmark name and the document path to the dictionary.
+                BookmarksAdded.Add(bkmkName, args.FieldValue.ToString());
+                //Increment the count
+                count++;
+                //Remove the field value i.e., document path given.
+                args.Text = "";
+               
+            }
+        }
         private static void ReplaceBookmarks(WordDocument document)
         {
             foreach(string bkmkName in BookmarksAdded.Keys)
@@ -62,30 +86,6 @@ namespace Mail_merge_with_another_document
                         document.Bookmarks.Remove(bkmk);
                     }
                 }
-               
-            }
-        }
-        private static void MailMerge_MergeField(object sender, MergeFieldEventArgs args)
-        {
-            if(args.FieldName == "Description")
-            {
-                //Get the owner paragraph
-                WParagraph para = args.CurrentMergeField.OwnerParagraph;
-                //Get the index of current field
-                int index = para.Items.IndexOf(args.CurrentMergeField);
-                //Add the bookmark to the begining of the field
-                string bkmkName = "Bkmk_" + count;
-                BookmarkStart bkmkStart = new BookmarkStart(para.Document, bkmkName);
-                Bookmark bookmark = new Bookmark(bkmkStart);
-                para.Items.Insert(index, bkmkStart);
-                BookmarkEnd bkmkEnd = new BookmarkEnd(para.Document, bkmkName);
-                para.Items.Insert(index + 1, bkmkEnd);
-                //Add the bookmark name and the document path to the dictionary.
-                BookmarksAdded.Add(bkmkName, args.FieldValue.ToString());
-                //Increment the count
-                count++;
-                //Remove the field value i.e., document path given.
-                args.Text = "";
                
             }
         }
