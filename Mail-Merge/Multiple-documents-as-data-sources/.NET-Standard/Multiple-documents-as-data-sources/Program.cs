@@ -4,12 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Mail_merge_with_another_document
+namespace Multiple_documents_as_data_sources
 {
     class Program
     {
+        // Declare and initialize a static counter.
         static int count = 0;
+        // Declare and initialize a dictionary for bookmarks
         static Dictionary<string, string> BookmarksAdded = new Dictionary<string, string>();
+
         static void Main(string[] args)
         {
             using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
@@ -40,6 +43,7 @@ namespace Mail_merge_with_another_document
                 }
             }
         }
+        //Mail merge event.
         private static void MailMerge_MergeField(object sender, MergeFieldEventArgs args)
         {
             if(args.FieldName == "Description")
@@ -64,6 +68,7 @@ namespace Mail_merge_with_another_document
                
             }
         }
+        //Replace the field with another document content.
         private static void ReplaceBookmarks(WordDocument document)
         {
             foreach(string bkmkName in BookmarksAdded.Keys)
@@ -91,6 +96,7 @@ namespace Mail_merge_with_another_document
         }
 
         #region Helper Methods
+        // Retrieve a list of category items.
         public static List<CategoryList> GetCategoryList()
         {
             List<FieldList> field = new List<FieldList>();
@@ -117,6 +123,7 @@ namespace Mail_merge_with_another_document
     }
 
     #region Helper class
+    // Represent a category with a name and a list of items.
     public class CategoryList
     {
         public string CategoryName { get; set; }
@@ -127,6 +134,7 @@ namespace Mail_merge_with_another_document
             Items = items;
         }
     }
+    // Represent an item with a title, description, and a list of fields.
     public class ItemsList
     {
         public string ItemTitle { get; set; }
@@ -139,6 +147,7 @@ namespace Mail_merge_with_another_document
             Field = field;
         }
     }
+    // Represent a field with a name and a value.
     public class FieldList
     {
         public string FieldName { get; set; }
