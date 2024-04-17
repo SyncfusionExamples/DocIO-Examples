@@ -40,7 +40,7 @@ using (FileStream documentStream = new FileStream("../../../Data/Input.docx", Fi
 }
 
 /// <summary>
-/// Create a text body based on paragraphs on the sub another existing document.
+/// Create body parts that need to be replaced in the Word document.
 /// </summary>
 /// <param name="subDocument">Document contains the paragraph which need to be replace</param>
 /// <param name="ownerPara">The paragraph that needs to be copied.</param>
