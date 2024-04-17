@@ -1,22 +1,25 @@
-﻿using Syncfusion.DocIO;
+﻿using Microsoft.VisualBasic;
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
+
+string[] filePaths = {"../../../Data/Heading1Items.docx","../../../Data/Heading2Items.docx"};
 //Open the file as Stream.
-using (FileStream destInput = new FileStream("../../../Data/Input.docx", FileMode.Open, FileAccess.Read))
+using (FileStream documentStream = new FileStream("../../../Data/Input.docx", FileMode.Open, FileAccess.Read))
 {
     //Open an existing Word document.
-    using (WordDocument document = new WordDocument(destInput, FormatType.Docx))
+    using (WordDocument document = new WordDocument(documentStream, FormatType.Docx))
     {
-        for (int documentIndex = 1; documentIndex <= 2; documentIndex++)
+        for(int documentIndex = 0; documentIndex < filePaths.Length; documentIndex++)
         {
             //String to be found.
-            string findText = "<<Heading"+ documentIndex + "Items>>";
+            string findText = "<<Heading"+ (documentIndex + 1) + "Items>>";
             //Find the selection in the document.
             TextSelection selection = document.Find(findText, false, false);
             //Get the owner paragraph.
             WParagraph ownerPara = selection.GetAsOneRange().OwnerParagraph;
             //Open the file as Stream.
-            using (FileStream subDocumentStream = new FileStream("../../../Data/Heading"+ documentIndex + "Items.docx", FileMode.Open, FileAccess.Read))
+            using (FileStream subDocumentStream = new FileStream(filePaths[documentIndex], FileMode.Open, FileAccess.Read))
             {
                 //Open an sub Word document.
                 using (WordDocument subDocument = new WordDocument(subDocumentStream, FormatType.Docx))
