@@ -9,5 +9,20 @@ WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 //Get the list of pictures
 List<Entity> entities = document.FindAllItemsByProperty(EntityType.Picture, "OwnerParagraph.IsInCell", "True");
 
+//Save all the images to a folder
+for (int i = 0; i < entities.Count; i++)
+{
+    WPicture picture = entities[i] as WPicture;
+    //Get the image 
+    System.Drawing.Image image = System.Drawing.Image.FromStream(new MemoryStream(picture.ImageBytes));
+    //Save the image as PNG
+    string imgFileName = @"../../../Images/Output" + i + ".png";
+    FileStream imgFile = new FileStream(imgFileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+    image.Save(imgFile, System.Drawing.Imaging.ImageFormat.Png);
+    //Dispose the instances.
+    imgFile.Dispose();
+    image.Dispose();
+}
+
 //Closes the document
 document.Close();
