@@ -1,5 +1,6 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
+using System.Reflection.Metadata;
 
 
 string[] filePaths = {"../../../Data/Heading1Items.docx","../../../Data/Heading2Items.docx"};
@@ -46,27 +47,63 @@ using (FileStream documentStream = new FileStream("../../../Data/Input.docx", Fi
 /// <param name="ownerPara">The paragraph that needs to be copied.</param>
 TextBodyPart CreateBodyPart(WordDocument subDocument, WParagraph ownerPara)
 {
-    //Clone the paragraph.
-    WParagraph paratoInsert = ownerPara.Clone() as WParagraph;
     //Creates new text body part.
     TextBodyPart bodyPart = new TextBodyPart(ownerPara.Document);
-    //Iterate the body items of the sub document.
-    for (int bodyItemIndex = 0; bodyItemIndex < subDocument.LastSection.Body.ChildEntities.Count; bodyItemIndex++)
+    //Iterate each section of the Word document.
+    foreach (WSection section in subDocument.Sections)
     {
-        if (subDocument.LastSection.Body.ChildEntities[bodyItemIndex] is WParagraph)
-        {
-            WParagraph paragraph = subDocument.LastSection.Body.ChildEntities[bodyItemIndex] as WParagraph;
-            //Clear the paragraph's items.
-            paratoInsert.ChildEntities.Clear();
-            //Iterate the items of the paragraph.
-            for (int paraItemIndex = 0; paraItemIndex < paragraph.ChildEntities.Count; paraItemIndex++)
-            {
-                //Add the paragraph items.
-                paratoInsert.ChildEntities.Add(paragraph.ChildEntities[paraItemIndex].Clone());
-            }
-            //Add to text body part.
-            bodyPart.BodyItems.Add(paratoInsert.Clone());
-        }
+        //Accesses the Body of section where all the contents in document are apart
+        WTextBody sectionBody = section.Body;
+        IterateTextBody(sectionBody, ownerPara, bodyPart);
     }
     return bodyPart;
+}
+/// <summary>
+/// Iterates textbody child elements.
+/// </summary>
+void IterateTextBody(WTextBody sectionTextBody, WParagraph ownerPara, TextBodyPart bodyPart)
+{
+    //Iterates through each of the child items of WTextBody
+    for (int i = 0; i < sectionTextBody.ChildEntities.Count; i++)
+    {
+        //IEntity is the basic unit in DocIO DOM. 
+        //Accesses the body items (should be either paragraph, table or block content control) as IEntity
+        IEntity bodyItemEntity = sectionTextBody.ChildEntities[i];
+        //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
+        //Decides the element type by using EntityType
+        switch (bodyItemEntity.EntityType)
+        {
+            case EntityType.Paragraph:
+                WParagraph paragraph = bodyItemEntity as WParagraph;
+                AddParagraphItemsToTextBody (paragraph, ownerPara, bodyPart);
+                break;
+            case EntityType.Table:
+                //Add to text body part.
+                bodyPart.BodyItems.Add(bodyItemEntity.Clone());
+                break;
+            case EntityType.BlockContentControl:
+                BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
+                //Iterates to the body items of Block Content Control.
+                IterateTextBody(blockContentControl.TextBody, ownerPara, bodyPart);
+                break;
+        }
+    }
+}
+/// <summary>
+/// Add the paragraph items to the text body part.
+/// </summary>
+void AddParagraphItemsToTextBody(WParagraph paragraph, WParagraph ownerPara, TextBodyPart bodyPart)
+{
+    //Clone the paragraph.
+    WParagraph paratoInsert = ownerPara.Clone() as WParagraph;
+    //Clear the paragraph's items.
+    paratoInsert.ChildEntities.Clear();
+    //Iterate the items of the paragraph.
+    for (int paraItemIndex = 0; paraItemIndex < paragraph.ChildEntities.Count; paraItemIndex++)
+    {
+        //Add the paragraph items.
+        paratoInsert.ChildEntities.Add(paragraph.ChildEntities[paraItemIndex].Clone());
+    }
+    //Add to text body part.
+    bodyPart.BodyItems.Add(paratoInsert.Clone());
 }
