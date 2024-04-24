@@ -9,16 +9,16 @@ using (FileStream documentStream = new FileStream("../../../Data/Input.docx", Fi
     //Open an existing Word document.
     using (WordDocument document = new WordDocument(documentStream, FormatType.Docx))
     {
-        for(int documentIndex = 0; documentIndex < filePaths.Length; documentIndex++)
+        for(int documentIndex = 1; documentIndex <= filePaths.Length; documentIndex++)
         {
             //String to be found.
-            string findText = "<<Heading"+ (documentIndex + 1) + "Items>>";
+            string findText = "<<Heading"+ documentIndex + "Items>>";
             //Find the selection in the document.
             TextSelection selection = document.Find(findText, false, false);
             //Get the owner paragraph.
             WParagraph ownerPara = selection.GetAsOneRange().OwnerParagraph;
             //Open the file as Stream.
-            using (FileStream subDocumentStream = new FileStream(filePaths[documentIndex], FileMode.Open, FileAccess.Read))
+            using (FileStream subDocumentStream = new FileStream(filePaths[documentIndex-1], FileMode.Open, FileAccess.Read))
             {
                 //Open an sub Word document.
                 using (WordDocument subDocument = new WordDocument(subDocumentStream, FormatType.Docx))
