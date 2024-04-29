@@ -20,7 +20,9 @@ using (FileStream fileStreamPath = new FileStream(@"../../../Data/Input.docx", F
     }
 }
 
-//Modify the section formatting like page orientation.
+/// <summary>
+/// Modify the section formatting like page orientation.
+/// </summary>
 void ChangeSectionFormatting(WordDocument document)
 {
     //Iterate each section.
@@ -33,8 +35,9 @@ void ChangeSectionFormatting(WordDocument document)
     }
 }
 
-//Word document uses "Normal" paragraph style as default for all paragraphs.
-//Modify the default paragraph format "Normal"
+/// <summary>
+/// Modify the default paragraph format "Normal"
+/// </summary>
 void ChangeParagraphFormatting(WordDocument document)
 {
     //Get the default paragraph style.
@@ -46,8 +49,9 @@ void ChangeParagraphFormatting(WordDocument document)
     paraStyle.ParagraphFormat.AfterSpacing = 20;
 }
 
-//Word document uses "Table Grid" table style as default for all tables.
-//Modify the deafult table format "Table Grid"
+/// <summary>
+/// Modify the deafult table format "Table Grid"
+/// </summary>
 void ChangeTableFormatting(WordDocument document)
 {
     //Get the default table style.
