@@ -33,6 +33,7 @@ void ChangeSectionFormatting(WordDocument document)
     }
 }
 
+//Word document uses "Normal" paragraph style as default for all paragraphs.
 //Modify the default paragraph format "Normal"
 void ChangeParagraphFormatting(WordDocument document)
 {
@@ -45,6 +46,7 @@ void ChangeParagraphFormatting(WordDocument document)
     paraStyle.ParagraphFormat.AfterSpacing = 20;
 }
 
+//Word document uses "Table Grid" table style as default for all tables.
 //Modify the deafult table format "Table Grid"
 void ChangeTableFormatting(WordDocument document)
 {
