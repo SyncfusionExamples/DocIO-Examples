@@ -1,0 +1,80 @@
+﻿using Syncfusion.XlsIO;
+using Syncfusion.DocIO.DLS;
+using Syncfusion.DocIORenderer;
+using Syncfusion.Drawing;
+using Syncfusion.DocIO;
+
+
+//Open the Word document
+WordDocument document = new WordDocument();
+//Add new section
+IWSection section = document.AddSection();
+//Add new table to the section
+WTable table = section.AddTable() as WTable;
+//Resizes the table to fit the contents respect to the contents
+table.AutoFit(AutoFitType.FitToContent);
+
+//Get the Excel content
+ExtractExcelContent(table);
+
+//Load the file into stream
+FileStream outputStream = new FileStream("../../../Data/Output.docx", FileMode.Create, FileAccess.Write);
+//Save the Word document.
+document.Save(outputStream, FormatType.Docx);
+//Close the document
+document.Close();
+
+///<summary>
+///Extract the Excel content to Word document table
+///</summary>
+void ExtractExcelContent(WTable table)
+{
+
+    //Open the Excel file
+    ExcelEngine excelEngine = new ExcelEngine();
+    IApplication application = excelEngine.Excel;
+    application.DefaultVersion = ExcelVersion.Xlsx;
+    //Load the file into stream
+    FileStream inputExcelStream = new FileStream("../../../Data/Sample.xlsx", FileMode.Open, FileAccess.Read);
+    IWorkbook workbook = application.Workbooks.Open(inputExcelStream);
+
+    //Get the first worksheet
+    IWorksheet worksheet = workbook.Worksheets[0];
+    //Get the number of rows used.
+    int rows = worksheet.Rows.Length;
+    //Get the number of columns used.
+    int columns = worksheet.Columns.Length;
+
+    //Create the rows and columns based on the excel values.
+    table.ResetCells(rows, columns);
+    //Set the border style
+    table.TableFormat.Borders.BorderType = BorderStyle.Single;
+    table.TableFormat.Borders.LineWidth = 1;
+    table.TableFormat.Borders.Color = Color.Black;
+
+    //Iterate through the excel rows
+    for (int rowIndex = 0; rowIndex < rows; rowIndex++)
+    {
+        //Get the row range from excel
+        IRange rowRange = worksheet.Rows[rowIndex];
+
+        //Iterate through the excel columns
+        for (int cellIndex = 0; cellIndex < columns; cellIndex++)
+        {
+            //Get the cell from the excel
+            IRange cell = rowRange.Cells[cellIndex];
+
+            //Add a paragraph
+            WParagraph paragraph = table[rowIndex, cellIndex].AddParagraph() as WParagraph;
+            //Get the content of the cell
+            WTextRange textRange = paragraph.AppendText(cell.DisplayText) as WTextRange;
+            //Set the bold and italic format
+            textRange.CharacterFormat.Bold = cell.CellStyle.Font.Bold;
+            textRange.CharacterFormat.Italic = cell.CellStyle.Font.Italic;
+            //Get the font size
+            textRange.CharacterFormat.FontSize = (float)cell.CellStyle.Font.Size;
+            //Get the font name
+            textRange.CharacterFormat.FontName = cell.CellStyle.Font.FontName;
+        }
+    }
+}
