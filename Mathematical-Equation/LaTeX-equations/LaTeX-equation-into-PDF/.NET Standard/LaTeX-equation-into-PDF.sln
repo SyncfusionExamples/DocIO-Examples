@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaTeX-equation-into-PDF", "LaTeX-equation-into-PDF\LaTeX-equation-into-PDF.csproj", "{2198BE02-2850-468C-8C30-C8386D8324B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2198BE02-2850-468C-8C30-C8386D8324B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2198BE02-2850-468C-8C30-C8386D8324B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2198BE02-2850-468C-8C30-C8386D8324B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2198BE02-2850-468C-8C30-C8386D8324B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27F0B50D-0D1B-4928-BA46-EDEDCB1CA1B4}
+	EndGlobalSection
+EndGlobal
