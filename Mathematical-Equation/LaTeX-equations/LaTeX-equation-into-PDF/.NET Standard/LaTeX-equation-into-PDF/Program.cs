@@ -13,7 +13,6 @@ using (WordDocument document = new WordDocument())
     
     //Instantiation of DocIORenderer for Word to PDF conversion
     DocIORenderer render = new DocIORenderer();
-    //render.Settings.AutoDetectComplexScript = true;
     //Converts Word document into PDF document
     PdfDocument pdfDocument = render.ConvertToPDF(document);
     //Releases all resources used by the Word document and DocIO Renderer objects
@@ -24,8 +23,6 @@ using (WordDocument document = new WordDocument())
     {
         pdfDocument.Save(outputStream);
     }
-    //Close the Word document
-    document.Close();
     //Closes the instance of PDF document object
     pdfDocument.Close();
 }
