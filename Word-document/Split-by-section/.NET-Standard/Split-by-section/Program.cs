@@ -9,12 +9,15 @@ namespace Split_by_section
     {
         static void Main(string[] args)
         {
-            using (FileStream inputStream = new FileStream(@"../../../Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream inputStream = new FileStream(@"../../../Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
+
+
+
                 //Load the template document as stream
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    int i = 0;
+                    int fileId = 1;
                     //Iterate each section from Word document
                     foreach (WSection section in document.Sections)
                     {
@@ -24,12 +27,12 @@ namespace Split_by_section
                             //Add cloned section into new Word document
                             newDocument.Sections.Add(section.Clone());
                             //Saves the Word document to  MemoryStream
-                            using (FileStream outputStream = new FileStream(@"../../../Section" + i + ".docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                            using (FileStream outputStream = new FileStream(@"../../../Section" + fileId + ".docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                             {
                                 newDocument.Save(outputStream, FormatType.Docx);
                             }
                         }
-                        i++;
+                        fileId++;
                     }
                 }
             }
