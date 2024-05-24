@@ -5,7 +5,7 @@ using Syncfusion.DocIO.DLS;
 using (FileStream inputStream = new FileStream("../../../Input.docx", FileMode.Open, FileAccess.Read))
 {
     // OPen the existing Word document.
-    using (WordDocument document = new WordDocument())
+    using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
     {
         List<Entity> entities = document.FindAllItemsByProperty(EntityType.Math, null, null);
 

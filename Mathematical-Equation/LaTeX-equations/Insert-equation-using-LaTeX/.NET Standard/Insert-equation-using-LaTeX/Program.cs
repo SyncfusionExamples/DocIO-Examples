@@ -4,7 +4,7 @@ using Syncfusion.DocIO.DLS;
 //Open a Word document using File stream.
 using (FileStream inputStream = new FileStream("../../../Input.docx", FileMode.Open, FileAccess.Read)) {
     // OPen the existing Word document.
-    using (WordDocument document = new WordDocument())
+    using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
     {
         //Create a new mathematical equation.
         WMath math = new WMath(document);

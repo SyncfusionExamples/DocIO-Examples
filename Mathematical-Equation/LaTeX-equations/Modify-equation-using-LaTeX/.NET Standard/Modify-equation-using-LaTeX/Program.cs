@@ -5,7 +5,7 @@ using Syncfusion.DocIO.DLS;
 using (FileStream inputStream = new FileStream("../../../Input.docx", FileMode.Open, FileAccess.Read))
 {
     // OPen the existing Word document.
-    using (WordDocument document = new WordDocument())
+    using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
     {
         // Access the first paragraph from the last section of the document
         WParagraph paragraph = document.LastSection.Body.ChildEntities[2] as WParagraph;
