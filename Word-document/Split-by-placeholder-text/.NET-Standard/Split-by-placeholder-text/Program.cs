@@ -1,7 +1,8 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Split_a_document_by_placeholder_text
 {
@@ -13,11 +14,12 @@ namespace Split_a_document_by_placeholder_text
             FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
             {
-                #region Insert bookmarks at placeholders
+                
                 //Finds all the placeholder text in the Word document.
                 TextSelection[] textSelections = document.FindAll(new Regex("<<(.*)>>"));
                 if (textSelections != null)
                 {
+                    #region Insert bookmarks at placeholders
                     //Unique ID for each bookmark.
                     int bkmkId = 1;
                     string bookmarkName = string.Empty;
@@ -80,8 +82,8 @@ namespace Split_a_document_by_placeholder_text
                         }
                         fileIndex++;
                     }
+                    #endregion
                 }
-                #endregion
             }
         }
     }

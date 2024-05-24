@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
@@ -11,9 +10,6 @@ namespace Split_by_section
         {
             using (FileStream inputStream = new FileStream(@"../../../Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-
-
-
                 //Load the template document as stream
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
