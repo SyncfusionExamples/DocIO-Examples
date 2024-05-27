@@ -22,7 +22,6 @@ namespace Split_a_document_by_placeholder_text
                     #region Insert bookmarks at placeholders
                     //Unique ID for each bookmark.
                     int bkmkId = 1;
-                    string bookmarkName = string.Empty;
                     //Collection to hold the inserted bookmarks.
                     List<string> bookmarks = new List<string>();
                     //Iterate each text selection.
@@ -34,7 +33,7 @@ namespace Split_a_document_by_placeholder_text
                         //Get the index of the placeholder text. 
                         WParagraph startParagraph = textRange.OwnerParagraph;
                         int index = startParagraph.ChildEntities.IndexOf(textRange);
-                        bookmarkName = "Bookmark_" + bkmkId;
+                        string bookmarkName = "Bookmark_" + bkmkId;
                         //Add new bookmark to bookmarks collection.
                         bookmarks.Add(bookmarkName);
                         //Create bookmark start.
@@ -68,17 +67,18 @@ namespace Split_a_document_by_placeholder_text
                     int fileIndex = 1;
                     foreach (string bookmark in bookmarks)
                     {
-                        MemoryStream memoryStream = new MemoryStream();
                         //Move the virtual cursor to the location before the end of the bookmark.
                         bookmarksNavigator.MoveToBookmark(bookmark);
                         //Get the bookmark content as WordDocumentPart.
                         WordDocumentPart wordDocumentPart = bookmarksNavigator.GetContent();
                         //Save the WordDocumentPart as separate Word document.
-                        WordDocument newDocument = wordDocumentPart.GetAsWordDocument();
-                        //Save the Word document to file stream.
-                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Placeholder_" + fileIndex + ".docx"), FileMode.Create, FileAccess.ReadWrite))
+                        using (WordDocument newDocument = wordDocumentPart.GetAsWordDocument())
                         {
-                            newDocument.Save(outputFileStream, FormatType.Docx);
+                            //Save the Word document to file stream.
+                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Placeholder_" + fileIndex + ".docx"), FileMode.Create, FileAccess.ReadWrite))
+                            {
+                                newDocument.Save(outputFileStream, FormatType.Docx);
+                            }
                         }
                         fileIndex++;
                     }

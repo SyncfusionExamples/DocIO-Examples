@@ -18,18 +18,18 @@ namespace Split_a_document_by_bookmark
                 //Iterate each bookmark in Word document.
                 foreach (Bookmark bookmark in bookmarkCollection)
                 {
-                    MemoryStream memoryStream = new MemoryStream();
                     //Move the virtual cursor to the location before the end of the bookmark.
                     bookmarksNavigator.MoveToBookmark(bookmark.Name);
                     //Get the bookmark content as WordDocumentPart.
                     WordDocumentPart documentPart = bookmarksNavigator.GetContent();
                     //Save the WordDocumentPart as separate Word document
-                    WordDocument newDocument = documentPart.GetAsWordDocument();
-
-                    //Save the Word document to file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../" + bookmark.Name + ".docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (WordDocument newDocument = documentPart.GetAsWordDocument())
                     {
-                        newDocument.Save(outputFileStream, FormatType.Docx);
+                        //Save the Word document to file stream.
+                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../" + bookmark.Name + ".docx"), FileMode.Create, FileAccess.ReadWrite))
+                        {
+                            newDocument.Save(outputFileStream, FormatType.Docx);
+                        }
                     }
                 }
             } 
