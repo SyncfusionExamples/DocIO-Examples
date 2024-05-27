@@ -1,7 +1,8 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Split_a_document_by_placeholder_text
 {
@@ -10,35 +11,78 @@ namespace Split_a_document_by_placeholder_text
         static void Main(string[] args)
         {
             //Load an existing Word document into DocIO instance.
-            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
             {
-                String[] findPlaceHolderWord = new string[] { "[First Content Start]", "[Second Content Start]", "[Third Content Start]" };
-                for (int i = 0; i < findPlaceHolderWord.Length; i++)
+                
+                //Finds all the placeholder text in the Word document.
+                TextSelection[] textSelections = document.FindAll(new Regex("<<(.*)>>"));
+                if (textSelections != null)
                 {
-                    //Get the start placeholder paragraph in the document.
-                    WParagraph startParagraph = document.Find(findPlaceHolderWord[i], true, true).GetAsOneRange().OwnerParagraph;
-                    //Get the end placeholder paragraph in the document.
-                    WParagraph endParagraph = document.Find(findPlaceHolderWord[i].Replace("Start", "End"), true, true).GetAsOneRange().OwnerParagraph;
-                    //Get the text body.
-                    WTextBody textBody = startParagraph.OwnerTextBody;
-                    //Get the start PlaceHolder index.
-                    int startPlaceHolderIndex = textBody.ChildEntities.IndexOf(startParagraph);
-                    //Get the end PlaceHolder index.
-                    int endPlaceHolderIndex = textBody.ChildEntities.IndexOf(endParagraph);
-
-                    //Create a new Word document.
-                    WordDocument newDocument = new WordDocument();
-                    newDocument.AddSection();
-                    //Add the retrieved content into another new document.
-                    for (int j = startPlaceHolderIndex + 1; j < endPlaceHolderIndex; j++)
-                        newDocument.LastSection.Body.ChildEntities.Add(textBody.ChildEntities[j].Clone());
-                    //Save the Word document to file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result" + i + ".docx"), FileMode.Create, FileAccess.ReadWrite))
+                    #region Insert bookmarks at placeholders
+                    //Unique ID for each bookmark.
+                    int bkmkId = 1;
+                    //Collection to hold the inserted bookmarks.
+                    List<string> bookmarks = new List<string>();
+                    //Iterate each text selection.
+                    for (int i = 0; i < textSelections.Length; i++)
                     {
-                        
-                        newDocument.Save(outputFileStream, FormatType.Docx);
+                        #region Insert bookmark start before the placeholder
+                        //Get the placeholder as WTextRange.
+                        WTextRange textRange = textSelections[i].GetAsOneRange();
+                        //Get the index of the placeholder text. 
+                        WParagraph startParagraph = textRange.OwnerParagraph;
+                        int index = startParagraph.ChildEntities.IndexOf(textRange);
+                        string bookmarkName = "Bookmark_" + bkmkId;
+                        //Add new bookmark to bookmarks collection.
+                        bookmarks.Add(bookmarkName);
+                        //Create bookmark start.
+                        BookmarkStart bkmkStart = new BookmarkStart(document, bookmarkName);
+                        //Insert the bookmark start before the start placeholder.
+                        startParagraph.ChildEntities.Insert(index, bkmkStart);
+                        //Remove the placeholder text.
+                        textRange.Text = string.Empty;
+                        #endregion
+
+                        #region Insert bookmark end after the placeholder
+                        i++;
+                        //Get the placeholder as WTextRange.
+                        textRange = textSelections[i].GetAsOneRange();
+                        //Get the index of the placeholder text. 
+                        WParagraph endParagraph = textRange.OwnerParagraph;
+                        index = endParagraph.ChildEntities.IndexOf(textRange);
+                        //Create bookmark end.
+                        BookmarkEnd bkmkEnd = new BookmarkEnd(document, bookmarkName);
+                        //Insert the bookmark end after the end placeholder.
+                        endParagraph.ChildEntities.Insert(index + 1, bkmkEnd);
+                        bkmkId++;
+                        //Remove the placeholder text.
+                        textRange.Text = string.Empty;
+                        #endregion
+
                     }
+                    #endregion
+                    #region Split bookmark content into separate documents 
+                    BookmarksNavigator bookmarksNavigator = new BookmarksNavigator(document);
+                    int fileIndex = 1;
+                    foreach (string bookmark in bookmarks)
+                    {
+                        //Move the virtual cursor to the location before the end of the bookmark.
+                        bookmarksNavigator.MoveToBookmark(bookmark);
+                        //Get the bookmark content as WordDocumentPart.
+                        WordDocumentPart wordDocumentPart = bookmarksNavigator.GetContent();
+                        //Save the WordDocumentPart as separate Word document.
+                        using (WordDocument newDocument = wordDocumentPart.GetAsWordDocument())
+                        {
+                            //Save the Word document to file stream.
+                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Placeholder_" + fileIndex + ".docx"), FileMode.Create, FileAccess.ReadWrite))
+                            {
+                                newDocument.Save(outputFileStream, FormatType.Docx);
+                            }
+                        }
+                        fileIndex++;
+                    }
+                    #endregion
                 }
             }
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
@@ -9,52 +8,56 @@ namespace Split_by_heading
     {
         static void Main(string[] args)
         {
-            using (FileStream inputStream = new FileStream(@"../../../Template.docx", FileMode.Open, FileAccess.Read))
+            using (FileStream inputStream = new FileStream(@"../../../Data/Template.docx", FileMode.Open, FileAccess.Read))
             {
                 //Load the template document as stream
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
                     WordDocument newDocument = null;
                     WSection newSection = null;
-                    int i = 0;
-                    //Iterate each section from Word document
+                    int headingIndex = 0;
+                    //Iterate each section in the Word document.
                     foreach (WSection section in document.Sections)
                     {
+                        // Clone the section and add into new document.
                         if (newDocument != null)
                             newSection = AddSection(newDocument, section);
-                        foreach (TextBodyItem textbodyitem in section.Body.ChildEntities)
+                        //Iterate each child entity in the Word document.
+                        foreach (TextBodyItem item in section.Body.ChildEntities)
                         {
-                            if (textbodyitem is WParagraph)
+                            //If item is paragraph, then check for heading style and split.
+                            //else, add the item into new document.
+                            if (item is WParagraph)
                             {
-                                WParagraph para = textbodyitem as WParagraph;
-                                if (para.StyleName == "Heading 1")
+                                WParagraph paragraph = item as WParagraph;
+                                //If paragraph has Heading 1 style, then save the traversed content as separate document.
+                                //And create new document for new heading content.
+                                if (paragraph.StyleName == "Heading 1")
                                 {
                                     if (newDocument != null)
                                     {
                                         //Saves the Word document
-                                        string fileName = @"../../../Heading" + i + ".docx";
+                                        string fileName = @"../../../Document" + (headingIndex + 1) + ".docx";
                                         SaveWordDocument(newDocument, fileName);
-                                        i++;
+                                        headingIndex++;
                                     }
-                                    //Create new Word document
+                                    //Create new document for new heading content.
                                     newDocument = new WordDocument();
                                     newSection = AddSection(newDocument, section);
-                                    //Add cloned paragraphs into new section
-                                    AddEntity(newSection, para);
+                                    AddEntity(newSection, paragraph);
                                 }
                                 else if (newDocument != null)
-                                    //Add cloned paragraphs into new section
-                                    AddEntity(newSection, para);                                
+                                    AddEntity(newSection, paragraph);
                             }
-                            else                            
-                                //Add cloned item into new section
-                                AddEntity(newSection, textbodyitem);                                                      
+                            else
+                                AddEntity(newSection, item);
                         }
                     }
+                    //Save the remaining content as separate document.
                     if (newDocument != null)
                     {
                         //Saves the Word document
-                        string fileName = @"../../../Heading" + i + ".docx";
+                        string fileName = @"../../../Document" + (headingIndex + 1) + ".docx";
                         SaveWordDocument(newDocument, fileName);
                     }
                 }
