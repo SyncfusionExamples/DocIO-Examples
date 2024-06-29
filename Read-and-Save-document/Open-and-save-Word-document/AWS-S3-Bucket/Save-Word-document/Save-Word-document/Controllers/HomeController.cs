@@ -23,14 +23,17 @@ namespace Save_Word_document.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> CreateDocument()
+        public async Task<IActionResult> UploadDocument()
         {
-            // Creating a new document.
+            //Creating a new document
             WordDocument document = new WordDocument();
-            //Adding a new section to the document.
+
+            //Adding a new section to the document
             WSection section = document.AddSection() as WSection;
+
             //Set Margin of the section
             section.PageSetup.Margins.All = 72;
+
             //Set page size of the section
             section.PageSetup.PageSize = new Syncfusion.Drawing.SizeF(612, 792);
 
@@ -54,7 +57,8 @@ namespace Save_Word_document.Controllers
             style.ParagraphFormat.OutlineLevel = OutlineLevel.Level1;
 
             IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
-            // Gets the image stream.
+
+            //Gets the image stream
             FileStream imageStream = new FileStream("AdventureCycle.jpg", FileMode.Open, FileAccess.Read);
             IWPicture picture = paragraph.AppendPicture(imageStream);
             picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
@@ -72,7 +76,7 @@ namespace Save_Word_document.Controllers
             textRange.CharacterFormat.FontName = "Calibri";
             textRange.CharacterFormat.TextColor = Syncfusion.Drawing.Color.Red;
 
-            //Appends paragraph.
+            //Appends paragraph
             paragraph = section.AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
@@ -80,14 +84,14 @@ namespace Save_Word_document.Controllers
             textRange.CharacterFormat.FontSize = 18f;
             textRange.CharacterFormat.FontName = "Calibri";
 
-            //Appends paragraph.
+            //Appends paragraph
             paragraph = section.AddParagraph();
             paragraph.ParagraphFormat.FirstLineIndent = 36;
             paragraph.BreakCharacterFormat.FontSize = 12f;
             textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
             textRange.CharacterFormat.FontSize = 12f;
 
-            //Appends paragraph.
+            //Appends paragraph
             paragraph = section.AddParagraph();
             paragraph.ParagraphFormat.FirstLineIndent = 36;
             paragraph.BreakCharacterFormat.FontSize = 12f;
@@ -101,16 +105,18 @@ namespace Save_Word_document.Controllers
             textRange.CharacterFormat.FontSize = 16f;
             textRange.CharacterFormat.FontName = "Calibri";
 
-            //Appends table.
+            //Appends table
             IWTable table = section.AddTable();
             table.ResetCells(3, 2);
             table.TableFormat.Borders.BorderType = BorderStyle.None;
             table.TableFormat.IsAutoResized = true;
-            //Appends paragraph.
+
+            //Appends paragraph
             paragraph = table[0, 0].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.BreakCharacterFormat.FontSize = 12f;
-            //Appends picture to the paragraph.
+
+            //Appends picture to the paragraph
             FileStream image1 = new FileStream("Mountain-200.jpg", FileMode.Open, FileAccess.Read);
             picture = paragraph.AppendPicture(image1);
             picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -121,13 +127,14 @@ namespace Save_Word_document.Controllers
             picture.WidthScale = 79;
             picture.HeightScale = 79;
 
-            //Appends paragraph.
+            //Appends paragraph
             paragraph = table[0, 1].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.AppendText("Mountain-200");
-            //Appends paragraph.
+
+            //Appends paragraph
             paragraph = table[0, 1].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
@@ -145,19 +152,21 @@ namespace Save_Word_document.Controllers
             textRange = paragraph.AppendText("Price: $2,294.99\r") as WTextRange;
             textRange.CharacterFormat.FontSize = 12f;
             textRange.CharacterFormat.FontName = "Times New Roman";
-            //Appends paragraph.
+
+            //Appends paragraph
             paragraph = table[0, 1].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.BreakCharacterFormat.FontSize = 12f;
 
-            //Appends paragraph.
+            //Appends paragraph
             paragraph = table[1, 0].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.AppendText("Mountain-300 ");
-            //Appends paragraph.
+
+            //Appends paragraph
             paragraph = table[1, 0].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
@@ -175,17 +184,19 @@ namespace Save_Word_document.Controllers
             textRange = paragraph.AppendText("Price: $1,079.99\r") as WTextRange;
             textRange.CharacterFormat.FontSize = 12f;
             textRange.CharacterFormat.FontName = "Times New Roman";
-            //Appends paragraph.
+
+            //Appends paragraph
             paragraph = table[1, 0].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.BreakCharacterFormat.FontSize = 12f;
 
-            //Appends paragraph.
+            //Appends paragraph
             paragraph = table[1, 1].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.LineSpacing = 12f;
-            //Appends picture to the paragraph.
+
+            //Appends picture to the paragraph
             FileStream image2 = new FileStream("Mountain-300.jpg", FileMode.Open, FileAccess.Read);
             picture = paragraph.AppendPicture(image2);
             picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -196,11 +207,12 @@ namespace Save_Word_document.Controllers
             picture.WidthScale = 75;
             picture.HeightScale = 75;
 
-            //Appends paragraph.
+            //Appends paragraph
             paragraph = table[2, 0].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.LineSpacing = 12f;
-            //Appends picture to the paragraph.
+
+            //Appends picture to the paragraph
             FileStream image3 = new FileStream("Road-550-W.jpg", FileMode.Open, FileAccess.Read);
             picture = paragraph.AppendPicture(image3);
             picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -211,13 +223,14 @@ namespace Save_Word_document.Controllers
             picture.WidthScale = 92;
             picture.HeightScale = 92;
 
-            //Appends paragraph.
+            //Appends paragraph
             paragraph = table[2, 1].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.AppendText("Road-150 ");
-            //Appends paragraph.
+
+            //Appends paragraph
             paragraph = table[2, 1].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
@@ -235,28 +248,29 @@ namespace Save_Word_document.Controllers
             textRange = paragraph.AppendText("Price: $3,578.27\r") as WTextRange;
             textRange.CharacterFormat.FontSize = 12f;
             textRange.CharacterFormat.FontName = "Times New Roman";
-            //Appends paragraph.
+
+            //Appends paragraph
             section.AddParagraph();
 
             //Saves the Word document to  MemoryStream
             MemoryStream stream = new MemoryStream();
             document.Save(stream, FormatType.Docx);
             stream.Position = 0;
-            
+
             //Your AWS Storage Account bucket name 
             string bucketName = "your-bucket-name";
 
             //Name of the Word file you want to upload
             string key = "CreateWord.docx";
 
-            // Upload the document to AWS S3
+            //Upload the document to AWS S3
             await UploadDocumentToS3(bucketName, key, stream);
-            
+
             return Ok("Word document uploaded to AWS S3 Storage.");
         }
         public async Task<MemoryStream> UploadDocumentToS3(string bucketName, string key, MemoryStream stream)
         {
-            // Configure AWS credentials and region
+            //Configure AWS credentials and region
             var region = Amazon.RegionEndpoint.USEast1;
             var credentials = new Amazon.Runtime.BasicAWSCredentials("your-access-key", "your-secret-key");
             var config = new AmazonS3Config
@@ -270,7 +284,7 @@ namespace Save_Word_document.Controllers
 
                 try
                 {
-                    // Upload the stream to AWS S3
+                    //Upload the stream to AWS S3
                     await fileTransferUtility.UploadAsync(stream, bucketName, key);
                     Console.WriteLine("Upload completed successfully");
                 }
