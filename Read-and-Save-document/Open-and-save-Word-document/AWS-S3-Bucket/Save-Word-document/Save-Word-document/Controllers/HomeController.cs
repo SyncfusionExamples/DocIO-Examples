@@ -252,7 +252,7 @@ namespace Save_Word_document.Controllers
             //Appends paragraph
             section.AddParagraph();
 
-            //Saves the Word document to  MemoryStream
+            //Saves the Word document to MemoryStream
             MemoryStream stream = new MemoryStream();
             document.Save(stream, FormatType.Docx);
             stream.Position = 0;
