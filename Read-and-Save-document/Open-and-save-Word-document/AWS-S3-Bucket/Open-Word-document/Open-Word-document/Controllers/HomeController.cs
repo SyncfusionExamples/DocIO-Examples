@@ -25,7 +25,7 @@ namespace Open_Word_document.Controllers
             string bucketName = "your-bucket-name";
 
             //Name of the Word file you want to load from AWS S3
-            string key = "CreateWord.docx";
+            string key = "WordTemplate.docx";
 
             try
             {
