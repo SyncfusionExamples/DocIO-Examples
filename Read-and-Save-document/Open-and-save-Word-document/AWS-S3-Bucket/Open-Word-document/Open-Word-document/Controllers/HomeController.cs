@@ -54,9 +54,6 @@ namespace Open_Word_document.Controllers
                     MemoryStream outputStream = new MemoryStream();
                     wordDocument.Save(outputStream, Syncfusion.DocIO.FormatType.Docx);
 
-                    //Set the position as '0'.
-                    outputStream.Position = 0;
-
                     //Download the Word file in the browser
                     FileStreamResult fileStreamResult = new FileStreamResult(outputStream, "application/msword");
                     fileStreamResult.FileDownloadName = "EditWord.docx";
@@ -69,6 +66,12 @@ namespace Open_Word_document.Controllers
                 return Content("Error occurred while processing the file.");
             }
         }
+        /// <summary>
+        /// Download file from AWS S3 cloud storage
+        /// </summary>
+        /// <param name="bucketName"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public async Task<MemoryStream> GetDocumentFromS3(string bucketName, string key)
         {
             //Configure AWS credentials and region
