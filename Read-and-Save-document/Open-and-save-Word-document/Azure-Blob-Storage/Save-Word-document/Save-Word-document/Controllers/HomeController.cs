@@ -253,7 +253,6 @@ namespace Save_Word_document.Controllers
             //Saves the Word document to MemoryStream
             MemoryStream stream = new MemoryStream();
             document.Save(stream, FormatType.Docx);
-            stream.Position = 0;
 
             //Your Azure Storage Account connection string
             string connectionString = "Your_connection_string";
@@ -269,6 +268,12 @@ namespace Save_Word_document.Controllers
 
             return Ok("Word document uploaded to Azure Blob Storage.");
         }
+        /// <summary>
+        /// Upload file to Azure Blob cloud storage
+        /// </summary>
+        /// <param name="bucketName"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public async Task<MemoryStream> UploadDocumentToAzure(string connectionString, string containerName, string blobName, MemoryStream stream)
         {
             try

@@ -62,9 +62,6 @@ namespace Open_Word_document.Controllers
                     MemoryStream outputStream = new MemoryStream();
                     wordDocument.Save(outputStream, Syncfusion.DocIO.FormatType.Docx);
 
-                    //Set the position as '0'
-                    outputStream.Position = 0;
-
                     //Download the Word file in the browser
                     FileStreamResult fileStreamResult = new FileStreamResult(outputStream, "application/msword");
                     fileStreamResult.FileDownloadName = "EditWord.docx";
@@ -78,6 +75,12 @@ namespace Open_Word_document.Controllers
                 return Content("Error occurred while processing the file.");
             }
         }
+        /// <summary>
+        /// Download file from Azure Blob cloud storage
+        /// </summary>
+        /// <param name="bucketName"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public async Task<MemoryStream> GetDocumentFromAzure(string connectionString, string containerName, string blobName)
         {
             try
@@ -100,7 +103,6 @@ namespace Open_Word_document.Controllers
                 throw; // or handle the exception as needed
             }
         }
-
         public IActionResult Privacy()
         {
             return View();
