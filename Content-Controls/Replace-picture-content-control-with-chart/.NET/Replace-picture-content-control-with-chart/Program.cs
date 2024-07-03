@@ -11,9 +11,9 @@ using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Data/Pi
     using (WordDocument document = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic))
     {
         string[] propertyNames = { "ContentControlProperties.Title", "ContentControlProperties.Type" };
-        string[] propertyValues = { "Chart", "ContentControlType.Picture" };
+        string[] propertyValues = { "Chart", "Picture" };
         // Find BlockContentControl by given properties
-        BlockContentControl contentControl = document.FindItemByProperty(EntityType.BlockContentControl, "ContentControlProperties.Title", "Chart") as BlockContentControl;
+        BlockContentControl contentControl = document.FindItemByProperties(EntityType.BlockContentControl, propertyNames, propertyValues) as BlockContentControl;
 
         if (contentControl != null)
         {
