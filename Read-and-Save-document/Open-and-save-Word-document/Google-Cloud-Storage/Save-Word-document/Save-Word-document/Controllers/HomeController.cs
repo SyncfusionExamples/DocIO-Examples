@@ -254,17 +254,8 @@ namespace Save_Word_document.Controllers
             MemoryStream stream = new MemoryStream();
             document.Save(stream, FormatType.Docx);
 
-            //Your bucket name
-            string bucketName = "Your_bucket_name";
-
-            //Your service account key path
-            string keyPath = "Your_service_account_key_path";
-
-            //Name of the file to upload to Google Cloud Storage
-            string fileName = "CreateWord.docx";
-
             //Upload the document to Google
-            await UploadDocumentToGoogle(bucketName, keyPath, fileName, stream);
+            await UploadDocumentToGoogle(stream);
 
             return Ok("Word document uploaded to Google Cloud Storage.");
         }
@@ -276,10 +267,19 @@ namespace Save_Word_document.Controllers
         /// <param name="fileName"></param>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public async Task<MemoryStream> UploadDocumentToGoogle(string bucketName, string keyPath, string fileName, MemoryStream stream)
+        public async Task<MemoryStream> UploadDocumentToGoogle(MemoryStream stream)
         {
             try
             {
+                //Your bucket name
+                string bucketName = "Your_bucket_name";
+
+                //Your service account key path
+                string keyPath = "Your_service_account_key_path";
+
+                //Name of the file to upload to Google Cloud Storage
+                string fileName = "CreateWord.docx";
+
                 //Create Google Credential from the service account key file
                 GoogleCredential credential = GoogleCredential.FromFile(keyPath);
 

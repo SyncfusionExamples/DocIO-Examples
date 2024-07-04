@@ -26,19 +26,10 @@ namespace Open_Word_document.Controllers
         }
         public async Task<IActionResult> EditDocument()
         {
-            //Your Azure Storage Account connection string
-            string connectionString = "Your_connection_string";
-
-            //Name of the Azure Blob Storage container
-            string containerName = "Your_container_name";
-
-            //Name of the Word file you want to load
-            string blobName = "WordTemplate.docx";
-
             try
             {
                 //Retrieve the document from Azure
-                MemoryStream stream = await GetDocumentFromAzure(connectionString, containerName, blobName);
+                MemoryStream stream = await GetDocumentFromAzure();
 
                 //Set the position to the beginning of the MemoryStream
                 stream.Position = 0;
@@ -81,10 +72,19 @@ namespace Open_Word_document.Controllers
         /// <param name="bucketName"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public async Task<MemoryStream> GetDocumentFromAzure(string connectionString, string containerName, string blobName)
+        public async Task<MemoryStream> GetDocumentFromAzure()
         {
             try
             {
+                //Your Azure Storage Account connection string
+                string connectionString = "Your_connection_string";
+
+                //Name of the Azure Blob Storage container
+                string containerName = "Your_container_name";
+
+                //Name of the Word file you want to load
+                string blobName = "WordTemplate.docx";
+
                 //Download the Word document from Azure Blob Storage
                 BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
                 BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);

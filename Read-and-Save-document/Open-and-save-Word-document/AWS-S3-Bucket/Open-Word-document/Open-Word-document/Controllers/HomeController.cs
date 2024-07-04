@@ -21,16 +21,10 @@ namespace Open_Word_document.Controllers
         }
         public async Task<IActionResult> EditDocument()
         {
-            //Your AWS Storage Account bucket name 
-            string bucketName = "your-bucket-name";
-
-            //Name of the Word file you want to load from AWS S3
-            string key = "WordTemplate.docx";
-
             try
             {
                 //Retrieve the document from AWS S3
-                MemoryStream stream = await GetDocumentFromS3(bucketName, key);
+                MemoryStream stream = await GetDocumentFromS3();
 
                 //Set the position to the beginning of the MemoryStream
                 stream.Position = 0;
@@ -72,8 +66,14 @@ namespace Open_Word_document.Controllers
         /// <param name="bucketName"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public async Task<MemoryStream> GetDocumentFromS3(string bucketName, string key)
+        public async Task<MemoryStream> GetDocumentFromS3()
         {
+            //Your AWS Storage Account bucket name 
+            string bucketName = "your-bucket-name";
+
+            //Name of the Word file you want to load from AWS S3
+            string key = "WordTemplate.docx";
+
             //Configure AWS credentials and region
             var region = Amazon.RegionEndpoint.USEast1;
             var credentials = new Amazon.Runtime.BasicAWSCredentials("your-access-key", "your-secret-key");
@@ -100,7 +100,6 @@ namespace Open_Word_document.Controllers
                     await response.ResponseStream.CopyToAsync(stream);
 
                     return stream;
-
                 }
             }
             catch (Exception ex)
