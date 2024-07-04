@@ -68,8 +68,6 @@ namespace Open_Word_document.Controllers
         /// <summary>
         /// Download file from Azure Blob cloud storage
         /// </summary>
-        /// <param name="bucketName"></param>
-        /// <param name="key"></param>
         /// <returns></returns>
         public async Task<MemoryStream> GetDocumentFromAzure()
         {

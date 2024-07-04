@@ -262,9 +262,6 @@ namespace Save_Word_document.Controllers
         /// <summary>
         /// Upload file to Google
         /// </summary>
-        /// <param name="bucketName"></param>
-        /// <param name="keyPath"></param>
-        /// <param name="fileName"></param>
         /// <param name="stream"></param>
         /// <returns></returns>
         public async Task<MemoryStream> UploadDocumentToGoogle(MemoryStream stream)

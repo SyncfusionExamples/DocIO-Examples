@@ -63,8 +63,6 @@ namespace Open_Word_document.Controllers
         /// <summary>
         /// Download file from AWS S3 cloud storage
         /// </summary>
-        /// <param name="bucketName"></param>
-        /// <param name="key"></param>
         /// <returns></returns>
         public async Task<MemoryStream> GetDocumentFromS3()
         {
