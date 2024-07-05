@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.Storage.Blobs" Version="12.20.0" />
-    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="26.1.40" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="*" />
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>

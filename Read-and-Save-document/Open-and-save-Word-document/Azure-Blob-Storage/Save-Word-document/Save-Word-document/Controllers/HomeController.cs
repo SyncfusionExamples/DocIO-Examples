@@ -252,32 +252,31 @@ namespace Save_Word_document.Controllers
 
             //Saves the Word document to MemoryStream
             MemoryStream stream = new MemoryStream();
-            document.Save(stream, FormatType.Docx);
-
-            //Your Azure Storage Account connection string
-            string connectionString = "Your_connection_string";
-
-            //Name of the Azure Blob Storage container
-            string containerName = "Your_container_name";
-
-            //Name of the Word file you want to load
-            string blobName = "CreateWord.docx";
+            document.Save(stream, FormatType.Docx);            
 
             //Upload the document to azure
-            await UploadDocumentToAzure(connectionString, containerName, blobName, stream);
+            await UploadDocumentToAzure(stream);
 
             return Ok("Word document uploaded to Azure Blob Storage.");
         }
         /// <summary>
         /// Upload file to Azure Blob cloud storage
         /// </summary>
-        /// <param name="bucketName"></param>
-        /// <param name="key"></param>
+        /// <param name="stream"></param>
         /// <returns></returns>
-        public async Task<MemoryStream> UploadDocumentToAzure(string connectionString, string containerName, string blobName, MemoryStream stream)
+        public async Task<MemoryStream> UploadDocumentToAzure(MemoryStream stream)
         {
             try
             {
+                //Your Azure Storage Account connection string
+                string connectionString = "Your_connection_string";
+
+                //Name of the Azure Blob Storage container
+                string containerName = "Your_container_name";
+
+                //Name of the Word file you want to load
+                string blobName = "CreateWord.docx";
+
                 //Download the Word document from Azure Blob Storage
                 BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
                 BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);

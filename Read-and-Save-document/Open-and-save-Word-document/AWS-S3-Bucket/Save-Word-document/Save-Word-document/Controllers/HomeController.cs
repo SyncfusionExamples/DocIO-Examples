@@ -254,28 +254,26 @@ namespace Save_Word_document.Controllers
 
             //Saves the Word document to MemoryStream
             MemoryStream stream = new MemoryStream();
-            document.Save(stream, FormatType.Docx);
-
-            //Your AWS Storage Account bucket name 
-            string bucketName = "your-bucket-name";
-
-            //Name of the Word file you want to upload
-            string key = "CreateWord.docx";
+            document.Save(stream, FormatType.Docx);            
 
             //Upload the document to AWS S3
-            await UploadDocumentToS3(bucketName, key, stream);
+            await UploadDocumentToS3(stream);
 
             return Ok("Word document uploaded to AWS S3 Storage.");
         }
         /// <summary>
         /// Upload file to AWS S3 cloud storage
         /// </summary>
-        /// <param name="bucketName"></param>
-        /// <param name="key"></param>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public async Task<MemoryStream> UploadDocumentToS3(string bucketName, string key, MemoryStream stream)
+        public async Task<MemoryStream> UploadDocumentToS3(MemoryStream stream)
         {
+            //Your AWS Storage Account bucket name 
+            string bucketName = "your-bucket-name";
+
+            //Name of the Word file you want to upload
+            string key = "CreateWord.docx";
+
             //Configure AWS credentials and region
             var region = Amazon.RegionEndpoint.USEast1;
             var credentials = new Amazon.Runtime.BasicAWSCredentials("your-access-key", "your-secret-key");
