@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AWSSDK.S3" Version="3.7.309.10" />
-    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="26.1.39" />
+    <PackageReference Include="AWSSDK.S3" Version="*" />
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="*" />
   </ItemGroup>
 
 </Project>
