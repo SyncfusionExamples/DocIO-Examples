@@ -61,8 +61,8 @@ namespace Open_Word_document.Controllers
                 //Your bucket name
                 string bucketName = "Your_bucket_name";
 
-                //Your service account key path
-                string keyPath = "Your_service_account_key_path";
+                //Your service account key file path
+                string keyPath = "credentials.json";
 
                 //Name of the file to download from the Google Cloud Storage
                 string fileName = "WordTemplate.docx";
