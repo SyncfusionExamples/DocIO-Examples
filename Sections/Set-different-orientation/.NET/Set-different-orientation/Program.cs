@@ -2,14 +2,20 @@
 using Syncfusion.DocIO;
 
 //Open an existing document
-using (WordDocument document = new WordDocument(new FileStream(@"../../../Data/Template.docx", FileMode.Open, FileAccess.Read), FormatType.Docx))
+using (FileStream inputStream = new FileStream(@"../../../Data/Template.docx", FileMode.Open, FileAccess.Read))
 {
-    //Set different orientations
-    document.Sections[0].PageSetup.Orientation = PageOrientation.Portrait;
-    document.Sections[1].PageSetup.Orientation = PageOrientation.Landscape;
-    document.Sections[2].PageSetup.Orientation = PageOrientation.Portrait;
-    document.Sections[3].PageSetup.Orientation = PageOrientation.Landscape;
+    using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
+    {
+        //Set different orientations
+        document.Sections[0].PageSetup.Orientation = PageOrientation.Portrait;
+        document.Sections[1].PageSetup.Orientation = PageOrientation.Landscape;
+        document.Sections[2].PageSetup.Orientation = PageOrientation.Portrait;
+        document.Sections[3].PageSetup.Orientation = PageOrientation.Landscape;
 
-    //Save the Word document
-    document.Save(new FileStream(@"../../../Output.docx", FileMode.Create, FileAccess.Write), FormatType.Docx);
+        //Save the Word document
+        using (FileStream outputStream = new FileStream(@"../../../Output.docx", FileMode.Create, FileAccess.Write))
+        {
+            document.Save(outputStream, FormatType.Docx);
+        }
+    }
 }
