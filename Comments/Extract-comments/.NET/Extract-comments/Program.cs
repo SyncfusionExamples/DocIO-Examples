@@ -1,26 +1,17 @@
 ﻿using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 
-namespace Extract_comments
+//Open an existing document
+using (FileStream inputStream = new FileStream(@"../../../Data/Template.docx", FileMode.Open, FileAccess.Read))
 {
-    internal class Program
+    using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
     {
-        static void Main(string[] args)
+        //Iterate through the comments in the Word document
+        foreach (WComment comment in document.Comments)
         {
-            //Open an existing document
-            using (FileStream inputStream = new FileStream(@"../../../Data/Template.docx", FileMode.Open, FileAccess.Read))
-            {
-                using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
-                {
-                    //Iterate through the comments in the Word document
-                    foreach (WComment comment in document.Comments)
-                    {
-                        //Traverse each paragraph from the comment body items
-                        foreach (WParagraph paragraph in comment.TextBody.Paragraphs)
-                            Console.WriteLine(paragraph.Text);
-                    }
-                }
-            }
+            //Traverse each paragraph from the comment body items
+            foreach (WParagraph paragraph in comment.TextBody.Paragraphs)
+                Console.WriteLine(paragraph.Text);
         }
     }
 }
