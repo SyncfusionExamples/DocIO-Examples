@@ -35,16 +35,16 @@ namespace Get_missing_fonts_for_pdf_conversion
                 }
             }
 
-            // Check and output the fonts that are not installed
+            // Print the fonts that are not available in machine, but used in Word document.
             if (fonts.Count > 0)
             {
-                Console.WriteLine("Fonts not installed in environment:");
+                Console.WriteLine("Fonts not available in environment:");
                 foreach (string font in fonts)
                     Console.WriteLine(font);
             }
             else
             {
-                Console.WriteLine("Document used fonts are all installed.");
+                Console.WriteLine("Fonts used in Word document are available in environment.");
             }
         }
 
