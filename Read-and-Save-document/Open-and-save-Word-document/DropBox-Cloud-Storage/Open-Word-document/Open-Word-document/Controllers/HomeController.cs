@@ -70,7 +70,7 @@ namespace Open_Word_document.Controllers
             //Define the access token for authentication with the Dropbox API
             var accessToken = "Access_Token";
 
-            //Define the file path in Dropbox where the file is located
+            //Define the file path in Dropbox where the file is located. For ex: "/Template.docx" or "/Apps/Template.docx"
             var filePathInDropbox = "FilePath";
 
             try
