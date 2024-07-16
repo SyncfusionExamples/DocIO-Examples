@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{Html.BeginForm("EditDocument", "Home", FormMethod.Get);
+    {
+        <div>
+            <input type="submit" value="Edit Document" style="width:150px;height:27px" />
+        </div>
+    }
+    Html.EndForm();
+}
