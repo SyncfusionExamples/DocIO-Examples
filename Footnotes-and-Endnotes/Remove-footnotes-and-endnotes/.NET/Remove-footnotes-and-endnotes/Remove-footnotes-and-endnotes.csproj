@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RootNamespace>Change_default_endnote_separator</RootNamespace>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Remove_footnotes_and_endnotes</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
