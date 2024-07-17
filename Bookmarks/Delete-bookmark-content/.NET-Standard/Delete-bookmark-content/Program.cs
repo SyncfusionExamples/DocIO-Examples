@@ -3,7 +3,7 @@ using Syncfusion.DocIO.DLS;
 using Syncfusion.Drawing;
 using System.IO;
 
-namespace Delete-bookmark-content
+namespace Delete_bookmark_content
 {
     class Program
     {
