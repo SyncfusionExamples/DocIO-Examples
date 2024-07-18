@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>Apply_base_style_for_table</RootNamespace>
   </PropertyGroup>
 

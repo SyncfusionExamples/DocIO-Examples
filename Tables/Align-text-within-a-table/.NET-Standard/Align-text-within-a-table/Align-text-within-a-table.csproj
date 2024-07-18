@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>Align_text_within_a_table</RootNamespace>
   </PropertyGroup>
 

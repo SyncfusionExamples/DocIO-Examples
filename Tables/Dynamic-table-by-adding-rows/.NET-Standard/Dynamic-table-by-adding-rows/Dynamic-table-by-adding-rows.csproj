@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>Dynamic_table_by_adding_rows</RootNamespace>
   </PropertyGroup>
 
