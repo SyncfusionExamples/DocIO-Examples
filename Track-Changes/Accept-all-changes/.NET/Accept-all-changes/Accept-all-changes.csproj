@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RootNamespace>Enable_track_changes_of_Word</RootNamespace>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Accept_all_changes</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
