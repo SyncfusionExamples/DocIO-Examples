@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RootNamespace>Ole_image_as_normal_image</RootNamespace>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Create_Doc_format_Word_document</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
