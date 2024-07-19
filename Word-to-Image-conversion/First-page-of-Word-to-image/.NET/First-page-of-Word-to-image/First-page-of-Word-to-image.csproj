@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Specific_range_of_pages_Word_to_image</RootNamespace>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>First_page_of_Word_to_image</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
