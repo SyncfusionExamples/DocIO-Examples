@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.6.33723.286
+VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert-Word-Document-to-Image", "Convert-Word-Document-to-Image\Convert-Word-Document-to-Image.csproj", "{EA15EB4A-A399-4FF5-971A-71F917474B27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert-Word-Document-to-Image", "Convert-Word-Document-to-Image\Convert-Word-Document-to-Image.csproj", "{C12B2D32-8B71-40F9-AB81-A764A86E352A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EA15EB4A-A399-4FF5-971A-71F917474B27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA15EB4A-A399-4FF5-971A-71F917474B27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA15EB4A-A399-4FF5-971A-71F917474B27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA15EB4A-A399-4FF5-971A-71F917474B27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C12B2D32-8B71-40F9-AB81-A764A86E352A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C12B2D32-8B71-40F9-AB81-A764A86E352A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C12B2D32-8B71-40F9-AB81-A764A86E352A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C12B2D32-8B71-40F9-AB81-A764A86E352A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {13E04957-7A33-4EC8-AE1E-58CB3647EB33}
+		SolutionGuid = {735226E8-9803-4D12-AA48-D7BFCD42963C}
 	EndGlobalSection
 EndGlobal
