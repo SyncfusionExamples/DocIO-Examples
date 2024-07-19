@@ -35,11 +35,10 @@ namespace Rename_PDF_Bookmarks_From_Word
                                 //Load the PDF document.
                                 using (PdfLoadedDocument pdfLoadedDocument = new PdfLoadedDocument(stream))
                                 {
-                                    int i = 1;
                                     //Get each bookmark and changes the title of the bookmark.
-                                    foreach (PdfBookmark pdfBookmark in pdfLoadedDocument.Bookmarks)
+                                    for (int i = 0; i < pdfLoadedDocument.Bookmarks.Count; i++)
                                     {
-                                        pdfBookmark.Title = "PdfBookMark" + i++;
+                                        pdfLoadedDocument.Bookmarks[i].Title = "PdfBookMark" + (i+1);
                                     }
                                     //Saves the PDF file to file system.    
                                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../WordToPDF.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
