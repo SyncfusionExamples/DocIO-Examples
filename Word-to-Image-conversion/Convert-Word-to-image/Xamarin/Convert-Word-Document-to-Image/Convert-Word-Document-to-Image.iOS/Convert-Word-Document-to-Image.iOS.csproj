@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C35B1808-90AB-4DF3-B535-A2DD7357651D}</ProjectGuid>
+    <ProjectGuid>{31C1E753-05EE-4A16-9C6F-3AA645E1F073}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
@@ -131,7 +131,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Convert-Word-Document-to-Image\Convert-Word-Document-to-Image.csproj">
-      <Project>{CD9BC897-440C-4364-98E5-9205554B0FF7}</Project>
+      <Project>{4A1D9D75-4B3C-4F42-B05D-18E272C7E430}</Project>
       <Name>Convert-Word-Document-to-Image</Name>
     </ProjectReference>
   </ItemGroup>

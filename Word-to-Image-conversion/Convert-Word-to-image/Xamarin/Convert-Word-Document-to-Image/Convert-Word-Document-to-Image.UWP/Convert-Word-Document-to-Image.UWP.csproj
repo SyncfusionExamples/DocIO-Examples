@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{B3849CBE-5817-4237-9551-63AD0335485B}</ProjectGuid>
+    <ProjectGuid>{1FF88E1B-041B-4E2A-A850-DC5BF6E6E746}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Convert_Word_Document_to_Image.UWP</RootNamespace>
     <AssemblyName>Convert-Word-Document-to-Image.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.20348.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.22621.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
@@ -151,7 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Convert-Word-Document-to-Image\Convert-Word-Document-to-Image.csproj">
-      <Project>{CD9BC897-440C-4364-98E5-9205554B0FF7}</Project>
+      <Project>{4A1D9D75-4B3C-4F42-B05D-18E272C7E430}</Project>
       <Name>Convert-Word-Document-to-Image</Name>
     </ProjectReference>
   </ItemGroup>
