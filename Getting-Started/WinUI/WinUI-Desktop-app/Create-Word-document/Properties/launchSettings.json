@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Create-Word-document (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Create-Word-document (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

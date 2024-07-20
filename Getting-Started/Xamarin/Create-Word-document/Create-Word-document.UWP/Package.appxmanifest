@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="4c7a8867-9d27-49ea-aebc-778fbb4f79f7"
-    Publisher="CN=2da9df78-1b7f-47a3-b60b-3141d46c28a9"
+    Name="93C91E68-3B76-4D13-9FBF-F8EB74B2AB1E"
+    Publisher="CN=2D4C6065-C5C2-455F-861A-0BF46D44944E"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Create_Word_document.UWP</DisplayName>
-    <PublisherDisplayName>2da9df78-1b7f-47a3-b60b-3141d46c28a9</PublisherDisplayName>
+    <PublisherDisplayName>2D4C6065-C5C2-455F-861A-0BF46D44944E</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

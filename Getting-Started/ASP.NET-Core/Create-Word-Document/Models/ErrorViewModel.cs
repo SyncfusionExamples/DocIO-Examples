@@ -1,10 +1,8 @@
-using System;
-
-namespace Create_Word_document.Models
+namespace Create_Word_Document.Models
 {
     public class ErrorViewModel
     {
-        public string RequestId { get; set; }
+        public string? RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
