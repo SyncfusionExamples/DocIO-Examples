@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modify-built-in-document-properties", "Modify-built-in-document-properties\Modify-built-in-document-properties.csproj", "{A9B8BA28-6026-43A5-A019-6EC9CFBA6C0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modify-built-in-document-properties", "Modify-built-in-document-properties\Modify-built-in-document-properties.csproj", "{C88CC42C-2DE6-4250-BC52-E75D16717CDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A9B8BA28-6026-43A5-A019-6EC9CFBA6C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9B8BA28-6026-43A5-A019-6EC9CFBA6C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9B8BA28-6026-43A5-A019-6EC9CFBA6C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9B8BA28-6026-43A5-A019-6EC9CFBA6C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C88CC42C-2DE6-4250-BC52-E75D16717CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C88CC42C-2DE6-4250-BC52-E75D16717CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C88CC42C-2DE6-4250-BC52-E75D16717CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C88CC42C-2DE6-4250-BC52-E75D16717CDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0F7A9D32-F9DA-4D6D-911D-121E595F662D}
+		SolutionGuid = {1B569C76-156D-4D00-B42D-C74C9C367337}
 	EndGlobalSection
 EndGlobal
