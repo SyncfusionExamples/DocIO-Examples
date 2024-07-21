@@ -29,7 +29,7 @@ namespace Customize_image_path
         //The following code examples show the event handler to customize the image path and save the image in an external folder.
         static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
         {
-            string imagepath = @"D:\Temp\Image1.png";
+            string imagepath = Path.GetFullPath(@"../../../Image1.png");
             //Save the image stream as a file. 
             using (FileStream fileStreamOutput = File.Create(imagepath))
                 args.ImageStream.CopyTo(fileStreamOutput);

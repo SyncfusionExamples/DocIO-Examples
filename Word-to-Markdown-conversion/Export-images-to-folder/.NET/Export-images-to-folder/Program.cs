@@ -20,7 +20,7 @@ namespace Export_images_to_folder
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../WordToMd.md"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Set images folder to export images. 
-                        document.SaveOptions.MarkdownExportImagesFolder = "D:\\WordToMdConversion ";
+                        document.SaveOptions.MarkdownExportImagesFolder = Path.GetFullPath(@"../../../WordToMdConversion");
                         //Save a Markdown file to the file stream.
                         document.Save(outputFileStream, FormatType.Markdown);
                     }
