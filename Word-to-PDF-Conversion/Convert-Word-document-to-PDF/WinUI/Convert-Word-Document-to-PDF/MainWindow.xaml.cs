@@ -1,4 +1,4 @@
-﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -17,7 +17,6 @@ using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Create_Word_document;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -53,7 +52,7 @@ namespace Convert_Word_Document_to_PDF
                         //Save the stream as a Word document file in the local machine.
                         SaveHelper.SaveAndLaunch("Sample.pdf", outputStream);
                     }
-                }                                              
+                }
             }
         }
     }

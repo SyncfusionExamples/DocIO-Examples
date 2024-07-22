@@ -1,22 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System.IO;
 using Syncfusion.DocToPDFConverter;
 using Syncfusion.Pdf;
-using System.Web.Configuration;
 
 namespace Convert_Word_Document_to_PDF
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class MainPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
         protected void OnButtonClicked(object sender, EventArgs e)
-        {   
+        {
             //Open an existing Word document.        
             string filePath = Server.MapPath("~/App_Data/Template.docx");
 
@@ -31,8 +34,8 @@ namespace Convert_Word_Document_to_PDF
                     {
                         //Saves the PDF document to MemoryStream.
                         MemoryStream stream = new MemoryStream();
-                        pdfDocument.Save("sample.pdf", HttpContext.Current.Response, HttpReadType.Save);                       
-                    }                   
+                        pdfDocument.Save("sample.pdf", HttpContext.Current.Response, HttpReadType.Save);
+                    }
                 }
             }
         }

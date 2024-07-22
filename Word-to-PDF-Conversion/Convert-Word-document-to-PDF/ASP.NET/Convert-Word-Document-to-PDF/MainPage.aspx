@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainPage.aspx.cs" Inherits="Convert_Word_Document_to_PDF.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainPage.aspx.cs" Inherits="Convert_Word_Document_to_PDF.MainPage" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-             <asp:Button ID="Button1" runat="server" Text="Convert Word to PDF" OnClick="OnButtonClicked" />
+            <asp:Button ID="Button1" runat="server" Text="Convert Word to PDF" OnClick="OnButtonClicked" />
         </div>
     </form>
 </body>

@@ -6,7 +6,7 @@ using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Popups;
 
-namespace Create_Word_document
+namespace Convert_Word_Document_to_PDF
 {
     /// <summary>
     /// Helper class to save the file.

@@ -1,11 +1,12 @@
-﻿namespace Convert_Word_Document_to_PDF;
-
-public partial class App : Application
+﻿namespace Convert_Word_Document_to_PDF
 {
-	public App()
-	{
-		InitializeComponent();
+    public partial class App : Application
+    {
+        public App()
+        {
+            InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+            MainPage = new AppShell();
+        }
+    }
 }
