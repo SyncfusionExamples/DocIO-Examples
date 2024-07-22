@@ -154,7 +154,7 @@
       <Version>6.2.14</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.DocIO.UWP">
-      <Version>23.1.44</Version>
+      <Version>*</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

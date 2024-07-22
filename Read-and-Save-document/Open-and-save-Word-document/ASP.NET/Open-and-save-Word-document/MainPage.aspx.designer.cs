@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Open_and_save_Word_document {
-    
-    
-    public partial class MainPage {
-        
+namespace Open_and_save_Word_document
+{
+
+
+    public partial class MainPage
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Open_and_save_Word_document {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// Button1 control.
         /// </summary>

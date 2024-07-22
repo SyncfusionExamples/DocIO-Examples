@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CreateWordSample
+namespace Open_and_save_Word_document
 {
 
 

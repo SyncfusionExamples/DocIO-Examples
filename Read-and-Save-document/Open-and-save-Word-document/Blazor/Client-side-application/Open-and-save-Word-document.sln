@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Open-and-save-Word-document", "Open-and-save-Word-document\Open-and-save-Word-document.csproj", "{A9B8BA28-6026-43A5-A019-6EC9CFBA6C0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Open-and-save-Word-document", "Open-and-save-Word-document\Open-and-save-Word-document.csproj", "{ABC6708D-47AE-4CCF-9528-BB0E1C582CF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A9B8BA28-6026-43A5-A019-6EC9CFBA6C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9B8BA28-6026-43A5-A019-6EC9CFBA6C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9B8BA28-6026-43A5-A019-6EC9CFBA6C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9B8BA28-6026-43A5-A019-6EC9CFBA6C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABC6708D-47AE-4CCF-9528-BB0E1C582CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABC6708D-47AE-4CCF-9528-BB0E1C582CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABC6708D-47AE-4CCF-9528-BB0E1C582CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABC6708D-47AE-4CCF-9528-BB0E1C582CF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0F7A9D32-F9DA-4D6D-911D-121E595F662D}
+		SolutionGuid = {E6EE2C53-4D03-4768-A9DF-FBCA1DF7A598}
 	EndGlobalSection
 EndGlobal
