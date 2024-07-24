@@ -46,6 +46,7 @@ namespace Get_missing_fonts_for_pdf_conversion
             {
                 Console.WriteLine("Fonts used in Word document are available in environment.");
             }
+			Console.ReadKey();
         }
 
         // Event handler for font substitution event
