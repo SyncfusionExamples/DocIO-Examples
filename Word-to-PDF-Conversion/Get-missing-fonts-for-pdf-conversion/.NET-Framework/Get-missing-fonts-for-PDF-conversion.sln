@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34205.153
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Get-missing-fonts-for-PDF-conversion", "Get-missing-fonts-for-PDF-conversion\Get-missing-fonts-for-PDF-conversion.csproj", "{51760570-DA96-4966-8D91-6F76E22CA6F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51760570-DA96-4966-8D91-6F76E22CA6F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51760570-DA96-4966-8D91-6F76E22CA6F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51760570-DA96-4966-8D91-6F76E22CA6F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51760570-DA96-4966-8D91-6F76E22CA6F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4FE7DEE-23AD-40F8-BF54-0264F05E3DAC}
+	EndGlobalSection
+EndGlobal
