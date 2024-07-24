@@ -1,18 +1,21 @@
-﻿using Syncfusion.DocIO;
-using Syncfusion.DocIO.DLS;
-using Syncfusion.DocIORenderer;
+﻿using Syncfusion.DocIO.DLS;
+using Syncfusion.DocIO;
 using Syncfusion.Pdf;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Syncfusion.DocToPDFConverter;
 
-namespace Get_missing_fonts_for_pdf_conversion
+namespace Get_missing_fonts_for_PDF_conversion
 {
-    class Program
+    internal class Program
     {
         // List to store names of fonts that are not installed
         static List<string> fonts = new List<string>();
-        static void Main()
+        static void Main(string[] args)
         {
             // Open the existing DOCX file stream
-            using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read))
+            using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../Data/Input.docx"), FileMode.Open, FileAccess.Read))
             {
                 // Load the file stream into a Word document
                 using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
@@ -20,16 +23,17 @@ namespace Get_missing_fonts_for_pdf_conversion
                     // Hook the font substitution event to detect missing fonts
                     wordDocument.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
 
-                    // Instantiate DocIORenderer for Word to PDF conversion
-                    using (DocIORenderer render = new DocIORenderer())
+                    // Instantiate DocToPDFConverter for Word to PDF conversion
+                    using (DocToPDFConverter converter = new DocToPDFConverter())
                     {
                         // Convert Word document into PDF document
-                        PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
-
-                        // Save the PDF document to output stream
-                        using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Data/Result.pdf"), FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                        using (PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument))
                         {
-                            pdfDocument.Save(outputStream);
+                            // Save the PDF document to output stream
+                            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../Data/Result.pdf"), FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                            {
+                                pdfDocument.Save(outputStream);
+                            }
                         }
                     }
                 }
@@ -46,7 +50,7 @@ namespace Get_missing_fonts_for_pdf_conversion
             {
                 Console.WriteLine("Fonts used in Word document are available in environment.");
             }
-			Console.ReadKey();
+            Console.ReadKey();
         }
 
         // Event handler for font substitution event
@@ -57,5 +61,4 @@ namespace Get_missing_fonts_for_pdf_conversion
                 fonts.Add(args.OriginalFontName);
         }
     }
-
 }
