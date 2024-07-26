@@ -1,9 +1,11 @@
-﻿using Syncfusion.DocIO;
-using Syncfusion.DocIO.DLS;
+﻿using Syncfusion.DocIO.DLS;
+using Syncfusion.DocIO;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
-using System.IO;
-using System.Drawing;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Open_and_save_Word_document
 {

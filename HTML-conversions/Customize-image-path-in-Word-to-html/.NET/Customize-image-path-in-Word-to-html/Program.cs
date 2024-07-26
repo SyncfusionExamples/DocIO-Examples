@@ -27,7 +27,7 @@ namespace Customize_image_path_in_Word_to_html
             static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
             {
                 // Specify the folder path.
-                string folderPath = @"D:\Temp";
+                string folderPath = Path.GetFullPath(@"../../../");
                 // Specify the image filename.
                 string imageFilename = "Image.png"; 
                 // Check if the folder exists, and create it if it doesn't.

@@ -1,4 +1,4 @@
-﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -12,13 +12,11 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using System.Reflection;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 using Syncfusion.DocIORenderer;
-using System.Reflection;
-using Convert_Word_Document_to_Image;
 using Convert_Word_document_to_Image;
-using Windows.Storage.Streams;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -34,7 +32,6 @@ namespace Convert_Word_Document_to_Image
         {
             this.InitializeComponent();
         }
-
         private void ConvertWordtoImage(object sender, RoutedEventArgs e)
         {
             //Loading an existing Word document

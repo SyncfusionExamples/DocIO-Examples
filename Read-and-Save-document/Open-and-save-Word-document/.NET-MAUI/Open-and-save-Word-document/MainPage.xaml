@@ -5,14 +5,14 @@
 
     <ScrollView>
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
-            Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+        Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
             <Button 
-                Text="Open and Save Document"
-                FontAttributes="Bold"
-                Grid.Row="0"
-                SemanticProperties.Hint="Open and Save Word document you click"
-                Clicked="OpenAndSaveDocument"
-                HorizontalOptions="Center" />
+            Text="Open and Save Document"
+            FontAttributes="Bold"
+            Grid.Row="0"
+            SemanticProperties.Hint="Open and Save Word document you click"
+            Clicked="OpenAndSaveDocument"
+            HorizontalOptions="Center" />
         </Grid>
     </ScrollView>
 

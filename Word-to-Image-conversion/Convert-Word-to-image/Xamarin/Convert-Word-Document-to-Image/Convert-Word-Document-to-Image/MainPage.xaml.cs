@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Syncfusion.DocIO.DLS;
+using Syncfusion.DocIO;
+using Syncfusion.DocIORenderer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Syncfusion.DocIO;
-using Syncfusion.DocIO.DLS;
-using Syncfusion.DocIORenderer;
-using System.IO;
-using System.Reflection;
 
 namespace Convert_Word_Document_to_Image
 {
@@ -35,7 +35,7 @@ namespace Convert_Word_Document_to_Image
                     imageStream.Position = 0;
                     //Save the stream as file.
                     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("WordToImage.Jpeg", "application/jpeg", imageStream as MemoryStream);
-                   
+
                 }
             }
         }

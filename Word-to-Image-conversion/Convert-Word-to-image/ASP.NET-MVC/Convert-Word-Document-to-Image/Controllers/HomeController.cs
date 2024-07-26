@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
-using System.IO;
 using System.Drawing;
-using System.Drawing.Imaging;
 
 namespace Convert_Word_Document_to_Image.Controllers
 {
@@ -17,7 +17,6 @@ namespace Convert_Word_Document_to_Image.Controllers
         {
             return View();
         }
-
         public void ConvertWordtoImage()
         {
             //Open the file as Stream
@@ -25,7 +24,7 @@ namespace Convert_Word_Document_to_Image.Controllers
             {
                 //Loads file stream into Word document
                 using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Docx))
-                {                 
+                {
                     //Convert the first page of the Word document into an image.
                     Image image = wordDocument.RenderAsImages(0, ImageType.Bitmap);
                     //Save the image as jpeg.           
@@ -44,6 +43,7 @@ namespace Convert_Word_Document_to_Image.Controllers
                 image.Save(Response.OutputStream, imageFormat);
             Response.End();
         }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

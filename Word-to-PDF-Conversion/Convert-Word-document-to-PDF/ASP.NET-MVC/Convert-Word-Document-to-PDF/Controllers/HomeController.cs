@@ -1,9 +1,13 @@
 ﻿using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
-using Syncfusion.Pdf;
-using System.IO;
-using System.Web.Mvc;
 using Syncfusion.DocToPDFConverter;
+using Syncfusion.Pdf;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Convert_Word_Document_to_PDF.Controllers
 {
@@ -34,11 +38,12 @@ namespace Convert_Word_Document_to_PDF.Controllers
 
                             //Download PDF document in the browser.
                             return File(stream, "application/pdf", "Sample.pdf");
-                        }                       
-                    };                 
+                        }
+                    };
                 }
             }
         }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

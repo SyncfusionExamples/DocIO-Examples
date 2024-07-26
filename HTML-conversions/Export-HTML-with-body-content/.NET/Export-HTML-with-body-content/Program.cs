@@ -1,8 +1,8 @@
-﻿//Load an existing Word document.
-using Syncfusion.DocIO;
+﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-using (FileStream fileStreamPath = new FileStream("Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+//Load an existing Word document.
+using (FileStream fileStreamPath = new FileStream("../../../Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
     {

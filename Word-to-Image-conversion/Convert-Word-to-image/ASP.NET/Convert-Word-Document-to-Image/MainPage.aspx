@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-             <asp:Button ID="Button1" runat="server" Text="Convert Word to Image" OnClick="OnButtonClicked" />
+            <asp:Button ID="Button1" runat="server" Text="Convert Word to Image" OnClick="OnButtonClicked" />
         </div>
     </form>
 </body>

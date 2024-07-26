@@ -8,15 +8,15 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="8c78d1d7-946e-48d0-a5e8-e5cddde18c53"
-    Publisher="CN=VenkateshMurugananda"
+    Name="cae03f30-0f8b-4ac7-9560-c3d2c86c774f"
+    Publisher="CN=KonduruKeerthiKondur"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="8c78d1d7-946e-48d0-a5e8-e5cddde18c53" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="cae03f30-0f8b-4ac7-9560-c3d2c86c774f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Open-and-save-Word-document</DisplayName>
-    <PublisherDisplayName>VenkateshMurugananda</PublisherDisplayName>
+    <PublisherDisplayName>KonduruKeerthiKondur</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

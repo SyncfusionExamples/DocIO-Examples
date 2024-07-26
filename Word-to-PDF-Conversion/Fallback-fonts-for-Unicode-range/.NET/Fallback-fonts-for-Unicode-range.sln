@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.9.34310.174
+VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fallback-fonts-for-Unicode-range", "Fallback-fonts-for-Unicode-range\Fallback-fonts-for-Unicode-range.csproj", "{5339BECC-6DDE-48E9-9A7A-C77C7E47A70B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fallback-fonts-for-Unicode-range", "Fallback-fonts-for-Unicode-range\Fallback-fonts-for-Unicode-range.csproj", "{D3EFE56B-9D4D-4FC6-AF5E-95649E99F357}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5339BECC-6DDE-48E9-9A7A-C77C7E47A70B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5339BECC-6DDE-48E9-9A7A-C77C7E47A70B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5339BECC-6DDE-48E9-9A7A-C77C7E47A70B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5339BECC-6DDE-48E9-9A7A-C77C7E47A70B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3EFE56B-9D4D-4FC6-AF5E-95649E99F357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3EFE56B-9D4D-4FC6-AF5E-95649E99F357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3EFE56B-9D4D-4FC6-AF5E-95649E99F357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3EFE56B-9D4D-4FC6-AF5E-95649E99F357}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4A3A606F-7765-48E8-B87A-3B06A1D8918D}
+		SolutionGuid = {D29FA1F8-A942-4089-B55C-48848AB21556}
 	EndGlobalSection
 EndGlobal

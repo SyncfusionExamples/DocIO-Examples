@@ -135,7 +135,7 @@
       <Version>6.0.6</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.DocIO.UWP">
-      <Version>19.4.0.43</Version>
+      <Version>*</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
