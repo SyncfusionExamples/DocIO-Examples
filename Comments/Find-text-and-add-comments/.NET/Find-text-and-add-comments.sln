@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Find-text-and-add-comments", "Find-text-and-add-comments\Find-text-and-add-comments.csproj", "{8B2E34B8-B23D-4717-A86A-34EB32012EC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B2E34B8-B23D-4717-A86A-34EB32012EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B2E34B8-B23D-4717-A86A-34EB32012EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B2E34B8-B23D-4717-A86A-34EB32012EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B2E34B8-B23D-4717-A86A-34EB32012EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6140D05B-D8BA-4632-A04A-84100359C4AF}
+	EndGlobalSection
+EndGlobal
