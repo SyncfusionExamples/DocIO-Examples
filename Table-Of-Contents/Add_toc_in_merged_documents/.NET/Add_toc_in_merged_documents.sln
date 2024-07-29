@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Add_toc_in_merged_documents", "Add_toc_in_merged_documents\Add_toc_in_merged_documents.csproj", "{78D9D0A1-4467-4A3C-8C45-3F90EE69EC36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78D9D0A1-4467-4A3C-8C45-3F90EE69EC36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D9D0A1-4467-4A3C-8C45-3F90EE69EC36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D9D0A1-4467-4A3C-8C45-3F90EE69EC36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D9D0A1-4467-4A3C-8C45-3F90EE69EC36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF8B010D-A0FC-4D30-8767-8B601222372E}
+	EndGlobalSection
+EndGlobal
