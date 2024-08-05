@@ -2,8 +2,8 @@
 
 FROM fedora:latest
 
-Run dnf install dotnet-sdk-3.1 -y
-RUN dnf install dotnet-runtime-3.1 -y
+Run dnf install dotnet-sdk-8.0 -y
+RUN dnf install dotnet-runtime-8.0 -y
 
 RUN dnf install fontconfig -y
 
