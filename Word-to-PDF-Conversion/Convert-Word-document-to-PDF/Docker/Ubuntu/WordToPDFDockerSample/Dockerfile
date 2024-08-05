@@ -1,10 +1,10 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/runtime:8.0-bionic AS base
+FROM mcr.microsoft.com/dotnet/runtime:8.0-jammy AS base
 RUN apt-get update -y && apt-get install fontconfig -y
 WORKDIR /app
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0-bionic AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy AS build
 WORKDIR /src
 COPY ["WordToPDFDockerSample.csproj", "."]
 RUN dotnet restore "./WordToPDFDockerSample.csproj"
