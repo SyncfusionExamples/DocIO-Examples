@@ -2,9 +2,26 @@
 
 FROM fedora:latest
 
-Run dnf install dotnet-sdk-3.1 -y
-RUN dnf install dotnet-runtime-3.1 -y
+# Install .NET 8.0 SDK and runtime
+Run dnf install dotnet-sdk-8.0 -y
+RUN dnf install dotnet-runtime-8.0 -y
 
+# Install fontconfig for font support
 RUN dnf install fontconfig -y
 
-ENTRYPOINT ["dotnet" "WordToPDFDockerSample.dll"]
+# Set the working directory
+WORKDIR /app
+
+# Copy the application files
+COPY ["WordToPDFDockerSample.csproj", "."]
+RUN dotnet restore "WordToPDFDockerSample.csproj"
+COPY . .
+
+# Build the application
+RUN dotnet build "WordToPDFDockerSample.csproj" -c Release -o /app/build
+
+# Publish the application
+RUN dotnet publish "WordToPDFDockerSample.csproj" -c Release -o /app/publish
+
+# Set the final stage to use the runtime image
+ENTRYPOINT ["dotnet", "WordToPDFDockerSample.dll"]
