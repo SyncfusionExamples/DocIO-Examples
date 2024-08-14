@@ -20,45 +20,42 @@ namespace Convert_5_pages_in_Word_to_PDF
                     // Create a converter to convert the Word document to PDF
                     using (DocToPDFConverter render = new DocToPDFConverter())
                     {
-                        // Convert the Word document to a PDF document
-                        using (PdfDocument pdfDocument = render.ConvertToPDF(document))
+                        // Convert the Word document to a PDF document and save it to a MemoryStream
+                        using (MemoryStream pdfStream = new MemoryStream())
                         {
-                            // Create a file stream to save the converted PDF
-                            using (FileStream docStream1 = new FileStream(Path.GetFullPath(@"../../Data/Output.pdf"), FileMode.Create, FileAccess.Write))
+                            using (PdfDocument pdfDocument = render.ConvertToPDF(document))
                             {
-                                // Save the PDF document to the output file stream
-                                pdfDocument.Save(docStream1);
+                                // Save the PDF document to the MemoryStream
+                                pdfDocument.Save(pdfStream);
+                                pdfStream.Position = 0; // Reset the stream position to the beginning
+
+                                // Load the PDF document from the MemoryStream
+                                using (PdfLoadedDocument loadedDocument = new PdfLoadedDocument(pdfStream))
+                                {
+                                    // Get the total number of pages in the PDF document
+                                    int totalPages = loadedDocument.Pages.Count;
+                                    if (totalPages > 5)
+                                    {
+                                        // Remove all pages after the 5th page
+                                        for (int i = totalPages - 1; i >= 5; i--)
+                                        {
+                                            loadedDocument.Pages.RemoveAt(i);
+                                        }
+                                    }
+
+                                    // Create a file stream to save the modified PDF
+                                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../Data/First-5-pages-Output.pdf"), FileMode.Create, FileAccess.Write))
+                                    {
+                                        // Save the modified PDF document to the output file stream
+                                        loadedDocument.Save(outputFileStream);
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
 
-            // Get stream from the newly created PDF document
-            using (FileStream inputFileStream = new FileStream(Path.GetFullPath(@"../../Data/Output.pdf"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            {
-                // Load the PDF document
-                using (PdfLoadedDocument loadedDocument = new PdfLoadedDocument(inputFileStream))
-                {
-                    // Get the total number of pages in the PDF document
-                    int totalPages = loadedDocument.Pages.Count;
-                    if (totalPages > 5)
-                    {
-                        // Remove all pages after the 5th page
-                        for (int i = totalPages - 1; i >= 5; i--)
-                        {
-                            loadedDocument.Pages.RemoveAt(i);
-                        }
-                    }
-
-                    // Create a file stream to save the modified PDF
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../Data/First-5-pages-Output.pdf"), FileMode.Create, FileAccess.ReadWrite))
-                    {
-                        // Save the modified PDF document to the output file stream
-                        loadedDocument.Save(outputFileStream);
-                    }
-                }
-            }
         }
     }
 }
