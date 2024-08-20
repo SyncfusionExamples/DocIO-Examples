@@ -59,7 +59,7 @@ namespace Create_contour_surface_chart
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
                 //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Save the Word document to the file stream.
                     document.Save(outputFileStream, FormatType.Docx);

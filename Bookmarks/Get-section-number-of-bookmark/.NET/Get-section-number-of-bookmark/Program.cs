@@ -9,7 +9,7 @@ namespace Get_section_number_of_bookmark
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Open an existing Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))

@@ -18,7 +18,7 @@ namespace Applying_3D_formats
                 //Adds paragraph to the section.
                 IWParagraph paragraph = sec.AddParagraph();
                 //Loads the excel file as stream.
-                Stream excelStream = File.OpenRead(Path.GetFullPath(@"../../../Excel_Template.xlsx"));
+                Stream excelStream = File.OpenRead(Path.GetFullPath(@"Data/Excel_Template.xlsx"));
                 //Creates and Appends chart to the paragraph with excel stream as parameter.
                 WChart chart = paragraph.AppendChart(excelStream, 1, "B2:C6", 470, 300);
                 //Sets chart type and title.
@@ -65,7 +65,7 @@ namespace Applying_3D_formats
                 //Sets the back wall thickness.
                 chart.BackWall.Thickness = 10;
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

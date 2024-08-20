@@ -9,7 +9,7 @@ namespace Insert_bookmark_start_and_end_around_textrange
         static void Main(string[] args)
         {
             //Open the file as a stream.
-            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
@@ -24,7 +24,7 @@ namespace Insert_bookmark_start_and_end_around_textrange
                     //Add bookmarkend at index 2.
                     paragraph.Items.Insert(2, bookmarkEnd);
                     //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to the file stream.
                         document.Save(outputFileStream, FormatType.Docx);

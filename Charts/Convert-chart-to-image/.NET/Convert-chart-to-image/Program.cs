@@ -9,7 +9,7 @@ namespace Convert_chart_to_image
         static void Main(string[] args)
         {
 			//Open the file as Stream.
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../TemplateWithChart.docx"), FileMode.Open))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/TemplateWithChart.docx"), FileMode.Open))
             {
                 //Load file stream into Word document.
                 using (WordDocument wordDocument = new WordDocument(fileStream, Syncfusion.DocIO.FormatType.Automatic))
@@ -25,7 +25,7 @@ namespace Convert_chart_to_image
                         using (Stream stream = chart.SaveAsImage())
                         {
                             //Create the output image file stream. 
-                            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"../../../ChartToImage.jpeg")))
+                            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/Output.jpeg")))
                             {
                                 //Copies the converted image stream into created output stream.
                                 stream.CopyTo(fileStreamOutput);
