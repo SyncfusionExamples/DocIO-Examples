@@ -63,7 +63,7 @@ namespace Create_stacked_bar_cone_chart
                 //Set chart type.
                 chart.ChartType = OfficeChartType.Cone_Bar_Stacked;
                 //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Save the Word document to the file stream.
                     document.Save(outputFileStream, FormatType.Docx);
