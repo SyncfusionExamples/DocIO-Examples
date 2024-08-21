@@ -11,11 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Output\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Data\TemplateWithChart.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
