@@ -9,7 +9,7 @@ Syncfusion.Compression.Zip.ZipArchive zipArchive = new Syncfusion.Compression.Zi
 zipArchive.DefaultCompressionLevel = Syncfusion.Compression.CompressionLevel.Best;
 
 //Get the input Word documents from the folder.
-string folderName = @"../../../InputDocuments";
+string folderName = @"Data";
 string[] inputFiles = Directory.GetFiles(folderName);
 DirectoryInfo directoryInfo = new DirectoryInfo(folderName);
 List<string> files = new List<string>();
@@ -36,7 +36,7 @@ for (int i = 0; i < inputFiles.Length; i++)
 }
 
 //Zip file name and location.
-FileStream zipStream = new FileStream(@"../../../OutputPDFs.zip", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+FileStream zipStream = new FileStream(@"Output/Output.zip", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 zipArchive.Save(zipStream, true);
 zipArchive.Close();
 

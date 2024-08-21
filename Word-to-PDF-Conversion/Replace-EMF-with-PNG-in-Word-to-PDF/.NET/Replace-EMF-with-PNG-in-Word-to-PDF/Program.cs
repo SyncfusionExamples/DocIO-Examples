@@ -16,7 +16,7 @@ namespace Replace_EMF_with_PNG_in_Word_to_PDF
         static void Main(string[] args)
         {
             //Open the file as Stream.
-            using (FileStream docStream = new FileStream(@"../../../SyncfusionConvertWordToPdfIssueDoc.docx", FileMode.Open, FileAccess.Read))
+            using (FileStream docStream = new FileStream(@"Data/SyncfusionConvertWordToPdfIssueDoc.docx", FileMode.Open, FileAccess.Read))
             {
                 //Load file stream into Word document.
                 using (WordDocument wordDocument = new WordDocument(docStream, FormatType.Automatic))
@@ -28,14 +28,14 @@ namespace Replace_EMF_with_PNG_in_Word_to_PDF
                     using (PdfDocument pdfDocument = render.ConvertToPDF(wordDocument))
                     {
                         //Save the PDF file.
-                        using (FileStream outputFile = new FileStream("Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                        using (FileStream outputFile = new FileStream("Output/Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                             pdfDocument.Save(outputFile);
                         
                     }
                 }
             }
             System.Diagnostics.Process process = new System.Diagnostics.Process();
-            process.StartInfo = new System.Diagnostics.ProcessStartInfo("Output.pdf")
+            process.StartInfo = new System.Diagnostics.ProcessStartInfo(Path.Combine(Directory.GetCurrentDirectory(), "Output/Output.pdf"))
             {
                 UseShellExecute = true
             };
@@ -60,12 +60,12 @@ namespace Replace_EMF_with_PNG_in_Word_to_PDF
                 {
                     float height = picture.Height;
                     float width = picture.Width;
-                    FileStream imgFile = new FileStream("Output.png", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                    FileStream imgFile = new FileStream("Output/Output.png", FileMode.OpenOrCreate, FileAccess.ReadWrite);
                     image.Save(imgFile, ImageFormat.Png);
                     imgFile.Dispose();
                     image.Dispose();
 
-                    FileStream imageStream = new FileStream(@"Output.png", FileMode.Open, FileAccess.ReadWrite);
+                    FileStream imageStream = new FileStream(@"Output/Output.png", FileMode.Open, FileAccess.ReadWrite);
                     picture.LoadImage(imageStream);
                     picture.LockAspectRatio = false;
                     picture.Height = height;

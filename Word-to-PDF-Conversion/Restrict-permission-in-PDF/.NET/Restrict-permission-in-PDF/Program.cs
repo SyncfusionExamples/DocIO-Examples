@@ -10,7 +10,7 @@ namespace Restrict_permission_in_PDF
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open))
             {
                 //Loads an existing Word document.
                 using (WordDocument wordDocument = new WordDocument(fileStream, Syncfusion.DocIO.FormatType.Automatic))
@@ -30,7 +30,7 @@ namespace Restrict_permission_in_PDF
                             //It restrict printing and copying of PDF document.
                             security.Permissions = ~(PdfPermissionsFlags.CopyContent | PdfPermissionsFlags.Print);
                             //Saves the PDF file to file system.    
-                            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../WordToPDF.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                             {
                                 pdfDocument.Save(outputStream);
                             }

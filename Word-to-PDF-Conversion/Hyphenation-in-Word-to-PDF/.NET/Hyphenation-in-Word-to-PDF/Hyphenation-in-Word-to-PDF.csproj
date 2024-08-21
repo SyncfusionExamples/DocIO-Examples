@@ -10,4 +10,16 @@
     <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\hyph_de_CH.dic">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Template.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Output\.gitkeep">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
