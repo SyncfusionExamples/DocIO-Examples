@@ -8,7 +8,7 @@ namespace Initialize_default_fallback_fonts
         static void Main(string[] args)
         {
             //Opens the file as stream.
-            using FileStream inputStream = new FileStream(@"../../../Template.docx", FileMode.Open, FileAccess.Read);
+            using FileStream inputStream = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read);
             //Loads an existing Word document file stream.
             using WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx);
             //Initialize the default fallback fonts collection.
@@ -23,7 +23,7 @@ namespace Initialize_default_fallback_fonts
                 //Reset the stream position.
                 stream.Position = 0;
                 //Save the stream as file.
-                using FileStream fileStreamOutput = File.Create(@"../../../WordToImage_" + i + ".jpeg");
+                using FileStream fileStreamOutput = File.Create(@"Output/Output_" + i + ".jpeg");
                 stream.CopyTo(fileStreamOutput);
                 i++;
             }
