@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Data\Sample.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
