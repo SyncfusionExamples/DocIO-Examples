@@ -9,7 +9,7 @@ namespace Fallback_fonts_based_on_scripttype
         static void Main(string[] args)
         {
             //Opens the file as stream.
-            using FileStream inputStream = new FileStream(@"../../../Template.docx", FileMode.Open, FileAccess.Read);
+            using FileStream inputStream = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read);
             //Loads an existing Word document file stream.
             using WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx);
             //Adds fallback font for "Arabic" script type.
@@ -31,7 +31,7 @@ namespace Fallback_fonts_based_on_scripttype
             //Converts Word document into PDF document.
             using PdfDocument pdfDocument = render.ConvertToPDF(wordDocument);
             //Saves the PDF file to file system.
-            using FileStream outputStream = new FileStream(@"../../../WordToPDF.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            using FileStream outputStream = new FileStream(@"Output/Output.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             pdfDocument.Save(outputStream);
         }
     }
