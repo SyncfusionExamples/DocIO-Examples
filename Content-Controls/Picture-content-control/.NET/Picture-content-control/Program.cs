@@ -21,13 +21,13 @@ namespace Picture_content_control
                 InlineContentControl pictureContentControl = paragraph.AppendInlineContentControl(ContentControlType.Picture) as InlineContentControl;
                 //Creates a new image instance and load image.
                 WPicture picture = new WPicture(document);
-                Stream imageStream = new FileStream(Path.GetFullPath(@"../../../Image.png"), FileMode.Open, FileAccess.Read);
+                Stream imageStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open, FileAccess.Read);
                 //Adds image from stream.
                 picture.LoadImage(imageStream);
                 //Adds picture to the picture content control.
                 pictureContentControl.ParagraphItems.Add(picture);
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

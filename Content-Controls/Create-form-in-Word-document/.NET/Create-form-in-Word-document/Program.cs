@@ -38,7 +38,7 @@ namespace Create_form_in_Word_document
                 //Adds a new paragraph to the cell.
                 IWParagraph cellPara = row.Cells[0].AddParagraph();
                 //Appends new picture.
-                IWPicture pic = cellPara.AppendPicture(new FileStream(Path.GetFullPath(@"../../../image.jpg"), FileMode.Open, FileAccess.Read));
+                IWPicture pic = cellPara.AppendPicture(new FileStream(Path.GetFullPath(@"Data/image.jpg"), FileMode.Open, FileAccess.Read));
                 pic.Height = 80;
                 pic.Width = 180;
                 //Adds a new paragraph to the next cell.
@@ -278,7 +278,7 @@ namespace Create_form_in_Word_document
                 dropdown.BreakCharacterFormat.FontSize = 11f;
                 #endregion
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);
