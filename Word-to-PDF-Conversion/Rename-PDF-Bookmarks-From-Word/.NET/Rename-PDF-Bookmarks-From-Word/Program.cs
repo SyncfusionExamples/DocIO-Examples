@@ -14,7 +14,7 @@ namespace Rename_PDF_Bookmarks_From_Word
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open))
             {
                 //Loads an existing Word document.
                 using (WordDocument wordDocument = new WordDocument(fileStream, Syncfusion.DocIO.FormatType.Automatic))
@@ -41,7 +41,7 @@ namespace Rename_PDF_Bookmarks_From_Word
                                         pdfLoadedDocument.Bookmarks[i].Title = "PdfBookMark" + (i+1);
                                     }
                                     //Saves the PDF file to file system.    
-                                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../WordToPDF.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                                     {
                                         pdfLoadedDocument.Save(outputStream);
                                     }
