@@ -9,7 +9,7 @@ namespace Specific_range_of_pages_Word_to_image
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open))
             {
                 //Loads an existing Word document.
                 using (WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic))
@@ -25,7 +25,7 @@ namespace Specific_range_of_pages_Word_to_image
                             //Resets the stream position.
                             stream.Position = 0;
                             //Creates the output image file stream.
-                            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"../../../WordToImage_" + i + ".jpeg")))
+                            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/Output_" + i + ".jpeg")))
                             {
                                 //Copies the converted image stream into created output stream.
                                 stream.CopyTo(fileStreamOutput);

@@ -9,7 +9,7 @@ namespace Fallback_fonts_for_Unicode_range
         static void Main(string[] args)
         {
             //Opens the file as stream.
-            using FileStream inputStream = new FileStream(@"../../../Template.docx", FileMode.Open, FileAccess.Read);
+            using FileStream inputStream = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read);
             //Loads an existing Word document file stream.
             using WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx);
             //Adds fallback font for "Arabic" specific unicode range.
@@ -36,7 +36,7 @@ namespace Fallback_fonts_for_Unicode_range
                 //Reset the stream position.
                 stream.Position = 0;
                 //Save the stream as file.
-                using FileStream fileStreamOutput = File.Create(@"../../../WordToImage_" + i + ".jpeg");
+                using FileStream fileStreamOutput = File.Create(@"Output/Output_" + i + ".jpeg");
                 stream.CopyTo(fileStreamOutput);
                 i++;
             }

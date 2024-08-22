@@ -22,7 +22,7 @@ namespace Block_quote_in_Markdown
                 //Append text.
                 IWTextRange textRange = paragraph.AppendText("Hello World");
                 //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../WordToMd.md"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.md"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Save the Markdown file to the file stream.
                     document.Save(outputFileStream, FormatType.Markdown);
