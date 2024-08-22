@@ -9,7 +9,7 @@ namespace Find_and_replace_text_with_image
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Opens an existing Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -20,14 +20,14 @@ namespace Find_and_replace_text_with_image
                     {
                         //Replaces the image placeholder text with desired image.
                         WParagraph paragraph = new WParagraph(document);
-                        FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Data" + textSelections[i].SelectedText + ".png"), FileMode.Open, FileAccess.ReadWrite);
+                        FileStream imageStream = new FileStream(Path.GetFullPath(@"Data" + textSelections[i].SelectedText + ".png"), FileMode.Open, FileAccess.ReadWrite);
                         WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
                         TextBodyPart bodyPart = new TextBodyPart(document);
                         bodyPart.BodyItems.Add(paragraph);
                         document.Replace(textSelections[i].SelectedText, bodyPart, true, true);
                     }
                     //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);

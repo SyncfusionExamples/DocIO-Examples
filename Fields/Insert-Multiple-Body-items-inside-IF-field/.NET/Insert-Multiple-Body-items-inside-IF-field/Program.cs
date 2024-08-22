@@ -24,7 +24,7 @@ namespace Insert_Multiple_Body_items_inside_IF_field
                 document.UpdateDocumentFields();
 
                 //Save and close the document.
-                using (FileStream outputStream = new FileStream("Result.docx", FileMode.Create, FileAccess.Write))
+                using (FileStream outputStream = new FileStream("Output/Result.docx", FileMode.Create, FileAccess.Write))
                 {
                     document.Save(outputStream, FormatType.Docx);
                 }

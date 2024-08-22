@@ -34,7 +34,7 @@ namespace Merge_field_inside_IF_field
             document.UpdateDocumentFields();
 
             //Save and close the document.
-            FileStream outputStream = new FileStream("../../../Sample.docx", FileMode.Create, FileAccess.Write);
+            FileStream outputStream = new FileStream("Output/Sample.docx", FileMode.Create, FileAccess.Write);
             document.Save(outputStream, FormatType.Docx);
             document.Close();
         }
