@@ -16,7 +16,7 @@ namespace Create_Dotx_format_Word_document
                 //Appends text to the last paragraph of the document.
                 document.LastParagraph.AppendText("Hello World");
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.dotx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.dotx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Dotx);
