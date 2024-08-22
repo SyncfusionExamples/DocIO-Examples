@@ -1,7 +1,7 @@
 ﻿using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 
-using (FileStream inputStream = new FileStream(Path.GetFullPath("../../../Sample.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+using (FileStream inputStream = new FileStream(Path.GetFullPath("Data/Sample.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     //Load an existing Word document.
     using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))

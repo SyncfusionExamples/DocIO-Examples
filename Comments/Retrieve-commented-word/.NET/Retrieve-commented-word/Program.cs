@@ -10,7 +10,7 @@ namespace Retrieve_commented_word
         static void Main(string[] args)
         {
             //Load the existing Word document.
-            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
             {
                 //Iterate the comments in the Word document.
@@ -23,7 +23,7 @@ namespace Retrieve_commented_word
                     }
                 }
                 //Save the Word document to file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     document.Save(outputFileStream, FormatType.Docx);
                 }

@@ -8,7 +8,7 @@ namespace Extract_images_from_Word_document
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Opens the Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -28,7 +28,7 @@ namespace Extract_images_from_Word_document
                                 case EntityType.Picture:
                                     WPicture picture = item as WPicture;
                                     image = picture.ImageBytes;
-                                    File.WriteAllBytes(@"../../../Image" + i + ".jpeg", image);
+                                    File.WriteAllBytes(@"Output/Output" + i + ".jpeg", image);
                                     i++;
                                     break;
                                 default:

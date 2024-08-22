@@ -10,7 +10,7 @@ namespace Edit_text_in_inline_content_control
         static void Main(string[] args)
         {
             //Open the file as Stream
-            using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read))
+            using (FileStream docStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read))
             {
                 //Creates an instance of WordDocument class
                 using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
@@ -23,7 +23,7 @@ namespace Edit_text_in_inline_content_control
                         IterateTextBody(sectionBody);
                     }
                     //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);

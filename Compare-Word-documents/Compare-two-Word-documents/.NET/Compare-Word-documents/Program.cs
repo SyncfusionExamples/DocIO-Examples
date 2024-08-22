@@ -19,12 +19,12 @@ namespace Compare_Word_documents
         static void Main(string[] args)
         {
             //Loads the original document.
-            using (FileStream originalDocumentStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/OriginalDocument.docx"), FileMode.Open, FileAccess.Read))
+            using (FileStream originalDocumentStreamPath = new FileStream(Path.GetFullPath(@"Data/OriginalDocument.docx"), FileMode.Open, FileAccess.Read))
             {
                 using (WordDocument originalDocument = new WordDocument(originalDocumentStreamPath, FormatType.Docx))
                 {
                     //Loads the revised document
-                    using (FileStream revisedDocumentStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/RevisedDocument.docx"), FileMode.Open, FileAccess.Read))
+                    using (FileStream revisedDocumentStreamPath = new FileStream(Path.GetFullPath(@"Data/RevisedDocument.docx"), FileMode.Open, FileAccess.Read))
                     {
                         using (WordDocument revisedDocument = new WordDocument(revisedDocumentStreamPath, FormatType.Docx))
                         {
@@ -32,7 +32,7 @@ namespace Compare_Word_documents
                             originalDocument.Compare(revisedDocument);
 
                             //Save the Word document.
-                            using (FileStream fileStreamOutput = File.Create("Output.docx"))
+                            using (FileStream fileStreamOutput = File.Create("Output/Output.docx"))
                             {
                                 originalDocument.Save(fileStreamOutput, FormatType.Docx);
                             }

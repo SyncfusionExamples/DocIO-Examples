@@ -8,12 +8,12 @@ namespace Replace_bookmark_content_with_another_document
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/DestinationWordDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/DestinationWordDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Open destination Word document.
                 using (WordDocument destinationWordDocument = new WordDocument(fileStreamPath, FormatType.Automatic)) 
                 {
-                    using (FileStream sourceFileStream = new FileStream(Path.GetFullPath(@"../../../Data/SourceWordDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    using (FileStream sourceFileStream = new FileStream(Path.GetFullPath(@"Data/SourceWordDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                     {
                         //Open the source Word document to copy all the content.
                         using (WordDocument sourceWordDocument = new WordDocument(sourceFileStream, FormatType.Automatic))
@@ -27,7 +27,7 @@ namespace Replace_bookmark_content_with_another_document
                             //Replace the bookmark content with Word document part.
                             bookmarkNavigator.ReplaceContent(wordDocumentPart);
                             //Create file stream.
-                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                             {
                                 //Save the Word document to file stream.
                                 destinationWordDocument.Save(outputFileStream, FormatType.Docx);

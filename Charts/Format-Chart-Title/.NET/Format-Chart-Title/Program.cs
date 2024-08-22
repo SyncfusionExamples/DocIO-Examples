@@ -10,7 +10,7 @@ namespace Format_Chart_Title
     {
         static void Main(string[] args)
         {
-            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             //Open an existing document from file system through constructor of WordDocument class.
             using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
             {
@@ -35,7 +35,7 @@ namespace Format_Chart_Title
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Right;
                
-                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                 {
                     //Save the Word file.
                     document.Save(outputStream, FormatType.Docx);
