@@ -12,7 +12,7 @@ namespace Find_and_replace_with_Word_document
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Loads the template document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -22,13 +22,13 @@ namespace Find_and_replace_with_Word_document
                     for (int i = 0; i < textSelections.Length; i++)
                     {
                         //Replaces the content placeholder text with desired Word document.
-                        using (WordDocument subDocument = new WordDocument(new FileStream(Path.GetFullPath(@"../../../Data/" + textSelections[i].SelectedText.TrimStart('[').TrimEnd(']') + ".docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite), FormatType.Docx))
+                        using (WordDocument subDocument = new WordDocument(new FileStream(Path.GetFullPath(@"Data/" + textSelections[i].SelectedText.TrimStart('[').TrimEnd(']') + ".docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite), FormatType.Docx))
                         {
                             document.Replace(textSelections[i].SelectedText, subDocument, true, true);
                         }
                     }
                     //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);
