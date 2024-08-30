@@ -17,7 +17,7 @@ namespace Create_Word_document
                 //Appends text to the last paragraph of the document.
                 document.LastParagraph.AppendText("Hello World");
                 //Creates file stream.
-                using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(fileStream, FormatType.Docx);

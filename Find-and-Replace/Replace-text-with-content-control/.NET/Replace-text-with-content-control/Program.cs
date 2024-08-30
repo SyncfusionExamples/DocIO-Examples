@@ -9,7 +9,7 @@ namespace Replace_text_with_content_control
     {
         static void Main(string[] args)
         {
-            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Load an existing Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
@@ -25,7 +25,7 @@ namespace Replace_text_with_content_control
                     //Add a new paragraph to the first cell of the table.
                     IWParagraph cellParagraph = row.Cells[0].AddParagraph();
                     row.Cells[0].CellFormat.VerticalAlignment = VerticalAlignment.Top;
-                    FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Data/image.png"), FileMode.Open, FileAccess.ReadWrite);
+                    FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/image.png"), FileMode.Open, FileAccess.ReadWrite);
                     //Append a picture to the cell.
                     WPicture picture = cellParagraph.AppendPicture(imageStream) as WPicture;
                     picture.Height = 88.3f;
@@ -54,7 +54,7 @@ namespace Replace_text_with_content_control
                     //Replace all entries of a given regular expression with the text body part.
                     document.Replace(new Regex("<<(.*)>>"), textBodyPart);
                     //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to the file stream.
                         document.Save(outputFileStream, FormatType.Docx);

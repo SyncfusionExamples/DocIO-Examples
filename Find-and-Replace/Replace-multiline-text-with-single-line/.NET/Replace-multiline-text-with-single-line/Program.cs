@@ -9,7 +9,7 @@ namespace Replace_multiline_text_with_single_line
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Open an existing Word document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
@@ -17,7 +17,7 @@ namespace Replace_multiline_text_with_single_line
                     //Replace the text extended to several paragraphs with simple text.
                     document.ReplaceSingleLine(new Regex(@"\[(.*)\]"), "Thank you for Payment");
                     //Create file stream.
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
