@@ -9,7 +9,7 @@ namespace Get_revision_information
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Creates a new Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))

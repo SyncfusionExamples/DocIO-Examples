@@ -20,7 +20,7 @@ namespace Save_Word_in_old_compatibility
                 //Sets the compatibility mode to Word 2007.
                 document.Settings.CompatibilityMode = CompatibilityMode.Word2007;
                 //Create FileStream to save the Word file.
-                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                 {
                     //Save the Word file.
                     document.Save(outputStream, FormatType.Docx);
