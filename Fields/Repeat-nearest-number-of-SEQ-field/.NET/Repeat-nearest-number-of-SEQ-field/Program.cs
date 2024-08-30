@@ -18,7 +18,7 @@ namespace Repeat_nearest_number_of_SEQ_field
                 //Updates the document fields.
                 document.UpdateDocumentFields();
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);
@@ -55,7 +55,7 @@ namespace Repeat_nearest_number_of_SEQ_field
 			table.ResetCells(3, 2);
 			//Accesses the instance of the cell  and adds the content into cell.
 			//First row.
-			FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Data/Mountain-200.png"), FileMode.Open, FileAccess.ReadWrite);
+			FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Mountain-200.png"), FileMode.Open, FileAccess.ReadWrite);
 			table[0, 0].AddParagraph().AppendPicture(imageStream);
 			table[0, 1].AddParagraph().AppendText("Mountain-200");
 			paragraph = table[0, 1].AddParagraph();
@@ -72,10 +72,10 @@ namespace Repeat_nearest_number_of_SEQ_field
 			table[1, 0].AddParagraph().AppendText("Size: 35");
 			table[1, 0].AddParagraph().AppendText("Weight: 22");
 			table[1, 0].AddParagraph().AppendText("Price: $1,079.99");
-			imageStream = new FileStream(Path.GetFullPath(@"../../../Data/Mountain-300.png"), FileMode.Open, FileAccess.ReadWrite);
+			imageStream = new FileStream(Path.GetFullPath(@"Data/Mountain-300.png"), FileMode.Open, FileAccess.ReadWrite);
 			table[1, 1].AddParagraph().AppendPicture(imageStream);
 			//Third row.
-			imageStream = new FileStream(Path.GetFullPath(@"../../../Data/Road-550.png"), FileMode.Open, FileAccess.ReadWrite);
+			imageStream = new FileStream(Path.GetFullPath(@"Data/Road-550.png"), FileMode.Open, FileAccess.ReadWrite);
 			table[2, 0].AddParagraph().AppendPicture(imageStream);
 			table[2, 1].AddParagraph().AppendText("Road-150");
 			paragraph = table[2, 1].AddParagraph();
