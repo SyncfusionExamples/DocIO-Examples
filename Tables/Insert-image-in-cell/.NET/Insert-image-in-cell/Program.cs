@@ -20,12 +20,12 @@ namespace Insert_image_in_cell
                 table[0, 1].AddParagraph().AppendText("Product Image");
                 table[1, 0].AddParagraph().AppendText("Apple Juice");
                 //Adds the image into cell.
-                FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Image.png"), FileMode.Open, FileAccess.ReadWrite);
+                FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open, FileAccess.ReadWrite);
                 IWPicture picture = table[1, 1].AddParagraph().AppendPicture(imageStream);
                 picture.Height = 75;
                 picture.Width = 60;
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

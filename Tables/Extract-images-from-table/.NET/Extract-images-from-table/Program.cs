@@ -3,7 +3,7 @@ using Syncfusion.DocIO.DLS;
 
 
 //Creates an instance of WordDocument class
-FileStream fileStreamPath = new FileStream("../../../Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
 
 //Get the list of pictures
@@ -16,7 +16,7 @@ for (int i = 0; i < entities.Count; i++)
     //Get the image 
     System.Drawing.Image image = System.Drawing.Image.FromStream(new MemoryStream(picture.ImageBytes));
     //Save the image as PNG
-    string imgFileName = @"../../../Output" + i + ".png";
+    string imgFileName = Path.GetFullPath(@"Output/Image") + i + ".png";
     FileStream imgFile = new FileStream(imgFileName, FileMode.Create, FileAccess.ReadWrite);
     image.Save(imgFile, System.Drawing.Imaging.ImageFormat.Png);
     //Dispose the instances.

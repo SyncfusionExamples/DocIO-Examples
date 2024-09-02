@@ -46,7 +46,7 @@ namespace Create_nested_table
                 table[2, 0].AddParagraph().AppendText("Pomegranate");
                 table[2, 1].AddParagraph().AppendText("70");
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);
