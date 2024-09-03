@@ -3,7 +3,7 @@ using Syncfusion.DocIO;
 using Syncfusion.DocIORenderer;
 
 //Get the Source document names from the folder.
-string[] sourceDocumentNames = Directory.GetFiles(@"../../../Data/");
+string[] sourceDocumentNames = Directory.GetFiles(@"Data/");
 
 //Create an WordDocumentinstance for destination document.
 using (WordDocument destinationDocument = new WordDocument())
@@ -34,7 +34,7 @@ using (WordDocument destinationDocument = new WordDocument())
     //Updates the table of contents
     destinationDocument.UpdateTableOfContents();
     //Save the destination document.
-    using (FileStream outputStream = new FileStream(@"../../../Output.docx", FileMode.Create, FileAccess.Write))
+    using (FileStream outputStream = new FileStream(@"Output/Output.docx", FileMode.Create, FileAccess.Write))
     {
         destinationDocument.Save(outputStream, FormatType.Docx);
     }
