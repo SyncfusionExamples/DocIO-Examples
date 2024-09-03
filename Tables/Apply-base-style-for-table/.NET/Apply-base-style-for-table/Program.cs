@@ -73,7 +73,7 @@ namespace Apply_base_style_for_table
                 table.ApplyStyle("CustomStyle3");
 
                 //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Save the Word document to the file stream.
                     document.Save(outputFileStream, FormatType.Docx);

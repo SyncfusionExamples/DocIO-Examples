@@ -27,7 +27,7 @@ namespace Create_horizontal_merged_cells
                 //Specifies the horizontal merge continue to second row second cell.
                 table[0, 1].CellFormat.HorizontalMerge = CellMerge.Continue;
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);
