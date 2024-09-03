@@ -10,7 +10,7 @@ namespace Mail_merge_with_.NET_objects
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/EmployeesTemplate.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/EmployeesTemplate.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Loads an existing Word document into DocIO instance.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
@@ -24,7 +24,7 @@ namespace Mail_merge_with_.NET_objects
                     //Performs Mail merge.
                     document.MailMerge.ExecuteGroup(dataSource);
                     //Creates file stream.
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
@@ -57,7 +57,7 @@ namespace Mail_merge_with_.NET_objects
             {
                 string photoFileName = args.FieldValue.ToString();
                 //Gets the image from file system.
-                FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Data/" + photoFileName), FileMode.Open, FileAccess.Read);
+                FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/" + photoFileName), FileMode.Open, FileAccess.Read);
                 args.ImageStream = imageStream;
             }
         }
