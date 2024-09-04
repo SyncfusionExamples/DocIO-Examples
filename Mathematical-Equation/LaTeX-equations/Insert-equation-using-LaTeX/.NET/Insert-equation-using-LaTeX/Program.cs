@@ -2,7 +2,7 @@
 using Syncfusion.DocIO.DLS;
 
 //Open a Word document using File stream.
-using (FileStream inputStream = new FileStream("../../../Input.docx", FileMode.Open, FileAccess.Read)) {
+using (FileStream inputStream = new FileStream("Data/Input.docx", FileMode.Open, FileAccess.Read)) {
     // OPen the existing Word document.
     using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
     {
@@ -14,7 +14,7 @@ using (FileStream inputStream = new FileStream("../../../Input.docx", FileMode.O
         document.LastSection.Paragraphs[2].ChildEntities.Insert(0, math);
 
         //Save the Word document.
-        using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+        using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
         {
             document.Save(outputStream, FormatType.Docx);
         }
