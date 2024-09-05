@@ -39,7 +39,7 @@ namespace Different_header_footer_for_last_page
                 paragraph = section.HeadersFooters.Footer.AddParagraph();
                 paragraph.AppendText("[ Third Page Footer ]");
                 //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Save the Word document to the file stream.
                     document.Save(outputFileStream, FormatType.Docx);
