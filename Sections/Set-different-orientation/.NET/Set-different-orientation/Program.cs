@@ -2,7 +2,7 @@
 using Syncfusion.DocIO;
 
 //Open an existing document
-using (FileStream inputStream = new FileStream(@"../../../Data/Template.docx", FileMode.Open, FileAccess.Read))
+using (FileStream inputStream = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read))
 {
     using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
     {
@@ -13,7 +13,7 @@ using (FileStream inputStream = new FileStream(@"../../../Data/Template.docx", F
         document.Sections[3].PageSetup.Orientation = PageOrientation.Landscape;
 
         //Save the Word document
-        using (FileStream outputStream = new FileStream(@"../../../Output.docx", FileMode.Create, FileAccess.Write))
+        using (FileStream outputStream = new FileStream(@"Output/Output.docx", FileMode.Create, FileAccess.Write))
         {
             document.Save(outputStream, FormatType.Docx);
         }

@@ -47,7 +47,7 @@ namespace Format_shapes
                 //Set the top internal margin for the shape.
                 rectangle.TextFrame.InternalMargin.Top = 6;
                 //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Save the Word document to the file stream.
                     document.Save(outputFileStream, FormatType.Docx);

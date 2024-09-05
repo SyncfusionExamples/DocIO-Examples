@@ -29,7 +29,7 @@ namespace Apply_page_borders
                 IWParagraph paragraph = section.AddParagraph();
                 paragraph.AppendText("AdventureWorks Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company.");
                 //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Save the Word document to file the stream.
                     document.Save(outputFileStream, FormatType.Docx);
