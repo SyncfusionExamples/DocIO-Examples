@@ -13,7 +13,7 @@ namespace Create_Envelopes_for_mailing
             using (WordDocument document = new WordDocument())
             {
                 //Opens the Word template document.
-                Stream docStream = File.OpenRead(Path.GetFullPath(@"../../../Template.docx"));
+                Stream docStream = File.OpenRead(Path.GetFullPath(@"Data/Template.docx"));
                 document.Open(docStream, FormatType.Docx);
                 docStream.Dispose();
                 //Gets the recipient details as "IEnumerable" collection of .NET objects.
@@ -21,7 +21,7 @@ namespace Create_Envelopes_for_mailing
                 //Performs the mail merge.
                 document.MailMerge.Execute(recipients);
                 //Saves the file in the given path.
-                docStream = File.Create(Path.GetFullPath(@"../../../Sample.docx"));
+                docStream = File.Create(Path.GetFullPath(@"Output/Sample.docx"));
                 document.Save(docStream, FormatType.Docx);
                 docStream.Dispose();
             }

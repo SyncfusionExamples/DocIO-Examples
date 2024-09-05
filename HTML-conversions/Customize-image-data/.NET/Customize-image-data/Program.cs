@@ -9,7 +9,7 @@ namespace Customize_image_data
         static void Main(string[] args)
         {
             //Loads an existing Word document into DocIO instance. 
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Input.html"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.html"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 using (WordDocument document = new WordDocument())
                 {
@@ -20,7 +20,7 @@ namespace Customize_image_data
                     //Unhooks the ImageNodeVisited event after loading HTML.
                     document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
                     //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../HtmlToWord.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/HtmlToWord.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);

@@ -16,7 +16,7 @@ namespace Create_merge_field
                 //Appends merge field to the last paragraph.
                 document.LastParagraph.AppendField("FullName", FieldType.FieldMergeField);
                 //Creates file stream.
-                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputStream, FormatType.Docx);

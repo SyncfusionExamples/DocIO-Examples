@@ -12,7 +12,7 @@ using (WordDocument document = new WordDocument())
     document.LastParagraph.AppendMath(@"\dot{\mathrm{a}}");
 
     //Save a Word document to the MemoryStream.
-    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
     {
         //Saves the Word document to file stream.
         document.Save(outputFileStream, FormatType.Docx);

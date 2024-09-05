@@ -15,7 +15,7 @@ namespace Multiple_documents_as_data_sources
 
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
@@ -35,7 +35,7 @@ namespace Multiple_documents_as_data_sources
                     ReplaceBookmarks(document);
 
                     //Creates file stream.
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Data/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Data/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
@@ -105,14 +105,14 @@ namespace Multiple_documents_as_data_sources
             field.Add(new FieldList("Location", "Washington"));
 
             List<ItemsList> items = new List<ItemsList>();
-            items.Add(new ItemsList("Introduction", "../../../Data/One.html", field));
+            items.Add(new ItemsList("Introduction", "Data/One.html", field));
 
             field = new List<FieldList>();
             field.Add(new FieldList("Manufacturing plant", "Importadores Neptuno"));
             field.Add(new FieldList("Location", "Mexico"));
             field.Add(new FieldList("Year", "2000"));
 
-            items.Add(new ItemsList("History", "../../../Data/Two.docx", field));
+            items.Add(new ItemsList("History", "Data/Two.docx", field));
 
             List<CategoryList> categories = new List<CategoryList>();
             categories.Add(new CategoryList("Adventure Work Cycles", items));
