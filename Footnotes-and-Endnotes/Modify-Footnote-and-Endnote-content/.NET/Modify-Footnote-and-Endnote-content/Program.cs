@@ -9,7 +9,7 @@ namespace Modify_Footnote_and_Endnote_content
     {
         static void Main(string[] args)
         {
-            using (FileStream inputStream = new FileStream(@"Data/Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
@@ -38,7 +38,7 @@ namespace Modify_Footnote_and_Endnote_content
                     endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
                     //Append the endnote text.
                     endnoteParagraph.AppendText(" Endnote is modified.");
-                    using (FileStream outputStream = new FileStream(@"Output/Sample.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.OpenOrCreate, FileAccess.ReadWrite))
                     {
                         //Save a Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
