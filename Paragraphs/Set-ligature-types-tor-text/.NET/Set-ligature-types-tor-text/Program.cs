@@ -29,7 +29,7 @@ namespace Set_ligature_types_tor_text
                 text.CharacterFormat.Ligatures = LigatureType.Historical;
                 text.CharacterFormat.FontName = "Arial";
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

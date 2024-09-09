@@ -8,7 +8,7 @@ namespace Resize_list_character
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Open the template document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -24,7 +24,7 @@ namespace Resize_list_character
 
                     }
                     //Create file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);
