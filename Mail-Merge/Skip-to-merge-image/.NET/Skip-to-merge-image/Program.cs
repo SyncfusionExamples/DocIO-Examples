@@ -8,7 +8,7 @@ namespace Skip_to_merge_image
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
@@ -17,11 +17,11 @@ namespace Skip_to_merge_image
                     document.MailMerge.MergeImageField += new MergeImageFieldEventHandler(MergeEmployeePhoto);
                     //Executes Mail Merge with groups.
                     string[] fieldNames = { "Nancy", "Andrew", "Steven" };
-                    string[] fieldValues = { Path.GetFullPath(@"../../../Data/Nancy.png"), Path.GetFullPath(@"../../../Data/Andrew.png"), Path.GetFullPath(@"../../../Data/Steven.png") };
+                    string[] fieldValues = { Path.GetFullPath(@"Data/Nancy.png"), Path.GetFullPath(@"Data/Andrew.png"), Path.GetFullPath(@"Data/Steven.png") };
                     //Execute mail merge.
                     document.MailMerge.Execute(fieldNames, fieldValues);
                     //Creates file stream.
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);

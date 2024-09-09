@@ -18,9 +18,9 @@ namespace Add_file_hyperlink
                 paragraph.AppendText("File Hyperlinks: ");
                 paragraph = section.AddParagraph();
                 //Appends hyperlink field to the paragraph.
-                paragraph.AppendHyperlink(@"Template.docx", "File", HyperlinkType.FileLink);
+                paragraph.AppendHyperlink(@"Data/Template.docx", "File", HyperlinkType.FileLink);
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

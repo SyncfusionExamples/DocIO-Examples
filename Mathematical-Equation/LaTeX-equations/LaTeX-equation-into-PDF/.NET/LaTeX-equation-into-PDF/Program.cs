@@ -19,7 +19,7 @@ using (WordDocument document = new WordDocument())
     render.Dispose();
     document.Dispose();
     //Save the Word document.
-    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
     {
         pdfDocument.Save(outputStream);
     }

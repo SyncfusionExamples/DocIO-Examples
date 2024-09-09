@@ -16,13 +16,13 @@ namespace Add_image
                 //Adds new paragraph to the section.
                 IWParagraph firstParagraph = section.AddParagraph();
                 //Adds image to the paragraph.
-                FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Image.png"), FileMode.Open, FileAccess.ReadWrite);
+                FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open, FileAccess.ReadWrite);
                 IWPicture picture = firstParagraph.AppendPicture(imageStream);
                 //Sets height and width for the image.
                 picture.Height = 100;
                 picture.Width = 200;
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

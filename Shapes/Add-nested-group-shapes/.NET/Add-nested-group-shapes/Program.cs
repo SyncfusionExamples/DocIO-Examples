@@ -37,7 +37,7 @@ namespace Add_nested_group_shapes
                 //Appends new picture to the document.
                 WPicture picture = new WPicture(document);
                 //Loads image from the file.
-                using (FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Image.png"), FileMode.Open, FileAccess.ReadWrite))
+                using (FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open, FileAccess.ReadWrite))
                 {
                     picture.LoadImage(imageStream);
                 }
@@ -94,7 +94,7 @@ namespace Add_nested_group_shapes
                 //Adds nested group shape to the group shape of the paragraph.
                 groupShape.Add(nestedGroupShape);
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);
