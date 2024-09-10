@@ -22,12 +22,12 @@ namespace Add_text_box
                 textboxParagraph.AppendText("Text inside text box");
                 textboxParagraph = textbox.TextBoxBody.AddParagraph();
                 //Adds new picture to textbox body.
-                FileStream imagestream = new FileStream(Path.GetFullPath(@"../../../Mountain-200.jpg"), FileMode.Open, FileAccess.ReadWrite);
+                FileStream imagestream = new FileStream(Path.GetFullPath(@"Data/Mountain-200.jpg"), FileMode.Open, FileAccess.ReadWrite);
                 IWPicture picture = textboxParagraph.AppendPicture(imagestream);
                 picture.Height = 90;
                 picture.Width = 110;
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

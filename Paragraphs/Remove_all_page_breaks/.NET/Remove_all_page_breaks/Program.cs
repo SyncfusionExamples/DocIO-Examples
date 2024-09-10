@@ -1,7 +1,7 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-using (FileStream inputStream = new FileStream(@"../../../Data/Template.docx", FileMode.Open, FileAccess.Read))
+using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read))
 {
     //Open the existing Word document.
     using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
@@ -14,7 +14,7 @@ using (FileStream inputStream = new FileStream(@"../../../Data/Template.docx", F
             (entity as Break).OwnerParagraph.ChildEntities.Remove(entity);
 
         //Save the Word document
-        using (FileStream outputStream = new FileStream(@"../../../Output.docx", FileMode.Create, FileAccess.Write))
+        using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.Write))
         {
             document.Save(outputStream, FormatType.Docx);
         }
