@@ -16,7 +16,7 @@ namespace Apply_picture_background_to_document
                     //Sets the background type as picture.
                     document.Background.Type = BackgroundType.Picture;
                     //Opens the existing image. 
-                    using (FileStream imageStream = new FileStream(@"Data/Picture.png", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    using (FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Picture.png"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                     {
                         using (MemoryStream memoryStream = new MemoryStream())
                         {

@@ -3,7 +3,7 @@ using Syncfusion.DocIO.DLS;
 
 
 //Opens an existing Word document
-using (FileStream inputStream = new FileStream("Data/Sample.docx", FileMode.Open, FileAccess.Read))
+using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Sample.docx"), FileMode.Open, FileAccess.Read))
 {
     using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
     {
@@ -22,7 +22,7 @@ using (FileStream inputStream = new FileStream("Data/Sample.docx", FileMode.Open
                 document.ChildEntities.RemoveAt(SectionIndex);
             }
         }
-        using (FileStream outputStream = new FileStream("Output/Output.docx", FileMode.Create, FileAccess.Write))
+        using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.Write))
         {
             //Saves and closes the Word document
             document.Save(outputStream, FormatType.Docx);

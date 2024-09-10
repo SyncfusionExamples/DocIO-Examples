@@ -8,7 +8,7 @@ sourceFileNames.Add("Data/Addressblock.docx");
 sourceFileNames.Add("Data/Salutation.docx");
 sourceFileNames.Add("Data/Greetings.docx");
 
-string destinationFileName = "Data/Title.docx";
+string destinationFileName = Path.GetFullPath(@"Data/Title.docx");
 using (FileStream destinationStreamPath = new FileStream(destinationFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     //Opens the destination document
@@ -16,7 +16,7 @@ using (FileStream destinationStreamPath = new FileStream(destinationFileName, Fi
     {
         ImportOtherDocuments(sourceFileNames, destinationDocument);
         //Saves and closes the destination document
-        using (FileStream outputStream = new FileStream("Output/Output.docx", FileMode.Create, FileAccess.Write))
+        using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.Write))
         {
             destinationDocument.Save(outputStream, FormatType.Docx);
             destinationDocument.Close();

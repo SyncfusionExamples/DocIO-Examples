@@ -17,7 +17,7 @@ namespace Merge_without_changing_page_numbers
                 using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
                 {
                     //Get the Source document names from the folder.
-                    string[] sourceDocumentNames = Directory.GetFiles(@"Data/SourceDocuments/");
+                    string[] sourceDocumentNames = Directory.GetFiles(Path.GetFullPath(@"Data/SourceDocuments/"));
                     foreach (string subDocumentName in sourceDocumentNames)
                     {
                         //Open the source document files as a stream.

@@ -18,7 +18,7 @@ namespace Merge_documents_with_same_header_and_footer
                 using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
                 {
                     //Get the Source document names from the folder.
-                    string[] sourceDocumentNames = Directory.GetFiles(@"Data/SourceDocuments/");
+                    string[] sourceDocumentNames = Directory.GetFiles(Path.GetFullPath(@"Data/SourceDocuments/"));
                     //Merge each source document to the destination document.
                     foreach (string subDocumentName in sourceDocumentNames)
                     {
