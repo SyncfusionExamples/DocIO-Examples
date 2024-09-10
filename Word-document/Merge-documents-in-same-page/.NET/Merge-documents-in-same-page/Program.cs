@@ -15,7 +15,7 @@ namespace Merge_documents_in_same_page
                 //Opens an source document from file system through constructor of WordDocument class.
                 using (WordDocument sourceDocument = new WordDocument(sourceStreamPath, FormatType.Automatic))
                 {
-                    using (FileStream destinationStreamPath = new FileStream(@"Data/DestinationDocument.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"Data/DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                     {
                         //Opens the destination document.
                         using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
