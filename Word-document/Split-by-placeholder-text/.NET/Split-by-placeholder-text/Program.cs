@@ -11,7 +11,7 @@ namespace Split_a_document_by_placeholder_text
         static void Main(string[] args)
         {
             //Load an existing Word document into DocIO instance.
-            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
             {
                 
@@ -75,7 +75,7 @@ namespace Split_a_document_by_placeholder_text
                         using (WordDocument newDocument = wordDocumentPart.GetAsWordDocument())
                         {
                             //Save the Word document to file stream.
-                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Placeholder_" + fileIndex + ".docx"), FileMode.Create, FileAccess.ReadWrite))
+                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Placeholder_" + fileIndex + ".docx"), FileMode.Create, FileAccess.ReadWrite))
                             {
                                 newDocument.Save(outputFileStream, FormatType.Docx);
                             }
