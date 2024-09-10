@@ -9,7 +9,7 @@ namespace Split_a_document_by_bookmark
         static void Main(string[] args)
         {
             //Load an existing Word document.
-            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
             {
                 //Create the bookmark navigator instance to access the bookmark.
@@ -26,7 +26,7 @@ namespace Split_a_document_by_bookmark
                     using (WordDocument newDocument = documentPart.GetAsWordDocument())
                     {
                         //Save the Word document to file stream.
-                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../" + bookmark.Name + ".docx"), FileMode.Create, FileAccess.ReadWrite))
+                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/" + bookmark.Name + ".docx"), FileMode.Create, FileAccess.ReadWrite))
                         {
                             newDocument.Save(outputFileStream, FormatType.Docx);
                         }

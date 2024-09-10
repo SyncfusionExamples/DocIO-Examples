@@ -8,7 +8,7 @@ namespace Split_by_heading
     {
         static void Main(string[] args)
         {
-            using (FileStream inputStream = new FileStream(@"../../../Data/Template.docx", FileMode.Open, FileAccess.Read))
+            using (FileStream inputStream = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read))
             {
                 //Load the template document as stream
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
@@ -37,7 +37,7 @@ namespace Split_by_heading
                                     if (newDocument != null)
                                     {
                                         //Saves the Word document
-                                        string fileName = @"../../../Document" + (headingIndex + 1) + ".docx";
+                                        string fileName = @"Output/Document" + (headingIndex + 1) + ".docx";
                                         SaveWordDocument(newDocument, fileName);
                                         headingIndex++;
                                     }
@@ -57,7 +57,7 @@ namespace Split_by_heading
                     if (newDocument != null)
                     {
                         //Saves the Word document
-                        string fileName = @"../../../Document" + (headingIndex + 1) + ".docx";
+                        string fileName = @"Output/Document" + (headingIndex + 1) + ".docx";
                         SaveWordDocument(newDocument, fileName);
                     }
                 }

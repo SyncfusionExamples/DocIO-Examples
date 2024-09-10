@@ -1,7 +1,7 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-using (FileStream fileStreamPath = new FileStream(@"../../../Data/Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+using (FileStream fileStreamPath = new FileStream(@"Data/Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     //Open the existing Word document.
     using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -12,7 +12,7 @@ using (FileStream fileStreamPath = new FileStream(@"../../../Data/Input.docx", F
         ChangeParagraphFormatting(document);
         //Change table style formatting
         ChangeTableFormatting(document);
-        using (FileStream outputStream = new FileStream(@"../../../Data/Output.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+        using (FileStream outputStream = new FileStream(@"Output/Output.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
         {
             //Save the Word document.
             document.Save(outputStream, FormatType.Docx);
