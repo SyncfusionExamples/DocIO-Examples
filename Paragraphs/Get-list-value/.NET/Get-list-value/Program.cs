@@ -9,7 +9,7 @@ namespace Get_list_value
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Creates a new Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -19,9 +19,8 @@ namespace Get_list_value
                     //Gets the string that represents the appearance of list value of the paragraph.
                     string listString = document.LastParagraph.ListString;
                     Console.WriteLine("List value of last paragraph : " + listString);
-                    Console.ReadKey();
                     //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);
