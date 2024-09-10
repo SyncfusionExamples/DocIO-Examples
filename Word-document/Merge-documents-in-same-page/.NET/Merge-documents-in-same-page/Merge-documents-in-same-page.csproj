@@ -14,10 +14,10 @@
     <None Update="Data\DestinationDocument.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\SourceDocument.docx">
+	<None Update="Data\SourceDocument.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Output\gitkeep">
+    <None Update="Output\.gitkeep">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

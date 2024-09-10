@@ -17,7 +17,7 @@ namespace Format_and_rotate_image
                 //Adds new paragraph to the section.
                 IWParagraph paragraph = section.AddParagraph();
                 paragraph.AppendText("This paragraph has picture. ");
-                FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Image.png"), FileMode.Open, FileAccess.ReadWrite);
+                FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open, FileAccess.ReadWrite);
                 //Appends new picture to the paragraph.
                 WPicture picture = paragraph.AppendPicture(imageStream) as WPicture;
                 //Sets text wrapping style – When the wrapping style is inline, the images are not absolutely positioned. It is added next to the text range.
@@ -42,7 +42,7 @@ namespace Format_and_rotate_image
                 //Sets horizontal flip.
                 picture.FlipHorizontal = true;
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

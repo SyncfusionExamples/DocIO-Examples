@@ -10,7 +10,7 @@ namespace Apply_paragraph_formatting
         static void Main(string[] args)
         {
             //Open the file as a stream.
-            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
@@ -35,7 +35,7 @@ namespace Apply_paragraph_formatting
                     //Apply keep with next property to the paragraph.
                     paragraph.ParagraphFormat.KeepFollow = true;
                     //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to the file stream.
                         document.Save(outputFileStream, FormatType.Docx);

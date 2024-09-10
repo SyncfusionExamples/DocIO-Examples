@@ -42,5 +42,4 @@ using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Input.docx
         }
     }
 }
-System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"Output/Output.docx")) { UseShellExecute = true });
         

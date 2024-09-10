@@ -9,7 +9,7 @@ namespace Remove_footnotes_and_endnotes
     {
         static void Main(string[] args)
         {
-            using (FileStream inputStream = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Loads the template document as stream
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
@@ -17,7 +17,7 @@ namespace Remove_footnotes_and_endnotes
                     //Removes footnote and endnote from the document
                     RemoveFootNoteEndNote(document);
                     //Creates file stream.
-                    using (FileStream outputStream = new FileStream(@"Output/Result.docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.OpenOrCreate, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);

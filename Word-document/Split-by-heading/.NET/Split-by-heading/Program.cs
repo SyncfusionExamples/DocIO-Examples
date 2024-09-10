@@ -8,7 +8,7 @@ namespace Split_by_heading
     {
         static void Main(string[] args)
         {
-            using (FileStream inputStream = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read))
+            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read))
             {
                 //Load the template document as stream
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
@@ -100,7 +100,7 @@ namespace Split_by_heading
         /// </summary>
         private static void SaveWordDocument(WordDocument newDocument, string fileName)
         {
-            using (FileStream outputStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            using (FileStream outputStream = new FileStream(Path.GetFullPath(fileName), FileMode.OpenOrCreate, FileAccess.ReadWrite))
             {
                 //Save file stream as Word document
                 newDocument.Save(outputStream, FormatType.Docx);
