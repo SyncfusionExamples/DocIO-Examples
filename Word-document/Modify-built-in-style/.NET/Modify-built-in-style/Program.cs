@@ -26,7 +26,7 @@ namespace Modify_built_in_style
                 //Applies the new style to paragraph.
                 paragraph.ApplyStyle(style.Name);
                 //Creates file stream.s
-                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                 {
                     //Saves the Word document to file stream.s
                     document.Save(outputStream, FormatType.Docx);

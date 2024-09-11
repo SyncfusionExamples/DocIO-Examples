@@ -5,7 +5,7 @@ using System.IO;
 
 
 //Load an existing Word document.
-using FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read);
+using FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read);
 using WordDocument document = new WordDocument(fileStream, FormatType.Docx);
 WParagraph paragraph = new WParagraph(document);
 paragraph.AppendText("List of Figures");
@@ -87,6 +87,6 @@ document.UpdateDocumentFields();
 document.UpdateTableOfContents();
 
 //Create a FileStream to save the Word document.
-using FileStream outputStream = new FileStream("Result.docx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+using FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
 //Save the Word document.
 document.Save(outputStream, FormatType.Docx);
