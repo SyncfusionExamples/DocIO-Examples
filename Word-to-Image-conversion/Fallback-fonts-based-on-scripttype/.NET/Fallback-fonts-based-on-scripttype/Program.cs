@@ -8,7 +8,7 @@ namespace Fallback_fonts_based_on_scripttype
         static void Main(string[] args)
         {
             //Opens the file as stream.
-            using FileStream inputStream = new FileStream(@"../../../Template.docx", FileMode.Open, FileAccess.Read);
+            using FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read);
             //Loads an existing Word document file stream.
             using WordDocument wordDocument = new WordDocument(inputStream, Syncfusion.DocIO.FormatType.Docx);
             //Adds fallback font for "Arabic" script type.
@@ -35,7 +35,7 @@ namespace Fallback_fonts_based_on_scripttype
                 //Reset the stream position.
                 stream.Position = 0;
                 //Save the stream as file.
-                using FileStream fileStreamOutput = File.Create(@"../../../WordToImage_" + i + ".jpeg");
+                using FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/Output_" + i + ".jpeg"));
                 stream.CopyTo(fileStreamOutput);
                 i++;
             }

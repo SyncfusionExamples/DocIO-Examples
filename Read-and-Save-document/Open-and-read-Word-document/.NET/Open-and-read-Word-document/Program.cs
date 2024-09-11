@@ -10,7 +10,7 @@ namespace Open_and_read_Word_document
         static void Main(string[] args)
         {
             //Open the file as a stream.
-            using (FileStream inputFileStream = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream inputFileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(inputFileStream, FormatType.Automatic))

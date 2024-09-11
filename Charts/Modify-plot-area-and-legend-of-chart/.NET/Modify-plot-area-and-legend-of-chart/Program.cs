@@ -9,7 +9,7 @@ namespace Modify_plot_area_and_legend_of_chart
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Opens an existing Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -58,7 +58,7 @@ namespace Modify_plot_area_and_legend_of_chart
                     chart.Legend.Layout.Width = 100;
                     chart.Legend.Layout.WidthMode = LayoutModes.factor;
                     //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);

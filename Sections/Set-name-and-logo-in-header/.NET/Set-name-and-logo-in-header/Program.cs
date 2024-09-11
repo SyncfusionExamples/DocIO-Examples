@@ -9,7 +9,7 @@ namespace Set_name_and_logo_in_header
         static void Main(string[] args)
         {
             //Open an existing Word document.
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
@@ -18,7 +18,7 @@ namespace Set_name_and_logo_in_header
                     //Add a paragraph to the header.
                     IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
                     // Get the image stream.
-                    FileStream imageStream = new FileStream(@"../../../Data/Logo.jpg", FileMode.Open, FileAccess.Read);
+                    FileStream imageStream = new FileStream(@"Data/Logo.jpg", FileMode.Open, FileAccess.Read);
                     //Append the picture to the created paragraph.
                     IWPicture picture = paragraph.AppendPicture(imageStream);
                     //Set the picture properties.
@@ -39,7 +39,7 @@ namespace Set_name_and_logo_in_header
                     textRange.CharacterFormat.TextColor = Syncfusion.Drawing.Color.Red;
                     paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Left;
 
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save a Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);

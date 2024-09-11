@@ -9,7 +9,7 @@ namespace Find_and_replace_text_with_page_break
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Open an existing Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -24,7 +24,7 @@ namespace Find_and_replace_text_with_page_break
                     //Replace all entries of a given regular expression text with the text body part.
                     document.ReplaceSingleLine(new Regex("<<(.*)>>"), bodyPart);
                     //Create file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);

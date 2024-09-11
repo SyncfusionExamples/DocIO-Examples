@@ -3,7 +3,7 @@ using Syncfusion.DocIORenderer;
 using Syncfusion.Pdf;
 using System.Reflection.Metadata;
 
-using (FileStream docStream = new FileStream(@"../../../Data/Input.rtf", FileMode.Open, FileAccess.Read))
+using (FileStream docStream = new FileStream(@"Data/Input.rtf", FileMode.Open, FileAccess.Read))
 {
     //Loads file stream into Word document
     using (WordDocument wordDocument = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic))
@@ -17,7 +17,7 @@ using (FileStream docStream = new FileStream(@"../../../Data/Input.rtf", FileMod
         render.Dispose();
         wordDocument.Dispose();
         //Saves the PDF file
-        using (FileStream outputStream = new FileStream(@"../../../Data/Output.pdf", FileMode.Create, FileAccess.Write))
+        using (FileStream outputStream = new FileStream(@"Data/Output.pdf", FileMode.Create, FileAccess.Write))
         {
             pdfDocument.Save(outputStream);
         }

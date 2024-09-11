@@ -24,7 +24,7 @@ namespace Rich_text_content_control
                 //Adds new text to the rich text content control.
                 richTextControl.ParagraphItems.Add(textRange);
                 WPicture picture = new WPicture(document);
-                Stream imageStream = new FileStream(Path.GetFullPath(@"../../../Image.png"), FileMode.Open, FileAccess.Read);
+                Stream imageStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open, FileAccess.Read);
                 //Adds image from stream.
                 picture.LoadImage(imageStream);
                 picture.Height = 100;
@@ -32,7 +32,7 @@ namespace Rich_text_content_control
                 //Adds new picture to the rich text content control.
                 richTextControl.ParagraphItems.Add(picture);
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

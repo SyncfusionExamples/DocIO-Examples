@@ -47,7 +47,7 @@ namespace Add_page_number_in_footer
                 paragraph = section.AddParagraph();
                 paragraph.AppendText("\r\r[ Third Page ] \r\r" + paraText);
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

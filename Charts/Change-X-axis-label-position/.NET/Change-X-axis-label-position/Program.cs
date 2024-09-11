@@ -9,7 +9,7 @@ namespace Change_X_axis_label_position
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open))
             {
                 //Load an existing Word document.
                 using (WordDocument wordDocument = new WordDocument(fileStream, Syncfusion.DocIO.FormatType.Automatic))
@@ -21,7 +21,7 @@ namespace Change_X_axis_label_position
                     //Set X-axis label position to the bottom of the chart.
                     chart.PrimaryCategoryAxis.TickLabelPosition = OfficeTickLabelPosition.TickLabelPosition_Low;
                     //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to the file stream.
                         wordDocument.Save(outputFileStream, FormatType.Docx);

@@ -2,7 +2,7 @@
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.ReadWrite))
+using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.ReadWrite))
 {
     //Open the existing Word document.
     using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
@@ -35,12 +35,11 @@ using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/I
             }
         }
         //Create the file stream.
-        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
         {
             //Save the Word document to the file stream.
             document.Save(outputFileStream, FormatType.Docx);
         }
     }
 }
-System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Result.docx")) { UseShellExecute = true });
         

@@ -10,13 +10,13 @@ namespace Customize_image_path
         static void Main(string[] args)
         {
             //Open a file as a stream.
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
                     //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../WordToMd.md"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.md"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Hook the event to customize the image. 
                         document.SaveOptions.ImageNodeVisited += SaveImage;
@@ -29,7 +29,7 @@ namespace Customize_image_path
         //The following code examples show the event handler to customize the image path and save the image in an external folder.
         static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
         {
-            string imagepath = Path.GetFullPath(@"../../../Image1.png");
+            string imagepath = Path.GetFullPath(@"Output/Output.png");
             //Save the image stream as a file. 
             using (FileStream fileStreamOutput = File.Create(imagepath))
                 args.ImageStream.CopyTo(fileStreamOutput);

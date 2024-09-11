@@ -9,7 +9,7 @@ namespace Clone_whole_Word_document
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Opens an existing document from file system through constructor of WordDocument class.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -18,7 +18,7 @@ namespace Clone_whole_Word_document
                     using (WordDocument clonedDocument = document.Clone())
                     {
                         //Creates file stream.
-                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                         {
                             //Saves the cloned document instance.
                             clonedDocument.Save(outputFileStream, FormatType.Docx);

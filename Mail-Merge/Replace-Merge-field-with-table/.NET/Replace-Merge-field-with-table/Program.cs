@@ -9,7 +9,7 @@ namespace Replace_Merge_field_with_table
         static Dictionary<WParagraph, Dictionary<int, WTable>> paraToInsertTable = new Dictionary<WParagraph, Dictionary<int, WTable>>();
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Loads an existing Word document into DocIO instance.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
@@ -28,14 +28,14 @@ namespace Replace_Merge_field_with_table
                     //Unhooks the event after mail merge execution.
                     document.MailMerge.MergeField -= new MergeFieldEventHandler(MergeField_Table);
                     //Creates file stream.
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
                     }
                 }
             }
-            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Result.docx")) { UseShellExecute = true });
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"Output/Result.docx")) { UseShellExecute = true });
         }
         #region Helper methods
         /// <summary>

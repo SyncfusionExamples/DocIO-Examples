@@ -39,7 +39,7 @@ namespace Create_Word_with_basic_elements
                 //Sets after spacing for paragraph.
                 paragraph.ParagraphFormat.AfterSpacing = 8;
                 //Adds a picture into the paragraph.
-                FileStream image1 = new FileStream(Path.GetFullPath(@"../../../Data/DummyProfilePicture.jpg"), FileMode.Open, FileAccess.Read);
+                FileStream image1 = new FileStream(Path.GetFullPath(@"Data/DummyProfilePicture.jpg"), FileMode.Open, FileAccess.Read);
                 IWPicture picture = paragraph.AppendPicture(image1);
                 //Specify the size of the picture.
                 picture.Height = 100;
@@ -68,7 +68,7 @@ namespace Create_Word_with_basic_elements
                 paragraph = firstCell.AddParagraph();
                 //Sets after spacing for paragraph.
                 paragraph.ParagraphFormat.AfterSpacing = 6;
-                FileStream image2 = new FileStream(Path.GetFullPath(@"../../../Data/DummyProfile-Picture.jpg"), FileMode.Open, FileAccess.Read);
+                FileStream image2 = new FileStream(Path.GetFullPath(@"Data/DummyProfile-Picture.jpg"), FileMode.Open, FileAccess.Read);
                 IWPicture profilePicture = paragraph.AppendPicture(image2);
                 profilePicture.Height = 100;
                 profilePicture.Width = 100;
@@ -140,7 +140,7 @@ namespace Create_Word_with_basic_elements
                 section.AddParagraph();
 
                 //Creates file stream.
-                using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(fileStream, FormatType.Docx);

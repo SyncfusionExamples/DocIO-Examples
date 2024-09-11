@@ -18,7 +18,7 @@ table.AutoFit(AutoFitType.FitToContent);
 ExtractExcelContent(table);
 
 //Load the file into stream
-FileStream outputStream = new FileStream("../../../Data/Output.docx", FileMode.Create, FileAccess.Write);
+FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.Write);
 //Save the Word document.
 document.Save(outputStream, FormatType.Docx);
 //Close the document
@@ -35,7 +35,7 @@ void ExtractExcelContent(WTable table)
     IApplication application = excelEngine.Excel;
     application.DefaultVersion = ExcelVersion.Xlsx;
     //Load the file into stream
-    FileStream inputExcelStream = new FileStream("../../../Data/Sample.xlsx", FileMode.Open, FileAccess.Read);
+    FileStream inputExcelStream = new FileStream(Path.GetFullPath(@"Data/Sample.xlsx"), FileMode.Open, FileAccess.Read);
     IWorkbook workbook = application.Workbooks.Open(inputExcelStream);
 
     //Get the first worksheet

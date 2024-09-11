@@ -28,12 +28,12 @@ namespace Add_image
                 //Inserts the first page header.
                 paragraph = section.HeadersFooters.FirstPageHeader.AddParagraph();
                 //Adds image to the paragraph.
-                FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Image.png"), FileMode.Open, FileAccess.ReadWrite);
+                FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open, FileAccess.ReadWrite);
                 IWPicture picture = paragraph.AppendPicture(imageStream);
                 //Sets the text wrapping style as Behind the text.
                 picture.TextWrappingStyle = TextWrappingStyle.Behind;
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

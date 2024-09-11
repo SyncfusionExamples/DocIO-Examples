@@ -10,7 +10,7 @@ namespace Convert_Markdown_to_PDF
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../InputMarkdown.md"), FileMode.Open))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/InputMarkdown.md"), FileMode.Open))
             {
                 //Loads an existing Markdown.
                 using (WordDocument wordDocument = new WordDocument(fileStream, Syncfusion.DocIO.FormatType.Markdown))
@@ -22,7 +22,7 @@ namespace Convert_Markdown_to_PDF
                         using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
                         {
                             //Saves the PDF file to file system.    
-                            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../MdToPDF.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                             {
                                 pdfDocument.Save(outputStream);
                             }

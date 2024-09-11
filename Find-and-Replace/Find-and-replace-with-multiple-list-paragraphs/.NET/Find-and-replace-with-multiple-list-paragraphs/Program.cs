@@ -3,9 +3,9 @@ using Syncfusion.DocIO.DLS;
 using System.Reflection.Metadata;
 
 
-string[] filePaths = {"../../../Data/Heading1Items.docx","../../../Data/Heading2Items.docx"};
+string[] filePaths = {"Data/Heading1Items.docx","Data/Heading2Items.docx"};
 //Open the file as Stream.
-using (FileStream documentStream = new FileStream("../../../Data/Input.docx", FileMode.Open, FileAccess.Read))
+using (FileStream documentStream = new FileStream("Data/Input.docx", FileMode.Open, FileAccess.Read))
 {
     //Open an existing Word document.
     using (WordDocument document = new WordDocument(documentStream, FormatType.Docx))
@@ -33,7 +33,7 @@ using (FileStream documentStream = new FileStream("../../../Data/Input.docx", Fi
         }
 
         //Save the Word document.
-        using (FileStream output = new FileStream("../../../Result.docx", FileMode.Create, FileAccess.Write))
+        using (FileStream output = new FileStream("Output/Result.docx", FileMode.Create, FileAccess.Write))
         {
             document.Save(output, FormatType.Docx);
         }

@@ -19,7 +19,7 @@ namespace Add_image_caption
                 IWParagraph paragraph = section.AddParagraph();
                 paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
                 //Adds image to  the paragraph.
-                FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Data/Google.png"), FileMode.Open, FileAccess.ReadWrite);
+                FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Google.png"), FileMode.Open, FileAccess.ReadWrite);
                 IWPicture picture = paragraph.AppendPicture(imageStream);
                 //Adds Image caption.
                 IWParagraph lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
@@ -33,7 +33,7 @@ namespace Add_image_caption
                 paragraph = section.AddParagraph();
                 paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
                 //Adds image to  the paragraph.
-                imageStream = new FileStream(Path.GetFullPath(@"../../../Data/Yahoo.png"), FileMode.Open, FileAccess.ReadWrite);
+                imageStream = new FileStream(Path.GetFullPath(@"Data/Yahoo.png"), FileMode.Open, FileAccess.ReadWrite);
                 picture = paragraph.AppendPicture(imageStream);
                 //Adds Image caption.
                 lastParagragh = picture.AddCaption("Figure", CaptionNumberingFormat.Roman, CaptionPosition.AfterImage);
@@ -44,7 +44,7 @@ namespace Add_image_caption
                 //Updates the fields in Word document.
                 document.UpdateDocumentFields();
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

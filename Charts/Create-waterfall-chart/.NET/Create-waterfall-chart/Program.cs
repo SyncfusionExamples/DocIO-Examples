@@ -51,7 +51,7 @@ namespace Create_waterfall_chart
                 chart.Legend.Position = OfficeLegendPosition.Right;
                 chart.ChartArea.Border.LinePattern = OfficeChartLinePattern.None;
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

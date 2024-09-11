@@ -11,12 +11,12 @@ namespace Merge_documents_with_destination_margin
         static void Main(string[] args)
         {
             //Open the file as a stream.
-            using (FileStream sourceStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/SourceDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream sourceStreamPath = new FileStream(Path.GetFullPath(@"Data/SourceDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Load the file stream into a Word document.
                 using (WordDocument sourceDocument = new WordDocument(sourceStreamPath, FormatType.Automatic))
                 {
-                    using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"Data/DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                     {
                         //Open the destination document.
                         using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
@@ -31,7 +31,7 @@ namespace Merge_documents_with_destination_margin
                                 destinationDocument.Sections.Add(sourceSection.Clone());
                             }
                             //Create a file stream.
-                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                             {
                                 //Save the Word document to the file stream.
                                 destinationDocument.Save(outputFileStream, FormatType.Docx);

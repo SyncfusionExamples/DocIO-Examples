@@ -9,7 +9,7 @@ namespace Replace_text_in_Word_with_HTML
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Sample.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Sample.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Open an existing Word document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
@@ -19,7 +19,7 @@ namespace Replace_text_in_Word_with_HTML
                     //Replace the text by finding the word using string.
                     ReplaceTextUsingString(document);
                     //Create file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);
@@ -36,7 +36,7 @@ namespace Replace_text_in_Word_with_HTML
                 //Add section for HTML document. 
                 IWSection htmlsection = replaceDoc.AddSection();
                 //Read HTML string from the file.
-                string htmlString = File.ReadAllText(Path.GetFullPath(@"../../../Data/Keyword.html"));
+                string htmlString = File.ReadAllText(Path.GetFullPath(@"Data/Keyword.html"));
                 //Validate the HTML string.
                 bool isValidHtml = htmlsection.Body.IsValidXHTML(htmlString, XHTMLValidationType.None);
                 //When the HTML string passes validation, it is inserted to the document.
@@ -58,7 +58,7 @@ namespace Replace_text_in_Word_with_HTML
                 //Add section for HTML document. 
                 IWSection htmlsection = replaceDoc.AddSection();
                 //Read HTML string from the file.
-                string htmlString = File.ReadAllText(Path.GetFullPath(@"../../../Data/File.html"));
+                string htmlString = File.ReadAllText(Path.GetFullPath(@"Data/File.html"));
                 //Validate the HTML string.
                 bool isValidHtml = htmlsection.Body.IsValidXHTML(htmlString, XHTMLValidationType.None);
                 //When the HTML string passes validation, it is inserted to the document.
