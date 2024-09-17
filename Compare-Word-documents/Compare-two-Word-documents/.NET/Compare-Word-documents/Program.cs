@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.OleDb;
-using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Syncfusion.DocIO;
+﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
 namespace Compare_Word_documents
@@ -32,7 +21,7 @@ namespace Compare_Word_documents
                             originalDocument.Compare(revisedDocument);
 
                             //Save the Word document.
-                            using (FileStream fileStreamOutput = File.Create("Output/Output.docx"))
+                            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Output.docx")))
                             {
                                 originalDocument.Save(fileStreamOutput, FormatType.Docx);
                             }
