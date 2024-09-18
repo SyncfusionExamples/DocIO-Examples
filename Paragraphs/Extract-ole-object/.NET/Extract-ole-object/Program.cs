@@ -8,7 +8,7 @@ namespace Extract_ole_object
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Opens an input Word template.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -47,7 +47,7 @@ namespace Extract_ole_object
                             {
                                 if ((oleTypeStr.Contains("Excel Worksheet") || oleTypeStr.StartsWith("Excel.Sheet.12")))
                                 {
-                                    FileStream fstream = new FileStream(Path.GetFullPath(@"../../../Workbook" + oleObject.OleStorageName + ".xlsx"), FileMode.Create);
+                                    FileStream fstream = new FileStream(Path.GetFullPath(@"Output/Workbook" + oleObject.OleStorageName + ".xlsx"), FileMode.Create);
                                     fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
                                     fstream.Flush();
                                     fstream.Close();
@@ -55,7 +55,7 @@ namespace Extract_ole_object
                                 }
                                 else
                                 {
-                                    FileStream fstream = new FileStream(Path.GetFullPath(@"../../../Workbook" + oleObject.OleStorageName + ".xls"), FileMode.Create);
+                                    FileStream fstream = new FileStream(Path.GetFullPath(@"Output/Workbook" + oleObject.OleStorageName + ".xls"), FileMode.Create);
                                     fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
                                     fstream.Flush();
                                     fstream.Close();
@@ -67,7 +67,7 @@ namespace Extract_ole_object
                             {
                                 if (oleTypeStr.Contains("Word.Document.12"))
                                 {
-                                    FileStream fstream = new FileStream(Path.GetFullPath(@"../../../Sample" + oleObject.OleStorageName + ".docx"), FileMode.Create);
+                                    FileStream fstream = new FileStream(Path.GetFullPath(@"Output/Sample" + oleObject.OleStorageName + ".docx"), FileMode.Create);
                                     fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
                                     fstream.Flush();
                                     fstream.Close();
@@ -75,7 +75,7 @@ namespace Extract_ole_object
                                 }
                                 else if (oleTypeStr.Contains("Word.Document.8"))
                                 {
-                                    FileStream fstream = new FileStream(Path.GetFullPath(@"../../../Sample" + oleObject.OleStorageName + ".doc"), FileMode.Create);
+                                    FileStream fstream = new FileStream(Path.GetFullPath(@"Output/Sample" + oleObject.OleStorageName + ".doc"), FileMode.Create);
                                     fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
                                     fstream.Flush();
                                     fstream.Close();
@@ -85,7 +85,7 @@ namespace Extract_ole_object
                             //Checks for PDF embedded object and save them.
                             if (oleTypeStr.Contains("Acrobat Document") || oleTypeStr.StartsWith("AcroExch.Document.7") || (oleTypeStr.Contains("AcroExch.Document.11") || oleTypeStr.StartsWith("AcroExch.Document.DC")))
                             {
-                                FileStream fstream = new FileStream(Path.GetFullPath(@"../../../Sample" + oleObject.OleStorageName + ".pdf"), FileMode.Create);
+                                FileStream fstream = new FileStream(Path.GetFullPath(@"Output/Sample" + oleObject.OleStorageName + ".pdf"), FileMode.Create);
                                 fstream.Write(oleObject.NativeData, 0, oleObject.NativeData.Length);
                                 fstream.Flush();
                                 fstream.Close();
