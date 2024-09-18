@@ -22,10 +22,9 @@ namespace Get_revision_information
                     DateTime dateTime = revision.Date;
                     //Gets the type of the track changes revision.
                     RevisionType revisionType = revision.RevisionType;
-                    Console.WriteLine("Author : " + author);
+					Console.WriteLine("Author : " + author);
                     Console.WriteLine("\nDate and Time : " + dateTime);
                     Console.WriteLine("\nRevision Type : " + revisionType);
-                    Console.ReadKey();
                 }
             }
         }
