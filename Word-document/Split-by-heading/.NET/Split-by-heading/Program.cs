@@ -38,7 +38,6 @@ namespace Split_by_heading
                                     {
                                         //Saves the Word document
                                         string fileName = Path.GetFullPath(@"Output/Document") + (headingIndex + 1) + ".docx";
-
                                         SaveWordDocument(newDocument, fileName);
                                         headingIndex++;
                                     }
@@ -58,7 +57,6 @@ namespace Split_by_heading
                     if (newDocument != null)
                     {
                         //Saves the Word document
-
                         string fileName = Path.GetFullPath(@"Output/Document") + (headingIndex + 1) + ".docx";
                         SaveWordDocument(newDocument, fileName);
                     }

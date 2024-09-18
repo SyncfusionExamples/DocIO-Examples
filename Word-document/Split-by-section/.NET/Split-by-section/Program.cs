@@ -24,7 +24,6 @@ namespace Split_by_section
                             newDocument.Sections.Add(section.Clone());
                             //Saves the Word document to  MemoryStream
                             using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Section") + fileId + ".docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
-
                             {
                                 newDocument.Save(outputStream, FormatType.Docx);
                             }
