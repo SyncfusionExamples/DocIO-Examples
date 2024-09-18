@@ -37,8 +37,6 @@ namespace Retrieve_merge_field_names
                     Console.WriteLine("\n\nMerge field names in " + groupNames[1] + " Group :");
                     foreach (string fieldNameInGroup in fieldNamesInGroup)
                         Console.WriteLine(fieldNameInGroup);
-
-                    Console.ReadKey();
                 }
             }
         }

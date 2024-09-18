@@ -11,7 +11,7 @@ using (WordDocument document = new WordDocument())
     WMath math = document.LastParagraph.AppendMath(@"\boxed{{x}^{2}+{y}^{2}={z}^{2}}");
     //Apply math justification.
     math.MathParagraph.Justification = MathJustification.Left;
-    using (FileStream outputFileStream = new FileStream("Output/Output.docx", FileMode.Create, FileAccess.ReadWrite))
+    using (FileStream outputFileStream = new FileStream(Path.GetFullPath("Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
     {
         //Save Word document.
         document.Save(outputFileStream, FormatType.Docx);

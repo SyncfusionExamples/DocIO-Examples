@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.OleDb;
-using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using Syncfusion.DocIO;
+﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
 namespace Ignore_format_changes
@@ -39,7 +27,7 @@ namespace Ignore_format_changes
                             originalDocument.Compare(revisedDocument, "Nancy Davolio", DateTime.Now.AddDays(-1), compareOptions);
 
                             //Save the Word document.
-                            using (FileStream fileStreamOutput = File.Create("Output/Output.docx"))
+                            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Output.docx")))
                             {
                                 originalDocument.Save(fileStreamOutput, FormatType.Docx);
                             }

@@ -20,7 +20,7 @@ namespace Export_images_to_folder
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.md"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Set images folder to export images. 
-                        document.SaveOptions.MarkdownExportImagesFolder = Path.GetFullPath(@"Output/Output");
+                        document.SaveOptions.MarkdownExportImagesFolder = Path.GetFullPath(@"Output/");
                         //Save a Markdown file to the file stream.
                         document.Save(outputFileStream, FormatType.Markdown);
                     }
