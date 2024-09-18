@@ -11,4 +11,16 @@
     <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\Input.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Json Data.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Output\.gitkeep">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

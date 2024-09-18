@@ -14,7 +14,7 @@
     <None Update="Data\DestinationDocument.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\SourceDocument.docx">
+	 <None Update="Data\SourceDocument.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Output\.gitkeep">

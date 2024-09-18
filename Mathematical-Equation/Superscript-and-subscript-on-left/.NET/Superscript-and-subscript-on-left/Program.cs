@@ -34,7 +34,7 @@ namespace Superscript_and_subscript_on_left
                 //Sets text for equation.
                 (officeMathRunElement.Item as WTextRange).Text = "Y";
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

@@ -19,7 +19,7 @@ using (WordDocument document = new WordDocument())
     //Reset the stream position.
     imageStream.Position = 0;
     //Save the stream as file.
-    using (FileStream fileStreamOutput = File.Create("../../../Result.jpeg"))
+    using (FileStream fileStreamOutput = File.Create("Output/Result.jpeg"))
     {
         imageStream.CopyTo(fileStreamOutput);
     }

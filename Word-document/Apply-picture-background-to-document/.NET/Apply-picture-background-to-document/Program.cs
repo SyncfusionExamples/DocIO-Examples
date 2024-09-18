@@ -8,7 +8,7 @@ namespace Apply_picture_background_to_document
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Opens an document from file system through constructor of WordDocument class.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -16,7 +16,7 @@ namespace Apply_picture_background_to_document
                     //Sets the background type as picture.
                     document.Background.Type = BackgroundType.Picture;
                     //Opens the existing image. 
-                    using (FileStream imageStream = new FileStream(@"../../../Data/Picture.png", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    using (FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Picture.png"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                     {
                         using (MemoryStream memoryStream = new MemoryStream())
                         {
@@ -25,7 +25,7 @@ namespace Apply_picture_background_to_document
                         }
                     }
                     //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);

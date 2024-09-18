@@ -5,14 +5,14 @@ using Syncfusion.DocIO;
 using (WordDocument document = new WordDocument())
 {
     //Opens the Word template document.
-    Stream docStream = File.OpenRead(Path.GetFullPath(@"../../../Data/TOC.docx"));
+    Stream docStream = File.OpenRead(Path.GetFullPath(@"Data/TOC.docx"));
     document.Open(docStream, FormatType.Docx);
     docStream.Dispose();
     //Removes the TOC field.
     TableOfContent toc = document.Sections[0].Body.Paragraphs[2].Items[0] as TableOfContent;
     RemoveTableOfContents(toc);
     //Saves the file in the given path
-    docStream = File.Create(Path.GetFullPath(@"../../../Sample.docx"));
+    docStream = File.Create(Path.GetFullPath(@"Output/Sample.docx"));
     document.Save(docStream, FormatType.Docx);
     docStream.Dispose();
 }

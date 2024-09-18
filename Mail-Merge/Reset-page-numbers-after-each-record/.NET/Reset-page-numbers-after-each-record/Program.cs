@@ -12,7 +12,7 @@ namespace Reset_page_numbers_after_each_record
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Open the input Word document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
@@ -56,7 +56,7 @@ namespace Reset_page_numbers_after_each_record
                     document.UpdateDocumentFields(true);
                     #endregion
                     //Create file stream.
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
