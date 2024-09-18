@@ -2,7 +2,6 @@
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System.IO;
-using static System.Collections.Specialized.BitVector32;
 
 
 namespace Save_Word_in_old_compatibility
