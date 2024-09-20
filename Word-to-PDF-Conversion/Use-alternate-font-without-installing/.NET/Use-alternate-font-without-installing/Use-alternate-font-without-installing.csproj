@@ -14,6 +14,12 @@
     <None Update="Data\Arial.TTF">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Data\Arial_bold.TTF">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Arial_italic.TTF">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Data\Template.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
