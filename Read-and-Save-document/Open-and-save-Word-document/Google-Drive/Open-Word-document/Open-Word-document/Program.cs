@@ -24,17 +24,17 @@ namespace Open_Word_document
                     new FileDataStore(credPath, true)).Result;
             }
 
-            // Step 2: Create Drive API service
+            // Step 2: Create Drive API service.
             var service = new DriveService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
             });
 
-            // Step 3: Specify the file ID of the Word document you want to open
-            string fileId = "YOUR_FILE_ID"; // Replace with the actual file ID YOUR_FILE_ID
+            // Step 3: Specify the file ID of the Word document you want to open.
+            string fileId = "YOUR_FILE_ID"; // Replace with the actual file ID YOUR_FILE_ID.
 
-            // Step 4: Download the Word document from Google Drive
+            // Step 4: Download the Word document from Google Drive.
             var request = service.Files.Get(fileId);
             var stream = new MemoryStream();
             request.Download(stream);
@@ -44,7 +44,8 @@ namespace Open_Word_document
             {
                 stream.WriteTo(fileStream);
             }
-
+            //Dispose the stream.
+            stream.Dispose();
         }
     }
 }

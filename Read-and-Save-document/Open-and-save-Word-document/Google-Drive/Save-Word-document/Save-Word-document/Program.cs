@@ -5,7 +5,6 @@ using Google.Apis.Util.Store;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 using File = Google.Apis.Drive.v3.Data.File;
-using Google.Apis.Auth.OAuth2.Flows;
 
 namespace Save_Word_document
 {
@@ -13,16 +12,16 @@ namespace Save_Word_document
     {
         static void Main(string[] args)
         {
-            //Creating a new document
+            //Creating a new document.
             WordDocument document = new WordDocument();
-            //Adding a new section to the document
+            //Adding a new section to the document.
             WSection section = document.AddSection() as WSection;
-            //Set Margin of the section
+            //Set Margin of the section.
             section.PageSetup.Margins.All = 72;
-            //Set page size of the section
+            //Set page size of the section.
             section.PageSetup.PageSize = new Syncfusion.Drawing.SizeF(612, 792);
 
-            //Create Paragraph styles
+            //Create Paragraph styles.
             WParagraphStyle style = document.AddParagraphStyle("Normal") as WParagraphStyle;
             style.CharacterFormat.FontName = "Calibri";
             style.CharacterFormat.FontSize = 11f;
@@ -43,7 +42,7 @@ namespace Save_Word_document
 
             IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
 
-            //Gets the image stream
+            //Gets the image stream.
             FileStream imageStream = new FileStream(Path.GetFullPath("../../../Data/AdventureCycle.jpg"), FileMode.Open, FileAccess.Read);
             IWPicture picture = paragraph.AppendPicture(imageStream);
             picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
@@ -61,7 +60,7 @@ namespace Save_Word_document
             textRange.CharacterFormat.FontName = "Calibri";
             textRange.CharacterFormat.TextColor = Syncfusion.Drawing.Color.Red;
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = section.AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Center;
@@ -69,14 +68,14 @@ namespace Save_Word_document
             textRange.CharacterFormat.FontSize = 18f;
             textRange.CharacterFormat.FontName = "Calibri";
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = section.AddParagraph();
             paragraph.ParagraphFormat.FirstLineIndent = 36;
             paragraph.BreakCharacterFormat.FontSize = 12f;
             textRange = paragraph.AppendText("Adventure Works Cycles, the fictitious company on which the AdventureWorks sample databases are based, is a large, multinational manufacturing company. The company manufactures and sells metal and composite bicycles to North American, European and Asian commercial markets. While its base operation is in Bothell, Washington with 290 employees, several regional sales teams are located throughout their market base.") as WTextRange;
             textRange.CharacterFormat.FontSize = 12f;
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = section.AddParagraph();
             paragraph.ParagraphFormat.FirstLineIndent = 36;
             paragraph.BreakCharacterFormat.FontSize = 12f;
@@ -90,18 +89,18 @@ namespace Save_Word_document
             textRange.CharacterFormat.FontSize = 16f;
             textRange.CharacterFormat.FontName = "Calibri";
 
-            //Appends table
+            //Appends table.
             IWTable table = section.AddTable();
             table.ResetCells(3, 2);
             table.TableFormat.Borders.BorderType = BorderStyle.None;
             table.TableFormat.IsAutoResized = true;
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = table[0, 0].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.BreakCharacterFormat.FontSize = 12f;
 
-            //Appends picture to the paragraph
+            //Appends picture to the paragraph.
             FileStream image1 = new FileStream(Path.GetFullPath("../../../Data/Mountain-200.jpg"), FileMode.Open, FileAccess.Read);
             picture = paragraph.AppendPicture(image1);
             picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -112,14 +111,14 @@ namespace Save_Word_document
             picture.WidthScale = 79;
             picture.HeightScale = 79;
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = table[0, 1].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.AppendText("Mountain-200");
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = table[0, 1].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
@@ -138,20 +137,20 @@ namespace Save_Word_document
             textRange.CharacterFormat.FontSize = 12f;
             textRange.CharacterFormat.FontName = "Times New Roman";
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = table[0, 1].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.BreakCharacterFormat.FontSize = 12f;
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = table[1, 0].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.AppendText("Mountain-300 ");
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = table[1, 0].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
@@ -170,18 +169,18 @@ namespace Save_Word_document
             textRange.CharacterFormat.FontSize = 12f;
             textRange.CharacterFormat.FontName = "Times New Roman";
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = table[1, 0].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.BreakCharacterFormat.FontSize = 12f;
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = table[1, 1].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.LineSpacing = 12f;
 
-            //Appends picture to the paragraph
+            //Appends picture to the paragraph.
             FileStream image2 = new FileStream(Path.GetFullPath("../../../Data/Mountain-300.jpg"), FileMode.Open, FileAccess.Read);
             picture = paragraph.AppendPicture(image2);
             picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -192,12 +191,12 @@ namespace Save_Word_document
             picture.WidthScale = 75;
             picture.HeightScale = 75;
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = table[2, 0].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.LineSpacing = 12f;
 
-            //Appends picture to the paragraph
+            //Appends picture to the paragraph.
             FileStream image3 = new FileStream(Path.GetFullPath("../../../Data/Road-550-W.jpg"), FileMode.Open, FileAccess.Read);
             picture = paragraph.AppendPicture(image3);
             picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
@@ -208,14 +207,14 @@ namespace Save_Word_document
             picture.WidthScale = 92;
             picture.HeightScale = 92;
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = table[2, 1].AddParagraph();
             paragraph.ApplyStyle("Heading 1");
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
             paragraph.AppendText("Road-150 ");
 
-            //Appends paragraph
+            //Appends paragraph.
             paragraph = table[2, 1].AddParagraph();
             paragraph.ParagraphFormat.AfterSpacing = 0;
             paragraph.ParagraphFormat.LineSpacing = 12f;
@@ -234,14 +233,14 @@ namespace Save_Word_document
             textRange.CharacterFormat.FontSize = 12f;
             textRange.CharacterFormat.FontName = "Times New Roman";
 
-            //Appends paragraph
+            //Appends paragraph.
             section.AddParagraph();
 
-            //Saves the Word document to MemoryStream
+            //Saves the Word document to MemoryStream.
             MemoryStream stream = new MemoryStream();
             document.Save(stream, FormatType.Docx);
 
-            // Load Google Drive API credentials from a file
+            // Load Google Drive API credentials from a file.
             UserCredential credential;
             string[] Scopes = { DriveService.Scope.Drive };
             string ApplicationName = "YourAppName";
@@ -257,28 +256,31 @@ namespace Save_Word_document
                     new FileDataStore(credPath, true)).Result;
             }
 
-            // Create a new instance of Google Drive service
+            // Create a new instance of Google Drive service.
             var service = new DriveService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
             });
 
-            // Create metadata for the file to be uploaded
+            // Create metadata for the file to be uploaded.
             var fileMetadata = new File()
             {
-                Name = "Output.docx", // Name of the file in Google Drive
+                Name = "Output.docx", // Name of the file in Google Drive.
                 MimeType = "application/msword",
             };
             FilesResource.CreateMediaUpload request;
-            // Create a memory stream from the Word document
+            // Create a memory stream from the Word document.
             using (var fs = new MemoryStream(stream.ToArray()))
             {
-                // Create an upload request for Google Drive
+                // Create an upload request for Google Drive.
                 request = service.Files.Create(fileMetadata, fs, "application/msword");
-                // Upload the file
+                // Upload the file.
                 request.Upload();
             }
+            //Dispose the stream.
+            stream.Dispose();
+            document.Close();
         }
     }
 }
