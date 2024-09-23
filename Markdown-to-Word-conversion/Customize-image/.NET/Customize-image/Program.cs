@@ -16,7 +16,7 @@ namespace Customize_image
                 //Hook the event to customize the image while importing Markdown.
                 document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
                 //Open the Markdown file.
-                document.Open(new FileStream("Data/Input.md", FileMode.Open, FileAccess.Read), FormatType.Markdown);
+                document.Open(new FileStream(Path.GetFullPath("Data/Input.md"), FileMode.Open, FileAccess.Read), FormatType.Markdown);
 
                 //Create a file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
@@ -30,9 +30,9 @@ namespace Customize_image
         {
             //Set the image stream based on the image name from the input Markdown.
             if (args.Uri == "Image_1.png")
-                args.ImageStream = new FileStream("Data/Image_1.png", FileMode.Open);
+                args.ImageStream = new FileStream(Path.GetFullPath("Data/Image_1.png"), FileMode.Open);
             else if (args.Uri == "Image_2.png")
-                args.ImageStream = new FileStream("Data/Image_2.png", FileMode.Open);
+                args.ImageStream = new FileStream(Path.GetFullPath("Data/Image_2.png"), FileMode.Open);
             //Retrive the image from the website and use it.
             else if (args.Uri.StartsWith("https://"))
             {
