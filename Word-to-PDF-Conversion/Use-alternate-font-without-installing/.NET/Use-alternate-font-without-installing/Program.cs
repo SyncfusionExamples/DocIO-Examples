@@ -38,10 +38,21 @@ namespace Use_alternate_font_without_installing
         private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
         {
             //Sets the alternate font when a specified font is not installed in the production environment.
-            if (args.OriginalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
-                args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/Arial.TTF"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            else
-                args.AlternateFontName = "Times New Roman";
+            if (args.OrignalFontName == "Arial Unicode MS")
+            {
+                switch (args.FontStyle)
+                {
+                    case FontStyle.Italic:
+                        args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/Arial_italic.TTF"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        break;
+                    case FontStyle.Bold:
+                        args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/Arial_bold.TTF"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        break;
+                    default:
+                        args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/Arial.TTF"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        break;
+                }
+            }
         }
     }
 }
