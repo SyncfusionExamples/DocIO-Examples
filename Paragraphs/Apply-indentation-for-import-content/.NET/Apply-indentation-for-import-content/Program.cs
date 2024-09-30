@@ -3,10 +3,10 @@ using Syncfusion.DocIO.DLS;
 
 
 //Open the existing main document.
-FileStream fileStream1 = new FileStream(@"Data/Main.docx", FileMode.Open);
+FileStream fileStream1 = new FileStream(Path.GetFullPath(@"Data/Main.docx"), FileMode.Open);
 WordDocument mainDocument = new WordDocument(fileStream1, FormatType.Docx);
 //Open the existing temporary document.
-FileStream fileStream = new FileStream(@"Data/REKOMENDASI.docx", FileMode.Open);
+FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/REKOMENDASI.docx"), FileMode.Open);
 WordDocument tempDoc = new WordDocument(fileStream, FormatType.Docx);
 //Set the first section break.
 tempDoc.Sections[0].BreakCode = SectionBreakCode.NoBreak;
@@ -25,7 +25,7 @@ mainDocument.ImportContent(tempDoc, ImportOptions.UseDestinationStyles);
 AddLeftIndentation(mainDocument, secIndex, paraIndex + 1, lastPara.ParagraphFormat.LeftIndent);
 
 //Save the main document.
-FileStream outputStream = new FileStream(@"Output/Output_REKOMENDASI.docx", FileMode.Create, FileAccess.Write);
+FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output_REKOMENDASI.docx"), FileMode.Create, FileAccess.Write);
 mainDocument.Save(outputStream, FormatType.Docx);
 
 
