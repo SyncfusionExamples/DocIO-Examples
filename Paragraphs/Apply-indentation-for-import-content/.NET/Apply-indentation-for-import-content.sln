@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apply-indentation-for-import-content", "Apply-indentation-for-import-content\Apply-indentation-for-import-content.csproj", "{53DCEB0F-A67D-46ED-BCBB-31F7C434A4F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53DCEB0F-A67D-46ED-BCBB-31F7C434A4F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53DCEB0F-A67D-46ED-BCBB-31F7C434A4F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53DCEB0F-A67D-46ED-BCBB-31F7C434A4F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53DCEB0F-A67D-46ED-BCBB-31F7C434A4F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0E03655-7880-457C-B4E4-35D46A0B5B00}
+	EndGlobalSection
+EndGlobal
