@@ -1,12 +1,11 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-
 //Open the existing main document.
-FileStream fileStream1 = new FileStream(Path.GetFullPath(@"Data/Main.docx"), FileMode.Open);
+FileStream fileStream1 = new FileStream(Path.GetFullPath(@"Data/SourceDocument.docx"), FileMode.Open);
 WordDocument mainDocument = new WordDocument(fileStream1, FormatType.Docx);
 //Open the existing temporary document.
-FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/REKOMENDASI.docx"), FileMode.Open);
+FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/DestinationDocument.docx"), FileMode.Open);
 WordDocument tempDoc = new WordDocument(fileStream, FormatType.Docx);
 //Set the first section break.
 tempDoc.Sections[0].BreakCode = SectionBreakCode.NoBreak;
@@ -25,10 +24,12 @@ mainDocument.ImportContent(tempDoc, ImportOptions.UseDestinationStyles);
 AddLeftIndentation(mainDocument, secIndex, paraIndex + 1, lastPara.ParagraphFormat.LeftIndent);
 
 //Save the main document.
-FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output_REKOMENDASI.docx"), FileMode.Create, FileAccess.Write);
+FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.Write);
 mainDocument.Save(outputStream, FormatType.Docx);
 
-
+/// <summary>
+/// Applies left indentation to paragraphs and tables in a specified section and paragraph range of a Word document.
+/// </summary>
 void AddLeftIndentation(WordDocument document1, int secIndex, int paraIndex, float leftIndent)
 {
     //Iterate through the sections added from the temporary document.

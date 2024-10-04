@@ -8,17 +8,10 @@ using System.Drawing.Imaging;
 using Syncfusion.XlsIO;
 using Syncfusion.XlsIORenderer;
 
-
-// Disable the PDF document cache to prevent caching of rendered pages
-PdfDocument.EnableCache = false;
 // Initialize the DocIORenderer component for converting Word documents to PDF
 using DocIORenderer docIORenderer = new DocIORenderer();
 // Create new DocIORenderer settings
 docIORenderer.Settings = new DocIORendererSettings();
-// Set the PDF conformance level to PDF/A-1B for archival standard compliance
-docIORenderer.Settings.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B;
-// Set the chart rendering scaling mode to normal to preserve the aspect ratio of charts
-docIORenderer.Settings.ChartRenderingOptions.ScalingMode = Syncfusion.OfficeChart.ScalingMode.Normal;
 // Open the input Word document from a file stream
 FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read);
 // Load the Word document into a WordDocument instance
@@ -32,7 +25,9 @@ FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"),
 // Save the generated PDF to the specified file stream
 pdf.Save(outputStream);
 
-
+/// <summary>
+/// Replaces Excel OLE objects in a Word document with images, preserving their original dimensions.
+/// </summary>
 void ReplaceExcelToImage(WordDocument wordDocument)
 {
     //Get the Ole objects.
