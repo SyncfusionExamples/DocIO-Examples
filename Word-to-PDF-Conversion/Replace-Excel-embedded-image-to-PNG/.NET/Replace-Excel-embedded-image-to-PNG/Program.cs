@@ -24,6 +24,10 @@ using PdfDocument pdf = docIORenderer.ConvertToPDF(tempDocument);
 FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"), FileMode.Create, FileAccess.Write);
 // Save the generated PDF to the specified file stream
 pdf.Save(outputStream);
+//Dispose the streams.
+inputStream.Dispose();
+outputStream.Dispose();
+
 
 /// <summary>
 /// Replaces Excel OLE objects in a Word document with images, preserving their original dimensions.
