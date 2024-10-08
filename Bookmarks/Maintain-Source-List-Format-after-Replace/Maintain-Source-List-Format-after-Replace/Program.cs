@@ -1,9 +1,6 @@
 ﻿using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 
-//Register Syncfusion license
-Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2UlhhQlNHfV5DQmBWfFN0QXNYfVRwdF9GYEwgOX1dQl9nSXZTc0VlWndfcXNSQWc=");
-
 // Open the source document (inputOne) from the file path in read mode.
 FileStream inputOne = new FileStream(Path.GetFullPath("Data/SourceDocument.docx"), FileMode.Open, FileAccess.Read);
 // Load the source document as a WordDocument object.
