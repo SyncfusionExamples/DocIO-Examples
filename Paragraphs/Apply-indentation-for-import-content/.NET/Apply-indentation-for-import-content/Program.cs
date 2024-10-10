@@ -27,6 +27,10 @@ AddLeftIndentation(mainDocument, secIndex, paraIndex + 1, lastPara.ParagraphForm
 FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.Write);
 mainDocument.Save(outputStream, FormatType.Docx);
 
+//Dispose the streams.
+fileStream1.Dispose();
+fileStream.Dispose();
+
 /// <summary>
 /// Applies left indentation to paragraphs and tables in a specified section and paragraph range of a Word document.
 /// </summary>
