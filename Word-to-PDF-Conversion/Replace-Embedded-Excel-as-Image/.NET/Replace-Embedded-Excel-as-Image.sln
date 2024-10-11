@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35309.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Replace-Embedded-Excel-as-Image", "Replace-Embedded-Excel-as-Image\Replace-Embedded-Excel-as-Image.csproj", "{CF9445D7-D61D-4334-AAE2-75F88C7D8C08}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Replace-embedded-excel-as-image", "Replace-embedded-excel-as-image\Replace-embedded-excel-as-image.csproj", "{B41ABC4E-281E-4F88-B0EE-806DBBD5DF48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CF9445D7-D61D-4334-AAE2-75F88C7D8C08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF9445D7-D61D-4334-AAE2-75F88C7D8C08}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF9445D7-D61D-4334-AAE2-75F88C7D8C08}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF9445D7-D61D-4334-AAE2-75F88C7D8C08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B41ABC4E-281E-4F88-B0EE-806DBBD5DF48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B41ABC4E-281E-4F88-B0EE-806DBBD5DF48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B41ABC4E-281E-4F88-B0EE-806DBBD5DF48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B41ABC4E-281E-4F88-B0EE-806DBBD5DF48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {484D1FE0-942E-43C2-B0C9-683AF6450DF7}
+		SolutionGuid = {540988BD-8B2C-4C40-BF5F-D7B0D77811A9}
 	EndGlobalSection
 EndGlobal
