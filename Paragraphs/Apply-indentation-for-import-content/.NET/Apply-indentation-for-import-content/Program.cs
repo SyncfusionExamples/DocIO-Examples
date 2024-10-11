@@ -5,39 +5,41 @@ using Syncfusion.DocIO.DLS;
 using (FileStream destinationStream = new FileStream(Path.GetFullPath(@"Data/DestinationDocument.docx"), FileMode.Open))
 {
     // Load the main Word document.
-    WordDocument destinationDocument = new WordDocument(destinationStream, FormatType.Docx);
-
-    // Open the existing source document from a file stream.
-    using (FileStream sourceStream = new FileStream(Path.GetFullPath(@"Data/SourceDocument.docx"), FileMode.Open))
+    using (WordDocument destinationDocument = new WordDocument(destinationStream, FormatType.Docx))
     {
-        // Load the source Word document.
-        WordDocument sourceDocument = new WordDocument(sourceStream, FormatType.Docx);
-
-        // Set the first section break in the source document to "NoBreak" for seamless merging.
-        sourceDocument.Sections[0].BreakCode = SectionBreakCode.NoBreak;
-
-        // Get the index of the last section in the destination document.
-        int secIndex = destinationDocument.ChildEntities.IndexOf(destinationDocument.LastSection);
-
-        // Get the index of the last paragraph in the last section of the destination document.
-        int paraIndex = destinationDocument.LastSection.Body.ChildEntities.IndexOf(destinationDocument.LastParagraph);
-
-        // Get the style and formatting of the last paragraph for reference.
-        WParagraph lastPara = destinationDocument.LastParagraph;
-
-        // Import content from the source document into the destination document, using destination styles.
-        destinationDocument.ImportContent(sourceDocument, ImportOptions.UseDestinationStyles);
-
-        // Modify the paragraph style for the newly added contents by applying left indentation.
-        AddLeftIndentation(destinationDocument, secIndex, paraIndex + 1, lastPara.ParagraphFormat.LeftIndent);
-
-        // Save the updated destination document to a new file.
-        using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.Write))
+        // Open the existing source document from a file stream.
+        using (FileStream sourceStream = new FileStream(Path.GetFullPath(@"Data/SourceDocument.docx"), FileMode.Open))
         {
-            destinationDocument.Save(outputStream, FormatType.Docx);
-        };
-    };
-};
+            // Load the source Word document.
+            using (WordDocument sourceDocument = new WordDocument(sourceStream, FormatType.Docx))
+            {
+                // Set the first section break in the source document to "NoBreak" for seamless merging.
+                sourceDocument.Sections[0].BreakCode = SectionBreakCode.NoBreak;
+
+                // Get the index of the last section in the destination document.
+                int secIndex = destinationDocument.ChildEntities.IndexOf(destinationDocument.LastSection);
+
+                // Get the index of the last paragraph in the last section of the destination document.
+                int paraIndex = destinationDocument.LastSection.Body.ChildEntities.IndexOf(destinationDocument.LastParagraph);
+
+                // Get the style and formatting of the last paragraph for reference.
+                WParagraph lastPara = destinationDocument.LastParagraph;
+
+                // Import content from the source document into the destination document, using destination styles.
+                destinationDocument.ImportContent(sourceDocument, ImportOptions.UseDestinationStyles);
+
+                // Modify the paragraph style for the newly added contents by applying left indentation.
+                AddLeftIndentation(destinationDocument, secIndex, paraIndex + 1, lastPara.ParagraphFormat.LeftIndent);
+
+                // Save the updated destination document to a new file.
+                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.Write))
+                {
+                    destinationDocument.Save(outputStream, FormatType.Docx);
+                }
+            }
+        }
+    }
+}
 
 /// <summary>
 /// Applies left indentation to paragraphs and tables in a specified section and paragraph range of a Word document.
