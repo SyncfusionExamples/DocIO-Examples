@@ -1,6 +1,7 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
+//Opens the template document with read/write access and shared read permission.
 using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     //Opens an existing Word document.
@@ -20,6 +21,7 @@ using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Templa
         Break lineBreak = new Break(document, BreakType.LineBreak);
         //Insert line break in specific index.
         ownerPara.ChildEntities.Insert(index + 1, lineBreak);
+        //Creates the output file with read/write access.
         using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
         {
             //Saves the Word document to file stream.
