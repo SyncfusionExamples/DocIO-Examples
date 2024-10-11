@@ -1,24 +1,24 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Set-Image-in-First-page-Header</RootNamespace>
+    <RootNamespace>Set_image_in_first_page_header</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="*" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Syncfusion.DocIO.Net.Core" Version="*" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="Data\Image.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Output\.gitkeep">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="Data\Image.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Output\.gitkeep">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>
