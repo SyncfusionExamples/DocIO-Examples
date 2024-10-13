@@ -16,8 +16,6 @@ using (FileStream inputFileStream = new FileStream(Path.GetFullPath("Data/Input.
         {
             document.Save(outputFileStream, FormatType.Docx); //Saves the document in DOCX format.
         }
-        //Closes the Word document after saving.
-        document.Close();
     }
 }
 
