@@ -24,6 +24,8 @@ using (WordDocument document = new WordDocument())
     bookmarkNavigator.MoveToBookmark("Index");
     //Replace the bookmark content with the converted HTML content.
     bookmarkNavigator.ReplaceContent(htmlDocumentPart);
+    //Close htmlDocumentPart.
+    htmlDocumentPart.Close();
     //Save the modified document to a specified file path in DOCX format.
     using (FileStream outputStream = new FileStream(Path.GetFullPath("Output/Output.docx"), FileMode.Create, FileAccess.Write))
     {
