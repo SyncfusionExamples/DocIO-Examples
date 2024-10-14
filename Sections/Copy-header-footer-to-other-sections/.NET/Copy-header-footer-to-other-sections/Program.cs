@@ -27,7 +27,7 @@ using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.
 }
 
 ///<summary>
-///Copy the source section header and footer to destination section
+/// Copy the source section header and footer to destination section
 /// </summary>
 void UpdateHeaderFooter(WSection sourceSection, WSection destinationSection)
 {
@@ -46,7 +46,7 @@ void UpdateHeaderFooter(WSection sourceSection, WSection destinationSection)
 }
 
 ///<summary>
-///Clear all header and footer for the section
+/// Clear all header and footer for the section
 /// </summary>
 void ClearHeaderFooter(WSection section)
 {
