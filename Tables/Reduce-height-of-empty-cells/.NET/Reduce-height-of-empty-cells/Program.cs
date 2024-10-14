@@ -3,7 +3,7 @@ using Syncfusion.DocIO.DLS;
 
 using (FileStream inputFileStream = new FileStream(Path.GetFullPath("Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
 {
-    //Opens an template Word document.
+    //Opens the template Word document.
     using (WordDocument document = new WordDocument(inputFileStream, FormatType.Docx))
     {
         //Retrieve the last section of the document.

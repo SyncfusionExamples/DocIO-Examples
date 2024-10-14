@@ -1,9 +1,6 @@
 ﻿using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 
-//Register Syncfusion license
-Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2UlhhQlNHfV5DQmBWfFN0QXNYfVRwdF9GYEwgOX1dQl9nSXZTc0VlWndfcXNSQWc=");
-
 //Open an existing Word document from the specified file path.
 using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read))
 {
