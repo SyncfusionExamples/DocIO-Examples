@@ -31,7 +31,7 @@ using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.
 /// </summary>
 void UpdateHeaderFooter(WSection sourceSection, WSection destinationSection)
 {
-    //clear the destination section header and footer
+    //Clear the destination section header and footer
     ClearHeaderFooter(destinationSection);
     //Add Headers
     for (int j = 0; j < sourceSection.HeadersFooters.Header.ChildEntities.Count; j++)
