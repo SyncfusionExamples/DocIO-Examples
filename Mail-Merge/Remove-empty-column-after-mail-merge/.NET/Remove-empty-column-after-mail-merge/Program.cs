@@ -15,8 +15,6 @@ namespace Remove_empty_column_after_mail_merge
         public static int cellIndex;
         static void Main(string[] args)
         {
-            //Register Syncfusion license
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2UlhhQlNHfV5DQmBWfFN0QXNYfVRwdF9GYEwgOX1dQl9nSXZTc0VlWndfcXNSQWc=");
             //Creates new Word document instance for Word processing.
             using (WordDocument document = new WordDocument())
             {
