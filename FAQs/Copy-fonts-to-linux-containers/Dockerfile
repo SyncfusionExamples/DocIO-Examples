@@ -1,11 +1,11 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/runtime:3.1-bionic AS base
+FROM mcr.microsoft.com/dotnet/runtime:8.0-jammy AS base
 RUN apt-get update -y && apt-get install fontconfig -y
 WORKDIR /app
 #Copy fonts to linux containers from a folder.
 COPY ["Fonts/*.*", "/usr/local/share/fonts/"]
-FROM mcr.microsoft.com/dotnet/sdk:3.1-bionic AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy AS build
 WORKDIR /src
 COPY ["Copy-fonts-to-linux-containers.csproj", "."]
 RUN dotnet restore "./Copy-fonts-to-linux-containers.csproj"
