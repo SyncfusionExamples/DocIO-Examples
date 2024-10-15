@@ -1,5 +1,8 @@
 ﻿using Syncfusion.DocIO.DLS;
 
+//Register Syncfusion license
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2UlhhQlNHfV5DQmBWfFN0QXNYfVRwdF9GYEwgOX1dQl9nSXZTc0VlWndfcXNSQWc=");
+
 using (WordDocument document = new WordDocument())
 {
     //Initialize the paragraph where the bookmark will be inserted.
