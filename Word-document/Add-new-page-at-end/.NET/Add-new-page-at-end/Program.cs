@@ -1,9 +1,6 @@
 ﻿using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 
-//Register Syncfusion license
-Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2UlhhQlNHfV5DQmBWfFN0QXNYfVRwdF9GYEwgOX1dQl9nSXZTc0VlWndfcXNSQWc=");
-
 // Open a file stream to read the existing Word document.
 using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Adventure.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
