@@ -1,36 +1,35 @@
-﻿using System.Drawing;
-using Syncfusion.Pdf;
+﻿using Syncfusion.Pdf;
 using Syncfusion.DocIORenderer;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
-using Syncfusion.Drawing;
-using System.Drawing.Imaging;
 using Syncfusion.XlsIO;
 using Syncfusion.XlsIORenderer;
 
+//Register Syncfusion license
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2UlhhQlNHfV5DQmBWfFN0QXNYfVRwdF9GYEwgOX1dQl9nSXZTc0VlWndfcXNSQWc=");
+
 // Initialize the DocIORenderer component for converting Word documents to PDF
 using DocIORenderer docIORenderer = new DocIORenderer();
-// Create new DocIORenderer settings
-docIORenderer.Settings = new DocIORendererSettings();
 // Open the input Word document from a file stream
-FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read);
-// Load the Word document into a WordDocument instance
-using var tempDocument = new WordDocument(inputStream, FormatType.Automatic);
-// Call a method to replace embedded Excel objects in the document with images
-ReplaceExcelToImage(tempDocument);
-// Convert the Word document to a PDF using the DocIORenderer component
-using PdfDocument pdf = docIORenderer.ConvertToPDF(tempDocument);
-// Create a file stream to save the output PDF document
-FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"), FileMode.Create, FileAccess.Write);
-// Save the generated PDF to the specified file stream
-pdf.Save(outputStream);
-//Dispose the streams.
-inputStream.Dispose();
-outputStream.Dispose();
+using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read))
+{
+    // Load the Word document into a WordDocument instance
+    using var tempDocument = new WordDocument(inputStream, FormatType.Automatic);
+    // Call a method to replace embedded Excel objects in the document with images
+    ReplaceExcelToImage(tempDocument);
+    // Convert the Word document to a PDF using the DocIORenderer component
+    using PdfDocument pdf = docIORenderer.ConvertToPDF(tempDocument);
+    // Create a file stream to save the output PDF document
+    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"), FileMode.Create, FileAccess.Write))
+    {
+        // Save the generated PDF to the specified file stream
+        pdf.Save(outputStream);
+    }
+}
 
 
 /// <summary>
-/// Replaces Excel OLE objects in a Word document with images, preserving their original dimensions.
+/// Replaces embedded Excel OLE objects in a Word document with their corresponding images while maintaining the original size.
 /// </summary>
 void ReplaceExcelToImage(WordDocument wordDocument)
 {
