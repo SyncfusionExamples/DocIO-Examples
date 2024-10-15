@@ -10,16 +10,17 @@ using (FileStream inputFileStream = new FileStream(Path.GetFullPath("Data/Templa
         IWSection section = document.LastSection;
         //Get the first table in the section.
         WTable table = section.Body.Tables[0] as WTable;
-        //Access the specific cells by their indices.
+        //Access the instance of the cell (second row, second cell).
         WTableCell cell1 = table[1, 1];
+        //Access the instance of the cell (third row, third cell).
         WTableCell cell2 = table[2, 2];
-        //Clear the contents of the first cell.
+        //Clear the contents of the cell (second row, second cell).
         cell1.ChildEntities.Clear();
-        //Add a new paragraph with content to the first cell.
+        //Add a new paragraph with content to the cell (second row, second cell).
         cell1.AddParagraph().AppendText("Adventure");
-        //Clear the contents of the second cell.
+        //Clear the contents of the cell (third row, third cell).
         cell2.ChildEntities.Clear();
-        //Add a new paragraph with content to the second cell.
+        //Add a new paragraph with content to the cell  (third row, third cell).
         cell2.AddParagraph().AppendText("Cycle");
         //Save the modified document.
         using (FileStream outputFileStream = new FileStream(Path.GetFullPath("Output/Result.docx"), FileMode.Create, FileAccess.Write))
