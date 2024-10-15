@@ -5,25 +5,26 @@ using Syncfusion.DocIO;
 using Syncfusion.XlsIO;
 using Syncfusion.XlsIORenderer;
 
-//Register Syncfusion license
-Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2UlhhQlNHfV5DQmBWfFN0QXNYfVRwdF9GYEwgOX1dQl9nSXZTc0VlWndfcXNSQWc=");
-
-// Initialize the DocIORenderer component for converting Word documents to PDF
-using DocIORenderer docIORenderer = new DocIORenderer();
-// Open the input Word document from a file stream
-using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read))
+//Initialize the DocIORenderer component for converting Word documents to PDF.
+using (DocIORenderer docIORenderer = new DocIORenderer())
 {
-    // Load the Word document into a WordDocument instance
-    using var tempDocument = new WordDocument(inputStream, FormatType.Automatic);
-    // Call a method to replace embedded Excel objects in the document with images
-    ReplaceExcelToImage(tempDocument);
-    // Convert the Word document to a PDF using the DocIORenderer component
-    using PdfDocument pdf = docIORenderer.ConvertToPDF(tempDocument);
-    // Create a file stream to save the output PDF document
-    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"), FileMode.Create, FileAccess.Write))
+    using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read))
     {
-        // Save the generated PDF to the specified file stream
-        pdf.Save(outputStream);
+        //Open the input Word document.
+        using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
+        {
+            //Replace embedded Excel objects in the document with images.
+            ReplaceExcelToImage(document);
+            //Convert the Word document to a PDF using the DocIORenderer component.
+            using (PdfDocument pdf = docIORenderer.ConvertToPDF(document))
+            {
+                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"), FileMode.Create, FileAccess.Write))
+                {
+                    //Save the generated PDF to the specified file stream.
+                    pdf.Save(outputStream);
+                }
+            }
+        }
     }
 }
 
