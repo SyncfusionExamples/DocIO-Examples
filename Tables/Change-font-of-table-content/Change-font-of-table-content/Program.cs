@@ -1,9 +1,6 @@
 ﻿using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 
-//Register Syncfusion license
-Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2UlhhQlNHfV5DQmBWfFN0QXNYfVRwdF9GYEwgOX1dQl9nSXZTc0VlWndfcXNSQWc=");
-
 using (FileStream inputStream = new FileStream("Data/Adventure.html", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     // Open the input HTML format document.
