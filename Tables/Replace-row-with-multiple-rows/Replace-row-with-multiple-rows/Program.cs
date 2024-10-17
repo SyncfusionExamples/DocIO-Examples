@@ -7,7 +7,7 @@ using (FileStream inputFileStream = new FileStream(Path.GetFullPath("Data/Templa
     // Open the input Word document
     using (WordDocument document = new WordDocument(inputFileStream, FormatType.Docx))
     {
-        // Find a table with its alternate text (Title property).
+        // Find a table by the Title property.
         WTable table = document.FindItemByProperty(EntityType.Table, "Title", "DataTable") as WTable;
         // Check if the table was found.
         if (table != null)
