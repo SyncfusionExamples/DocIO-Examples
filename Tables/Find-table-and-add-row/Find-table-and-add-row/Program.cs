@@ -14,7 +14,6 @@ using (FileStream inputFileStream = new FileStream(Path.GetFullPath("Data/Input.
             // Add a new row to the table.
             table.AddRow();
         }
-
         using (FileStream outputFileStream = new FileStream(Path.GetFullPath("Output/Result.docx"), FileMode.Create, FileAccess.Write))
         {
             // Save the modified document to the output file stream.
