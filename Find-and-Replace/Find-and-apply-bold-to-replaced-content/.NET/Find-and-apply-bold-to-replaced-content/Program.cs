@@ -37,7 +37,7 @@ namespace Find_and_apply_bold_to_replaced_content
                         WParagraph para = body.ChildEntities[i] as WParagraph;
 
                         // Search for the word within the current paragraph.
-                        TextSelection replacedSelection = para.Find("Company name", true, false);
+                        TextSelection replacedSelection = para.Find("Company", true, false);
 
                         if (replacedSelection != null)
                         {
