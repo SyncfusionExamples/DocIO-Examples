@@ -38,7 +38,6 @@ namespace Replace_content_with_bookmark
         private static void DocxReplaceTextWithDocPart(WordDocument destinationDocument, WordDocument sourceDocument, string tokenToFind, string textBookmark)
         {
             string bookmarkRef = textBookmark + "_bm";
-
             // Find the text in the destination document where the bookmark start needs to be inserted.
             TextSelection start = destinationDocument.Find(tokenToFind, true, true);
             if (start != null)
