@@ -18,9 +18,9 @@ namespace Replace_content_with_bookmark
                         using (WordDocument sourceDocument = new WordDocument(sourceStream, FormatType.Docx))
                         {
                             //Replace text "Text one" in the destination document with content from the bookmark "bkmk1" in the source document.
-                            DocxReplaceTextWithDocPart(destinationDocument, sourceDocument, "Text one", "bkmk1");
+                            ReplaceTextAndMaintainListFormat(destinationDocument, sourceDocument, "Text one", "bkmk1");
                             //Replace text "Text two" in the destination document with content from the bookmark "bkmk2" in the source document.
-                            DocxReplaceTextWithDocPart(destinationDocument, sourceDocument, "Text two", "bkmk2");
+                            ReplaceTextAndMaintainListFormat(destinationDocument, sourceDocument, "Text two", "bkmk2");
                             //Save the modified destination document to the output stream.
                             using (FileStream output = new FileStream(Path.GetFullPath("Output/Output.docx"), FileMode.Create, FileAccess.Write))
                             {
@@ -35,7 +35,7 @@ namespace Replace_content_with_bookmark
         /// <summary>
         /// Replaces specific text in a Word document with bookmarked content from another document, maintaining formatting.
         /// </summary>
-        private static void DocxReplaceTextWithDocPart(WordDocument destinationDocument, WordDocument sourceDocument, string tokenToFind, string textBookmark)
+        private static void ReplaceTextAndMaintainListFormat(WordDocument destinationDocument, WordDocument sourceDocument, string tokenToFind, string textBookmark)
         {
             string bookmarkRef = textBookmark + "_bm";
             // Find the text in the destination document where the bookmark start needs to be inserted.
