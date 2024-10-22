@@ -8,7 +8,7 @@ namespace Phase_by_phase_mail_merge
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Open the input Word document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
@@ -34,7 +34,7 @@ namespace Phase_by_phase_mail_merge
                     //Perform the mail merge.
                     document.MailMerge.Execute(phase3_FieldName, phase3_FieldValue);
                     //Create file stream.
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);

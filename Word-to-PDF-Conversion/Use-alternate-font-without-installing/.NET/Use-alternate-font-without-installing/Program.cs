@@ -10,7 +10,7 @@ namespace Use_alternate_font_without_installing
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open))
             {
                 //Loads an existing Word document.
                 using (WordDocument wordDocument = new WordDocument(fileStream, Syncfusion.DocIO.FormatType.Automatic))
@@ -26,7 +26,7 @@ namespace Use_alternate_font_without_installing
                             //Unhooks the font substitution event after converting to PDF.
                             wordDocument.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
                             //Saves the PDF file to file system.    
-                            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../WordToPDF.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                             {
                                 pdfDocument.Save(outputStream);
                             }
@@ -38,10 +38,21 @@ namespace Use_alternate_font_without_installing
         private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
         {
             //Sets the alternate font when a specified font is not installed in the production environment.
-            if (args.OriginalFontName == "Arial Unicode MS" && args.FontStyle == FontStyle.Regular)
-                args.AlternateFontStream = new FileStream(Path.GetFullPath(@"../../../Data/Arial.TTF"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            else
-                args.AlternateFontName = "Times New Roman";
+            if (args.OrignalFontName == "Arial Unicode MS")
+            {
+                switch (args.FontStyle)
+                {
+                    case FontStyle.Italic:
+                        args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/Arial_italic.TTF"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        break;
+                    case FontStyle.Bold:
+                        args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/Arial_bold.TTF"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        break;
+                    default:
+                        args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/Arial.TTF"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        break;
+                }
+            }
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Add_group_shape_in_Word
                 groupShape.Add(shape);
                 //Creates new picture.
                 WPicture picture = new WPicture(document);
-                using (FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Image.png"), FileMode.Open, FileAccess.ReadWrite))
+                using (FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Image.png"), FileMode.Open, FileAccess.ReadWrite))
                 {
                     picture.LoadImage(imageStream);
                 }
@@ -71,7 +71,7 @@ namespace Add_group_shape_in_Word
                 //Adds the specified textbox to group shape.
                 groupShape.Add(textbox);
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

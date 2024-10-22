@@ -9,7 +9,7 @@ namespace Retrieve_merge_field_names
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Creates new Word document instance for Word processing.
                 using (WordDocument document = new WordDocument())
@@ -37,8 +37,6 @@ namespace Retrieve_merge_field_names
                     Console.WriteLine("\n\nMerge field names in " + groupNames[1] + " Group :");
                     foreach (string fieldNameInGroup in fieldNamesInGroup)
                         Console.WriteLine(fieldNameInGroup);
-
-                    Console.ReadKey();
                 }
             }
         }

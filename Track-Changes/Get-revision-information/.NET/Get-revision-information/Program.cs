@@ -9,7 +9,7 @@ namespace Get_revision_information
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Creates a new Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
@@ -22,10 +22,9 @@ namespace Get_revision_information
                     DateTime dateTime = revision.Date;
                     //Gets the type of the track changes revision.
                     RevisionType revisionType = revision.RevisionType;
-                    Console.WriteLine("Author : " + author);
+					Console.WriteLine("Author : " + author);
                     Console.WriteLine("\nDate and Time : " + dateTime);
                     Console.WriteLine("\nRevision Type : " + revisionType);
-                    Console.ReadKey();
                 }
             }
         }

@@ -2,7 +2,7 @@
 using Syncfusion.DocIO.DLS;
 
 //Open a Word document using File stream.
-using (FileStream inputStream = new FileStream("../../../Input.docx", FileMode.Open, FileAccess.Read))
+using (FileStream inputStream = new FileStream(Path.GetFullPath("Data/Input.docx"), FileMode.Open, FileAccess.Read))
 {
     // OPen the existing Word document.
     using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
@@ -21,7 +21,7 @@ using (FileStream inputStream = new FileStream("../../../Input.docx", FileMode.O
             //Modify the LaTeX string
             math.MathParagraph.LaTeX = laTeX;
         }
-        using (FileStream outputStream = new FileStream(@"../../../Result.docx", FileMode.Create, FileAccess.Write))
+        using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.Write))
         {
             document.Save(outputStream, FormatType.Docx);
         }

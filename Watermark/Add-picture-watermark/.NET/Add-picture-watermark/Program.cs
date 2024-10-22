@@ -22,13 +22,13 @@ namespace Add_picture_watermark
                 picWatermark.Washout = true;
                 //Sets the picture watermark to document.
                 document.Watermark = picWatermark;
-                FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Northwind-logo.png"), FileMode.Open, FileAccess.Read);
+                FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/Northwind-logo.png"), FileMode.Open, FileAccess.Read);
                 BinaryReader br = new BinaryReader(imageStream);
                 byte[] image = br.ReadBytes((int)imageStream.Length);
                 //Sets the image to the picture watermark.
                 picWatermark.LoadPicture(image);
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

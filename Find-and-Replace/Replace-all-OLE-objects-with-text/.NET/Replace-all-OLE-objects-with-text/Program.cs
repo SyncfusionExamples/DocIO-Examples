@@ -2,7 +2,7 @@
 using Syncfusion.DocIO;
 
 //Open the file as a Stream.
-using (FileStream docStream = new FileStream("../../../Data/Template.docx", FileMode.Open, FileAccess.Read))
+using (FileStream docStream = new FileStream("Data/Template.docx", FileMode.Open, FileAccess.Read))
 {
     //Load the file stream into a Word document.
     using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
@@ -17,7 +17,7 @@ using (FileStream docStream = new FileStream("../../../Data/Template.docx", File
             ReplaceOLEObjectsWithPlaceHolder(ole, "Embedded file was here");
         }
         //Save a  Word document to the MemoryStream.
-        FileStream outputStream = new FileStream(@"../../../Data/Output.docx", FileMode.OpenOrCreate);
+        FileStream outputStream = new FileStream(@"Output/Output.docx", FileMode.OpenOrCreate);
         document.Save(outputStream, FormatType.Docx);
         //Closes the Word document
         document.Close();

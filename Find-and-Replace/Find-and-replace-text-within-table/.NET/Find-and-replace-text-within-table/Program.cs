@@ -10,7 +10,7 @@ namespace Find_and_replace_text_within_table
         static void Main(string[] args)
         {
             //Open the file as Stream.
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Load the Input document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -21,7 +21,7 @@ namespace Find_and_replace_text_within_table
                     TextSelection textSelection = document.Find("Adventure Works Cycles", false, true);
                     //Find and replace text inside table.
                     FindAndReplaceInTable(table,textSelection);
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath("../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath("Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the document.
                         document.Save(outputFileStream, FormatType.Docx);

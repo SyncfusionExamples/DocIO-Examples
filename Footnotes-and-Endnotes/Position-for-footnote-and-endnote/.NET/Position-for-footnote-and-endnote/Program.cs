@@ -54,7 +54,7 @@ namespace Position_for_footnote_and_endnote
                 //Append text into the paragraph.
                 paragraph.AppendText("Paragraph in third Section.");
                 //Create file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Save the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

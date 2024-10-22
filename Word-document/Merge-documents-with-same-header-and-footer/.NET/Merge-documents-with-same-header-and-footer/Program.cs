@@ -12,13 +12,13 @@ namespace Merge_documents_with_same_header_and_footer
         static void Main(string[] args)
         {
             //Open the destination document as a stream.
-            using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"Data/DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Open the destination document.
                 using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
                 {
                     //Get the Source document names from the folder.
-                    string[] sourceDocumentNames = Directory.GetFiles(@"../../../Data/SourceDocuments/");
+                    string[] sourceDocumentNames = Directory.GetFiles(Path.GetFullPath(@"Data/SourceDocuments/"));
                     //Merge each source document to the destination document.
                     foreach (string subDocumentName in sourceDocumentNames)
                     {
@@ -45,7 +45,7 @@ namespace Merge_documents_with_same_header_and_footer
                         }
                     }
                     //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to the file stream.
                         destinationDocument.Save(outputFileStream, FormatType.Docx);

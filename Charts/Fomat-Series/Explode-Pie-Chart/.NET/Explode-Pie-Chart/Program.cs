@@ -11,7 +11,7 @@ namespace Explode_Pie_Chart
     {
         static void Main(string[] args)
         {
-            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             //Open an existing document from file system through constructor of WordDocument class
             using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
             {
@@ -23,7 +23,7 @@ namespace Explode_Pie_Chart
                 //Exploding the pie chart to 40%.
                 chart.Series[0].SerieFormat.Percent = 40;
 
-                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                 {
                     //Save the Word file.
                     document.Save(outputStream, FormatType.Docx);

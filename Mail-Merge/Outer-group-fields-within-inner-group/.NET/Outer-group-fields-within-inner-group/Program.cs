@@ -10,7 +10,7 @@ namespace Outer_group_fields_within_inner_group
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Open the template Word document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
@@ -29,7 +29,7 @@ namespace Outer_group_fields_within_inner_group
                     //Execute the nested mail merge.
                     document.MailMerge.ExecuteNestedGroup(dataSet, commands);
                     //Create a file stream.
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save a Word document to the file stream.
                         document.Save(outputStream, FormatType.Docx);
@@ -54,7 +54,7 @@ namespace Outer_group_fields_within_inner_group
                 row["BillID"] = "BL7936";
                 row["ControlNumber"] = "CN100";
                 row["RecipientId"] = "900893674";
-                FileStream fs = new FileStream((@"../../../Data/Mountain-300.png"), FileMode.Open, FileAccess.Read);
+                FileStream fs = new FileStream((@"Data/Mountain-300.png"), FileMode.Open, FileAccess.Read);
                 byte[] buff = new byte[fs.Length];
                 fs.Read(buff, 0, buff.Length);
                 fs.Dispose();
@@ -73,7 +73,7 @@ namespace Outer_group_fields_within_inner_group
                 row["DetailID"] = "6758671";
                 row["ControlNumber"] = "CN110";
                 row["ProductAmount"] = "1500";
-                fs = new FileStream((@"../../../Data/Road-550-W.png"), FileMode.Open, FileAccess.ReadWrite);
+                fs = new FileStream((@"Data/Road-550-W.png"), FileMode.Open, FileAccess.ReadWrite);
                 buff = new byte[fs.Length];
                 fs.Read(buff, 0, buff.Length);
                 fs.Dispose();
@@ -90,7 +90,7 @@ namespace Outer_group_fields_within_inner_group
                 row["DetailID"] = "6758671";
                 row["ControlNumber"] = "CN111";
                 row["DiscountAmount"] = "500";
-                fs = new FileStream((@"../../../Data/Mountain-200.png"), FileMode.Open, FileAccess.ReadWrite);
+                fs = new FileStream((@"Data/Mountain-200.png"), FileMode.Open, FileAccess.ReadWrite);
                 buff = new byte[fs.Length];
                 fs.Read(buff, 0, buff.Length);
                 fs.Dispose();

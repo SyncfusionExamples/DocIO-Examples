@@ -10,7 +10,7 @@ namespace Customize_Word_to_HTML_conversion
         static void Main(string[] args)
         {
             //Loads an existing Word document into DocIO instance.
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Rtf))
                 {
@@ -26,7 +26,7 @@ namespace Customize_Word_to_HTML_conversion
                     document.SaveOptions.HtmlExportOmitXmlDeclaration = false;
 
                     //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../WordToHTML.html"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/WordToHTML.html"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Html);

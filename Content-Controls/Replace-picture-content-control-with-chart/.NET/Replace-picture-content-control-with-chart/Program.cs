@@ -5,7 +5,7 @@ using Syncfusion.OfficeChart;
 
 
 // Open the file as stream.
-using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open))
+using (FileStream docStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open))
 {
     // Load file stream into Word document.
     using (WordDocument document = new WordDocument(docStream, Syncfusion.DocIO.FormatType.Automatic))
@@ -39,7 +39,7 @@ using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Data/In
 
 
         // Create file stream for output document.
-        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Data/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
         {
             // Save the Word document to the file stream.
             document.Save(outputFileStream, FormatType.Docx);

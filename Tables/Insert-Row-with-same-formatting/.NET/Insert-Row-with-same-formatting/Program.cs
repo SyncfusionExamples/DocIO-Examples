@@ -8,7 +8,7 @@ namespace Insert_Row_with_same_formatting
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Open an existing Word document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
@@ -31,7 +31,7 @@ namespace Insert_Row_with_same_formatting
                     //Insert a row into the table in specific index.
                     table.Rows.Insert(2, row);
                     //Create file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document.
                         document.Save(outputFileStream, FormatType.Docx);

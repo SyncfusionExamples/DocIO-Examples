@@ -9,7 +9,7 @@ namespace Split_table_with_same_format
         static void Main(string[] args)
         {
             //Open the file as a stream.
-            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
@@ -22,7 +22,7 @@ namespace Split_table_with_same_format
                     //Add the second table.
                     table.OwnerTextBody.ChildEntities.Add(secondTable);
                     //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to the file stream.
                         document.Save(outputFileStream, FormatType.Docx);

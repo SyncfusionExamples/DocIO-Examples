@@ -10,7 +10,7 @@ namespace Remove_placeholder_of_empty_meta_property
         static void Main(string[] args)
         {
             //Open the file as a stream.
-            using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.Read))
+            using (FileStream docStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read))
             {
                 //Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
@@ -23,14 +23,14 @@ namespace Remove_placeholder_of_empty_meta_property
                         IterateTextBody(sectionBody);
                     }
                     //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to the file stream.
                         document.Save(outputFileStream, FormatType.Docx);
                     }
                 }
             }
-            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"../../../Sample.docx")) { UseShellExecute = true });
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(Path.GetFullPath(@"Output/Output.docx")) { UseShellExecute = true });
         }
         /// <summary>
         /// Iterate the TextBody of the Word document.

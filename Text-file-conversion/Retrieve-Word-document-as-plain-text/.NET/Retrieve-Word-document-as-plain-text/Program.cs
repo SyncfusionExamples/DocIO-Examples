@@ -9,7 +9,7 @@ namespace Retrieve_Word_document_as_plain_text
         static void Main(string[] args)
         {
             //Loads an existing Word document into DocIO instance. 
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
@@ -25,7 +25,7 @@ namespace Retrieve_Word_document_as_plain_text
                         //Appends the text to the paragraph.
                         paragraph.AppendText(text);
                         //Creates file stream.
-                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                         {
                             //Saves the Word document to file stream.
                             newdocument.Save(outputFileStream, FormatType.Docx);

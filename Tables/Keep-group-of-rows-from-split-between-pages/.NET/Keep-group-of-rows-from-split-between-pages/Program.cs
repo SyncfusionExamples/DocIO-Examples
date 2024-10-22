@@ -24,7 +24,7 @@ namespace Keep_group_of_rows_from_split_between_pages
                 //Keep a group of rows in the same page when one of the row in group is placed on next page.
                 KeepGroupOfRows(innerTable, outerTable, rowSet);
                 //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Save the Word document to the file stream.
                     document.Save(outputFileStream, FormatType.Docx);

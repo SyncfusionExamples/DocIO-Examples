@@ -16,9 +16,9 @@ namespace Add_svg_image
                      //Add new paragraph to the section.
                      IWParagraph firstParagraph = section.AddParagraph();
                      //Get the image as byte array.
-                     byte[] imageBytes = File.ReadAllBytes(Path.GetFullPath(@"../../../Data/Buyers.png"));
+                     byte[] imageBytes = File.ReadAllBytes(Path.GetFullPath(@"Data/Buyers.png"));
                      //Get the SVG image as byte array.
-                     byte[] svgData = File.ReadAllBytes(Path.GetFullPath(@"../../../Data/Buyers.svg"));
+                     byte[] svgData = File.ReadAllBytes(Path.GetFullPath(@"Data/Buyers.svg"));
                      //Add SVG image to the paragraph.
                      IWPicture picture = firstParagraph.AppendPicture(svgData, imageBytes);
                      //Set height and width for the image.
@@ -26,7 +26,7 @@ namespace Add_svg_image
                      picture.Width = 100;
 
                 //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Save the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

@@ -9,7 +9,7 @@ namespace Replace_text_in_headers_and_footers
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Loads the template document
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
@@ -18,7 +18,7 @@ namespace Replace_text_in_headers_and_footers
                     WParagraph headerParagraph = new WParagraph(document);
                     //Align paragraph horizontally to the right.
                     headerParagraph.ParagraphFormat.HorizontalAlignment = HorizontalAlignment.Right;                   
-                    FileStream imageStream = new FileStream(Path.GetFullPath(@"../../../Data/AdventureCycle.jpg"), FileMode.Open, FileAccess.ReadWrite);
+                    FileStream imageStream = new FileStream(Path.GetFullPath(@"Data/AdventureCycle.jpg"), FileMode.Open, FileAccess.ReadWrite);
                     //Append picture in the paragraph.
                     WPicture picture = headerParagraph.AppendPicture(imageStream) as WPicture;
                     //Set width and height for the picture.
@@ -47,7 +47,7 @@ namespace Replace_text_in_headers_and_footers
                     footerBodyPart.BodyItems.Add(footerParagraph);
                     //Replace all entries of a given regular expression with the text body part along with its formatting in footer.
                     document.Replace(new Regex("^//(.*)"), footerBodyPart, false);
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath("../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath("Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the document.
                         document.Save(outputFileStream, FormatType.Docx);

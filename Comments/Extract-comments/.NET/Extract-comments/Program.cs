@@ -2,7 +2,7 @@
 using Syncfusion.DocIO;
 
 //Open an existing document
-using (FileStream inputStream = new FileStream(@"../../../Data/Template.docx", FileMode.Open, FileAccess.Read))
+using (FileStream inputStream = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read))
 {
     using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
     {

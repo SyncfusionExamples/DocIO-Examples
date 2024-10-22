@@ -9,13 +9,13 @@ namespace Merge_documents_without_import_headers
         static void Main(string[] args)
         {
             //Load the destination Word document as a stream.
-            using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"../../../DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"Data/DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Open the destination Word document.
                 using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
                 {
                     //Load the source Word document as a stream.
-                    using (FileStream sourceDocumentPathStream = new FileStream(Path.GetFullPath(@"../../../SourceDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    using (FileStream sourceDocumentPathStream = new FileStream(Path.GetFullPath(@"Data/SourceDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                     {
                         //Open the source Word document.
                         using (WordDocument sourceDocument = new WordDocument(sourceDocumentPathStream, FormatType.Docx))
@@ -41,7 +41,7 @@ namespace Merge_documents_without_import_headers
                         }
                     }
                     //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to the file stream.
                         destinationDocument.Save(outputFileStream, FormatType.Docx);

@@ -9,12 +9,12 @@ namespace Convert_Doc_to_Docx
         static void Main(string[] args)
         {
             //Loads an existing Word document into DocIO instance.
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"../../../Template.doc"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.doc"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Doc))
                 {
                     //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../DocToDocx.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/DocToDocx.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);

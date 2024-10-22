@@ -11,7 +11,7 @@ namespace Extract_images_from_Word_document
         static void Main(string[] args)
         {
             // Open the file as a stream.
-            using (FileStream docStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.Read))
+            using (FileStream docStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read))
             {
                 // Load the file stream into a Word document.
                 using (WordDocument document = new WordDocument(docStream, FormatType.Docx))
@@ -28,7 +28,7 @@ namespace Extract_images_from_Word_document
                         using (MemoryStream memoryStream = new MemoryStream(image.ImageBytes))
                         {
                             // Define the path where the image will be saved.
-                            string imagePath = Path.GetFullPath(@"../../../Image-" + i + ".jpeg");
+                            string imagePath = Path.GetFullPath(@"Output/Image-" + i + ".jpeg");
 
                             // Create a FileStream to write the image to the specified path.
                             using (FileStream filestream = new FileStream(imagePath, FileMode.Create, FileAccess.Write))

@@ -2,7 +2,7 @@
 {
     "region" : "us-east-1",
     "configuration" : "Debug",
-    "framework"     : "net6.0",
+    "framework"     : "net8.0",
     "self-contained" : false,
     "application"    : "ConvertWordDocumenttoPDF2",
     "environment"    : "ConvertWordDocumenttoPDF2-test",

@@ -10,7 +10,7 @@ namespace Mail_merge_with_JSON
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"../../../Input.docx"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Open the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
@@ -22,7 +22,7 @@ namespace Mail_merge_with_JSON
                     document.MailMerge.Execute(jsonData);
 
                     //Create file stream.
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
@@ -37,7 +37,7 @@ namespace Mail_merge_with_JSON
         private static List<object> GetJsonData()
         {
             //Reads the JSON object from JSON file.
-            JObject jsonObject = JObject.Parse(File.ReadAllText(Path.GetFullPath(@"../../../Json Data.json")));
+            JObject jsonObject = JObject.Parse(File.ReadAllText(Path.GetFullPath(@"Data/Json Data.json")));
             //Converts JSON object to Dictionary.
             IDictionary<string, object> data = GetData(jsonObject);
             return data["Employee"] as List<object>;
