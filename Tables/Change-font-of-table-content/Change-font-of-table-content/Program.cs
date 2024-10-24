@@ -6,8 +6,6 @@ using (FileStream inputStream = new FileStream("Data/Input.docx", FileMode.Open,
     // Open the input HTML format document.
     using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
     {
-        // Access the first section of the document.
-        WSection section = document.Sections[0];
         // Find a table by Title.
         WTable table = document.FindItemByProperty(EntityType.Table, "Title", "Adventure") as WTable;
         // Iterate through each row in the table.
@@ -25,7 +23,7 @@ using (FileStream inputStream = new FileStream("Data/Input.docx", FileMode.Open,
                         // Check if the child entity is a text range.
                         if (entity is WTextRange)
                         {
-                            // Apply character format to change the font to Arial for the text range.
+                            // Apply character format to change the font to Algerian for the text range.
                             (entity as WTextRange).CharacterFormat.FontName = "Algerian";
                         }
                     }
