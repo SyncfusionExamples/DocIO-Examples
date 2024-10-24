@@ -3,7 +3,7 @@ using Syncfusion.DocIO;
 
 using (FileStream inputStream = new FileStream("Data/Input.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
-    // Open the input HTML format document.
+    // Open the input Word document.
     using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
     {
         // Find a table by Title.
@@ -23,7 +23,7 @@ using (FileStream inputStream = new FileStream("Data/Input.docx", FileMode.Open,
                         // Check if the child entity is a text range.
                         if (entity is WTextRange)
                         {
-                            // Apply character format to change the font to Algerian for the text range.
+                            // Change the font to Algerian for the text range.
                             (entity as WTextRange).CharacterFormat.FontName = "Algerian";
                         }
                     }
