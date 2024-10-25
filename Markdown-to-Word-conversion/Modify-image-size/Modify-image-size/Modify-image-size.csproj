@@ -24,9 +24,6 @@
 	  <None Update="Data\Image_2.png">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Data\Input.md">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
 	  <None Update="Output\.gitkeep">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>

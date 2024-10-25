@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35309.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modify_image_size", "Modify_image_size\Modify_image_size.csproj", "{280B67DF-9185-42E5-9498-D12BAC8BAE2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modify-image-size", "Modify-image-size\Modify-image-size.csproj", "{280B67DF-9185-42E5-9498-D12BAC8BAE2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
