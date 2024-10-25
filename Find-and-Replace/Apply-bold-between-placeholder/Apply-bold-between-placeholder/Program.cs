@@ -2,19 +2,18 @@
 using Syncfusion.DocIO;
 using System.Text.RegularExpressions;
 
-// Open the DOCX file from the file stream.
-using (FileStream fileStream1 = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read))
+using (FileStream inputFileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read))
 {
     // Create a WordDocument instance by loading the DOCX file from the file stream.
-    using (WordDocument document = new WordDocument(fileStream1, FormatType.Docx))
+    using (WordDocument document = new WordDocument(inputFileStream, FormatType.Docx))
     {
         // Apply bold formatting to specific text using a regular expression.
         ApplyBoldUsingRegex(document);
 
         // Save the modified document to an output file.
-        using (FileStream outputStream1 = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.OpenOrCreate, FileAccess.ReadWrite))
+        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.OpenOrCreate, FileAccess.ReadWrite))
         {
-            document.Save(outputStream1, FormatType.Docx);
+            document.Save(outputFileStream, FormatType.Docx);
         }
     }
 }
@@ -29,42 +28,45 @@ static void ApplyBoldUsingRegex(WordDocument document)
     WTextRange endTextRange = null;   // Text range for the end tag.
 
     // Find the text that matches the <b>...</b> pattern using a regex.
-    TextSelection textSelection = document.Find(new Regex("<b>(.*)</b>"));
+    TextSelection[] textSelections = document.FindAll(new Regex("<b>(.*)</b>"));
 
-    // Get all text ranges that match the regex pattern.
-    WTextRange[] textRanges = textSelection.GetRanges();
-
-    // Iterate through each matched text range.
-    for (int i = 0; i < textRanges.Length; i++)
+    foreach (TextSelection textSelection in textSelections)
     {
-        WTextRange textRange = textRanges[i];
+        // Get all text ranges that match the regex pattern.
+        WTextRange[] textRanges = textSelection.GetRanges();
 
-        // If the text range contains both <b> and </b> tags.
-        if (i == 0 || i == textRanges.Length - 1)
+        // Iterate through each matched text range.
+        for (int i = 0; i < textRanges.Length; i++)
         {
-            if (textRange.Text.Contains("<b>") && textRange.Text.Contains("</b>"))
+            WTextRange textRange = textRanges[i];
+
+            // If the text range contains both <b> and </b> tags.
+            if (i == 0 || i == textRanges.Length - 1)
             {
-                // Process the text with both start and end tags.
-                ProcessTextWithStartAndEndTags(textRange);
+                if (textRange.Text.Contains("<b>") && textRange.Text.Contains("</b>"))
+                {
+                    // Process the text with both start and end tags.
+                    ProcessTextWithStartAndEndTags(textRange);
+                }
+                else if (textRange.Text.Contains("<b>") || textRange.Text.Contains("</b>"))
+                {
+                    // Process the text with only the start or end tag.
+                    ProcessTextWithPartialTags(textRange, ref para, ref startTextRange, ref endTextRange, ref startTagIndex, ref endTagIndex);
+                }
             }
-            else if (textRange.Text.Contains("<b>") || textRange.Text.Contains("</b>"))
+            else
             {
-                // Process the text with only the start or end tag.
-                ProcessTextWithPartialTags(textRange, ref para, ref startTextRange, ref endTextRange, ref startTagIndex, ref endTagIndex);
+                // Apply bold formatting to the text between <b> and </b>.
+                textRange.CharacterFormat.Bold = true;
             }
         }
-        else
-        {
-            // Apply bold formatting to the text between <b> and </b>.
-            textRange.CharacterFormat.Bold = true;
-        }
-    }
 
-    // Insert the start and end text ranges if applicable.
-    if (para != null)
-    {
-        para.ChildEntities.Insert(startTagIndex, startTextRange);
-        para.ChildEntities.Insert(endTagIndex + 1, endTextRange);
+        // Insert the start and end text ranges if applicable.
+        if (para != null)
+        {
+            para.ChildEntities.Insert(startTagIndex, startTextRange);
+            para.ChildEntities.Insert(endTagIndex + 1, endTextRange);
+        }
     }
 }
 
