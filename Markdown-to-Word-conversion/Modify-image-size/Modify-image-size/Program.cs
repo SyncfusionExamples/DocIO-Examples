@@ -2,48 +2,53 @@
 using Syncfusion.DocIO;
 using System.Net;
 
+//Register Syncfusion license
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2UlhhQlNHfV5DQmBWfFN0QXNYfVRwdF9GYEwgOX1dQl9nSXZTc0VlWndfcXNSQWc=");
+
 using (WordDocument document = new WordDocument())
 {
-    // Register the event to customize images while importing Markdown.
+    // Register an event to customize images while importing Markdown.
     document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
-    // Open the input Markdown file for reading.
-    using (FileStream inputFileStream = new FileStream(@"Data/Input.md", FileMode.Open, FileAccess.Read))
+    // Open the input Markdown file.
+    using (FileStream inputFileStream = new FileStream(Path.GetFullPath(@"Data/Input.md"), FileMode.Open, FileAccess.Read))
     {
+        // Load the Markdown file into the Word document.
         document.Open(inputFileStream, FormatType.Markdown);
-        #region ImageResize
-        // Find all images with the alternative text "File" and resize them to 300x300.
-        List<Entity> pictures = document.FindAllItemsByProperty(EntityType.Picture, "AlternativeText", "Adventure");
+
+        // Find all images with the alternative text "Mountain" and resize them.
+        List<Entity> pictures = document.FindAllItemsByProperty(EntityType.Picture, "AlternativeText", "Mountain");
         foreach (WPicture picture in pictures)
         {
-            picture.Height = 300;
-            picture.Width = 300;
+            picture.Height = 250;
+            picture.Width = 250;
         }
-        #endregion
+
         // Save the modified document.
-        using (FileStream outputFileStream = new FileStream(@"Output/Result.docx", FileMode.Create, FileAccess.Write))
+        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.Write))
         {
             document.Save(outputFileStream, FormatType.Docx);
         }
     }
 }
 
+/// <summary>
+/// Customizes image loading from local and remote sources during Markdown import.
+/// </summary>
 static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)
 {
-    // Set the image stream based on the image name from the Markdown input.
-    if (args.Uri == "Image_1.png")
-        args.ImageStream = new FileStream(@"Data/Image_1.png", FileMode.Open);
-    else if (args.Uri == "Image_2.png")
-        args.ImageStream = new FileStream(@"Data/Image_2.png", FileMode.Open);
-    // If the image is from a URL, download and set it as a stream.
+    // Load a specific image from a local path if the image URI matches.
+    if (args.Uri == "Road-550.png")
+        args.ImageStream = new FileStream(Path.GetFullPath(@"Data/Road-550.png"), FileMode.Open);
+    // If the image URI starts with "https://", download and set the image from the URL.
     else if (args.Uri.StartsWith("https://"))
     {
-        // Create a WebClient instance.
+        // Initialize a WebClient instance for downloading.
         WebClient client = new WebClient();
-        // Download the image as byte data.
+        // Download the image data as a byte array.
         byte[] image = client.DownloadData(args.Uri);
-        // Convert byte data to a memory stream.
+        // Convert the byte array to a memory stream.
         Stream stream = new MemoryStream(image);
-        // Set the stream for the image in Markdown.
+        // Set the downloaded stream as the image in the Markdown.
         args.ImageStream = stream;
     }
 }

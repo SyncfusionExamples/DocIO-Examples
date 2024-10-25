@@ -12,16 +12,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="Data\Adventure-work-cycles.png">
+	  <None Update="Data\Input.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Data\Cycle.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Data\Image_1.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Data\Image_2.png">
+	  <None Update="Data\Road-550.png">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Output\.gitkeep">
