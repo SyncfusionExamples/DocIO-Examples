@@ -3,14 +3,10 @@ using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 using Syncfusion.Drawing;
 
-using (FileStream inputStream = new FileStream(Path.GetFullPath("Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+using (FileStream inputStream = new FileStream(Path.GetFullPath("Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
-    // Open the Word document
+    // Open the input Word document
     WordDocument document = new WordDocument(inputStream, FormatType.Docx);
-
-    // Define the new color to apply to the styles
-    Color newColor = Color.Purple;
-
     // Iterate through all the styles in the document
     foreach (Style style in document.Styles)
     {
@@ -31,17 +27,13 @@ using (FileStream inputStream = new FileStream(Path.GetFullPath("Data/Template.d
             WCharacterStyle charStyle = style as WCharacterStyle;
             if (charStyle != null)
             {
-                charStyle.CharacterFormat.TextColor = Color.Green;
+                charStyle.CharacterFormat.TextColor = Color.Red;
             }
         }
     }
-
     // Save the modified document
     using (FileStream outputStream = new FileStream(Path.GetFullPath("Output/Result.docx"), FileMode.Create, FileAccess.Write))
     {
         document.Save(outputStream, FormatType.Docx);
     }
-
-    // Close the document
-    document.Close();
 }
