@@ -6,15 +6,15 @@ using (FileStream inputStream = new FileStream("Data/Template.docx", FileMode.Op
     // Open the template Word document.
     using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
     {
-        // Access the body of the first section of the document.
+        // Retrieve the body of the first section.
         WTextBody body = document.Sections[0].Body;
-        // Retrieve the first table from the body of the document.
+        // Retrieve the first table from the body.
         WTable table = document.Sections[0].Tables[0] as WTable;
         // Convert the table to text.
         string convertedText = ConvertTableToText(document, table);
         // Split the converted text by line breaks to create individual paragraphs.
         string[] paraText = convertedText.Split(new string[] { "\r\n" }, StringSplitOptions.None);
-        // Get the index of the table within the body entities.
+        // Get the index of the table.
         int index = body.ChildEntities.IndexOf(table);
         // Remove the table from the document body.
         body.ChildEntities.Remove(table);
@@ -37,7 +37,7 @@ using (FileStream inputStream = new FileStream("Data/Template.docx", FileMode.Op
 }
 
 /// <summary>
-/// Converts the specified table into text format.
+/// Converts the specified table into a text format, with cells separated by commas and rows by line breaks.
 /// </summary>
 static string ConvertTableToText(WordDocument document, WTable table)
 {
