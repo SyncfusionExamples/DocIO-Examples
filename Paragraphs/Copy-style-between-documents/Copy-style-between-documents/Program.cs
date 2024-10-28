@@ -12,13 +12,13 @@ using (FileStream sourceStream = new FileStream(Path.GetFullPath(@"Data/SourceDo
             using (WordDocument destinationDocument = new WordDocument(destinationStream, FormatType.Docx))
             {
                 //Get the style from source document.
-                WParagraphStyle paraStyle = sourceDocument.Styles.FindByName("User_defined_style") as WParagraphStyle;
+                WParagraphStyle paraStyle = sourceDocument.Styles.FindByName("MyStyle") as WParagraphStyle;
                 //Add it into destination document.
                 destinationDocument.Styles.Add(paraStyle.Clone());
                 //Get the first paragraph in destination document.
                 WParagraph paragraph = destinationDocument.Sections[0].Body.ChildEntities[0] as WParagraph;
                 //Applies the new style to paragraph.
-                paragraph.ApplyStyle("User_defined_style");
+                paragraph.ApplyStyle("MyStyle");
                 //Saves the destination document.
                 using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
