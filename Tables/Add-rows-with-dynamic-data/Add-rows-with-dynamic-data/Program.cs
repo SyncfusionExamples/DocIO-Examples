@@ -1,7 +1,5 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using Syncfusion.DocIORenderer;
-using Syncfusion.Pdf;
 
 using (FileStream inputStream = new FileStream(@"Data/Template.docx", FileMode.Open, FileAccess.Read))
 {
@@ -36,17 +34,10 @@ using (FileStream inputStream = new FileStream(@"Data/Template.docx", FileMode.O
                 }
             }
         }
-        using (DocIORenderer renderer = new DocIORenderer())
+        using (FileStream outputStream = new FileStream(@"Output/Result.docx", FileMode.Create, FileAccess.Write))
         {
-            // Convert the Word document into a PDF document.
-            using (PdfDocument pdfDocument = renderer.ConvertToPDF(document))
-            {
-                using (FileStream outputStream = new FileStream(@"Output/Result.pdf", FileMode.Create, FileAccess.Write))
-                {
-                    // Save the converted PDF document.
-                    pdfDocument.Save(outputStream);
-                }
-            }
+            // Save the converted PDF document.
+            document.Save(outputStream, FormatType.Docx);
         }
     }
 }
