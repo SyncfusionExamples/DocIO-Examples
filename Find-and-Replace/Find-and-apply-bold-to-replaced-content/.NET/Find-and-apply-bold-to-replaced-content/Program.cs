@@ -25,21 +25,14 @@ namespace Find_and_apply_bold_to_replaced_content
                     int paraIndex = body.ChildEntities.IndexOf(paragraph);
                     // Replace the selected text with the replace content.
                     document.Replace(selection.SelectedText, "Adventure Works Cycles", true, true);
-                    // Iterate the body from the replaced paragraph.
-                    for (int i = paraIndex; i < body.Count; i++)
+                    // Search for the word within the current paragraph.
+                    TextSelection replacedSelection = paragraph.Find("Works", true, false);
+                    if (replacedSelection != null)
                     {
-                        // Access each paragraph in the body.
-                        WParagraph para = body.ChildEntities[i] as WParagraph;
-                        // Search for the word within the current paragraph.
-                        TextSelection replacedSelection = para.Find("Works", true, false);
-                        if (replacedSelection != null)
-                        {
-                            // Get the selected text as a single text range.
-                            WTextRange replacedTextRange = replacedSelection.GetAsOneRange();
-                            // Apply bold formatting to the text range.
-                            replacedTextRange.CharacterFormat.Bold = true;
-                            break;
-                        }
+                        // Get the selected text as a single text range.
+                        WTextRange replacedTextRange = replacedSelection.GetAsOneRange();
+                        // Apply bold formatting to the text range.
+                        replacedTextRange.CharacterFormat.Bold = true;
                     }
                     // Save the modified document to the specified output path.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.Write))
