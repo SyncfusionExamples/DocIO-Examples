@@ -27,7 +27,7 @@ void SkipRangeOfRecords(object sender, MergeFieldEventArgs args)
 {
     // Check if the current row index is between 3 and 9.
     // If so, set the field text to an empty string, effectively skipping those records.
-    if (args.RowIndex < 10 && args.RowIndex > 2)
+    if (args.RowIndex > 2 && args.RowIndex < 7)
         args.Text = string.Empty;
 }
 
