@@ -3,12 +3,12 @@ using Syncfusion.DocIO;
 
 using (FileStream destinationStream = new FileStream(Path.GetFullPath(@"Data/DestinationDocument.docx"), FileMode.Open, FileAccess.ReadWrite))
 {
-    //Open the source document.
+    //Open the destination document.
     using (WordDocument destinationDocument = new WordDocument(destinationStream, FormatType.Docx))
     {
         using (FileStream sourceStream = new FileStream(Path.GetFullPath(@"Data/SourceDocument.docx"), FileMode.Open, FileAccess.ReadWrite))
         {
-            //Open the destination document.
+            //Open the source document.
             using (WordDocument sourceDocument = new WordDocument(sourceStream, FormatType.Docx))
             {
                 // Retrieve the specific style from the source document.
