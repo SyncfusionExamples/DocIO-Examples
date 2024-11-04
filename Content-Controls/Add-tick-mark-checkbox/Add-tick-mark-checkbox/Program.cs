@@ -22,9 +22,9 @@ using (WordDocument document = new WordDocument())
     // Gets the last paragraph.
     WParagraph paragraph = document.LastParagraph;
     // Add text to the paragraph.
-    document.LastParagraph.AppendText("Gender:\tFemale ");
+    paragraph.AppendText("Gender:\tFemale ");
     // Append checkbox content control to the paragraph  for the "checked" option.
-    IInlineContentControl checkedCheckBox = document.LastParagraph.AppendInlineContentControl(ContentControlType.CheckBox);
+    IInlineContentControl checkedCheckBox = paragraph.AppendInlineContentControl(ContentControlType.CheckBox);
     // Set the checked state of the checkbox content control to display the tick symbol when selected
     checkedCheckBox.ContentControlProperties.CheckedState = tickState;
     // Set the unchecked state of the checkbox content control to display an empty box when not selected
@@ -35,9 +35,9 @@ using (WordDocument document = new WordDocument())
     // Gets the last paragraph.
     paragraph = document.LastParagraph;
     // Add text to the paragraph.
-    document.LastParagraph.AppendText("\tMale ");
+    paragraph.AppendText("\tMale ");
     // Append checkbox content control to the paragraph  for the "unchecked" option.
-    IInlineContentControl uncheckedCheckBox = document.LastParagraph.AppendInlineContentControl(ContentControlType.CheckBox);
+    IInlineContentControl uncheckedCheckBox = paragraph.AppendInlineContentControl(ContentControlType.CheckBox);
     // Set the checked and unchecked states.
     uncheckedCheckBox.ContentControlProperties.CheckedState = tickState;
     uncheckedCheckBox.ContentControlProperties.UncheckedState = unTickState;
