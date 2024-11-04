@@ -9,7 +9,7 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="*" />
+		<PackageReference Include="Syncfusion.DocIO.Net.Core" Version="*" />
 	</ItemGroup>
 
 	<ItemGroup>
