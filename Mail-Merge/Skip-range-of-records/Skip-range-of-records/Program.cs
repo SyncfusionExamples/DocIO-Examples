@@ -25,7 +25,7 @@ using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.d
 /// </summary>
 void SkipRangeOfRecords(object sender, MergeFieldEventArgs args)
 {
-    // Check if the current row index is between 3 and 9.
+    // Check if the current row index is between 2 and 7.
     // If so, set the field text to an empty string, effectively skipping those records.
     if (args.RowIndex > 2 && args.RowIndex < 7)
         args.Text = string.Empty;
