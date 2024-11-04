@@ -32,8 +32,6 @@ using (WordDocument document = new WordDocument())
     // Set the initial state of the "Female" checkbox to checked
     checkedCheckBox.ContentControlProperties.IsChecked = true;
 
-    // Gets the last paragraph.
-    paragraph = document.LastParagraph;
     // Add text to the paragraph.
     paragraph.AppendText("\tMale ");
     // Append checkbox content control to the paragraph  for the "unchecked" option.
@@ -45,8 +43,8 @@ using (WordDocument document = new WordDocument())
     uncheckedCheckBox.ContentControlProperties.IsChecked = false;
 
     // Save the document.
-    using (FileStream outputStream1 = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.OpenOrCreate, FileAccess.ReadWrite))
+    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.OpenOrCreate, FileAccess.ReadWrite))
     {
-        document.Save(outputStream1, FormatType.Docx);
+        document.Save(outputStream, FormatType.Docx);
     }
 }
