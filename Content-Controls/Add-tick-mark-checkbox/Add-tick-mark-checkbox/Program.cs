@@ -24,23 +24,23 @@ using (WordDocument document = new WordDocument())
     // Add text to the paragraph.
     paragraph.AppendText("Gender:\tFemale ");
     // Append checkbox content control to the paragraph  for the "checked" option.
-    IInlineContentControl checkedCheckBox = paragraph.AppendInlineContentControl(ContentControlType.CheckBox);
+    IInlineContentControl checkBox = paragraph.AppendInlineContentControl(ContentControlType.CheckBox);
     // Set the checked state of the checkbox content control to display the tick symbol when selected
-    checkedCheckBox.ContentControlProperties.CheckedState = tickState;
+    checkBox.ContentControlProperties.CheckedState = tickState;
     // Set the unchecked state of the checkbox content control to display an empty box when not selected
-    checkedCheckBox.ContentControlProperties.UncheckedState = unTickState;
+    checkBox.ContentControlProperties.UncheckedState = unTickState;
     // Set the initial state of the "Female" checkbox to checked
-    checkedCheckBox.ContentControlProperties.IsChecked = true;
+    checkBox.ContentControlProperties.IsChecked = true;
 
     // Add text to the paragraph.
     paragraph.AppendText("\tMale ");
     // Append checkbox content control to the paragraph  for the "unchecked" option.
-    IInlineContentControl uncheckedCheckBox = paragraph.AppendInlineContentControl(ContentControlType.CheckBox);
+    checkBox = paragraph.AppendInlineContentControl(ContentControlType.CheckBox);
     // Set the checked and unchecked states.
-    uncheckedCheckBox.ContentControlProperties.CheckedState = tickState;
-    uncheckedCheckBox.ContentControlProperties.UncheckedState = unTickState;
+    checkBox.ContentControlProperties.CheckedState = tickState;
+    checkBox.ContentControlProperties.UncheckedState = unTickState;
     // Set the initial state of the "Male" checkbox to unchecked
-    uncheckedCheckBox.ContentControlProperties.IsChecked = false;
+    checkBox.ContentControlProperties.IsChecked = false;
 
     // Save the document.
     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.OpenOrCreate, FileAccess.ReadWrite))
