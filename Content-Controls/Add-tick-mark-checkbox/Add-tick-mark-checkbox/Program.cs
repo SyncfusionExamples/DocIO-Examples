@@ -1,49 +1,52 @@
 ﻿using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 
-//Register Syncfusion license
-Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2UlhhQlNHfV5DQmBWfFN0QXNYfVRwdF9GYEwgOX1dQl9nSXZTc0VlWndfcXNSQWc=");
-
-using (WordDocument wordDocument = new WordDocument())
+using (WordDocument document = new WordDocument())
 {
-    // Add a section and paragraph to initialize an empty document structure
-    wordDocument.EnsureMinimal();
+    // Add one section and one paragraph to the document.
+    document.EnsureMinimal();
 
-    // Append the label "Gender: Female" next to the first checkbox
-    wordDocument.LastParagraph.AppendText("Gender:\tFemale ");
-    // Append an inline content control to add a checkbox for the checked box
-    IInlineContentControl checkInline = wordDocument.LastParagraph.AppendInlineContentControl(ContentControlType.CheckBox);
     // Create a CheckBoxState for the checked state, using a tick symbol in the Wingdings font
     CheckBoxState tickState = new CheckBoxState
     {
         Font = "Wingdings",
         Value = "\uF0FE" // Unicode for the tick symbol (✓) in Wingdings
     };
-    // Set the checked state of the checkbox content control to display the tick symbol when selected
-    checkInline.ContentControlProperties.CheckedState = tickState;
     // Create a CheckBoxState for the unchecked state, using an empty box symbol in the Wingdings font
-    CheckBoxState uncheckedState = new CheckBoxState
+    CheckBoxState unTickState = new CheckBoxState
     {
         Font = "Wingdings",
         Value = "\uF0A8" // Unicode for the empty box symbol in Wingdings
     };
-    // Set the unchecked state of the checkbox content control to display an empty box when not selected
-    checkInline.ContentControlProperties.UncheckedState = uncheckedState;
-    // Set the initial state of the "Female" checkbox to checked
-    checkInline.ContentControlProperties.IsChecked = true;
 
-    // Append a tab space and add the label "Male" for the second checkbox
-    wordDocument.LastParagraph.AppendText("\tMale ");
-    // Append an inline content control to add a checkbox for the unchecked option
-    IInlineContentControl uncheckInline = wordDocument.LastParagraph.AppendInlineContentControl(ContentControlType.CheckBox);
+    // Gets the last paragraph.
+    WParagraph paragraph = document.LastParagraph;
+    // Add text to the paragraph.
+    document.LastParagraph.AppendText("Gender:\tFemale ");
+    // Append checkbox content control to the paragraph  for the "checked" option.
+    IInlineContentControl checkedCheckBox = document.LastParagraph.AppendInlineContentControl(ContentControlType.CheckBox);
+    // Set the checked state of the checkbox content control to display the tick symbol when selected
+    checkedCheckBox.ContentControlProperties.CheckedState = tickState;
+    // Set the unchecked state of the checkbox content control to display an empty box when not selected
+    checkedCheckBox.ContentControlProperties.UncheckedState = unTickState;
+    // Set the initial state of the "Female" checkbox to checked
+    checkedCheckBox.ContentControlProperties.IsChecked = true;
+
+    // Gets the last paragraph.
+    paragraph = document.LastParagraph;
+    // Add text to the paragraph.
+    document.LastParagraph.AppendText("\tMale ");
+    // Append checkbox content control to the paragraph  for the "unchecked" option.
+    IInlineContentControl uncheckedCheckBox = document.LastParagraph.AppendInlineContentControl(ContentControlType.CheckBox);
     // Set the checked and unchecked states.
-    uncheckInline.ContentControlProperties.CheckedState = tickState;
-    uncheckInline.ContentControlProperties.UncheckedState = uncheckedState;
+    uncheckedCheckBox.ContentControlProperties.CheckedState = tickState;
+    uncheckedCheckBox.ContentControlProperties.UncheckedState = unTickState;
     // Set the initial state of the "Male" checkbox to unchecked
-    uncheckInline.ContentControlProperties.IsChecked = false;
-    // Save the document to a file in DOCX format
+    uncheckedCheckBox.ContentControlProperties.IsChecked = false;
+
+    // Save the document.
     using (FileStream outputStream1 = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.OpenOrCreate, FileAccess.ReadWrite))
     {
-        wordDocument.Save(outputStream1, FormatType.Docx);
+        document.Save(outputStream1, FormatType.Docx);
     }
 }
