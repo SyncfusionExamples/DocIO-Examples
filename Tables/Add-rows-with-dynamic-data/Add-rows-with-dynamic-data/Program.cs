@@ -36,7 +36,7 @@ using (FileStream inputStream = new FileStream(@"Data/Template.docx", FileMode.O
         }
         using (FileStream outputStream = new FileStream(@"Output/Result.docx", FileMode.Create, FileAccess.Write))
         {
-            // Save the converted PDF document.
+            // Save the modified Word document.
             document.Save(outputStream, FormatType.Docx);
         }
     }
