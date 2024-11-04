@@ -2,16 +2,16 @@
 using Syncfusion.DocIO;
 using System.Net;
 
-// Create a Word document instance.
-using (WordDocument document = new WordDocument())
+using (FileStream inputFileStream = new FileStream(Path.GetFullPath(@"Data/Input.md"), FileMode.Open, FileAccess.Read))
 {
-    // Hook the event to customize the image while importing Markdown.
-    document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
-    using (FileStream inputFileStream = new FileStream(Path.GetFullPath(@"Data/Input.md"), FileMode.Open, FileAccess.Read))
+    // Create a Word document instance.
+    using (WordDocument document = new WordDocument())
     {
+        // Hook the event to customize the image while importing Markdown.
+        document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
         // Open the input Markdown file.
         document.Open(inputFileStream, FormatType.Markdown);
-        // Find all images with the alternative text "Mountain" and resize them.
+        // Find a picture by its alternative text and resize it.
         WPicture picture = document.FindItemByProperty(EntityType.Picture, "AlternativeText", "Mountain") as WPicture;
         picture.Height = 250;
         picture.Width = 250;

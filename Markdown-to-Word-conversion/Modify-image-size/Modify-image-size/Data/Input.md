@@ -6,7 +6,6 @@
 ![Road](Road-550.png)
 
 
-**Product No:** BK\-M68B\-38
 
 **Size:** 38
 
@@ -18,7 +17,6 @@
 ![Mountain](https://www.syncfusion.com/downloads/support/directtrac/general/Mountain-300-989274178.png)
 
 
-**Product No:** BK\-M47B\-38
 
 **Size:** 35
 
