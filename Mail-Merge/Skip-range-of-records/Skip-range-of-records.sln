@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35309.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skip-range-of-records", "Skip-range-of-records\Skip-range-of-records.csproj", "{3BADC57D-9594-49A2-92B3-A9925C41E66E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BADC57D-9594-49A2-92B3-A9925C41E66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BADC57D-9594-49A2-92B3-A9925C41E66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BADC57D-9594-49A2-92B3-A9925C41E66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BADC57D-9594-49A2-92B3-A9925C41E66E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFC8B131-CCB4-495D-B062-BB8386F39BF6}
+	EndGlobalSection
+EndGlobal
