@@ -5,17 +5,17 @@ using Syncfusion.DocIO;
 using Syncfusion.XlsIO;
 using Syncfusion.XlsIORenderer;
 
-//Initialize the DocIORenderer component for converting Word documents to PDF.
-using (DocIORenderer docIORenderer = new DocIORenderer())
+
+using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read))
 {
-    using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read))
+    //Open the input Word document.
+    using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
     {
-        //Open the input Word document.
-        using (WordDocument document = new WordDocument(inputStream, FormatType.Automatic))
-        {
-            //Replace embedded Excel objects in the document with images.
-            ReplaceExcelToImage(document);
-            //Convert the Word document to a PDF using the DocIORenderer component.
+        //Replace embedded Excel objects in the document with images.
+        ReplaceExcelToImage(document);
+        //Initialize the DocIORenderer component for converting Word documents to PDF.
+        using (DocIORenderer docIORenderer = new DocIORenderer())
+        { //Convert the Word document to a PDF using the DocIORenderer component.
             using (PdfDocument pdf = docIORenderer.ConvertToPDF(document))
             {
                 using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"), FileMode.Create, FileAccess.Write))

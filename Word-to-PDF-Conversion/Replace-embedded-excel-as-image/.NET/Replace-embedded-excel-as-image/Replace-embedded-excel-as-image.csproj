@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.DocIORenderer.NET" Version="*" />
-    <PackageReference Include="Syncfusion.XlsIORenderer.NET" Version="*" />
+    <PackageReference Include="Syncfusion.DocIORenderer.NET.Core" Version="*" />
+    <PackageReference Include="Syncfusion.XlsIORenderer.NET.Core" Version="*" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.2" />
   </ItemGroup>
 
