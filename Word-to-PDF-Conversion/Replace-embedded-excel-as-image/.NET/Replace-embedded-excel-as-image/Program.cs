@@ -5,7 +5,6 @@ using Syncfusion.DocIO;
 using Syncfusion.XlsIO;
 using Syncfusion.XlsIORenderer;
 
-
 using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read))
 {
     //Open the input Word document.
@@ -15,7 +14,8 @@ using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.doc
         ReplaceExcelToImage(document);
         //Initialize the DocIORenderer component for converting Word documents to PDF.
         using (DocIORenderer docIORenderer = new DocIORenderer())
-        { //Convert the Word document to a PDF using the DocIORenderer component.
+        { 
+            //Convert the Word document to a PDF using the DocIORenderer component.
             using (PdfDocument pdf = docIORenderer.ConvertToPDF(document))
             {
                 using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"), FileMode.Create, FileAccess.Write))
