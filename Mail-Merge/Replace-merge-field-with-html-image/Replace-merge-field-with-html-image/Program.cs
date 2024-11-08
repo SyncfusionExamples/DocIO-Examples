@@ -2,7 +2,7 @@
 using Syncfusion.DocIO;
 using System.Data;
 
-// Dictionary to maintain paragraph and corresponding merge field index with HTML content.
+//Dictionary to maintain paragraph and corresponding merge field index with HTML content.
 Dictionary<WParagraph, Dictionary<int, string>> paraToInsertHTML = new Dictionary<WParagraph, Dictionary<int, string>>();
 
 using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
@@ -10,19 +10,19 @@ using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.d
     //Opens the template Word document.
     using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
     {
-        //Registers a handler for the MergeField event to replace merge field with HTML content.
+        //Creates the mail merge events handler to replace merge field with HTML.
         document.MailMerge.MergeField += new MergeFieldEventHandler(MergeFieldEvent);
-        //Retrieves data to perform mail merge.
+        //Gets data to perform the mail merge.
         DataTable table = GetDataTable();
-        //Executes mail merge with the data source.
+        //Performs the mail merge.
         document.MailMerge.Execute(table);
-        //Inserts the HTML content into the corresponding paragraph.
+        //Append HTML to paragraph.
         InsertHtml();
-        //Removes the event handler after mail merge.
+        //Removes the mail merge events handler.
         document.MailMerge.MergeField -= new MergeFieldEventHandler(MergeFieldEvent);
         using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
         {
-            //Saves the Modified Word document
+            //Saves the Modified Word document.
             document.Save(outputStream, FormatType.Docx);
         }
     }
@@ -35,22 +35,22 @@ void MergeFieldEvent(object sender, MergeFieldEventArgs args)
 {
     if (args.FieldName.Equals("Logo"))
     {
-        //Gets the current paragraph containing the merge field.
+        //Gets the current merge field owner paragraph.
         WParagraph paragraph = args.CurrentMergeField.OwnerParagraph;
-        //Gets the index of the current merge field within the paragraph.
+        //Gets the current merge field index in the current paragraph.
         int mergeFieldIndex = paragraph.ChildEntities.IndexOf(args.CurrentMergeField);
-        //Creates a dictionary to store the HTML content for the merge field.
+        //Maintain HTML in collection.
         Dictionary<int, string> fieldValues = new Dictionary<int, string>();
         fieldValues.Add(mergeFieldIndex, args.FieldValue.ToString());
-        //Adds the paragraph and HTML content to the collection.
+        //Maintain paragraph in collection.
         paraToInsertHTML.Add(paragraph, fieldValues);
-        //Sets the merge field text as empty, so it is replaced with HTML.
+        //Set field value as empty.
         args.Text = string.Empty;
     }
 }
 
 /// <summary>
-/// Retrieves a data table for the mail merge operation.
+/// Get a data table for the mail merge operation.
 /// </summary>
 DataTable GetDataTable()
 {
@@ -67,7 +67,7 @@ DataTable GetDataTable()
     datarow["Address"] = "59 rue de I'Abbaye, Reims 51100, France";
     datarow["Phone"] = "1-888-936-8638";
 
-    //Reads HTML content from a file and assigns it to the "Logo" field.
+    //Reads HTML string from the file.
     string htmlString = File.ReadAllText(Path.GetFullPath(@"Data/File.html"));
     datarow["Logo"] = htmlString;
 
@@ -79,24 +79,24 @@ DataTable GetDataTable()
 /// </summary>
 void InsertHtml()
 {
-    //Iterates through each paragraph and field value in the dictionary.
+    //Iterates through each item in the dictionary.
     foreach (KeyValuePair<WParagraph, Dictionary<int, string>> dictionaryItems in paraToInsertHTML)
     {
         WParagraph paragraph = dictionaryItems.Key as WParagraph;
         Dictionary<int, string> values = dictionaryItems.Value as Dictionary<int, string>;
-
+        //Iterates through each value in the dictionary.
         foreach (KeyValuePair<int, string> valuePair in values)
         {
             int index = valuePair.Key;
             string fieldValue = valuePair.Value;
 
-            //Hooks the ImageNodeVisited event to resolve images within HTML content.
+            //Subscribe the ImageNodeVisited event to resolve images within HTML content.
             paragraph.Document.HTMLImportSettings.ImageNodeVisited += OpenImage;
 
-            //Inserts the HTML content at the position of the merge field in the paragraph.
+            //Inserts an HTML string at the same position of mergefield in a Word document.
             paragraph.OwnerTextBody.InsertXHTML(fieldValue, paragraph.OwnerTextBody.ChildEntities.IndexOf(paragraph), index);
 
-            //Unhooks the ImageNodeVisited event after processing.
+            //Unsubscribe the ImageNodeVisited event after processing.
             paragraph.Document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
         }
     }
@@ -110,5 +110,5 @@ void InsertHtml()
 void OpenImage(object sender, ImageNodeVisitedEventArgs args)
 {
     //Reads the image from the specified URI path and assigns it to the image stream.
-    args.ImageStream = System.IO.File.OpenRead(args.Uri);
+    args.ImageStream = File.OpenRead(args.Uri);
 }
