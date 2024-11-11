@@ -90,13 +90,13 @@ void InsertHtml()
             int index = valuePair.Key;
             string fieldValue = valuePair.Value;
 
-            //Subscribe the ImageNodeVisited event to resolve images within HTML content.
+            //Hook the ImageNodeVisited event to resolve images within HTML content.
             paragraph.Document.HTMLImportSettings.ImageNodeVisited += OpenImage;
 
             //Inserts an HTML string at the same position of mergefield in a Word document.
             paragraph.OwnerTextBody.InsertXHTML(fieldValue, paragraph.OwnerTextBody.ChildEntities.IndexOf(paragraph), index);
 
-            //Unsubscribe the ImageNodeVisited event after processing.
+            //Unhook the ImageNodeVisited event after processing.
             paragraph.Document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
         }
     }
