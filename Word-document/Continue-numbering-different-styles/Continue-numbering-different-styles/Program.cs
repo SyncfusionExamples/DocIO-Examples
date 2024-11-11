@@ -20,11 +20,9 @@ using (FileStream destinationStream = new FileStream(Path.GetFullPath("Data/Dest
                 for (int i = paragraphCount - 1; i >= 0; i--)
                 {
                     WParagraph paragraph = destinationDocument.LastSection.Paragraphs[i];
+                    // Get the current list style.
                     if (paragraph.ListFormat.CurrentListStyle != null)
-                    {
-                        // Get the current list style.
                         listStyle = paragraph.ListFormat.CurrentListStyle;
-                    }
                     else
                     {
                         // Check the paragraph style for a list style and store it.
