@@ -16,8 +16,8 @@ using (FileStream destinationStream = new FileStream(Path.GetFullPath("Data/Dest
                 // Initialize a variable to hold the list style from the destination document.
                 ListStyle listStyle = null;
                 // Iterate through the paragraphs in the last section of the destination document.
-                int countOfParagraph = destinationDocument.LastSection.Paragraphs.Count;
-                for (int i = countOfParagraph-1;i>=0;i--)
+                int paragraphCount = destinationDocument.LastSection.Paragraphs.Count;
+                for (int i = paragraphCount - 1; i >= 0; i--)
                 {
                     WParagraph paragraph = destinationDocument.LastSection.Paragraphs[i];
                     if (paragraph.ListFormat.CurrentListStyle != null)
