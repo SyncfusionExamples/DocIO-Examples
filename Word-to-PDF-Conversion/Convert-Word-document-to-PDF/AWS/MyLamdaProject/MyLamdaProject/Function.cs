@@ -27,6 +27,19 @@ namespace MyLamdaProject
         /// <returns></returns>
         public string FunctionHandler(string input, ILambdaContext context)
         {
+            //Path to the original library file.
+            string originalLibraryPath = "/lib64/libdl.so.2";
+
+            //Path to the symbolic link where the library will be copied.
+            string symlinkLibraryPath = "/tmp/libdl.so";
+
+            //Check if the original library file exists.
+            if (File.Exists(originalLibraryPath))
+            {
+                //Copy the original library file to the symbolic link path, overwriting if it already exists.
+                File.Copy(originalLibraryPath, symlinkLibraryPath, true);
+            }
+
             string filePath = Path.GetFullPath(@"Data/Adventure.docx");
 
             //Load the file from the disk

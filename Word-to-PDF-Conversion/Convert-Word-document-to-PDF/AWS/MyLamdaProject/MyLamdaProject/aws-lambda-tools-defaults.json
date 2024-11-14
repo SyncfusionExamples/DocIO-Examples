@@ -7,15 +7,21 @@
         "All the command line options for the Lambda command can be specified in this file."
     ],
     "profile"     : "AWSLAMBDA",
-    "region"      : "us-east-2",
+    "region"      : "us-east-1",
     "configuration" : "Release",
-    "framework"     : "net6.0",
-    "function-runtime" : "dotnet6",
-    "function-memory-size" : 256,
+    "framework"     : "net8.0",
+    "function-runtime" : "dotnet8",
+    "function-memory-size" : 512,
     "function-timeout"     : 30,
     "function-handler"     : "MyLamdaProject::MyLamdaProject.Function::FunctionHandler",
-    "function-name"        : "MyNewFunction",
-    "function-role"        : "arn:aws:iam::429376673271:role/ck_lambda_basic_execution",
+    "function-name"        : "lambda-106913",
+    "function-role"        : "arn:aws:iam::142887710098:role/ck_lambda_basic_execution",
     "tracing-mode"         : "PassThrough",
-    "environment-variables" : ""
+    "environment-variables" : "",
+    "function-description"  : "",
+    "package-type"          : "Zip",
+    "function-architecture" : "x86_64",
+    "function-subnets"      : "",
+    "function-security-groups" : "",
+    "image-tag"                : ""
 }
