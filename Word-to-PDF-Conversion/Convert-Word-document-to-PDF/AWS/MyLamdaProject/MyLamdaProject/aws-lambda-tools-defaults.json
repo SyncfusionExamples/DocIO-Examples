@@ -14,7 +14,7 @@
     "function-memory-size" : 512,
     "function-timeout"     : 30,
     "function-handler"     : "MyLamdaProject::MyLamdaProject.Function::FunctionHandler",
-    "function-name"        : "lambda-106913",
+    "function-name"        : "MyNewFunction",
     "function-role"        : "arn:aws:iam::142887710098:role/ck_lambda_basic_execution",
     "tracing-mode"         : "PassThrough",
     "environment-variables" : "",
