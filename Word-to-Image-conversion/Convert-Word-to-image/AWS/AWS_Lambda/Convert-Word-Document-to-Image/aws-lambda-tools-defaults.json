@@ -21,7 +21,7 @@
     "function-subnets"      : "",
     "function-security-groups" : "",
     "tracing-mode"             : "PassThrough",
-    "environment-variables"    : "",
+    "environment-variables"    : "\"LD_LIBRARY_PATH\"=\"/var/task:/tmp:/lib64:/usr/lib64\"",
     "image-tag"                : "",
     "function-description"     : ""
 }

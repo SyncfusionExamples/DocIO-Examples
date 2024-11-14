@@ -76,30 +76,12 @@ namespace MyLamdaProject
         /// <param name="args"></param>
         private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
         {
-            string filePath = string.Empty;
-
-            //Load the file from the disk
-            FileStream fileStream = null;
-
-            if (args.OriginalFontName == "Calibri")
-            {
-                filePath = Path.GetFullPath(@"Data/calibri.ttf");
-                fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-
-                args.AlternateFontStream = fileStream;
-            }
-            else if (args.OriginalFontName == "Arial")
-            {
-                filePath = Path.GetFullPath(@"Data/arial.ttf");
-                fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-                args.AlternateFontStream = fileStream;
-            }
+            if (args.OriginalFontName == "Calibri" && args.FontStyle == FontStyle.Regular)
+                args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/calibri.ttf"), FileMode.Open, FileAccess.Read);
+            else if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Regular)
+                args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/arial.ttf"), FileMode.Open, FileAccess.Read);
             else
-            {
-                filePath = Path.GetFullPath(@"Data/times.ttf");
-                fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-                args.AlternateFontStream = fileStream;
-            }
+                args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/times.ttf"), FileMode.Open, FileAccess.Read);
         }
     }
 }
