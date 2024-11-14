@@ -76,9 +76,9 @@ namespace MyLamdaProject
         /// <param name="args"></param>
         private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
         {
-            if (args.OriginalFontName == "Calibri" && args.FontStyle == FontStyle.Regular)
+            if (args.OriginalFontName == "Calibri")
                 args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/calibri.ttf"), FileMode.Open, FileAccess.Read);
-            else if (args.OriginalFontName == "Arial" && args.FontStyle == FontStyle.Regular)
+            else if (args.OriginalFontName == "Arial")
                 args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/arial.ttf"), FileMode.Open, FileAccess.Read);
             else
                 args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/times.ttf"), FileMode.Open, FileAccess.Read);
