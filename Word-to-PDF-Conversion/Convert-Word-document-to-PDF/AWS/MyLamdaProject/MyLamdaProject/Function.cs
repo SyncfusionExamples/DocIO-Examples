@@ -27,6 +27,19 @@ namespace MyLamdaProject
         /// <returns></returns>
         public string FunctionHandler(string input, ILambdaContext context)
         {
+            //Path to the original library file.
+            string originalLibraryPath = "/lib64/libdl.so.2";
+
+            //Path to the symbolic link where the library will be copied.
+            string symlinkLibraryPath = "/tmp/libdl.so";
+
+            //Check if the original library file exists.
+            if (File.Exists(originalLibraryPath))
+            {
+                //Copy the original library file to the symbolic link path, overwriting if it already exists.
+                File.Copy(originalLibraryPath, symlinkLibraryPath, true);
+            }
+
             string filePath = Path.GetFullPath(@"Data/Adventure.docx");
 
             //Load the file from the disk
@@ -63,30 +76,12 @@ namespace MyLamdaProject
         /// <param name="args"></param>
         private void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
         {
-            string filePath = string.Empty;
-
-            //Load the file from the disk
-            FileStream fileStream = null;
-
             if (args.OriginalFontName == "Calibri")
-            {
-                filePath = Path.GetFullPath(@"Data/calibri.ttf");
-                fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-
-                args.AlternateFontStream = fileStream;
-            }
+                args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/calibri.ttf"), FileMode.Open, FileAccess.Read);
             else if (args.OriginalFontName == "Arial")
-            {
-                filePath = Path.GetFullPath(@"Data/arial.ttf");
-                fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-                args.AlternateFontStream = fileStream;
-            }
+                args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/arial.ttf"), FileMode.Open, FileAccess.Read);
             else
-            {
-                filePath = Path.GetFullPath(@"Data/times.ttf");
-                fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-                args.AlternateFontStream = fileStream;
-            }
+                args.AlternateFontStream = new FileStream(Path.GetFullPath(@"Data/times.ttf"), FileMode.Open, FileAccess.Read);
         }
     }
 }
