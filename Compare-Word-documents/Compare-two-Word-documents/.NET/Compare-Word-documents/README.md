@@ -13,6 +13,7 @@ Step 3: Include the following namespaces in the Program.cs file.
 ```csharp
 using Syncfusion.DocIO; 
 using Syncfusion.DocIO.DLS;
+using System.IO;
 ```
 
 Step 4: Add the following code snippet in Program.cs file to compare Word documents.
