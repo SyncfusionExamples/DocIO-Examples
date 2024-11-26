@@ -1,8 +1,8 @@
-# Encrypt Word document using C#
+# Decrypt Word document using C#
 
-The Syncfusion [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) enables you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **encrypt Word documents** using C#.
+The Syncfusion [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) enables you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **decrypt Word documents** using C#.
 
-## Steps to encrypt a Word document programmatically
+## Steps to decrypt a Word document programmatically
 
 Step 1: Create a new .NET Core console application project.
 
@@ -16,16 +16,16 @@ using Syncfusion.DocIO.DLS;
 using System.IO;
 ```
 
-Step 4: Add the following code snippet in Program.cs file to encrypt a Word document.
+Step 4: Add the following code snippet in Program.cs file to decrypt a Word document.
 
 ```csharp
 using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
 {
-    //Opens the template document.
-    using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
+    //Opens an encrypted Word document.
+    using (WordDocument document = new WordDocument(fileStream, "syncfusion"))
     {
-        //Encrypts the Word document with a password.
-        document.EncryptDocument("syncfusion");
+        //Removes encryption in Word document.
+        document.RemoveEncryption();
         //Creates file stream.
         using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
         {

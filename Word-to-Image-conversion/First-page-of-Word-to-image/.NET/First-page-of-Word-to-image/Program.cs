@@ -19,8 +19,6 @@ namespace First_page_of_Word_to_image
                     {
                         //Convert the first page of the Word document into an image.
                         Stream imageStream = wordDocument.RenderAsImages(0, ExportImageFormat.Jpeg);
-                        //Resets the stream position.
-                        imageStream.Position = 0;
                         //Creates the output image file stream.
                         using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/Output.jpeg")))
                         {
