@@ -14,7 +14,7 @@
     <None Update="Data\Template.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Output\.gitkeep">
+    <None Update="Output\Output.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
