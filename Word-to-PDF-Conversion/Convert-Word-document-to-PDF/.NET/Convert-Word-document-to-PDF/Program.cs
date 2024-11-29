@@ -1,8 +1,8 @@
-﻿using System.IO;
+﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
-using Syncfusion.OfficeChart;
 using Syncfusion.Pdf;
+using System.IO;
 
 namespace Convert_Word_document_to_PDF
 {
@@ -10,16 +10,15 @@ namespace Convert_Word_document_to_PDF
     {
         static void Main(string[] args)
         {
+            //Open the Word document file stream. 
             using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open))
             {
                 //Loads an existing Word document.
-                using (WordDocument wordDocument = new WordDocument(fileStream, Syncfusion.DocIO.FormatType.Automatic))
+                using (WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic))
                 {
                     //Creates an instance of DocIORenderer.
                     using (DocIORenderer renderer = new DocIORenderer())
                     {
-                        //Sets Chart rendering Options.
-                        renderer.Settings.ChartRenderingOptions.ImageFormat = ExportImageFormat.Jpeg;
                         //Converts Word document into PDF document.
                         using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
                         {

@@ -14,7 +14,6 @@ Step 3: Include the following namespaces in the Program.cs file.
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
-using Syncfusion.OfficeChart;
 using Syncfusion.Pdf;
 using System.IO; 
 ```
@@ -25,13 +24,11 @@ Step 4: Add the following code snippet in Program.cs file to convert a Word docu
 using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open))
 {
     //Loads an existing Word document.
-    using (WordDocument wordDocument = new WordDocument(fileStream, Syncfusion.DocIO.FormatType.Automatic))
+    using (WordDocument wordDocument = new WordDocument(fileStream, FormatType.Automatic))
     {
         //Creates an instance of DocIORenderer.
         using (DocIORenderer renderer = new DocIORenderer())
         {
-            //Sets Chart rendering Options.
-            renderer.Settings.ChartRenderingOptions.ImageFormat = ExportImageFormat.Jpeg;
             //Converts Word document into PDF document.
             using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
             {

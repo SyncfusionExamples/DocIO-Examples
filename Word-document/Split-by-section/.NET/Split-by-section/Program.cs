@@ -13,22 +13,20 @@ namespace Split_by_section
                 //Load the template document as stream
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    int fileId = 1;
                     //Iterate each section from Word document
-                    foreach (WSection section in document.Sections)
+                    for (int i = 0; i < document.Sections.Count; i++)
                     {
                         //Create new Word document
                         using (WordDocument newDocument = new WordDocument())
                         {
                             //Add cloned section into new Word document
-                            newDocument.Sections.Add(section.Clone());
+                            newDocument.Sections.Add(document.Sections[i].Clone());
                             //Saves the Word document to  MemoryStream
-                            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Section") + fileId + ".docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Section") + i + ".docx", FileMode.OpenOrCreate, FileAccess.ReadWrite))
                             {
                                 newDocument.Save(outputStream, FormatType.Docx);
                             }
                         }
-                        fileId++;
                     }
                 }
             }

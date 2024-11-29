@@ -11,14 +11,10 @@ namespace Add_bookmark_in_Word_document
             //Creates a new Word document.
             using (WordDocument document = new WordDocument())
             {
-                //Adds a new section into the Word Document.
-                IWSection section = document.AddSection();
-                //Adds a new paragraph into Word document and appends text into paragraph.
-                IWParagraph paragraph = section.AddParagraph();
-                paragraph.AppendText("Northwind Database");
-                paragraph.ParagraphFormat.HorizontalAlignment = Syncfusion.DocIO.DLS.HorizontalAlignment.Center;
-                //Adds a paragraph into section.
-                paragraph = section.AddParagraph();
+                //Add a new section and paragraph in the document. 
+                document.EnsureMinimal();
+                //Get the last paragraph. 
+                IWParagraph paragraph = document.LastParagraph;
                 //Adds a new bookmark start into paragraph with name "Northwind".
                 paragraph.AppendBookmarkStart("Northwind");
                 //Adds a text between the bookmark start and end into paragraph.
