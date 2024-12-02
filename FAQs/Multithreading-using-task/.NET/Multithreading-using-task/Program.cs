@@ -22,7 +22,7 @@ namespace Multithreading_using_task
             await Task.WhenAll(tasks);
         }
 
-        //Create a Word document using multi-threading.
+        //Open and save a Word document using multi-threading.
         static void OpenAndSaveWordDocument()
         {
             using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.docx"), FileMode.Open, FileAccess.Read))

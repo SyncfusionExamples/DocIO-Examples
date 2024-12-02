@@ -16,20 +16,20 @@ namespace Multithreading_using_parallel_process
             Parallel.For(0, limit, count =>
             {
                 Console.WriteLine("Task {0} started", count);
-                //Create multiple presentations, one PPT on each thread.
+                //Create multiple Word document, one document on each thread.
                 OpenAndSaveWordDocument(count);
                 Console.WriteLine("Task {0} is done", count);
             });
         }
-        //Create a Word document using multi-threading.
+        //Open and save a Word document using multi-threading.
         static void OpenAndSaveWordDocument(int count)
         {
             using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.docx"), FileMode.Open, FileAccess.Read))
             {
-                // Load the Word document
+                // Load the Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    // Save the Word document in the desired format
+                    // Save the Word document in the desired format.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output" + count + ".docx"), FileMode.Create, FileAccess.Write))
                     {
                         document.Save(outputFileStream, FormatType.Docx);

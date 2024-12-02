@@ -16,7 +16,7 @@ namespace Multithreading_using_parallel_process
             Parallel.For(0, limit, count =>
             {
                 Console.WriteLine("Task {0} started", count);
-                //Create multiple presentations, one PPT on each thread.
+                //Create multiple Word document, one document on each thread.
                 ConvertWordToPDF(count);
                 Console.WriteLine("Task {0} is done", count);
             });
@@ -26,14 +26,14 @@ namespace Multithreading_using_parallel_process
         {
             using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.docx"), FileMode.Open, FileAccess.Read))
             {
-                // Load the Word document
+                // Load the Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    // Convert Word document to PDF
+                    // Convert Word document to PDF.
                     using (DocIORenderer renderer = new DocIORenderer())
                     {
                         PdfDocument pdfDocument = renderer.ConvertToPDF(document);
-                        // Save the PDF document
+                        // Save the PDF document.
                         using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output" + count + ".pdf"), FileMode.Create, FileAccess.Write))
                         {
                             pdfDocument.Save(outputFileStream);

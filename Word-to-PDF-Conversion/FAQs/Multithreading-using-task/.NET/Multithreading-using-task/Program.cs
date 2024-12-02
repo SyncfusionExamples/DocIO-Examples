@@ -27,20 +27,20 @@ namespace Multithreading_using_task
         {
             using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/InputTemplate.docx"), FileMode.Open, FileAccess.Read))
             {
-                // Load the Word document
+                // Load the Word document.
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
-                    // Convert Word document to PDF
+                    // Convert Word document to PDF.
                     using (DocIORenderer renderer = new DocIORenderer())
                     {
 
                         PdfDocument pdfDocument = renderer.ConvertToPDF(document);
-                        // Save the PDF document
+                        // Save the PDF document.
                         using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output" + Guid.NewGuid().ToString() + ".pdf"), FileMode.Create, FileAccess.Write))
                         {
                             pdfDocument.Save(outputFileStream);
                         }
-                        // Dispose renderer to free resources
+                        // Dispose renderer to free resources.
                         pdfDocument.Dispose();
                     }
                 }
