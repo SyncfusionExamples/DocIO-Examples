@@ -1,6 +1,6 @@
 # Find and replace text in Word document using C#
 
-The Syncfusion [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) enables you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **find and replace text in a Word document** using C#.
+The Syncfusion&reg; [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) enables you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **find and replace text in a Word document** using C#.
 
 ## Steps to find and replace text programmatically
 

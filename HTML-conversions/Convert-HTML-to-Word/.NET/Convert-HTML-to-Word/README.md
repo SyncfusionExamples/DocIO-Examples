@@ -1,6 +1,6 @@
 # Convert HTML to Word document using C#
 
-The Syncfusion [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) enables you to create, read, edit, and convert Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **convert HTML to a Word document** using C#.
+The Syncfusion&reg; [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) enables you to create, read, edit, and convert Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **convert HTML to a Word document** using C#.
 
 ## Steps to convert HTML to Word programmatically
 
