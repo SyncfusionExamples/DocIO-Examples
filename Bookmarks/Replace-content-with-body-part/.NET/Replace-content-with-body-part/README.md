@@ -1,6 +1,6 @@
 # Replace bookmark content in a Word document using C#
 
-The Syncfusion [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) enables you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **replace bookmark content in a Word document** using C#.
+The Syncfusion&reg; [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) enables you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **replace bookmark content in a Word document** using C#.
 
 ## Steps to replace bookmark content programmatically
 

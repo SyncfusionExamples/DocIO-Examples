@@ -1,6 +1,6 @@
 # Add and update Table of Contents in Word document using C#
 
-The Syncfusion [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) enables you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **add and update a Table of Contents (TOC) in a Word document** using C#.
+The Syncfusion&reg; [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) enables you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **add and update a Table of Contents (TOC) in a Word document** using C#.
 
 ## Steps to add and update Table of Contents (TOC) programmatically
 

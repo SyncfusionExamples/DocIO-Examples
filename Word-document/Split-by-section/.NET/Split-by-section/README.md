@@ -1,6 +1,6 @@
 # Split Word document by Section using C#
 
-The Syncfusion [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) enables you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **split a Word document by sections** using C#.
+The Syncfusion&reg; [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) enables you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **split a Word document by sections** using C#.
 
 ## Steps to split Word document by sections programmatically
 
