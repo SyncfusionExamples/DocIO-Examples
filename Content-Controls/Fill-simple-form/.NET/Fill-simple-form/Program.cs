@@ -32,7 +32,7 @@ using (FileStream inputDocumentStream = new FileStream(Path.GetFullPath(@"Data/T
         inlineContentControl.ContentControlProperties.IsChecked = true;
 
         //Create file stream.
-        using (FileStream outputDocumentStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
+        using (FileStream outputDocumentStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
         {
             //Save the Word document to file stream.
             document.Save(outputDocumentStream, FormatType.Docx);

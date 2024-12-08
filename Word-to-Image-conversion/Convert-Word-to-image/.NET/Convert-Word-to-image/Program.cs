@@ -23,7 +23,7 @@ namespace Convert_Word_to_image
                         for (int i = 0; i < imageStreams.Length; i++)
                         {
                             //Save the image stream as file.
-                            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/Output_" + i + ".jpeg")))
+                            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/WordToImage_" + i + ".jpeg")))
                             {
                                 imageStreams[i].CopyTo(fileStreamOutput);
                             }
