@@ -20,12 +20,12 @@ Step 4: Add the following code snippet in Program.cs file to convert HTML to a W
 
 ```csharp
 //Loads an existing Word document into DocIO instance. 
-using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.html"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
     using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
     {
         //Creates file stream.
-        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.html"), FileMode.Create, FileAccess.ReadWrite))
+        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
         {
             //Saves the Word document to file stream.
             document.Save(outputFileStream, FormatType.Html);
