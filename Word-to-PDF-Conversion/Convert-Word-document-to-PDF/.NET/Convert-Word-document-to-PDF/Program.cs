@@ -23,7 +23,7 @@ namespace Convert_Word_document_to_PDF
                         using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
                         {
                             //Saves the PDF file to file system.    
-                            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/WordToPDF.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
                             {
                                 pdfDocument.Save(outputStream);
                             }

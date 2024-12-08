@@ -32,7 +32,7 @@ using (FileStream originalDocumentStreamPath = new FileStream(Path.GetFullPath(@
                 //Compare the original and revised Word documents.
                 originalDocument.Compare(revisedDocument);
                 //Save the Word document.
-                using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Output.docx")))
+                using (FileStream fileStreamOutput = File.Create(Path.GetFullPath("Output/Result.docx")))
                 {
                     originalDocument.Save(fileStreamOutput, FormatType.Docx);
                 }
