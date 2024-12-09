@@ -24,7 +24,7 @@ namespace Add_bookmark_in_Word_document
                 //Adds a text after the bookmark end.
                 paragraph.AppendText(" Using Northwind, you can become familiar with how a relational database is structured and how the database objects work together to help you enter, store, manipulate, and print your data.");
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

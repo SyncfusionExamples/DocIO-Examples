@@ -16,7 +16,7 @@ namespace Remove_encryption_from_Word_document
                     //Removes encryption in Word document.
                     document.RemoveEncryption();
                     //Creates file stream.
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
