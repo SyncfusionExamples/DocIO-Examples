@@ -9,30 +9,33 @@ namespace Split_a_document_by_bookmark
         static void Main(string[] args)
         {
             //Load an existing Word document.
-            FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Create the bookmark navigator instance to access the bookmark.
-                BookmarksNavigator bookmarksNavigator = new BookmarksNavigator(document);
-                BookmarkCollection bookmarkCollection = document.Bookmarks;
-                //Iterate each bookmark in Word document.
-                foreach (Bookmark bookmark in bookmarkCollection)
+                using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
-                    //Move the virtual cursor to the location before the end of the bookmark.
-                    bookmarksNavigator.MoveToBookmark(bookmark.Name);
-                    //Get the bookmark content as WordDocumentPart.
-                    WordDocumentPart documentPart = bookmarksNavigator.GetContent();
-                    //Save the WordDocumentPart as separate Word document
-                    using (WordDocument newDocument = documentPart.GetAsWordDocument())
+                    //Create the bookmark navigator instance to access the bookmark.
+                    BookmarksNavigator bookmarksNavigator = new BookmarksNavigator(document);
+                    BookmarkCollection bookmarkCollection = document.Bookmarks;
+                    //Iterate each bookmark in Word document.
+                    foreach (Bookmark bookmark in bookmarkCollection)
                     {
-                        //Save the Word document to file stream.
-                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/" + bookmark.Name + ".docx"), FileMode.Create, FileAccess.ReadWrite))
+                        //Move the virtual cursor to the location before the end of the bookmark.
+                        bookmarksNavigator.MoveToBookmark(bookmark.Name);
+                        //Get the bookmark content as WordDocumentPart.
+                        WordDocumentPart documentPart = bookmarksNavigator.GetContent();
+                        //Save the WordDocumentPart as separate Word document
+                        using (WordDocument newDocument = documentPart.GetAsWordDocument())
                         {
-                            newDocument.Save(outputFileStream, FormatType.Docx);
+                            //Save the Word document to file stream.
+                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/" + bookmark.Name + ".docx"), FileMode.Create, FileAccess.ReadWrite))
+                            {
+                                newDocument.Save(outputFileStream, FormatType.Docx);
+                            }
                         }
                     }
                 }
-            } 
+
+            }
         }
     }
 }
