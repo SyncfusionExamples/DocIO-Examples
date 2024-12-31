@@ -2,7 +2,7 @@
 using Syncfusion.DocIO.DLS;
 using System.IO;
 
-namespace Replace_text_in_list_paragraph
+namespace Replace_text_in_list_paragraph_with_HTML
 {
     class Program
     {
@@ -60,7 +60,7 @@ namespace Replace_text_in_list_paragraph
                             }
                         }
                     }
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Save the modified Word document to the output file stream.
                         document.Save(outputFileStream, FormatType.Docx);
