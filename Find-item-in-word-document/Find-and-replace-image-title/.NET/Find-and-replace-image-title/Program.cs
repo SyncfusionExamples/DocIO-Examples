@@ -1,7 +1,7 @@
 ﻿using Syncfusion.DocIO.DLS; 
 using Syncfusion.DocIO; 
 
-namespace Find_and_replace_image_by_title
+namespace Find_and_replace_image_title
 {
     internal class Program
     {
