@@ -14,7 +14,7 @@ namespace Find_and_replace_image_by_title
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
                     // Find a picture in the document by its Title property.
-                    WPicture picture = document.FindItemByProperty(EntityType.Picture, "Title", "Adventure Works Cycles") as WPicture;
+                    WPicture picture = document.FindItemByProperty(EntityType.Picture, "Title", "Adventure Works Cycle") as WPicture;
 
                     // If the picture is found, modify its Title property.
                     if (picture != null)
