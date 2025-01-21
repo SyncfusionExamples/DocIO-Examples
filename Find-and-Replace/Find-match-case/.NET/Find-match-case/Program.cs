@@ -7,7 +7,7 @@ using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Templa
     //Opens an existing Word document.
     using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
     {
-        //Finds the first occurrence of a particular text in the document.
+        // Finds the first occurrence of a particular text that matches the exact case in the document.
         TextSelection textSelection = document.Find("adventure", true, false);
         //Gets the found text as single text range.
         WTextRange textRange = textSelection.GetAsOneRange();
