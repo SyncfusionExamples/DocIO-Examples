@@ -3,7 +3,7 @@ using Syncfusion.DocIO.DLS;
 using Syncfusion.Drawing;
 using System.IO;
 
-namespace Find_and_find_next
+namespace Find_next
 {
     class Program
     {
