@@ -4,6 +4,9 @@
 @{
     Layout = "_Layout";
 }
+
+<component type="typeof(App)" render-mode="ServerPrerendered" />
+
 <script type="text/javascript">
     function saveAsFile(filename, bytesBase64) {
         if (navigator.msSaveBlob) {
@@ -26,4 +29,3 @@
         }
     }
 </script>
-<component type="typeof(App)" render-mode="ServerPrerendered" />
