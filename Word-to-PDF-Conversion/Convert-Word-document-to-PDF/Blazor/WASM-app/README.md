@@ -8,7 +8,7 @@ Steps to convert Word document to PDF in Blazor WebAssembly (WASM)
 
 1. Create a new C# Blazor WebAssembly App in Visual Studio.  
 2. Install the [Syncfusion.DocIORenderer.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIORenderer.Net.Core) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org/).  
-3. Install the [SkiaSharp.Views.Blazor v2.88.8](https://www.nuget.org/packages/SkiaSharp.Views.Blazor/2.88.8) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org/).  
+3. Install the [SkiaSharp.Views.Blazor v3.116.1](https://www.nuget.org/packages/SkiaSharp.Views.Blazor/3.116.1) NuGet package as a reference to your Blazor application from [NuGet.org](https://www.nuget.org/).  
 
 > **Note:** Install this `wasm-tools` and `wasm-tools-net6` by using `dotnet workload install wasm-tools` and `dotnet workload install wasm-tools-net6` commands in your command prompt respectively, while facing issues related to skiasharp, during runtime.
 
