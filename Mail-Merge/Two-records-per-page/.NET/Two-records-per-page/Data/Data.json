@@ -1,54 +1,44 @@
 {
   "Employees": [
     {
-      "NAME": "John Doe",
+      "NAME": "Nancy",
       "DESIGNATION": "Software Engineer",
       "COUNTRY": "USA"
     },
     {
-      "NAME": "Jane Smith",
+      "NAME": "Janet",
       "DESIGNATION": "Project Manager",
       "COUNTRY": "Canada"
     },
     {
-      "NAME": "David Johnson",
+      "NAME": "Andrew",
       "DESIGNATION": "UI/UX Designer",
       "COUNTRY": "UK"
     },
     {
-      "NAME": "Emma Williams",
+      "NAME": "Maria",
       "DESIGNATION": "QA Engineer",
       "COUNTRY": "Australia"
     },
     {
-      "NAME": "Michael Brown",
+      "NAME": "Antonio",
       "DESIGNATION": "Business Analyst",
       "COUNTRY": "India"
     },
     {
-      "NAME": "Olivia Jones",
+      "NAME": "Thomas",
       "DESIGNATION": "DevOps Engineer",
       "COUNTRY": "Germany"
     },
     {
-      "NAME": "James Davis",
+      "NAME": "Elizabeth",
       "DESIGNATION": "Product Owner",
       "COUNTRY": "USA"
     },
     {
-      "NAME": "Sophia Wilson",
+      "NAME": "James",
       "DESIGNATION": "Data Scientist",
       "COUNTRY": "France"
-    },
-    {
-      "NAME": "Daniel Garcia",
-      "DESIGNATION": "System Architect",
-      "COUNTRY": "Spain"
-    },
-    {
-      "NAME": "Mia Martinez",
-      "DESIGNATION": "Software Tester",
-      "COUNTRY": "Italy"
     }
   ]
 }
