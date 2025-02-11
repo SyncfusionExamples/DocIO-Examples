@@ -21,7 +21,7 @@ namespace Find_and_replace_merge_field_name
                     // Replaces the merge field name "last_name" with "LastName".
                     ReplaceMergeFieldName("last_name", "LastName", mergeFields);
                     // Creates a file stream to save the modified document.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         // Saves the Word document to the file stream in DOCX format.
                         document.Save(outputFileStream, FormatType.Docx);
