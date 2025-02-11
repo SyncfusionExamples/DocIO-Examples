@@ -30,7 +30,7 @@ namespace Find_and_replace_merge_field_name
             }
         }
 		
-		/// <summary>
+        /// <summary>
         /// Replaces the specified merge field name with a new name in the given list of merge fields.
         /// </summary>
         private static void ReplaceMergeFieldName(string nameToFind, string nameToReplace, List<Entity> mergeFields)
