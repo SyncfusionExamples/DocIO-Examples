@@ -1,0 +1,65 @@
+<!-- Input element to select the file -->
+<div class="App">
+  <div class='header'>
+    <h1 style="width: auto;padding: 7px;margin: 10px 0px;height: 39px;">Convert Word to PDF – Demo
+    </h1>
+    <input style="width: 100%; margin-left: 5px;padding: 10px;" id='fileInput' type="file" accept=".doc,.docx,.rtf,.dot,.dotm,.dotx,.docm" />
+  </div>
+  <br><br>
+  <div>
+    <div class="properties-div">
+      <!-- Text input for password -->
+      <label for="password">Password (if encrypted) : </label>
+      <input type="text" id="password" placeholder="Enter password">
+    </div>
+    <div class="properties-div">
+      <input type="checkbox" id="embedFonts">
+      <label for="embedFonts">Embed the complete font information in the converted PDF document.</label>
+    </div>
+    <div class="properties-div">
+      <input type="checkbox" checked id="EditablePDF">
+      <label for="EditablePDF">Preserve Word form fields as editable PDF form fields.</label>
+    </div>
+    <div class="properties-div">
+      <input type="checkbox" id="autoDetectComplexScript">
+      <label for="autoDetectComplexScript">Detect complex script text present in the Word document.</label>
+    </div>
+    <div class="properties-div">
+      <input type="checkbox" id="TaggedPDF">
+      <label for="TaggedPDF">Convert the PDF document as tagged PDF (PDF/UA).</label>
+    </div>
+    <div class="properties-div">
+      <input type="checkbox" checked id="HeadingsAsPdfBookmarks">
+      <label for="HeadingsAsPdfBookmarks">Preserve the headings of the Word document as PDF bookmarks. </label>
+    </div>
+    <div class="properties-div">
+      <input type="checkbox" checked id="IncludeComments">
+      <label for="IncludeComments">Include comments from the Word document in the PDF.</label>
+    </div>
+    <div class="properties-div">
+      <input type="checkbox" checked id="IncludeRevisionsMarks">
+      <label for="IncludeRevisionsMarks">Include revision of tracked changes Word document in the PDF.</label>
+    </div>
+    <div class="properties-div">
+      <!-- PDF Conformance Level -->
+      <label for="pdfConformanceLevel">PDF conformance level : </label>
+      <select [(ngModel)]="pdfConformanceLevel" name="pdfConformanceLevel" id="pdfConformanceLevel">
+        <option value="0">None</option>
+        <option value="1">Pdf_A1B</option>
+        <option value="3">Pdf_A2B</option>
+        <option value="4">Pdf_A3B</option>
+        <option value="5">Pdf_A1A</option>
+        <option value="6">Pdf_A2A</option>
+        <option value="7">Pdf_A2U</option>
+        <option value="8">Pdf_A3A</option>
+        <option value="9">Pdf_A3U</option>
+        <option value="10">Pdf_A4</option>
+        <option value="11">Pdf_A4E</option>
+        <option value="12">Pdf_A4F</option>
+      </select>
+    </div>
+
+    <!-- Button to trigger the conversion process -->
+    <button class="convert-btn" (click)="convertToPDF()">Convert Word to PDF</button>
+  </div>
+</div>
