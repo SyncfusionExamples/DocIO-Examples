@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Mail_merge_in_multiple_column</RootNamespace>
+    <RootNamespace>Mail_merge_in_multi_column_page</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

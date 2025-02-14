@@ -3,7 +3,7 @@ using Syncfusion.DocIO.DLS;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Mail_merge_in_multiple_column
+namespace Mail_merge_in_multi_column_page
 {
     class Program
     {
