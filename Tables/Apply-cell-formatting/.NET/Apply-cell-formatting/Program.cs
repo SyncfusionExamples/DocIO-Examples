@@ -37,8 +37,13 @@ namespace Apply_cell_formatting
                     cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
                     //Disables the text wrap option to avoid displaying longer text on multiple lines.
                     cell.CellFormat.TextWrap = false;
-                    //Sets the text direction for cell.
-                    cell.CellFormat.TextDirection = TextDirection.VerticalBottomToTop;
+                    // Set text direction for each cell in a row
+                    row.Cells[0].CellFormat.TextDirection = TextDirection.Vertical;
+                    row.Cells[1].CellFormat.TextDirection = TextDirection.VerticalBottomToTop;
+                    row.Cells[2].CellFormat.TextDirection = TextDirection.VerticalTopToBottom;
+                    row.Cells[3].CellFormat.TextDirection = TextDirection.VerticalFarEast;
+                    row.Cells[4].CellFormat.TextDirection = TextDirection.HorizontalFarEast;
+                    row.Cells[5].CellFormat.TextDirection = TextDirection.Horizontal;
                     //Accesses the instance of the second cell in the row.
                     cell = row.Cells[1];
                     cell.CellFormat.BackColor = Color.FromArgb(192, 192, 192);
