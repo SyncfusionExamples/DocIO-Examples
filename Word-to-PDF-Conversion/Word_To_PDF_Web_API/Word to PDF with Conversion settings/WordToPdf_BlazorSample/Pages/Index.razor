@@ -1,0 +1,153 @@
+﻿@using Blazor
+@using Microsoft.AspNetCore.Components.Forms
+@using System.Net.Http
+@using System.IO
+@using System.Net.Http.Headers
+@using System.Text.Json.Nodes
+@using System.Net
+
+@inject HttpClient Http
+@inject Microsoft.JSInterop.IJSRuntime JS
+@inject IJSRuntime JSRuntime
+@page "/"
+
+<h1>Convert Word to PDF – Demo</h1>
+
+<InputFile id="fileInput" accept=".doc,.docx,.rtf,.dot,.dotm,.dotx,.docm"  OnChange="GetFile"/>
+
+<br /><br />
+
+<div class="properties-div">
+    <label for="password">Password (if encrypted) : </label>
+    <input type="text" id="password" placeholder="Enter password" @bind="Password" />
+</div>
+
+ <div class="properties-div">
+        <input type="checkbox" id="embedFonts" @bind="EmbedFonts">
+        <label for="embedFonts">Embed the complete font information in the converted PDF document.</label>
+      </div>
+      <div class="properties-div">
+        <input type="checkbox" id="EditablePDF" @bind="EditablePDF">
+        <label for="EditablePDF">Preserve Word form fields as editable PDF form fields.</label>
+      </div>
+      <div class="properties-div">
+        <input type="checkbox" id="autoDetectComplexScript" @bind="autoDetectComplexScript">
+        <label for="autoDetectComplexScript">Detect complex script text present in the Word document.</label>
+      </div>
+      <div class="properties-div">
+        <input type="checkbox" id="TaggedPDF" @bind="TaggedPDF">
+        <label for="TaggedPDF">Convert the PDF document as tagged PDF (PDF/UA).</label>
+      </div>
+      <div class="properties-div">
+        <input type="checkbox" id="HeadingsAsPdfBookmarks" @bind="HeadingsAsPdfBookmarks">
+        <label for="HeadingsAsPdfBookmarks">Preserve the headings of the Word document as PDF bookmarks. </label>
+      </div>
+      <div class="properties-div">
+        <input type="checkbox" id="IncludeComments" @bind="IncludeComments">
+        <label for="IncludeComments">Include comments from the Word document in the PDF.</label>
+      </div>
+      <div class="properties-div">
+        <input type="checkbox" id="IncludeRevisionsMarks" @bind="IncludeRevisionsMarks">
+        <label for="IncludeRevisionsMarks">Include revision of tracked changes Word document in the PDF.</label>
+      </div>
+      <div class="properties-div">
+        <!-- PDF Conformance Level -->
+        <label for="pdfConformanceLevel">PDF conformance level : </label>
+        <select id="pdfConformanceLevel" @bind="pdfConformanceLevel">
+          <option value="0">None</option>
+          <option value="1">Pdf_A1B</option>
+          <option value="3">Pdf_A2B</option>
+          <option value="4">Pdf_A3B</option>
+          <option value="5">Pdf_A1A</option>
+          <option value="6">Pdf_A2A</option>
+          <option value="7">Pdf_A2U</option>
+          <option value="8">Pdf_A3A</option>
+          <option value="9">Pdf_A3U</option>
+          <option value="10">Pdf_A4</option>
+          <option value="11">Pdf_A4E</option>
+          <option value="12">Pdf_A4F</option>
+        </select>
+      </div>
+
+<button class="convert-btn" @onclick="ConvertToPDF">Convert Word to PDF</button>
+<style>
+    .properties-div {
+    margin-bottom: 10px; /* Adjust the value as needed */
+}
+</style>
+@functions {
+    // Declare a private variable to hold the uploaded file
+    private IBrowserFile file;
+
+    // Method to handle the file input change event
+    private async Task GetFile(InputFileChangeEventArgs e)
+    {
+        file = e.File;
+    }
+
+    // Properties for various form fields and settings
+    private string Password { get; set; } = "";
+    private bool EmbedFonts { get; set; } = false;
+    private bool EditablePDF { get; set; } = true;
+    private bool autoDetectComplexScript { get; set; } = false;
+    private bool TaggedPDF { get; set; } = false;
+    private bool HeadingsAsPdfBookmarks { get; set; } = true;
+    private bool IncludeComments { get; set; } = true;
+    private bool IncludeRevisionsMarks { get; set; } = true;
+    private string pdfConformanceLevel { get; set; } = "0";
+
+    // Method to convert the uploaded file to PDF
+    private async Task ConvertToPDF()
+    {
+        if (file != null)
+        {
+            try
+            {
+                // Use HttpClient to send a POST request to your API
+                HttpClient client = new HttpClient();
+                MultipartFormDataContent content = new MultipartFormDataContent();
+                content.Add(new StreamContent(file.OpenReadStream()), "InputFile", file.Name);
+                content.Add(new StringContent(Password), "Password");
+                content.Add(new StringContent(EmbedFonts.ToString()), "EmbedFontsInPDF");
+                content.Add(new StringContent(EditablePDF.ToString()), "EditablePDF");
+                content.Add(new StringContent(autoDetectComplexScript.ToString()), "autoDetectComplexScript");
+                content.Add(new StringContent(TaggedPDF.ToString()), "TaggedPDF");
+                content.Add(new StringContent(HeadingsAsPdfBookmarks.ToString()), "HeadingsAsPdfBookmarks");
+                content.Add(new StringContent(IncludeComments.ToString()), "IncludeComments");
+                content.Add(new StringContent(IncludeRevisionsMarks.ToString()), "IncludeRevisionsMarks");
+                content.Add(new StringContent(pdfConformanceLevel.ToString()), "pdfConformanceLevel");
+
+                HttpResponseMessage response = await client.PostAsync("http://localhost:5211/api/pdf/convertwordtopdf", content);
+                await DownloadPdf(response, file.Name);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }else
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Please select a file to convert.");
+        }
+    }
+
+    // Method to download the generated PDF
+    private async Task DownloadPdf(HttpResponseMessage response, string fileName)
+    {
+        // Extract the original file name without the extension
+        string[] fileFormat = fileName.Split(".");
+        string fileOrginalName = fileFormat[0];
+
+        // Read the response stream and convert it to a base64 string
+        MemoryStream ms = new MemoryStream();
+        Stream readStream = await response.Content.ReadAsStreamAsync();
+        readStream.CopyTo(ms);
+        var streamArray = ms.ToArray();
+        string base64String = Convert.ToBase64String(streamArray);
+        byte[] imageBytes = Convert.FromBase64String(base64String);
+
+        // Use JavaScript interop to save the PDF as a file
+        JS.SaveAs(fileOrginalName + ".pdf", imageBytes);
+    }
+}
+
+

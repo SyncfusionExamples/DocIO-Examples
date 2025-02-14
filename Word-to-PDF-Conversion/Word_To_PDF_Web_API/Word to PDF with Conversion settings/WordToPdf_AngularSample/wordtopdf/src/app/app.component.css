@@ -1,0 +1,11 @@
+.App{
+ font-family: sans-serif;
+}
+.properties-div {
+ margin: 10px;
+}
+
+.convert-btn {
+ margin: 10px;
+ padding: 4px;
+}
