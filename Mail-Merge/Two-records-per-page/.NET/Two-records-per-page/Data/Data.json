@@ -1,0 +1,44 @@
+{
+  "Employees": [
+    {
+      "NAME": "Nancy",
+      "DESIGNATION": "Software Engineer",
+      "COUNTRY": "USA"
+    },
+    {
+      "NAME": "Janet",
+      "DESIGNATION": "Project Manager",
+      "COUNTRY": "Canada"
+    },
+    {
+      "NAME": "Andrew",
+      "DESIGNATION": "UI/UX Designer",
+      "COUNTRY": "UK"
+    },
+    {
+      "NAME": "Maria",
+      "DESIGNATION": "QA Engineer",
+      "COUNTRY": "Australia"
+    },
+    {
+      "NAME": "Antonio",
+      "DESIGNATION": "Business Analyst",
+      "COUNTRY": "India"
+    },
+    {
+      "NAME": "Thomas",
+      "DESIGNATION": "DevOps Engineer",
+      "COUNTRY": "Germany"
+    },
+    {
+      "NAME": "Elizabeth",
+      "DESIGNATION": "Product Owner",
+      "COUNTRY": "USA"
+    },
+    {
+      "NAME": "James",
+      "DESIGNATION": "Data Scientist",
+      "COUNTRY": "France"
+    }
+  ]
+}
