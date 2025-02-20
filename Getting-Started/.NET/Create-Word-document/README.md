@@ -49,7 +49,7 @@ using (WordDocument document = new WordDocument())
 
     IWParagraph paragraph = section.HeadersFooters.Header.AddParagraph();
     // Get the image stream.
-    FileStream imageStream = new FileStream(@"../../../Data/AdventureCycle.jpg", FileMode.Open, FileAccess.Read);
+    FileStream imageStream = new FileStream(@Path.GetFullPath("Data/AdventureCycle.jpg"), FileMode.Open, FileAccess.Read);
     IWPicture picture = paragraph.AppendPicture(imageStream);
     picture.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
     picture.VerticalOrigin = VerticalOrigin.Margin;
@@ -105,7 +105,7 @@ using (WordDocument document = new WordDocument())
     paragraph.ParagraphFormat.AfterSpacing = 0;
     paragraph.BreakCharacterFormat.FontSize = 12f;
     //Append picture to the paragraph.
-    FileStream image1 = new FileStream(@"../../../Data/Mountain-200.jpg", FileMode.Open, FileAccess.Read);
+    FileStream image1 = new FileStream(Path.GetFullPath(@"Data/Mountain-200.jpg"), FileMode.Open, FileAccess.Read);
     picture = paragraph.AppendPicture(image1);
     picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
     picture.VerticalOrigin = VerticalOrigin.Paragraph;
@@ -180,7 +180,7 @@ using (WordDocument document = new WordDocument())
     paragraph.ApplyStyle("Heading 1");
     paragraph.ParagraphFormat.LineSpacing = 12f;
     //Append picture to the paragraph.
-    FileStream image2 = new FileStream(@"../../../Data/Mountain-300.jpg", FileMode.Open, FileAccess.Read);
+    FileStream image2 = new FileStream(Path.GetFullPath(@"Data/Mountain-300.jpg"), FileMode.Open, FileAccess.Read);
     picture = paragraph.AppendPicture(image2);
     picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
     picture.VerticalOrigin = VerticalOrigin.Paragraph;
@@ -195,7 +195,7 @@ using (WordDocument document = new WordDocument())
     paragraph.ApplyStyle("Heading 1");
     paragraph.ParagraphFormat.LineSpacing = 12f;
     //Append picture to the paragraph.
-    FileStream image3 = new FileStream(@"../../../Data/Road-550-W.jpg", FileMode.Open, FileAccess.Read);
+    FileStream image3 = new FileStream(Path.GetFullPath(@"Data/Road-550-W.jpg"), FileMode.Open, FileAccess.Read);
     picture = paragraph.AppendPicture(image3);
     picture.TextWrappingStyle = TextWrappingStyle.TopAndBottom;
     picture.VerticalOrigin = VerticalOrigin.Paragraph;
@@ -233,7 +233,7 @@ using (WordDocument document = new WordDocument())
     section.AddParagraph();
 
     //Save the Word document to  FileStream
-    using (FileStream stream = new FileStream(@"../../../Sample.docx", FileMode.OpenOrCreate))
+    using (FileStream stream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.OpenOrCreate))
     {
         document.Save(stream, FormatType.Docx);
     }
