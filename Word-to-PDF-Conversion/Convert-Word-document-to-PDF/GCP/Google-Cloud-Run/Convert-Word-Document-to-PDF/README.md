@@ -1,8 +1,10 @@
-Steps to convert Word to PDF in Google Cloud Run
+# Steps to convert Word to PDF in Google Cloud Run
 ----------------------------------------
 
+Syncfusion<sup>&reg;</sup> DocIO is a [.NET Core Word library](https://www.syncfusion.com/document-processing/word-framework/net-core/word-library) that allows you to create, read, edit, and **convert Word documents** programmatically, without the need for **Microsoft Word** or interop dependencies. Using this library, you can **convert Word document to PDF in Google Cloud Run**.
 
 ## Set up Cloud Run
+----------------------------------------
 
 Step 1: Access Google Cloud Console
 
@@ -51,10 +53,11 @@ This step ensures that Cloud Run is ready for deployment. If the API is already 
 
 
 ## Create an application for Cloud Run
+----------------------------------------
 
 Step 1: Create a **new ASP.NET Core Web application (Model-View-Controller)** project.
 
-![Create ASP.NET Core Web application in Visual Studio](ASP-NET-Core_images/CreateProjectforConversion.png)
+![Create ASP.NET Core Web application in Visual Studio](Images/CreateProjectforConversion.png)
 
 Step 2: Install the below NuGet packages as a reference to your project from [NuGet.org](https://www.nuget.org/).
 
@@ -209,6 +212,7 @@ ENTRYPOINT ["dotnet", "Convert-Word-Document-to-PDF.dll"]
 ```
 
 ## Upload application to Cloud Shell Editor
+----------------------------------------
 
 Step 1: Open **Cloud Shell Editor**
 
@@ -234,6 +238,7 @@ Replace <sample-folder-name> with the actual folder name.
 
 
 ## Create and Deploy Docker image in Cloud Run
+----------------------------------------
 
 Step 1: Build and submit Docker image to **Google Container Registry (GCR)**
 
