@@ -1,6 +1,23 @@
+# Create Word document using C#
+
+The Syncfusion&reg; [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) empowers you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **create Word document** using C#.
+
+## Steps to create Word document programmatically
+
+Step 1: Create a new .NET Core console application project.
+
+Step 2: Install the [Syncfusion.DocIO.Net.Core](https://www.nuget.org/packages/Syncfusion.DocIO.Net.Core) NuGet package as a reference to your project from [NuGet.org](https://www.nuget.org/).
+
+Step 3: Include the following namespaces in the Program.cs file.
+
+```csharp
 ﻿using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
+```
 
+Step 4: Add the following code snippet in Program.cs file to split Word document by bookmarks.
+
+```csharp
 // Creating a new document.
 WordDocument document = new WordDocument();
 //Adding a new section to the document.
@@ -217,3 +234,6 @@ section.AddParagraph();
 //Save the Word document to  FileStream
 using FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create);
 document.Save(outputStream, FormatType.Docx);
+```
+
+More information about Create a Word document can be refer in this [documentation](https://help.syncfusion.com/document-processing/word/word-library/net/working-with-word-document) section.
