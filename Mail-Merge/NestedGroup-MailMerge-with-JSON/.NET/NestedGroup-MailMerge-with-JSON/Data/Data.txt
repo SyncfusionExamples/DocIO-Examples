@@ -1,0 +1,45 @@
+{
+  "Organizations": [
+    {
+      "BranchName": "UK Office",
+      "Address": "120 Hanover Sq.",
+      "City": "London",
+      "ZipCode": "WX1 6LT",
+      "Country": "UK",
+      "Departments": [
+        {
+          "DepartmentName": "Marketing",
+          "Supervisor": "Nancy Davolio",
+          "Employees": [
+            {
+              "EmployeeName": "Thomas Hardy",
+              "EmployeeID": "1001",
+              "JoinedDate": "05/27/1996"
+            },
+            {
+              "EmployeeName": "Maria Anders",
+              "EmployeeID": "1002",
+              "JoinedDate": "04/10/1998"
+            }
+          ]
+        },
+        {
+          "DepartmentName": "Production",
+          "Supervisor": "Andrew Fuller",
+          "Employees": [
+            {
+              "EmployeeName": "Elizabeth Lincoln",
+              "EmployeeID": "1003",
+              "JoinedDate": "05/15/1996"
+            },
+            {
+              "EmployeeName": "Antonio Moreno",
+              "EmployeeID": "1004",
+              "JoinedDate": "04/22/1996"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
