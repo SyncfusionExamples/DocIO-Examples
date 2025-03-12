@@ -38,7 +38,7 @@ namespace NestedGroup_MailMerge_with_JSON
         private static List<object> GetJsonData()
         {
             //Reads the JSON object from JSON file.
-            JObject jsonObject = JObject.Parse(File.ReadAllText(Path.GetFullPath(@"Data/Data.txt")));
+            JObject jsonObject = JObject.Parse(File.ReadAllText(Path.GetFullPath(@"Data/Data.json")));
             //Converts JSON object to Dictionary.
 
 
