@@ -1,7 +1,7 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-namespace Find_text_add_bookmarks
+namespace FindTextAddBookmarks
 {
     class Program
     {
@@ -9,85 +9,75 @@ namespace Find_text_add_bookmarks
         {
             using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
-                //Loads an existing Word document into DocIO instance.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
                 {
-                    //Finds the first occurrence of a particular text in the document
-                    TextSelection textSelection = document.Find("they are considered one of the world's most loved animals.", false, true);
-                    //Gets the found text as single text range
-                    WTextRange textRange = textSelection.GetAsOneRange();
-                    //Add bookmark to the selected text range.
-                    //Create bookmarkstart and bookmarkend instance.
-                    int indexOfText = textRange.OwnerParagraph.Items.IndexOf(textRange);
-                    BookmarkStart bookmarkStart = new BookmarkStart(document, "bkmk1");
-                    BookmarkEnd bookmarkEnd = new BookmarkEnd(document, "bkmk1");
-                    //Add bookmarkstart before selected text.
-                    textRange.OwnerParagraph.Items.Insert(indexOfText, bookmarkStart);
-                    //Add bookmarkend after selected text
-                    textRange.OwnerParagraph.Items.Insert(indexOfText + 2, bookmarkEnd);
-                    textSelection = document.Find("The table below lists the main characteristics the giant panda shares with bears and red pandas.", false, true);
-                    //Gets the found text as single text range
-                    textRange = textSelection.GetAsOneRange();
-                    //Add bookmark to the selected text range.
-                    //Create bookmarkstart and bookmarkend instance.
-                    indexOfText = textRange.OwnerParagraph.Items.IndexOf(textRange);
-                    bookmarkStart = new BookmarkStart(document, "bkmk2");
-                    bookmarkEnd = new BookmarkEnd(document, "bkmk2");
-                    //Add bookmarkstart before selected text.
-                    textRange.OwnerParagraph.Items.Insert(indexOfText, bookmarkStart);
-                    //Add bookmarkend after selected text
-                    textRange.OwnerParagraph.Items.Insert(indexOfText + 2, bookmarkEnd);
-                    textSelection = document.Find("Did you know that the giant panda may actually be a raccoon", false, true);
-                    //Gets the found text as single text range
-                    textRange = textSelection.GetAsOneRange();
-                    //Add bookmark to the selected text range.
-                    //Create bookmarkstart and bookmarkend instance.
-                    indexOfText = textRange.OwnerParagraph.Items.IndexOf(textRange);
-                    bookmarkStart = new BookmarkStart(document, "bkmk3");
-                    bookmarkEnd = new BookmarkEnd(document, "bkmk3");
-                    //Add bookmarkstart before selected text.
-                    textRange.OwnerParagraph.Items.Insert(indexOfText, bookmarkStart);
-                    //Add bookmarkend after selected text
-                    textRange.OwnerParagraph.Items.Insert(indexOfText + 2, bookmarkEnd);
+                    // Define texts and corresponding bookmark names
+                    var textBookmarkPairs = new Dictionary<string, string>
+                {
+                    { "they are considered one of the world's most loved animals.", "bkmk1" },
+                    { "The table below lists the main characteristics the giant panda shares with bears and red pandas.", "bkmk2" },
+                    { "Did you know that the giant panda may actually be a raccoon", "bkmk3" }
+                };
 
-                    //Get all bookmarks from Word document using FindAllItemsByProperty
-                    //Find all bkmarkStart by EntityType in Word document.
-                    List<Entity> bkmarkStarts = document.FindAllItemsByProperty(EntityType.BookmarkStart, null, null);
-                    //Create an list Bookmarks of type string
-                    List<string> BookmarksContent = new List<string>();
-                    //Iterate bookmarkCollection to get the bookmark content.
-                    foreach (Entity bkmarkStart in bkmarkStarts)
+                    // Add bookmarks to specified texts
+                    foreach (var pair in textBookmarkPairs)
                     {
-                        BookmarkStart book = bkmarkStart as BookmarkStart;
-                        //Get the bookmark name
-                        string name = book.Name;
-                        //Creates the bookmark navigator instance to access the bookmark
-                        BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-                        //Moves the virtual cursor to the location before the end of the bookmark
-                        bookmarkNavigator.MoveToBookmark(name);
-                        //Gets the bookmark content as worddocument
-                        WordDocumentPart part = bookmarkNavigator.GetContent();
-                        WordDocument tempDoc = part.GetAsWordDocument();
-                        //Get the bookmark content from the document.
-                        string text = tempDoc.GetText();
-                        //Adds the bookmark content into the list
-                        BookmarksContent.Add(text);
-                        Console.WriteLine("Bookmark content: ");
-                        Console.WriteLine(text);
-                        tempDoc.Close();
-                        tempDoc.Dispose();
-                        part.Close();
-
+                        AddBookmarkToText(document, pair.Key, pair.Value);
                     }
-                    Console.ReadLine();
-                    //Creates file stream.
+
+                    // Retrieve and display bookmark contents
+                    List<string> bookmarksContent = GetBookmarkContents(document);
+                    foreach (var content in bookmarksContent)
+                    {
+                        Console.WriteLine("Bookmark content: ");
+                        Console.WriteLine(content);
+                    }
+
+                    // Save the modified document
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
-                        //Saves the Word document to file stream.
                         document.Save(outputStream, FormatType.Docx);
                     }
                 }
             }
+        }
+        /// <summary>
+        /// Adds a bookmark to a specific text in the document.
+        /// </summary>
+        private static void AddBookmarkToText(WordDocument document, string searchText, string bookmarkName)
+        {
+            TextSelection textSelection = document.Find(searchText, false, true);
+            if (textSelection != null)
+            {
+                WTextRange textRange = textSelection.GetAsOneRange();
+                int indexOfText = textRange.OwnerParagraph.Items.IndexOf(textRange);
+                textRange.OwnerParagraph.Items.Insert(indexOfText, new BookmarkStart(document, bookmarkName));
+                textRange.OwnerParagraph.Items.Insert(indexOfText + 2, new BookmarkEnd(document, bookmarkName));
+            }
+        }
+
+        /// <summary>
+        /// Retrieves all bookmark contents from the document.
+        /// </summary>
+        private static List<string> GetBookmarkContents(WordDocument document)
+        {
+            List<string> bookmarkContents = new List<string>();
+            foreach (Entity entity in document.FindAllItemsByProperty(EntityType.BookmarkStart, null, null))
+            {
+                if (entity is BookmarkStart bookmarkStart)
+                {
+                    var bookmarkNavigator = new BookmarksNavigator(document);
+                    bookmarkNavigator.MoveToBookmark(bookmarkStart.Name);
+                    WordDocumentPart part = bookmarkNavigator.GetContent();
+                    WordDocument tempDoc = part.GetAsWordDocument();
+                    bookmarkContents.Add(tempDoc.GetText());
+
+                    tempDoc.Close();
+                    tempDoc.Dispose();
+                    part.Close();
+                }
+            }
+            return bookmarkContents;
         }
     }
 }
