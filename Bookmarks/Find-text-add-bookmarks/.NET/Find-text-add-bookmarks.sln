@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Get-bookmark-content-one-by-one", "Get-bookmark-content-one-by-one\Get-bookmark-content-one-by-one.csproj", "{8B656397-21C1-40FF-87AD-988058DBC992}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Find-text-add-bookmarks", "Find-text-add-bookmarks\Find-text-add-bookmarks.csproj", "{8B656397-21C1-40FF-87AD-988058DBC992}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,7 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-namespace Get_bookmark_content_one_by_one
+namespace Find_text_add_bookmarks
 {
     class Program
     {
