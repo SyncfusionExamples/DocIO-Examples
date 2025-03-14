@@ -14,43 +14,52 @@ namespace SpecifyFormFieldSize
             {
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
-                    // Find and update size for all checkbox form fields.
+                    // Update checkbox form fields
                     List<Entity> checkBoxes = document.FindAllItemsByProperty(EntityType.CheckBox, null, null);
                     foreach (Entity entity in checkBoxes)
                     {
                         WCheckBox checkBox = (WCheckBox)entity;
                         checkBox.SizeType = CheckBoxSizeType.Exactly;
-                        checkBox.CheckBoxSize = 20; 
+                        checkBox.CheckBoxSize = 20;
                     }
 
-                    // Find and update size for all text form fields.
+                    // Update dropdown form fields
+                    List<Entity> dropDowns = document.FindAllItemsByProperty(EntityType.DropDownFormField, null, null);
+                    foreach (Entity entity in dropDowns)
+                    {
+                        SetFontSizeForFormField((WDropDownFormField)entity);
+                    }
+
+                    // Update text form fields
                     List<Entity> textFormFields = document.FindAllItemsByProperty(EntityType.TextFormField, null, null);
                     foreach (Entity entity in textFormFields)
                     {
-                        WTextFormField textFormField = (WTextFormField)entity;
-                        Entity currentEntity = textFormField;
-
-                        // Iterate through sibling items until reaching the Field End marker.
-                        while (currentEntity.NextSibling != null)
-                        {
-                            if (currentEntity is WTextRange)
-                            {
-                                // Set font size for text ranges within the form field.
-                                (currentEntity as WTextRange).CharacterFormat.FontSize = 14;
-                            }
-                            else if (currentEntity is WFieldMark fieldMark && fieldMark.Type == FieldMarkType.FieldEnd)
-                            {
-                                break;
-                            }
-                            // Move to the next sibling entity.
-                            currentEntity = (Entity)currentEntity.NextSibling;
-                        }
+                        SetFontSizeForFormField((WTextFormField)entity);
                     }
                     // Save the modified document
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         document.Save(outputStream, FormatType.Docx);
                     }
+                }
+            }
+			/// <summary>
+            /// Sets the font size for text ranges within a form field until the Field End marker is reached.
+            /// </summary>
+            static void SetFontSizeForFormField(Entity formField)
+            {
+                Entity currentEntity = formField;
+                while (currentEntity.NextSibling != null)
+                {
+                    if (currentEntity is WTextRange textRange)
+                    {
+                        textRange.CharacterFormat.FontSize = 20;
+                    }
+                    else if (currentEntity is WFieldMark fieldMark && fieldMark.Type == FieldMarkType.FieldEnd)
+                    {
+                        break;
+                    }
+                    currentEntity = (Entity)currentEntity.NextSibling;
                 }
             }
         }
