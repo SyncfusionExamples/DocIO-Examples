@@ -33,7 +33,7 @@ namespace ReplaceMergeFieldsWithImages
         }
 
         /// <summary>
-        /// Event handler to insert images into merge fields.
+        /// Event handler to insert images in mergefield position.
         /// </summary>
         private static void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
         {
