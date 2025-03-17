@@ -10,4 +10,4 @@ DocIO supports Word 97-2003 and later versions, handling major Microsoft Word fi
 *   Add the input documents to the "Data" folder.
 *   Run the application.
 
-The console output will indicate whether the provided input document is supported or unsupported. If the document is unsupported, convert it to a format supported by DocIO.
+The console output will indicate whether the provided input document is supported or unsupported. **If the document is unsupported, convert it to a DocIO supported format**.
