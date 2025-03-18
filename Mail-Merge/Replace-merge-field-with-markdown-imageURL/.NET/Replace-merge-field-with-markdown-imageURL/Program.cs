@@ -6,7 +6,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace ReplaceMergeFieldWithMarkdown
+namespace Replace_merge_field_with_markdown_imageURL
 {
     class Program
     {
