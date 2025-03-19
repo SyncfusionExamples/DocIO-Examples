@@ -1,7 +1,7 @@
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-namespace Replace_list_restart_numbering_HTML_with_text
+namespace Replace_text_with_HTML_list
 {
     internal class Program
     {
