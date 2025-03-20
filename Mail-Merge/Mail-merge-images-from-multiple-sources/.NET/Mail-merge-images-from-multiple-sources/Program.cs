@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using System.Net;
 
-namespace ReplaceMergeFieldsWithImages
+namespace Mail_merge_images_from_multiple_sources
 {
     class Program
     {
@@ -33,7 +33,7 @@ namespace ReplaceMergeFieldsWithImages
         }
 
         /// <summary>
-        /// Event handler to insert images in mergefield position.
+        /// Event handler to insert images into merge fields.
         /// </summary>
         private static void MergeField_ProductImage(object sender, MergeImageFieldEventArgs args)
         {

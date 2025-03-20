@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Replace_mergefields_multiple_image_sources</RootNamespace>
+    <RootNamespace>Mail_merge_images_from_multiple_sources</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
