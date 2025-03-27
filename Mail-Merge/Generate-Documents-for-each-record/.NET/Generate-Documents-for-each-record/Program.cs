@@ -1,4 +1,4 @@
-﻿using Syncfusion.DocIO;
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System.Data;
 using System.IO;
@@ -13,13 +13,15 @@ namespace Generate_Documents_for_each_record
             using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open))
             {
                 //Load file stream into Word document.
-                using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
+                using (WordDocument template = new WordDocument(fileStream, FormatType.Docx))
                 {
                     //Get the data for mail merge.
                     DataTable table = GetDataTable();
                     //Iterate to the each row and generate mail merged document for each rows.
                     for (int i = 0; i < table.Rows.Count; i++)
                     {
+                        //Clones the template document for creating new document for each record in the data source
+                        WordDocument document = template.Clone();
                         //Executes mail merge using the data row.
                         document.MailMerge.Execute(table.Rows[i]);
 
@@ -29,6 +31,8 @@ namespace Generate_Documents_for_each_record
                             //Save the Word document to the file stream.
                             document.Save(outputFileStream, FormatType.Docx);
                         }
+                        //Releases the resources occupied by WordDocument instance
+                        document.Dispose();
                     }
                 }
             }
@@ -67,4 +71,3 @@ namespace Generate_Documents_for_each_record
         }
     }
 }
-
