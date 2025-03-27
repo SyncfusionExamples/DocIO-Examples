@@ -1,4 +1,4 @@
-﻿using Syncfusion.DocIO;
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
 using System.Collections.Generic;
@@ -17,9 +17,9 @@ namespace Convert_chart_to_image_and_replace
                 using (WordDocument wordDocument = new WordDocument(fileStream, FormatType.Docx))
                 {
                     List<Entity> charts = wordDocument.FindAllItemsByProperty(EntityType.Chart, null, null);
-                    foreach (WChart entity in charts)
+                    for (int i=0; i<charts.Count; i++)
                     {
-                        WChart chart = (WChart)entity;
+                        WChart chart = (WChart)charts[i];
                         //Get owner paragraph of chart.
                         WParagraph paragraph = chart.OwnerParagraph;
                         //Get index of the chart in the paragraph.
@@ -40,8 +40,6 @@ namespace Convert_chart_to_image_and_replace
                                 //Add image to the paragraph at chart index.
                                 if (chartIndex < paragraph.ChildEntities.Count)
                                     paragraph.ChildEntities.Insert(chartIndex, picture);
-                                else
-                                    paragraph.ChildEntities.Add(picture);
                                 //Remove chart from the paragraph.
                                 paragraph.ChildEntities.Remove(chart);
                             }
@@ -59,4 +57,3 @@ namespace Convert_chart_to_image_and_replace
         }
     }
 }
-
