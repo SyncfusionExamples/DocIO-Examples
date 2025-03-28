@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Syncfusion.DocIO;
@@ -45,7 +45,9 @@ namespace Read_JSON_data_set_values_in_form_fields
                 }
             }
         }
-
+        /// <summary>
+        /// Adds a labeled text form field to the specified section.
+        /// </summary>
         private static void AddTextFormField(IWSection section, string label, string value)
         {
             WParagraph paragraph = section.AddParagraph() as WParagraph;
@@ -61,6 +63,10 @@ namespace Read_JSON_data_set_values_in_form_fields
             section.AddParagraph();
         }
     }
+	
+	/// <summary>
+    /// Represents report data with employee details.
+    /// </summary>
     public class Reports
     {
         [JsonProperty("EmployeeID")] public string EmployeeID { get; set; }
@@ -69,7 +75,9 @@ namespace Read_JSON_data_set_values_in_form_fields
         [JsonProperty("Location")] public string Location { get; set; }
 
     }
-
+    /// <summary>
+    /// Root object for deserializing JSON data.
+    /// </summary>
     public class Root
     {
         [JsonProperty("Reports")] public List<Reports> Reports { get; set; }
