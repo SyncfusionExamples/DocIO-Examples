@@ -18,7 +18,7 @@ namespace Get_Field_Code
                     // Access the field in the first paragraph of the first section.
                     WField field = document.Sections[0].Paragraphs[0].ChildEntities[2] as WField;
 
-                    // Get and print the field code of the merge field.
+                    // Get and print the field code.
                     string fieldCode = field.FieldCode;
                     Console.WriteLine(fieldCode);
                 }
