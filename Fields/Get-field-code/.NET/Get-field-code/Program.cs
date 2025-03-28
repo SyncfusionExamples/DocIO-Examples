@@ -1,4 +1,4 @@
-﻿using Syncfusion.DocIO;
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System;
 using System.IO;
@@ -15,11 +15,11 @@ namespace Get_Field_Code
                 // Load the template document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
-                    // Access the merge field in the first paragraph of the first section.
-                    WMergeField mergeField = document.Sections[0].Paragraphs[0].ChildEntities[2] as WMergeField;
+                    // Access the field in the first paragraph of the first section.
+                    WField field = document.Sections[0].Paragraphs[0].ChildEntities[2] as WField;
 
                     // Get and print the field code of the merge field.
-                    string fieldCode = mergeField.FieldCode;
+                    string fieldCode = field.FieldCode;
                     Console.WriteLine(fieldCode);
                 }
             }
