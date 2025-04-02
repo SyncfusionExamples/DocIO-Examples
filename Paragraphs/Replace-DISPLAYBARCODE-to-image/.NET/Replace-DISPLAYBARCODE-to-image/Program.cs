@@ -1,4 +1,4 @@
-﻿using Syncfusion.DocIO.DLS;
+using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 using Syncfusion.Pdf.Barcode;
 using Syncfusion.Pdf.Graphics;
@@ -113,7 +113,6 @@ namespace Replace_DISPLAYBARCODE_to_image
 
                         // Initialize flags for optional parameters
                         bool addText = false;
-                        bool addCharacter = false;
 
                         // Check for the \t option (whether to display text below the barcode)
                         var tabMatch = Regex.IsMatch(field.FieldCode, @"\\t");
@@ -122,15 +121,9 @@ namespace Replace_DISPLAYBARCODE_to_image
                             addText = true;
                         }
 
-                        // Check for the \d option (whether to include start/stop characters)
-                        var digitMatch = Regex.IsMatch(field.FieldCode, @"\\d");
-                        if (digitMatch)
-                        {
-                            addCharacter = true;
-                        }
 
                         // Generate the Code39 barcode image as a byte array
-                        byte[] qrCode = GenerateCODE39Image(qrBarcodeText, addCharacter, addText);
+                        byte[] qrCode = GenerateCODE39Image(qrBarcodeText, addText);
 
                         // Create a new picture object to hold the barcode image
                         WPicture picture = new WPicture(document);
@@ -201,10 +194,9 @@ namespace Replace_DISPLAYBARCODE_to_image
         /// Generates a Code39 barcode image and converts it to a byte array.
         /// </summary>
         /// <param name="qrBarcodeText">The text to be encoded in the Code39 barcode</param>
-        /// <param name="dSwitch">Whether to include start/stop characters (\d option)</param>
         /// <param name="tSwitch">Whether to display the text below the barcode (\t option)</param>
         /// <returns>A byte array representing the Code39 barcode image</returns>
-        private static byte[] GenerateCODE39Image(string qrBarcodeText, bool dSwitch, bool tSwitch)
+        private static byte[] GenerateCODE39Image(string qrBarcodeText, bool tSwitch)
         {
             // Create a new Code39 barcode instance
             PdfCode39Barcode barcode = new PdfCode39Barcode();
