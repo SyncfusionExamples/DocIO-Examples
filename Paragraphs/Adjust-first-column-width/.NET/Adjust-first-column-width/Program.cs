@@ -17,7 +17,7 @@ namespace Adjust_first_column_width
                     List<Entity> tables = document.FindAllItemsByProperty(EntityType.Table, null, null);
 
                     // Initialize variables
-                    bool isFisrtCell = false; // Flag to identify the first cell in each row
+                    bool isFirstCell = false; // Flag to identify the first cell in each row
                     WTableCell firstCellReference = new WTableCell(document); // To store the reference to the first cell
                     float totalCellWidth = 0; // Accumulate width of cells except the first one
 
@@ -29,15 +29,15 @@ namespace Adjust_first_column_width
                         {
                             // Reset variables for each row
                             totalCellWidth = 0;
-                            isFisrtCell = false;
+                            isFirstCell = false;
 
                             // Iterate through each cell in the row
                             foreach (WTableCell cell in row.Cells)
                             {
-                                if (!isFisrtCell)
+                                if (!isFirstCell)
                                 {
                                     // Identify the first cell in the row
-                                    isFisrtCell = true;
+                                    isFirstCell = true;
                                     firstCellReference = cell; // Store the first cell reference
                                 }
                                 else
