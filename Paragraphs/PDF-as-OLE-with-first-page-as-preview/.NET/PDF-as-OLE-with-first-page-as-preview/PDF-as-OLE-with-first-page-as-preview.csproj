@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Replace_bookmark_content_with_OLE</RootNamespace>
+    <RootNamespace>PDF_as_OLE_with_first_page_as_preview</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

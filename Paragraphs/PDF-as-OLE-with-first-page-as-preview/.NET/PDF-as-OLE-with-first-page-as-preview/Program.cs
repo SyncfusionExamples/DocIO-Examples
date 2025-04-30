@@ -4,7 +4,7 @@ using Syncfusion.DocIO.DLS;
 using Syncfusion.EJ2.PdfViewer;
 using SkiaSharp;
 
-namespace Replace_bookmark_content_with_OLE
+namespace PDF_as_OLE_with_first_page_as_preview
 {
     class Program
     {
