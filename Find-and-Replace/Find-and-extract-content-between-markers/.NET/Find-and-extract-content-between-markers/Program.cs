@@ -98,6 +98,4 @@ void FindStartEndAndIterate(WordDocument document, string textToSearch)
             }
         }
     }
-    Console.ReadLine();
 }
-
