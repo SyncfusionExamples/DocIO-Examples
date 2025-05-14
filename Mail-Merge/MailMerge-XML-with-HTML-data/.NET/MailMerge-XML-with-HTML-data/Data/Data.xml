@@ -1,0 +1,12 @@
+<Root>
+  <Validator>
+    <Component>
+      <Name>Login</Name>
+      <Description>This component handles &lt;strong&gt; user authentication &lt;strong&gt;</Description>
+	  </Component>
+    <Component>
+      <Name>Dashboard</Name>
+      <Description>The dashboard &lt;em&gt;summarizes&lt;em&gt; key metrics</Description>
+    </Component>
+  </Validator>
+</Root>
