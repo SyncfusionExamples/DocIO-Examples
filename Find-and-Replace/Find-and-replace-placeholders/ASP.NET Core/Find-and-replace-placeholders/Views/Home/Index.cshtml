@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            .form-container label {
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .form-container input[type="text"],
+            .form-container input[type="email"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            .form-container input[type="submit"] {
+                width: 100%;
+                padding: 12px;
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+                .form-container input[type="submit"]:hover {
+                    background-color: #0056b3;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        @using (Html.BeginForm("CreateDocument", "Home", FormMethod.Get))
+        {
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" required />
+
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required />
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required />
+
+            <input type="submit" value="Create Document" />
+        }
+    </div>
+
+</body>
+</html>
