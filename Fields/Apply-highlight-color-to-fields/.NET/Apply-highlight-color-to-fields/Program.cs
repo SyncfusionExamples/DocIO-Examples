@@ -3,7 +3,7 @@ using Syncfusion.DocIO.DLS;
 using Syncfusion.Drawing;
 using System.IO;
 
-namespace Apply_shading_to_fields
+namespace Apply_highlight_color_to_fields
 {
     class Program
     {

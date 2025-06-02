@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Apply_shading_to_fields</RootNamespace>
+    <RootNamespace>Apply_highlight_color_to_fields</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
