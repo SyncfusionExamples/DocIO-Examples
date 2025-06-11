@@ -8,39 +8,28 @@ namespace Add_editable_range_in_a_table
     {
         static void Main(string[] args)
         {
-            //Creates a Word document
-            using (WordDocument document = new WordDocument())
+            // Load the Word document
+            using (WordDocument document = new WordDocument(Path.GetFullPath(@"Data/Template.docx")))
             {
-                //Adds a section and a paragraph in the Word document
-                document.EnsureMinimal();
-
-                //Adds a table
-                WTable table = document.LastSection.AddTable() as WTable;
-                table.ResetCells(2, 3);
-
-                //Access each table cell and append text
-                table[0, 0].AddParagraph().AppendText("Row1 Col1");
-                table[0, 1].AddParagraph().AppendText("Row1 Col2");
-                table[0, 2].AddParagraph().AppendText("Row1 Col3");
-                table[1, 0].AddParagraph().AppendText("Row2 Col1");
-                table[1, 1].AddParagraph().AppendText("Row2 Col2");
-                table[1, 2].AddParagraph().AppendText("Row2 Col3");
-
-                //Starts the editable range in a table cell
-                EditableRangeStart editableRangeStart = table[0, 1].Paragraphs[0].AppendEditableRangeStart();
-
-                //Sets the first column where the editable range starts within a table
-                editableRangeStart.EditableRange.FirstColumn = 1;
-
-                //Ends the ediatble range in a table cell
-                EditableRangeEnd rangeEnd = table[1, 2].Paragraphs[0].AppendEditableRangeEnd(editableRangeStart);
-
-                //Sets the last column where the editable range ends within a table
-                editableRangeStart.EditableRange.LastColumn = 2;
-
+                // Access the first table in the first section of the document
+                WTable table = document.Sections[0].Tables[0] as WTable;
+                // Access the paragraph in the third row and third column of the table
+                WParagraph paragraph = table[2, 2].ChildEntities[0] as WParagraph;
+                // Create a new editable range start for the table cell paragraph
+                EditableRangeStart editableRangeStart = new EditableRangeStart(document);
+                // Insert the editable range start at the beginning of the paragraph
+                paragraph.ChildEntities.Insert(0, editableRangeStart);
+                // Set the editor group for the editable range to allow everyone to edit
+                editableRangeStart.EditorGroup = EditorType.Everyone;
+                // Apply editable range to second column only
+                editableRangeStart.FirstColumn = 1;
+                editableRangeStart.LastColumn = 1;
+                // Access the paragraph
+                paragraph = table[5, 2].ChildEntities[0] as WParagraph;
+                // Append an editable range end to close the editable region
+                paragraph.AppendEditableRangeEnd();
                 //Sets the protection with password and allows only reading
                 document.Protect(ProtectionType.AllowOnlyReading, "password");
-
                 //Creates file stream
                 using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
