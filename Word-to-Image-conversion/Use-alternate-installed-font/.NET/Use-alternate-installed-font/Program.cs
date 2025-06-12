@@ -27,7 +27,7 @@ namespace Use_alternate_installed_font
                             //Reset the stream position.
                             stream.Position = 0;
                             //Save the stream as file.
-                            using (FileStream fileStreamOutput = File.Create("Output/WordToImage_" + i + ".jpeg"))
+                            using (FileStream fileStreamOutput = File.Create(Path.GetFullPath(@"Output/WordToImage_" + i + ".jpeg")))
                             {
                                 stream.CopyTo(fileStreamOutput);
                             }
