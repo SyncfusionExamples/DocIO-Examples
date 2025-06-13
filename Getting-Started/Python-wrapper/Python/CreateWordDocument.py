@@ -35,4 +35,4 @@ output_doc = r"Create-Word-document.docx" #path of result document
 # Call CompareDocuments method
 result = document.WordDocument(output_doc)
 
-print("Comparison Result:", result) 
+print("Document generated:", result) 
