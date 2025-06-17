@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Find_and_find_next</RootNamespace>
+    <RootNamespace>Find_next</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
