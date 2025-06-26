@@ -22,7 +22,7 @@ namespace Group_permission_for_editable_range
                 EditableRangeStart editableRangeStart = paragraph.AppendEditableRangeStart();
 
                 //Set the editor group
-                editableRangeStart.EditableRange.EditorGroup = EditorType.Everyone;
+                editableRangeStart.EditorGroup = EditorType.Everyone;
 
                 paragraph.AppendText("sample databases are based, is a large, multinational manufacturing company.");
                 paragraph.AppendEditableRangeEnd(editableRangeStart);
