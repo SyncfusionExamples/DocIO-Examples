@@ -13,19 +13,30 @@ namespace Add_or_remove_column_in_a_table
                 // Access the first table in the document
                 WTable table = (WTable)document.Sections[0].Tables[0];
                 // Add a new column at index
-                AddColumn(table, 2);
+                InsertColumn(table, 1);
+                // Add a column at the last index
+                AddColumn(table);
                 // Remove a column at the index 
-                RemoveColumn(table, 1);
+                RemoveColumn(table, 4);
                 // Save the modified document to a new file
                 document.Save(Path.GetFullPath(@"Output/Result.docx"), FormatType.Docx);
             }
+        }
+        /// <summary>
+        /// Adds a new column at the last index in the table
+        /// </summary>
+        /// <param name="table">The table to modify</param>
+        private static void AddColumn(WTable table)
+        {
+            for (int i = 0; i < table.Rows.Count; i++)
+                table.Rows[i].AddCell();
         }
         /// <summary>
         /// Adds a new column at the specified index in the table.
         /// </summary>
         /// <param name="table">The table to modify.</param>
         /// <param name="indexToAdd">The index at which to insert the new column.</param>
-        private static void AddColumn(WTable table, int indexToAdd)
+        private static void InsertColumn(WTable table, int indexToAdd)
         {
             // Loop through each row in the table
             for (int i = 0; i < table.Rows.Count; i++)
@@ -54,7 +65,7 @@ namespace Add_or_remove_column_in_a_table
                 if (indexToRemove >= 0 && indexToRemove < table.Rows[i].Cells.Count)
                 {
                     // Remove the cell at the specified index in the current row
-                    table.Rows[i].Cells.RemoveAt(indexToRemove);
+                    table.Rows[i].Cells.Remove(table.Rows[i].Cells[indexToRemove]);
                 }
             }
         }
