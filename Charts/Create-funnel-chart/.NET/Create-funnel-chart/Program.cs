@@ -23,7 +23,7 @@ namespace Create_funnel_chart
                 chart.ChartType = OfficeChartType.Funnel;
 
                 // Set chart title.
-                chart.ChartTitle = "Sales Funnel";
+                chart.ChartTitle = "Sales Stages - Funnel Chart";
 
                 // Set headers.
                 chart.ChartData.SetValue(1, 1, "Stage");

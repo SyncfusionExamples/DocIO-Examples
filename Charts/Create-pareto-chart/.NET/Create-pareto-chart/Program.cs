@@ -41,10 +41,10 @@ namespace Create_pareto_chart
                 chart.ChartData.SetValue(6, 1, "Gas");
                 chart.ChartData.SetValue(6, 2, 500);
 
-                chart.ChartData.SetValue(7, 1, "Cable");
+                chart.ChartData.SetValue(7, 1, "House loan");
                 chart.ChartData.SetValue(7, 2, 300);
 
-                chart.ChartData.SetValue(8, 1, "Mobile");
+                chart.ChartData.SetValue(8, 1, "Wifi bill");
                 chart.ChartData.SetValue(8, 2, 200);
 
                 // Define the data range for the chart.

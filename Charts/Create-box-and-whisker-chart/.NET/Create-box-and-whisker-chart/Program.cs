@@ -16,7 +16,7 @@ namespace Create_box_and_whisker_chart
 
                 WChart chart = paragraph.AppendChart(500f, 300f);
                 chart.ChartType = OfficeChartType.BoxAndWhisker;
-                chart.ChartTitle = "Box and whisker chart";
+                chart.ChartTitle = "Academic Score - Box & Whisker Chart";
 
                 // Set headers
                 chart.ChartData.SetValue(1, 1, "Course");

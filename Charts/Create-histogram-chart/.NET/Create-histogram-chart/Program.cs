@@ -20,7 +20,7 @@ namespace Create_histogram_chart
                 chart.ChartType = OfficeChartType.Histogram;
 
                 // Set chart title
-                chart.ChartTitle = "Test Scores (in Histogram)";
+                chart.ChartTitle = "Test Scores - Histogram Chart";
                 chart.ChartTitleArea.FontName = "Calibri";
                 chart.ChartTitleArea.Size = 14;
 
@@ -43,6 +43,10 @@ namespace Create_histogram_chart
                 // Set legend.
                 chart.HasLegend = true;
                 chart.Legend.Position = OfficeLegendPosition.Bottom;
+
+                //Set x-axis and y-axis title
+                chart.PrimaryCategoryAxis.Title = "Score Range";
+                chart.PrimaryValueAxis.Title = "Number Of Candidates";
 
                 // Create a file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
