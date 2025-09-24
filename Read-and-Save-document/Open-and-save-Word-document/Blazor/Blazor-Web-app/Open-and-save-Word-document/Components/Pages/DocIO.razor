@@ -1,0 +1,22 @@
+﻿@rendermode InteractiveServer
+@page "/DocIO"
+@using System.IO;
+@using Open_and_save_Word_document;
+@inject Open_and_save_Word_document.Data.WordService service
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h2>Syncfusion DocIO Library (DocIO)</h2>
+<p>The Syncfusion DocIO library (DocIO) is a Blazor DocIO library used to create, read, edit, and convert Word files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@OpenAndSaveDocument">Open and save Document</button>
+
+@code {
+    MemoryStream documentStream;
+    /// <summary>
+    /// Open and save the Word document and download it.
+    /// </summary>
+    protected async void OpenAndSaveDocument()
+    {
+        documentStream = service.OpenAndSaveDocument();
+        await JS.SaveAs("Sample.docx", documentStream.ToArray());
+    }
+}
