@@ -1,0 +1,22 @@
+﻿@rendermode InteractiveServer
+@page "/DocIO"
+@using System.IO;
+@using Convert_Word_Document_to_Image;
+@inject Convert_Word_Document_to_Image.Data.WordService service
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h2>Syncfusion DocIO Library </h2>
+<p>The Syncfusion DocIO library is a Blazor DocIO library used to create, read, edit, and convert Word files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@ConvertWordtoImage">Convert Word to Image</button>
+
+@code {
+    MemoryStream documentStream;
+    /// <summary>
+    /// Convert Word to image and download the image file
+    /// </summary>
+    protected async void ConvertWordtoImage()
+    {
+        documentStream = service.ConvertWordtoImage();
+        await JS.SaveAs("WordToImage.Jpeg", documentStream.ToArray());
+    }
+}

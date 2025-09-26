@@ -1,0 +1,22 @@
+﻿@rendermode InteractiveServer
+@page "/DocIO"
+@using System.IO;
+@using Create_Word_document;
+@inject Create_Word_document.Data.WordService service
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h2>Syncfusion DocIO Library (Essential DocIO)</h2>
+<p>The Syncfusion DocIO library (Essential DocIO) is a Blazor DocIO library used to create, read, edit, and convert Word files in your applications without Microsoft Office dependencies.</p>
+<button class="btn btn-primary" @onclick="@CreateWord">Create Word</button>
+
+@code {
+    MemoryStream documentStream;
+    /// <summary>
+    /// Create and download the Word document
+    /// </summary>
+    protected async void CreateWord()
+    {
+        documentStream = service.CreateWord();
+        await JS.SaveAs("Sample.docx", documentStream.ToArray());
+    }
+}
