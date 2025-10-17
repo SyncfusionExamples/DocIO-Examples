@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Execute-GroupMailMerge-FirstOccurrenceOnly", "Execute-GroupMailMerge-FirstOccurrenceOnly\Execute-GroupMailMerge-FirstOccurrenceOnly.csproj", "{EC618C0E-D312-43D3-AC08-B7673F7A4750}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC618C0E-D312-43D3-AC08-B7673F7A4750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC618C0E-D312-43D3-AC08-B7673F7A4750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC618C0E-D312-43D3-AC08-B7673F7A4750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC618C0E-D312-43D3-AC08-B7673F7A4750}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87877196-7EA7-43C8-98D5-B81300155D80}
+	EndGlobalSection
+EndGlobal
