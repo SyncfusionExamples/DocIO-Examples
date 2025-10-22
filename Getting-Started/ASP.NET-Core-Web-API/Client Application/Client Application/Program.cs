@@ -9,7 +9,7 @@ class Program
             try
             {
                 // Send a GET request to a URL
-                HttpResponseMessage response = await client.GetAsync("http://localhost:5033/api/Values/api/Word");
+                HttpResponseMessage response = await client.GetAsync("https://localhost:7152/api/Values/api/Word");
 
                 // Check if the response is successful
                 if (response.IsSuccessStatusCode)

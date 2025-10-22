@@ -1,0 +1,6 @@
+@Create_Word_Document_HostAddress = http://localhost:5098
+
+GET {{Create_Word_Document_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
