@@ -1,0 +1,6 @@
+@Open_and_save_Word_document_HostAddress = http://localhost:5239
+
+GET {{Open_and_save_Word_document_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
