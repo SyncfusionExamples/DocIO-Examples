@@ -1,0 +1,6 @@
+@Convert_Word_Document_to_Image_HostAddress = http://localhost:5217
+
+GET {{Convert_Word_Document_to_Image_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
