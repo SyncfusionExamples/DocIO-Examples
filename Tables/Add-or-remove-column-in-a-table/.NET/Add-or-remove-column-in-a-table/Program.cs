@@ -17,9 +17,9 @@ namespace Add_or_remove_column_in_a_table
                 // Add a column at the last index
                 AddColumn(table);
                 // Remove a column at the index 
-                RemoveColumn(table, 4);
+                RemoveColumn(table, 3);
                 // Save the modified document to a new file
-                document.Save(Path.GetFullPath(@"Output/Result.docx"), FormatType.Docx);
+                document.Save(Path.GetFullPath(@"../../../Output/Result.docx"), FormatType.Docx);
             }
         }
         /// <summary>
@@ -28,8 +28,16 @@ namespace Add_or_remove_column_in_a_table
         /// <param name="table">The table to modify</param>
         private static void AddColumn(WTable table)
         {
+            // Loop through each row in the table
             for (int i = 0; i < table.Rows.Count; i++)
-                table.Rows[i].AddCell();
+            {
+                // Add a new cell to the current row (appends at the end)
+                WTableCell cell = table.Rows[i].AddCell();
+                // Set the width of the new cell to match the first cell in the row
+                cell.Width = table.Rows[i].Cells[0].Width;
+                // Add a paragraph to the new cell and insert the text
+                cell.AddParagraph().AppendText("Using Add API");
+            }
         }
         /// <summary>
         /// Adds a new column at the specified index in the table.
@@ -48,6 +56,8 @@ namespace Add_or_remove_column_in_a_table
                     WTableCell newCell = new WTableCell(table.Document);
                     // Insert the new cell at the specified index in the current row
                     table.Rows[i].Cells.Insert(indexToAdd, newCell);
+                    // Add a paragraph to the new cell and insert the text
+                    newCell.AddParagraph().AppendText("Using Insert API");
                 }                
             }
         }
@@ -65,7 +75,7 @@ namespace Add_or_remove_column_in_a_table
                 if (indexToRemove >= 0 && indexToRemove < table.Rows[i].Cells.Count)
                 {
                     // Remove the cell at the specified index in the current row
-                    table.Rows[i].Cells.Remove(table.Rows[i].Cells[indexToRemove]);
+                    table.Rows[i].Cells.RemoveAt(indexToRemove);
                 }
             }
         }
