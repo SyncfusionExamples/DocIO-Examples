@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clone-and-merge-word-document", "Clone-and-merge-word-document\Clone-and-merge-word-document.csproj", "{5CA9367C-0457-46D2-888A-2546415F959D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CA9367C-0457-46D2-888A-2546415F959D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CA9367C-0457-46D2-888A-2546415F959D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CA9367C-0457-46D2-888A-2546415F959D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CA9367C-0457-46D2-888A-2546415F959D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9FAA86B-9898-40D7-8F82-BC653E801479}
+	EndGlobalSection
+EndGlobal

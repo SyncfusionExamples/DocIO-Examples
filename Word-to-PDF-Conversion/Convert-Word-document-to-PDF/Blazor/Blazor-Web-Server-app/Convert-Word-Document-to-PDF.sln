@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert-Word-Document-to-PDF", "Convert-Word-Document-to-PDF\Convert-Word-Document-to-PDF.csproj", "{4D1617D1-9C5F-490C-8722-C76743AA6B5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D1617D1-9C5F-490C-8722-C76743AA6B5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D1617D1-9C5F-490C-8722-C76743AA6B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D1617D1-9C5F-490C-8722-C76743AA6B5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D1617D1-9C5F-490C-8722-C76743AA6B5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EAA9C54-E4DD-4D61-908B-8A23834B0A6B}
+	EndGlobalSection
+EndGlobal
