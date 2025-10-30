@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h2 style="margin-bottom: 20px">Working with Word IF Fields</h2>
+    <div>
+        <button style="width: 300px; margin-bottom: 20px; height: 40px; display: block"
+                onclick="location.href='@Url.Action("SimpleIfField", "Home")'">
+            Create Simple IF Field
+        </button>
+        <button style="width: 300px; margin-bottom: 20px; height: 40px; display: block"
+                onclick="location.href='@Url.Action("IfFieldWithRichContent", "Home")'">
+            Create IF Field with Rich Content
+        </button>
+    </div>
+</div>
