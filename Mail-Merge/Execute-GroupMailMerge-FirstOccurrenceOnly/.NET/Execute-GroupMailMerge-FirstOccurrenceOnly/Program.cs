@@ -34,26 +34,29 @@ namespace Execute_GroupMailMerge_FirstOccurrenceOnly
                 // Find all merge fields with the same name
                 List<Entity> mergeGroups = document.FindAllItemsByProperty(EntityType.MergeField, "FieldName", groupName);
                 // Start from second occurrence to remove duplicates
-                for (int i = 1; i < mergeGroups.Count; i++)
+                for (int i = 2; i < mergeGroups.Count; i++)
                 {
                     WMergeField mergeField = mergeGroups[i] as WMergeField;
                     // Check if it's a group start field
-                    if (mergeField.FieldCode.Contains("TableStart") || mergeField.FieldCode.Contains("BeginGroup"))
+                    if (mergeField.FieldCode.Contains("TableStart:") || mergeField.FieldCode.Contains("BeginGroup:"))
                     {
+                        // Generate unique Bookmark name
+                        string bkmkGroupName = groupName + Guid.NewGuid().ToString();
                         // Add bookmark start before the group
-                        BookmarkStart bkmkStart = new BookmarkStart(document, groupName);
+                        BookmarkStart bkmkStart = new BookmarkStart(document, bkmkGroupName);
                         WParagraph startPara = mergeField.OwnerParagraph;
                         int mergeFieldIndex = startPara.ChildEntities.IndexOf(mergeField);
                         startPara.ChildEntities.Insert(mergeFieldIndex, bkmkStart);
                         // Add bookmark end after the group
                         WMergeField endField = mergeGroups[i + 1] as WMergeField;
-                        BookmarkEnd bkmkEnd = new BookmarkEnd(document, groupName);
+                        BookmarkEnd bkmkEnd = new BookmarkEnd(document, bkmkGroupName);
                         WParagraph endPara = endField.OwnerParagraph;
                         int endFieldIndex = endPara.ChildEntities.IndexOf(endField);
                         endPara.ChildEntities.Insert(endFieldIndex + 1, bkmkEnd);
+                        i++;
                         // Delete content inside the bookmark
                         BookmarksNavigator navigator = new BookmarksNavigator(document);
-                        navigator.MoveToBookmark(groupName);
+                        navigator.MoveToBookmark(bkmkGroupName);
                         navigator.DeleteBookmarkContent(false);
                         document.Bookmarks.Remove(navigator.CurrentBookmark);
                         // Remove owner table if applicable
