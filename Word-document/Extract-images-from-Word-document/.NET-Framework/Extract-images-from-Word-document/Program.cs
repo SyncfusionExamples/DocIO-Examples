@@ -14,7 +14,7 @@ namespace Extract_images_from_Word_document
     {
         static void Main(string[] args)
         {
-            // Open the file as a stream.
+            // Open the Word document.
             using (WordDocument document =  new WordDocument(Path.GetFullPath(@"../../Data/Template.docx")))
             {
                 // Find all pictures by EntityType in the Word document.
