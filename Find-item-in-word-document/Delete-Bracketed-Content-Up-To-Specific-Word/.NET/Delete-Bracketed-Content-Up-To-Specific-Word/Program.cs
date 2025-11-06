@@ -21,11 +21,11 @@ namespace Delete_bracketed_content_up_to_specific_word
                     // Find the position (index) of the paragraph in the section
                     int phraseParaIndex = ownerSection.Body.ChildEntities.IndexOf(paragraph);
                     // Find the position of the word inside the paragraph
-                    int phraseEntityIndex = paragraph.ChildEntities.IndexOf(selection.GetAsOneRange());
+                    int matchWordIndex = paragraph.ChildEntities.IndexOf(selection.GetAsOneRange());
                     // Set how many paragraphs before the word we want to check
                     int maxPreviousParagraphs = 6;
                     // Call a method to remove content inside brackets before the word
-                    RemoveBlock(document, paragraph, phraseParaIndex, phraseEntityIndex, ownerSection, maxPreviousParagraphs);
+                    RemoveBlock(document, paragraph, phraseParaIndex, matchWordIndex, ownerSection, maxPreviousParagraphs);
                     // Save the updated document to a file
                     document.Save(@"../../../Output/Output.docx");
                 }
@@ -37,10 +37,10 @@ namespace Delete_bracketed_content_up_to_specific_word
         /// <param name="document">The Word document to modify.</param>
         /// <param name="paragraph">The paragraph that contains the specific word or phrase.</param>
         /// <param name="phraseParaIndex">The index of the paragraph containing the specific word.</param>
-        /// <param name="phraseEntityIndex">The index of the word within the paragraph.</param>
+        /// <param name="matchWordIndex">The index of the word within the paragraph.</param>
         /// <param name="ownerSection">The section that contains the paragraph.</param>
         /// <param name="maxPreviousParagraphs">The number of previous paragraphs to check for bracketed content.</param>
-        private static void RemoveBlock(WordDocument document, WParagraph paragraph, int phraseParaIndex, int phraseEntityIndex, WSection ownerSection, int maxPreviousParagraphs)
+        private static void RemoveBlock(WordDocument document, WParagraph paragraph, int phraseParaIndex, int matchWordIndex, WSection ownerSection, int maxPreviousParagraphs)
         {
             // Initialize state
             int bracketCount = 0;
@@ -56,7 +56,7 @@ namespace Delete_bracketed_content_up_to_specific_word
             {
                 WParagraph currentParagraph = ownerSection.Paragraphs[i];
                 // If it's the phrase paragraph, start from the word's position; otherwise, start from the end
-                int start = i == phraseParaIndex ? phraseEntityIndex : currentParagraph.ChildEntities.Count - 1;
+                int start = i == phraseParaIndex ? matchWordIndex : currentParagraph.ChildEntities.Count - 1;
                 // Loop through entities in reverse
                 for (int j = start; j >= 0; j--)
                 {
@@ -100,7 +100,7 @@ namespace Delete_bracketed_content_up_to_specific_word
                 openingBracketParagraph .ChildEntities.Insert(openingBracketCharIndex, bookmarkStart);
                 // Create and insert a bookmark end after the specific word
                 BookmarkEnd bookmarkEnd = new BookmarkEnd(document, bookmarkName);
-                paragraph.ChildEntities.Insert(phraseEntityIndex + 1, bookmarkEnd);
+                paragraph.ChildEntities.Insert(matchWordIndex + 1, bookmarkEnd);
                 // Use Bookmarknavigator to delete content between the bookmarks
                 BookmarksNavigator navigator = new BookmarksNavigator(document);
                 navigator.MoveToBookmark(bookmarkName);
