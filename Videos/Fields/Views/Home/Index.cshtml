@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h2 style="margin-bottom: 20px; font-size: 22px;">Working with Fields in Word Document</h2>
+    <div>
+        <button style="width: 180px; margin-bottom: 20px; height: 40px; display: block; font-size: 18px;"
+                onclick="location.href='@Url.Action("AddField", "Home")'">
+            Add Field
+        </button>
+        <button style="width: 180px; margin-bottom: 20px; height: 40px; display: block; font-size: 18px;"
+                onclick="location.href='@Url.Action("UpdateField", "Home")'">
+            Update Field
+        </button>
+        <button style="width: 180px; margin-bottom: 20px; height: 40px; display: block; font-size: 18px;"
+                onclick="location.href='@Url.Action("UnlinkField", "Home")'">
+            Unlink Field
+        </button>
+    </div>
+</div>
