@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Convert-Word-document-to-PPTX": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
