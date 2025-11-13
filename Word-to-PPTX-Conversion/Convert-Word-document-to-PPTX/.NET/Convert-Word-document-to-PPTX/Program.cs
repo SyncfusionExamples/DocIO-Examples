@@ -9,13 +9,15 @@ namespace Convert_Word_document_to_PPTX
         private static IPresentation pptxDoc;
         static void Main(string[] args)
         {
-            //Opens an existing document from file system through constructor of WordDocument class
+            //Loads an existing Word document.
             using (WordDocument document = new WordDocument(Path.GetFullPath("../../../Data/Adventure.docx"), Syncfusion.DocIO.FormatType.Automatic))
             {
+                // Create a new PowerPoint presentation.
                 pptxDoc = Presentation.Create();
+                // Iterate each section in the Word document and process its body.
                 foreach (WSection section in document.Sections)
                 {
-                    //Accesses the Body of section where all the contents in document are apart
+                    // Access the section body that contains paragraphs, tables, and content controls.
                     WTextBody sectionBody = section.Body;
                     AddTextBodyItems(sectionBody);
                 }
