@@ -9,22 +9,19 @@ namespace Convert_Word_document_to_PPTX
         private static IPresentation pptxDoc;
         static void Main(string[] args)
         {
-            FileStream fileStreamPath = new FileStream("../../../Data/Template.docx", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             //Opens an existing document from file system through constructor of WordDocument class
-            using (WordDocument document = new WordDocument(fileStreamPath, Syncfusion.DocIO.FormatType.Automatic))
+            using (WordDocument document = new WordDocument(Path.GetFullPath("../../../Data/Adventure.docx"), Syncfusion.DocIO.FormatType.Automatic))
             {
                 pptxDoc = Presentation.Create();
-
                 foreach (WSection section in document.Sections)
                 {
                     //Accesses the Body of section where all the contents in document are apart
                     WTextBody sectionBody = section.Body;
                     AddTextBodyItems(sectionBody);
                 }
-                FileStream outputStream = new FileStream("../../../Output/DocxToPptx.pptx", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+                FileStream outputStream = new FileStream(Path.GetFullPath("../../../Output/DocxToPptx.pptx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
                 pptxDoc.Save(outputStream);
                 outputStream.Close();
-
             }
         }
 
@@ -54,7 +51,6 @@ namespace Convert_Word_document_to_PPTX
                 //IEntity is the basic unit in DocIO DOM. 
                 //Accesses the body items (should be either paragraph, table or block content control) as IEntity
                 IEntity bodyItemEntity = docTextBody.ChildEntities[i];
-
                 //A Text body has 3 types of elements - Paragraph, Table and Block Content Control
                 //Decides the element type by using EntityType
                 switch (bodyItemEntity.EntityType)
@@ -103,7 +99,6 @@ namespace Convert_Word_document_to_PPTX
                             AddParagraphItems(docParagraph, powerPointParagraph);
                         }
                         break;
-
                     case EntityType.Table:
                         //Table is a collection of rows and cells
                         //Iterates through table's DOM
@@ -124,7 +119,6 @@ namespace Convert_Word_document_to_PPTX
                             }
                         }
                         break;
-
                     case EntityType.BlockContentControl:
                         BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
                         //Iterates to the body items of Block Content Control.
@@ -191,7 +185,6 @@ namespace Convert_Word_document_to_PPTX
                             }
                         }
                         break;
-
                     case EntityType.Picture:
                         //Checks whether the image is inside a cell
                         if (docParagraph.IsInCell && powerPointTableCell != null)
