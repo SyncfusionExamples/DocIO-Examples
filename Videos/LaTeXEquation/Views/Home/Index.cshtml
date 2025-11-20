@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h2 style="margin-bottom: 20px; font-size: 22px;">Working with LaTeX Equations</h2>
+    <div>
+        <button style="width: 200px; margin-bottom: 20px; height: 40px; display: block; font-size: 18px;"
+                onclick="location.href='@Url.Action("CreateEquation", "Home")'">
+            Create Equation
+        </button>
+        <button style="width: 200px; margin-bottom: 20px; height: 40px; display: block; font-size: 18px;"
+                onclick="location.href='@Url.Action("AddEquation", "Home")'">
+            Add Equation
+        </button>
+        <button style="width: 200px; margin-bottom: 20px; height: 40px; display: block; font-size: 18px;"
+                onclick="location.href='@Url.Action("EditEquation", "Home")'">
+            Edit Equation
+        </button>
+    </div>
+</div>
