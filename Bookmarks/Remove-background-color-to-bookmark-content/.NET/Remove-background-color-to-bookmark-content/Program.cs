@@ -15,19 +15,14 @@ namespace Remove_background_color_to_bookmark
                 {
                     // Create the bookmark navigator instance
                     BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
-
                     // Move to the bookmark
                     bookmarkNavigator.MoveToBookmark("bkmk1");
-
                     // Get the bookmark content
                     TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
-
                     // Iterate through the content (implement this according to your needs)
                     IterateTextBody(part.BodyItems);
-
                     // Replace the bookmark content with modified content
                     bookmarkNavigator.ReplaceBookmarkContent(part);
-
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
