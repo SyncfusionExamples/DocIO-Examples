@@ -16,11 +16,11 @@ namespace Remove_background_color_to_bookmark
                     // Create the bookmark navigator instance
                     BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
                     // Move to the bookmark
-                    bookmarkNavigator.MoveToBookmark("bkmk1");
+                    bookmarkNavigator.MoveToBookmark("Adventure_Bkmk");
                     // Get the bookmark content
                     TextBodyPart part = bookmarkNavigator.GetBookmarkContent();
                     // Iterate through the content (implement this according to your needs)
-                    IterateTextBody(part.BodyItems);
+                    IterateTextBodyPart(part.BodyItems);
                     // Replace the bookmark content with modified content
                     bookmarkNavigator.ReplaceBookmarkContent(part);
                     //Creates file stream.
@@ -36,7 +36,7 @@ namespace Remove_background_color_to_bookmark
         /// Iterates through the body contents of the Word document.
         /// </summary>
         /// <param name="textBodyItems"></param>
-        private static void IterateTextBody(EntityCollection textBodyItems)
+        private static void IterateTextBodyPart(EntityCollection textBodyItems)
         {
             // Iterates through each of the child items of WTextBody
             for (int i = 0; i < textBodyItems.Count; i++)
@@ -77,7 +77,7 @@ namespace Remove_background_color_to_bookmark
                             if (blockContentControl != null && blockContentControl.TextBody != null)
                             {
                                 // Iterates the body items of Block Content Control.
-                                IterateTextBody(blockContentControl.TextBody.ChildEntities);
+                                IterateTextBodyPart(blockContentControl.TextBody.ChildEntities);
                             }
                             break;
                         }
@@ -98,7 +98,7 @@ namespace Remove_background_color_to_bookmark
                 {
                     //Table cell is derived from (also a) TextBody
                     //Reusing the code meant for iterating TextBody
-                    IterateTextBody(cell.ChildEntities);
+                    IterateTextBodyPart(cell.ChildEntities);
                 }
             }
         }
@@ -123,12 +123,12 @@ namespace Remove_background_color_to_bookmark
                     case EntityType.TextBox:
                         //Iterates to the body items of textbox.
                         WTextBox textBox = entity as WTextBox;
-                        IterateTextBody(textBox.TextBoxBody.ChildEntities);
+                        IterateTextBodyPart(textBox.TextBoxBody.ChildEntities);
                         break;
                     case EntityType.Shape:
                         //Iterates to the body items of shape.
                         Shape shape = entity as Shape;
-                        IterateTextBody(shape.TextBody.ChildEntities);
+                        IterateTextBodyPart(shape.TextBody.ChildEntities);
                         break;
                     case EntityType.InlineContentControl:
                         //Iterates to the paragraph items of inline content control.
