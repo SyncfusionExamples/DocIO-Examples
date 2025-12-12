@@ -4,9 +4,6 @@
 		<InvoiceNumber>12345</InvoiceNumber>
 		<Date>2025-04-28</Date>
 		<CustomerName>John Doe</CustomerName>
-		
-		
-		
 		<Products>		
 			<Position>1</Position>
 			<ProductSku>SKU123</ProductSku>
@@ -31,9 +28,6 @@
 		<InvoiceNumber>10295</InvoiceNumber>
 		<Date>2025-04-20</Date>
 		<CustomerName>Paul Henriot</CustomerName>
-		
-		
-		
 		<Products>
 			<Position>1</Position>
 			<ProductSku>SKU123</ProductSku>
