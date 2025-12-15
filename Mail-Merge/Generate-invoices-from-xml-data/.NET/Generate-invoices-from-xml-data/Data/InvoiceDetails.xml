@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Invoices>
+	<Invoice>
+		<InvoiceNumber>12345</InvoiceNumber>
+		<Date>2025-04-28</Date>
+		<CustomerName>John Doe</CustomerName>
+		<Products>		
+			<Position>1</Position>
+			<ProductSku>SKU123</ProductSku>
+			<ProductName>Product A</ProductName>
+			<Price>100.00</Price>
+		</Products>
+		<Products>
+			<Position>2</Position>
+			<ProductSku>SKU124</ProductSku>
+			<ProductName>Product B</ProductName>
+			<Price>200.00</Price>
+		</Products>
+		<Products>
+			<Position>3</Position>
+			<ProductSku>SKU125</ProductSku>
+			<ProductName>Product C</ProductName>
+			<Price>200.00</Price>
+		</Products>
+		<TotalAmount>500.00</TotalAmount>
+	</Invoice>
+	<Invoice>
+		<InvoiceNumber>10295</InvoiceNumber>
+		<Date>2025-04-20</Date>
+		<CustomerName>Paul Henriot</CustomerName>
+		<Products>
+			<Position>1</Position>
+			<ProductSku>SKU123</ProductSku>
+			<ProductName>Product D</ProductName>
+			<Price>150.00</Price>
+		</Products>
+		<Products>
+			<Position>2</Position>
+			<ProductSku>SKU124</ProductSku>
+			<ProductName>Product E</ProductName>
+			<Price>200.00</Price>
+		</Products>
+		<Products>
+			<Position>3</Position>
+			<ProductSku>SKU125</ProductSku>
+			<ProductName>Product F</ProductName>
+			<Price>220.00</Price>
+		</Products>
+		<TotalAmount>570.00</TotalAmount>
+	</Invoice>
+</Invoices>
+
