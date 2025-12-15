@@ -23,13 +23,11 @@ namespace Get_heading_list_value
                         Console.WriteLine("No paragraphs with the style 'Heading 3' found.");
                     else
                     {
-                        foreach (Entity paragraph in headingParagraphs)
-                        {
-                            //Get the string that represents the appearance of list value of the paragraph.
-                            if (paragraph is WParagraph)
-                                Console.WriteLine((paragraph as WParagraph).ListString);
-                            else
-                                Console.WriteLine("The entity is not a WParagraph.");
+                        foreach (Entity entity in headingParagraphs)
+                        {                            
+                            WParagraph paragraph = entity as WParagraph;
+                            //Get the the heading number and the heading text together.
+                            Console.WriteLine(paragraph.ListString + paragraph.Text);                            
                         }
                     }
                     //Pauses the console to display the output.
