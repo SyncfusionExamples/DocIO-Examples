@@ -25,14 +25,13 @@ namespace Retrieve_and_replace_superscript_subscript_text
         /// <param name="displayNormalText">True if the replaced text should be converted to normal text; false to keep formatting.</param>
         static void ReplaceSuperscriptAndSubscriptText(WordDocument document, string subSuperScriptType, bool displayNormalText)
         {
-            // Find all text ranges in the document that have superscript or subscript formatting.
+            // Find all text ranges with the given superscript or subscript formatting.
             List<Entity> textRangesWithsubsuperScript = document.FindAllItemsByProperty(EntityType.TextRange, "CharacterFormat.SubSuperScript", subSuperScriptType);
-            // Replace the super script text
             for (int i = 0; i < textRangesWithsubsuperScript.Count; i++)
             {
                 // Cast the entity to a text range.
                 WTextRange textRange = textRangesWithsubsuperScript[i] as WTextRange;
-                // Replace the text
+                // Replace the existing text with new content
                 textRange.Text = $"<{subSuperScriptType}> {textRange.Text} </{subSuperScriptType}>";
                 // If the replaced content displayed as normal text
                 if(displayNormalText)
