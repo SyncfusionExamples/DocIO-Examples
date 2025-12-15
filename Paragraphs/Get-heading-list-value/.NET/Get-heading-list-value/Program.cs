@@ -26,7 +26,7 @@ namespace Get_heading_list_value
                         foreach (Entity entity in headingParagraphs)
                         {                            
                             WParagraph paragraph = entity as WParagraph;
-                            //Get the the heading number and the heading text together.
+                            //Get the heading number and the heading text together.
                             Console.WriteLine(paragraph.ListString + paragraph.Text);                            
                         }
                     }
