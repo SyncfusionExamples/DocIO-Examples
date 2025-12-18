@@ -17,19 +17,13 @@ namespace Find_Bookmark_Owner_TextBody_or_Header_Footer
                 {
                     // Get the paragraphs that contain the bookmark's start.
                     WParagraph startPara = bkmkStart.OwnerParagraph;
-                    if (startPara == null)
-                        continue;
-
                     Entity ownerEntity = startPara;
-                    if (ownerEntity != null)
+                    // Traverse the owner hierarchy until reaching the section, stopping if a HeaderFooter is found
+                    while (!(ownerEntity is WSection))
                     {
-                        // Traverse the owner hierarchy until reaching the section, stopping if a HeaderFooter is found
-                        while (!(ownerEntity is WSection))
-                        {
-                            if (ownerEntity.EntityType == EntityType.HeaderFooter)
-                                break;
-                            ownerEntity = ownerEntity.Owner;
-                        }
+                        if (ownerEntity.EntityType == EntityType.HeaderFooter)
+                            break;
+                        ownerEntity = ownerEntity.Owner;
                     }
                     // Check if the bookmark is in the text body, header, or footer
                     string ownerLabel = (ownerEntity.EntityType == EntityType.Section)
