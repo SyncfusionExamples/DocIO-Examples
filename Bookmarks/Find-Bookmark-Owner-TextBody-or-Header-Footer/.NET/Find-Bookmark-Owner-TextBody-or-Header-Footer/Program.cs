@@ -16,8 +16,7 @@ namespace Find_Bookmark_Owner_TextBody_or_Header_Footer
                 if (bkmkStart != null)
                 {
                     // Get the paragraphs that contain the bookmark's start.
-                    WParagraph startPara = bkmkStart.OwnerParagraph;
-                    Entity ownerEntity = startPara;
+                    Entity ownerEntity = bkmkStart.OwnerParagraph;
                     // Traverse the owner hierarchy until reaching the section, stopping if a HeaderFooter is found
                     while (!(ownerEntity is WSection))
                     {
