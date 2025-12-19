@@ -12,7 +12,10 @@ namespace Insert_PageBreak_Before_Heading_Paragraphs
             List<Entity> entities = document.FindAllItemsByProperty(EntityType.Paragraph, "StyleName", "Heading 1");
 
             if (entities == null)
+            {
                 Console.WriteLine("No paragraphs with the style 'Heading 1' found.");
+                return;
+            }
             foreach (Entity entity in entities)
             {
                 // Check if the entity is a paragraph
