@@ -44,6 +44,7 @@ namespace Add_bookmarks_to_all_paragraphs_and_retrieve_contents
         {
             // Create a dictionary to store bookmark names and their contents
             Dictionary<string, string> bookmarkContents = new Dictionary<string, string>();
+            int paragraphCount = 0;
             // Iterate through each bookmark
             foreach (Bookmark currentBookmark in document.Bookmarks)
             {
@@ -54,8 +55,11 @@ namespace Add_bookmarks_to_all_paragraphs_and_retrieve_contents
                 WordDocument tempDoc = bookmarkNavigator.GetContent().GetAsWordDocument();
                 // Get the text content and add it to the dictionary
                 bookmarkContents.Add(currentBookmark.Name, tempDoc.GetText());
+                // Save the Word document.
+                tempDoc.Save(Path.GetFullPath("Output/Output_" + paragraphCount + ".docx"));
                 // Close the temporary document.
                 tempDoc.Close();
+                paragraphCount++;
             }
             // Return the dictionary containing all bookmark contents
             return bookmarkContents;
