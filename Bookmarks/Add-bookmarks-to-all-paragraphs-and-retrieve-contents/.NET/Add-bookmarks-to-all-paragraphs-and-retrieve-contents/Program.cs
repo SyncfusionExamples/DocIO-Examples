@@ -56,7 +56,7 @@ namespace Add_bookmarks_to_all_paragraphs_and_retrieve_contents
                 // Get the text content and add it to the dictionary
                 bookmarkContents.Add(currentBookmark.Name, tempDoc.GetText());
                 // Save the Word document.
-                tempDoc.Save(Path.GetFullPath("Output/Output_" + paragraphCount + ".docx"));
+                tempDoc.Save(Path.GetFullPath("../../../Output/Output_" + paragraphCount + ".docx"));
                 // Close the temporary document.
                 tempDoc.Close();
                 paragraphCount++;
