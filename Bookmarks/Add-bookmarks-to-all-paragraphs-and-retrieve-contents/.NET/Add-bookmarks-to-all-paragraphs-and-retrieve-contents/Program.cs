@@ -23,27 +23,23 @@ namespace Add_bookmarks_to_all_paragraphs_and_retrieve_contents
                     currentPara.ChildEntities.Insert(0, new BookmarkStart(document, bookmarkName));
                     // Insert a bookmark end at the end of the paragraph
                     currentPara.AppendBookmarkEnd(bookmarkName);
+                    // Print the bookmark name and the paragraph text to the console
+                    Console.WriteLine("Corresponding Bookmark : " + bookmarkName);
+                    Console.WriteLine("Content : " + currentPara.Text + "\n");
                 }
             }
-            // Retrieve the contents of all bookmarks in the document
-            Dictionary<string, string> bookmarkContents = GetBookmarkContents(document);
-            // Print each bookmark name and its corresponding content
-            foreach (string bkmkName in bookmarkContents.Keys)
-            {
-                Console.WriteLine("Corresponding Bookmark : " + bkmkName);
-                Console.WriteLine("Content : " + bookmarkContents[bkmkName]);
-            }
+            // Save each bookmarked paragraph as a separate document
+            SaveBookmarksAsSeparateDocuments(document);
+            // Close the Word document
+            document.Close();
             Console.ReadLine();
         }
         /// <summary>
-        /// Retrieves all bookmark contents from the document.
+        /// Saves the content of each bookmark in the given Word document as a separate Word document file.
         /// </summary>
         /// <param name="document">The Word document containing bookmarks.</param>
-        /// <returns>A dictionary with bookmark names as keys and their text content as values.</returns>
-        private static Dictionary<string, string> GetBookmarkContents(WordDocument document)
+        private static void SaveBookmarksAsSeparateDocuments(WordDocument document)
         {
-            // Create a dictionary to store bookmark names and their contents
-            Dictionary<string, string> bookmarkContents = new Dictionary<string, string>();
             int paragraphCount = 0;
             // Iterate through each bookmark
             foreach (Bookmark currentBookmark in document.Bookmarks)
@@ -53,16 +49,12 @@ namespace Add_bookmarks_to_all_paragraphs_and_retrieve_contents
                 bookmarkNavigator.MoveToBookmark(currentBookmark.Name);
                 // Extract the content inside the bookmark as a temporary Word document
                 WordDocument tempDoc = bookmarkNavigator.GetContent().GetAsWordDocument();
-                // Get the text content and add it to the dictionary
-                bookmarkContents.Add(currentBookmark.Name, tempDoc.GetText());
                 // Save the Word document.
                 tempDoc.Save(Path.GetFullPath("../../../Output/Output_" + paragraphCount + ".docx"));
                 // Close the temporary document.
                 tempDoc.Close();
                 paragraphCount++;
             }
-            // Return the dictionary containing all bookmark contents
-            return bookmarkContents;
         }
     }
 }
