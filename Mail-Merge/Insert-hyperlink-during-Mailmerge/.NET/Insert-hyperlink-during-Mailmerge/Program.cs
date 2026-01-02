@@ -72,7 +72,7 @@ namespace Insert_hyperlink_during_mailmerge
                     if (mergeFieldText != null)
                     {
                         WParagraph hyperlinkParagraph = new WParagraph(document);
-                        WField hyperlink = hyperlinkParagraph.AppendHyperlink(mergeFieldText.Text.ToString(), "Click ME", HyperlinkType.WebLink) as WField;
+                        WField hyperlink = hyperlinkParagraph.AppendHyperlink(mergeFieldText.Text.ToString(), mergeFieldText.Text.ToString(), HyperlinkType.WebLink) as WField;
                         // Insert the child entity (e.g., hyperlink) from the new paragraph into the original paragraph
                         for (int j = hyperlinkParagraph.ChildEntities.Count - 1; j >= 0; j--)
                         {
