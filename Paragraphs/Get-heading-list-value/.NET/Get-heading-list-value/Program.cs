@@ -19,7 +19,7 @@ namespace Get_heading_list_value
                     document.GetText();
                     //Find all paragraphs with the style 'Heading 3' in the Word document.
                     List<Entity> headingParagraphs = document.FindAllItemsByProperty(EntityType.Paragraph, "StyleName", "Heading 3");
-                    if (headingParagraphs.Count == 0)
+                    if (headingParagraphs == null)
                         Console.WriteLine("No paragraphs with the style 'Heading 3' found.");
                     else
                     {
