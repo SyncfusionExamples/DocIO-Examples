@@ -8,8 +8,7 @@ namespace Insert_hyperlink_during_mailmerge
         {
             // Open the template Word document
             WordDocument document = new WordDocument(Path.GetFullPath(@"Data/Template.docx"));
-            // Subscribe to the MailMerge.MergeField event
-            // This event is triggered whenever a merge field is processed during mail merge
+            // Attach the event handler that runs when a merge field is processed
             document.MailMerge.MergeField += MailMerge_MergeField;
             // Define the merge field names present in the template document
             string[] fieldNames = new string[] { "EmployeeId", "Name", "Phone", "City", "Contact" };
@@ -19,6 +18,8 @@ namespace Insert_hyperlink_during_mailmerge
             document.MailMerge.Execute(fieldNames, fieldValues);
             // Save the result document
             document.Save(Path.GetFullPath(@"../../../Output/output.docx"));
+            // Close the Word document
+            document.Close();
         }
         /// <summary>
         /// Event handler that customizes how merge fields are processed.
