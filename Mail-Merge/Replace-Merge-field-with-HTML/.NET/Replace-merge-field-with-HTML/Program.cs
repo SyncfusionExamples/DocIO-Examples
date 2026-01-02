@@ -59,7 +59,7 @@ namespace Replace_merge_field_with_HTML
                         paraToInsertHTML[paragraph] = fields;
                     }
                     // Add the current merge field's index and its value to the list
-                    fields.Add(new KeyValuePair<int, string>(mergeFieldIndex, args.FieldValue?.ToString()));
+                    fields.Add(new KeyValuePair<int, string>(mergeFieldIndex, args.FieldValue.ToString()));
                     //Set field value as empty.
                     args.Text = string.Empty;
                 }

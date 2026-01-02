@@ -13,7 +13,7 @@
 
 @code {
     @functions {
-        static Dictionary<WParagraph, Dictionary<int, string>> paraToInsertHTML = new Dictionary<WParagraph, Dictionary<int, string>>();
+       static Dictionary<WParagraph, List<KeyValuePair<int, string>>> paraToInsertHTML = new Dictionary<WParagraph, List<KeyValuePair<int, string>>>();
         async void ReplaceHTML()
         {
             using (Stream inputStream = await client.GetStreamAsync("Data/Template.docx"))
@@ -61,11 +61,15 @@
                     WParagraph paragraph = args.CurrentMergeField.OwnerParagraph;
                     //Gets the current merge field index in the current paragraph.
                     int mergeFieldIndex = paragraph.ChildEntities.IndexOf(args.CurrentMergeField);
-                    //Maintain HTML in collection.
-                    Dictionary<int, string> fieldValues = new Dictionary<int, string>();
-                    fieldValues.Add(mergeFieldIndex, args.FieldValue.ToString());
-                    //Maintain paragraph in collection.
-                    paraToInsertHTML.Add(paragraph, fieldValues);
+                    // Check if this paragraph already has an entry in the dictionary.
+                    // If not, create a new list to store field index and value pairs.
+                    if (!paraToInsertHTML.TryGetValue(paragraph, out var fields))
+                    {
+                        fields = new List<KeyValuePair<int, string>>();
+                        paraToInsertHTML[paragraph] = fields;
+                    }
+                    // Add the current merge field's index and its value to the list
+                    fields.Add(new KeyValuePair<int, string>(mergeFieldIndex, args.FieldValue.ToString()));
                     //Set field value as empty.
                     args.Text = string.Empty;
                 }
@@ -96,18 +100,25 @@
         private static void InsertHtml()
         {
             //Iterates through each item in the dictionary.
-            foreach (KeyValuePair<WParagraph, Dictionary<int, string>> dictionaryItems in paraToInsertHTML)
+            foreach (KeyValuePair<WParagraph, List<KeyValuePair<int, string>>> dictionaryItems in paraToInsertHTML)
             {
-                WParagraph paragraph = dictionaryItems.Key as WParagraph;
-                Dictionary<int, string> values = dictionaryItems.Value as Dictionary<int, string>;
-                //Iterates through each value in the dictionary.
-                foreach (KeyValuePair<int, string> valuePair in values)
+                // Get the paragraph where HTML needs to be inserted.
+                WParagraph paragraph = dictionaryItems.Key;
+                // Get the list of (index, HTML string) pairs for this paragraph.
+                List<KeyValuePair<int, string>> values = dictionaryItems.Value;
+                // Iterate through the list in reverse order
+                for (int i = values.Count - 1; i >= 0; i--)
                 {
-                    int index = valuePair.Key;
-                    string fieldValue = valuePair.Value;
+                    // Get the index of the merge field within the paragraph.
+                    int index = values[i].Key;
+                    // Get the HTML content to insert.
+                    string fieldValue = values[i].Value;
+                    // Get paragraph position.
+                    int paragraphIndex = paragraph.OwnerTextBody.ChildEntities.IndexOf(paragraph);
                     //Inserts HTML string at the same position of mergefield in Word document.
-                    paragraph.OwnerTextBody.InsertXHTML(fieldValue, paragraph.OwnerTextBody.ChildEntities.IndexOf(paragraph), index);
+                    paragraph.OwnerTextBody.InsertXHTML(fieldValue, paragraphIndex, index);
                 }
+
             }
             paraToInsertHTML.Clear();
         }
