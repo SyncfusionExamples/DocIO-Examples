@@ -40,34 +40,19 @@ namespace Remove_editablerange
             BookmarksNavigator bookmarkNavigator = new BookmarksNavigator(document);
             // Move to the bookmark
             bookmarkNavigator.MoveToBookmark(bookmarkName);
-            // Get the content inside the bookmark
-            WordDocumentPart bookmarkContent = bookmarkNavigator.GetContent();
-            // Loop through all sections in the bookmark content
-            for (int s = 0; s < bookmarkContent.Sections.Count; s++)
+            // Get the bookmark content as word document
+            WordDocument tempDoc = bookmarkNavigator.GetContent().GetAsWordDocument();
+            // Find all entities of type EditableRangeStart within the bookmark
+            List<Entity> entity = tempDoc.FindAllItemsByProperty(EntityType.EditableRangeStart, null, null);
+            // If any EditableRangeStart entities are found, iterate through them.
+            if (entity != null)
             {
-                WSection section = bookmarkContent.Sections[s];
-                // Iterate through all entities in the section body (paragraphs, tables, etc.).
-                for (int i = 0; i < section.Body.ChildEntities.Count; i++)
+                foreach (Entity item in entity)
                 {
-                    IEntity entity = section.Body.ChildEntities[i];
-
-                    if (entity is WParagraph)
-                    {
-                        WParagraph paragraph = entity as WParagraph;
-                        // Loop through all child entities in the paragraph
-                        for (int j = 0; j < paragraph.ChildEntities.Count; j++)
-                        {
-                            Entity item = paragraph.ChildEntities[j];
-                            // Check if the item is the start of an editable range
-                            if (item is EditableRangeStart)
-                            {
-                                // Find the editable range by ID and remove it
-                                EditableRange editableRange = document.EditableRanges.FindById((item as EditableRangeStart).Id);
-                                if (editableRange != null)
-                                    document.EditableRanges.Remove(editableRange);
-                            }
-                        }
-                    }
+                    // Find the editable range by ID and remove it
+                    EditableRange editableRange = document.EditableRanges.FindById((item as EditableRangeStart).Id);
+                    if (editableRange != null)
+                        document.EditableRanges.Remove(editableRange);
                 }
             }
         }
