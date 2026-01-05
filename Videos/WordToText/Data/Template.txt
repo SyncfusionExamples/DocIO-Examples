@@ -1,0 +1,15 @@
+Northwind Database
+
+The Northwind sample database (Northwind.mdb) is included with all versions of Access. It provides data you can experiment with and database objects that demonstrate features you might want to implement in your own databases. Using Northwind, you can become familiar with how a relational database is structured and how the database objects work together to help you enter, store, manipulate, and print your data..
+
+It contains the following detailed information:
+1. Suppliers/Vendors of Northwind – who supply to the company.
+2. Customers of Northwind – who buy from Northwind
+3. Employee details of Northwind traders – who work for Northwind
+4. The product information – the products that Northwind trades in
+5. The inventory details – the details of the inventory held by Northwind traders.
+6. The shippers – details of the shippers who ship the products from the traders to the end-customers
+7. PO transactions i.e Purchase Order transactions – details of the transactions taking place between vendors & the company.
+8. Sales Order transaction – details of the transactions taking place between the customers & the company.
+9. Inventory transactions – details of the transactions taking place in the inventory
+10. Invoices – details of the invoice raised against the order.
