@@ -40,25 +40,19 @@ namespace Rename_bookmark
                 return;
             //Gets owner paragraph of the bookmark
             WParagraph bookmarkStartParagraph = bookmark.BookmarkStart.Owner as WParagraph;
-            //Gets index of the bookmark start and end
+            //Gets index of the bookmark start
             int boomarkStartIndex = bookmarkStartParagraph.ChildEntities.IndexOf(bookmark.BookmarkStart);
-            int boomarkEndIndex = 0;
             //Gets bookmark end paragraph
             WParagraph bookmarkEndParagraph = bookmark.BookmarkEnd.Owner as WParagraph;
-            //Checks whether the bookmark start and end is in same paragraph
-            if (bookmarkEndParagraph == bookmarkStartParagraph)
-                boomarkEndIndex = bookmarkStartParagraph.ChildEntities.IndexOf(bookmark.BookmarkEnd);
-            else
-                boomarkEndIndex = bookmarkEndParagraph.ChildEntities.IndexOf(bookmark.BookmarkEnd);
+            //Gets index of the bookmark end
+            int boomarkEndIndex = bookmarkEndParagraph.ChildEntities.IndexOf(bookmark.BookmarkEnd);
             //Removes the bookmark from Word document.
             document.Bookmarks.Remove(bookmark);
-            //Inserts new bookmark in place of deleted bookmark
+            //Inserts new bookmark start in place of deleted bookmark
             bookmarkStartParagraph.ChildEntities.Insert(boomarkStartIndex, bookmarkStartParagraph.AppendBookmarkStart(replaceBookmarkName));
-            //Inserts bookmark end in corresponding paragraph.
-            if (bookmarkEndParagraph == bookmarkStartParagraph)
-                bookmarkStartParagraph.ChildEntities.Insert(boomarkEndIndex, bookmarkStartParagraph.AppendBookmarkEnd(replaceBookmarkName));
-            else
-                bookmarkEndParagraph.ChildEntities.Insert(boomarkEndIndex, bookmarkEndParagraph.AppendBookmarkEnd(replaceBookmarkName));
+            //Inserts bookmark end in place of deleted bookmark
+            bookmarkEndParagraph.ChildEntities.Insert(boomarkEndIndex, bookmarkEndParagraph.AppendBookmarkEnd(replaceBookmarkName));
+
         }
         #endregion       
     }
