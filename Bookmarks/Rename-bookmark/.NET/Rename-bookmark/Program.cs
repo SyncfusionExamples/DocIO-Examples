@@ -52,18 +52,16 @@ namespace Rename_bookmark
                 WParagraph startParagraph = bookmark.BookmarkStart.Owner as WParagraph;
                 // Find the index of the old bookmark start in the paragraph's child entities
                 startIndex = startParagraph.ChildEntities.IndexOf(bookmark.BookmarkStart);
-                // Insert the new bookmark end at the same index (if found)
-                if (startIndex >= 0) 
-                    startParagraph.ChildEntities.Insert(startIndex, newBookmarkStart);
+                // Insert the new bookmark end at the same index.
+                startParagraph.ChildEntities.Insert(startIndex, newBookmarkStart);
             }
             else if (bookmark.BookmarkStart != null && bookmark.BookmarkStart.Owner is InlineContentControl)
             {
                 InlineContentControl startICC = bookmark.BookmarkStart.Owner as InlineContentControl;
                 // Find the index of the old bookmark end in the ICC's paragraph items
                 startIndex = startICC.ParagraphItems.IndexOf(bookmark.BookmarkStart);
-                // Insert the new bookmark end at the same index (if found)
-                if (startIndex >= 0)
-                    startICC.ParagraphItems.Insert(startIndex, newBookmarkStart);
+                // Insert the new bookmark end at the same index.
+                startICC.ParagraphItems.Insert(startIndex, newBookmarkStart);
             }
             // Determine the owner and index for the bookmark end.
             // Similar to start, the end could be in a paragraph or inline content control.
@@ -72,18 +70,16 @@ namespace Rename_bookmark
                 WParagraph endParagraph = bookmark.BookmarkEnd.Owner as WParagraph;
                 // Find the index of the old bookmark end in the paragraph's child entities
                 endIndex = endParagraph.ChildEntities.IndexOf(bookmark.BookmarkEnd);
-                // Insert the new bookmark end at the same index (if found)
-                if (endIndex >= 0)
-                    endParagraph.ChildEntities.Insert(endIndex, newBookmarkEnd);
+                // Insert the new bookmark end at the same index.
+                endParagraph.ChildEntities.Insert(endIndex, newBookmarkEnd);
             }
             else if (bookmark.BookmarkEnd != null && bookmark.BookmarkEnd.Owner is InlineContentControl)
             {
                 InlineContentControl endICC = bookmark.BookmarkEnd.Owner as InlineContentControl;
                 // Find the index of the old bookmark end in the ICC's paragraph items
                 endIndex = endICC.ParagraphItems.IndexOf(bookmark.BookmarkEnd);
-                // Insert the new bookmark end at the same index (if found)
-                if (endIndex >= 0)
-                    endICC.ParagraphItems.Insert(endIndex, newBookmarkEnd);
+                // Insert the new bookmark end at the same index.
+                endICC.ParagraphItems.Insert(endIndex, newBookmarkEnd);
             }
             //Removes the bookmark from Word document.
             document.Bookmarks.Remove(bookmark);        
