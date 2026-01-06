@@ -37,55 +37,56 @@ namespace Rename_bookmark
             // No bookmark found, return immediately
             if (bookmark == null)
                 return;
-            // Variables for owner entity start and end positions
-            WParagraph startParagraph = null;
-            InlineContentControl startICC = null;
+            //Variable for store index of bookmark start and end
             int startIndex = -1;
-
-            WParagraph endParagraph = null;
-            InlineContentControl endICC = null;
             int endIndex = -1;
+            // Creating new bookmark with the replacement name
+            BookmarkStart newBookmarkStart = new BookmarkStart(document, replaceBookmarkName);
+            BookmarkEnd newBookmarkEnd = new BookmarkEnd(document, replaceBookmarkName);
+         
             // Determine the owner and index for the bookmark start.
             // The bookmark start may be inside a WParagraph (as a child entity)
             // or inside an InlineContentControl (as a paragraph item).
             if (bookmark.BookmarkStart != null && bookmark.BookmarkStart.Owner is WParagraph)
             {
-                startParagraph = bookmark.BookmarkStart.Owner as WParagraph;
+                WParagraph startParagraph = bookmark.BookmarkStart.Owner as WParagraph;
+                // Find the index of the old bookmark start in the paragraph's child entities
                 startIndex = startParagraph.ChildEntities.IndexOf(bookmark.BookmarkStart);
+                // Insert the new bookmark end at the same index (if found)
+                if (startIndex >= 0) 
+                    startParagraph.ChildEntities.Insert(startIndex, newBookmarkStart);
             }
             else if (bookmark.BookmarkStart != null && bookmark.BookmarkStart.Owner is InlineContentControl)
             {
-                startICC = bookmark.BookmarkStart.Owner as InlineContentControl;
+                InlineContentControl startICC = bookmark.BookmarkStart.Owner as InlineContentControl;
+                // Find the index of the old bookmark end in the ICC's paragraph items
                 startIndex = startICC.ParagraphItems.IndexOf(bookmark.BookmarkStart);
+                // Insert the new bookmark end at the same index (if found)
+                if (startIndex >= 0)
+                    startICC.ParagraphItems.Insert(startIndex, newBookmarkStart);
             }
             // Determine the owner and index for the bookmark end.
             // Similar to start, the end could be in a paragraph or inline content contro
             if (bookmark.BookmarkEnd != null && bookmark.BookmarkEnd.Owner is WParagraph)
             {
-                endParagraph = bookmark.BookmarkEnd.Owner as WParagraph;
+                WParagraph endParagraph = bookmark.BookmarkEnd.Owner as WParagraph;
+                // Find the index of the old bookmark end in the paragraph's child entities
                 endIndex = endParagraph.ChildEntities.IndexOf(bookmark.BookmarkEnd);
+                // Insert the new bookmark end at the same index (if found)
+                if (endIndex >= 0)
+                    endParagraph.ChildEntities.Insert(endIndex, newBookmarkEnd);
             }
             else if (bookmark.BookmarkEnd != null && bookmark.BookmarkEnd.Owner is InlineContentControl)
             {
-                endICC = bookmark.BookmarkEnd.Owner as InlineContentControl;
+                InlineContentControl endICC = bookmark.BookmarkEnd.Owner as InlineContentControl;
+                // Find the index of the old bookmark end in the ICC's paragraph items
                 endIndex = endICC.ParagraphItems.IndexOf(bookmark.BookmarkEnd);
+                // Insert the new bookmark end at the same index (if found)
+                if (endIndex >= 0)
+                    endICC.ParagraphItems.Insert(endIndex, newBookmarkEnd);
             }
             //Removes the bookmark from Word document.
-            document.Bookmarks.Remove(bookmark);
-            // Create a new BookmarkStart and insert at the recorded index.
-            BookmarkStart newBookmarkStart = new BookmarkStart(document, replaceBookmarkName);
-            // Insert new bookmark start at the original position with the new name.
-            if (startParagraph != null)
-                startParagraph.ChildEntities.Insert(startIndex, newBookmarkStart);
-            else if (startICC != null)
-                startICC.ParagraphItems.Insert(startIndex, newBookmarkStart);
-            // Create a new BookmarkEnd and insert at the recorded index.
-            BookmarkEnd newBookmarkEnd = new BookmarkEnd(document, replaceBookmarkName);
-            // Insert new bookmark end at the original position with the new name.
-            if (endParagraph != null)
-                endParagraph.ChildEntities.Insert(endIndex, newBookmarkEnd);
-            else if (endICC != null)           
-                endICC.ParagraphItems.Insert(endIndex, newBookmarkEnd);
+            document.Bookmarks.Remove(bookmark);        
         }
         #endregion       
     }
