@@ -37,10 +37,10 @@ namespace Rename_bookmark
             // No bookmark found, return immediately
             if (bookmark == null)
                 return;
-            //Variable for store index of bookmark start and end
+            // Variables to store the index positions of the bookmark start and end within their respective owners
             int startIndex = -1;
             int endIndex = -1;
-            // Creating new bookmark with the replacement name
+            // Create new bookmark start and end markers with the replacement name
             BookmarkStart newBookmarkStart = new BookmarkStart(document, replaceBookmarkName);
             BookmarkEnd newBookmarkEnd = new BookmarkEnd(document, replaceBookmarkName);
          
@@ -66,7 +66,7 @@ namespace Rename_bookmark
                     startICC.ParagraphItems.Insert(startIndex, newBookmarkStart);
             }
             // Determine the owner and index for the bookmark end.
-            // Similar to start, the end could be in a paragraph or inline content contro
+            // Similar to start, the end could be in a paragraph or inline content control.
             if (bookmark.BookmarkEnd != null && bookmark.BookmarkEnd.Owner is WParagraph)
             {
                 WParagraph endParagraph = bookmark.BookmarkEnd.Owner as WParagraph;
