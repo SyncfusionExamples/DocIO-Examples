@@ -32,7 +32,7 @@ namespace Find_and_iterate_table_by_title
                                         WTextRange insertedText = paragraph.AppendText(" (Attributes)") as WTextRange;
                                         // Apply simple formatting only to the inserted text
                                         insertedText.CharacterFormat.Bold = true;
-                                        insertedText.CharacterFormat.TextColor = Color.Red;
+                                        insertedText.CharacterFormat.HighlightColor = Color.Yellow;
                                     }
                                 }
                             }
