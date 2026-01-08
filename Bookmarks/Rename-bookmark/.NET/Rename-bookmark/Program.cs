@@ -12,8 +12,8 @@ namespace Rename_bookmark
                 //Opens an existing Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
-                    //Replace Bookmark name
-                    ReplaceBookmarkName(document, "Northwind", "New_Bookmark");
+                    //Rename Bookmark
+                    RenameBookmark(document, "Northwind", "New_Bookmark");
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
@@ -29,8 +29,8 @@ namespace Rename_bookmark
         /// </summary>
         /// <param name="document">Input Word document.</param>
         /// <param name="existingBookmarkName">The name of the bookmark to replace.</param>
-        /// <param name="replaceBookmarkName">The new name for the bookmark.</param>
-        private static void ReplaceBookmarkName(WordDocument document, string existingBookmarkName, string replaceBookmarkName)
+        /// <param name="newBookmarkName">The new name for the bookmark.</param>
+        private static void RenameBookmark(WordDocument document, string existingBookmarkName, string newBookmarkName)
         {
             //Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name
             Bookmark bookmark = document.Bookmarks.FindByName(existingBookmarkName);
@@ -41,8 +41,8 @@ namespace Rename_bookmark
             int startIndex = -1;
             int endIndex = -1;
             // Create new bookmark start and end markers with the replacement name
-            BookmarkStart newBookmarkStart = new BookmarkStart(document, replaceBookmarkName);
-            BookmarkEnd newBookmarkEnd = new BookmarkEnd(document, replaceBookmarkName);
+            BookmarkStart newBookmarkStart = new BookmarkStart(document, newBookmarkName);
+            BookmarkEnd newBookmarkEnd = new BookmarkEnd(document, newBookmarkName);
          
             // Determine the owner and index for the bookmark start.
             // The bookmark start may be inside a WParagraph (as a child entity)
