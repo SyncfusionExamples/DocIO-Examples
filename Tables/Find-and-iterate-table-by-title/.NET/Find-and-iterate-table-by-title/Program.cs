@@ -1,5 +1,6 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
+using Syncfusion.Drawing;
 
 namespace Find_and_iterate_table_by_title
 {
@@ -27,7 +28,12 @@ namespace Find_and_iterate_table_by_title
                                 {
                                     //When the paragraph contains text Panda then insert new text into paragraph.
                                     if (paragraph.Text.Contains("panda"))
-                                        paragraph.AppendText("_Modified");
+                                    {
+                                        WTextRange insertedText = paragraph.AppendText(" (Attributes)") as WTextRange;
+                                        // Apply simple formatting only to the inserted text
+                                        insertedText.CharacterFormat.Bold = true;
+                                        insertedText.CharacterFormat.TextColor = Color.Red;
+                                    }
                                 }
                             }
                         }
