@@ -10,7 +10,6 @@ namespace Insert_PageBreak_Before_Heading_Paragraphs
             WordDocument document = new WordDocument(Path.GetFullPath("Data/Input.docx"));
             // Find all paragraphs with the style "Heading 1"
             List<Entity> entities = document.FindAllItemsByProperty(EntityType.Paragraph, "StyleName", "Heading 1");
-
             if (entities == null)
             {
                 Console.WriteLine("No paragraphs with the style 'Heading 1' found.");                
@@ -19,7 +18,6 @@ namespace Insert_PageBreak_Before_Heading_Paragraphs
             {
                 foreach (Entity entity in entities)
                 {
-                    // Check if the entity is a paragraph
                     WParagraph paragraph = entity as WParagraph;
                     // Get the index of the current paragraph in its parent text body
                     int index = paragraph.OwnerTextBody.ChildEntities.IndexOf(paragraph);
@@ -35,7 +33,7 @@ namespace Insert_PageBreak_Before_Heading_Paragraphs
                             // Get the last item in the previous paragraph
                             ParagraphItem lastItem = previousParagraph.ChildEntities[previousParagraph.ChildEntities.Count - 1] as ParagraphItem;
                             // Enable the boolean if the last item is a page break
-                            if (lastItem != null && lastItem is Break && (lastItem as Break).BreakType == BreakType.PageBreak)
+                            if (lastItem is Break && (lastItem as Break).BreakType == BreakType.PageBreak)
                                 hasPageBreak = true;
                         }
                         // If no page break is found, insert the page break before the current paragraph
