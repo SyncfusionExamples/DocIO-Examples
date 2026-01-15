@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insert-hyperlink-during-Mailmerge", "Insert-hyperlink-during-Mailmerge\Insert-hyperlink-during-Mailmerge.csproj", "{DAE76AF9-49AD-4C2E-8064-430DFD8B7726}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAE76AF9-49AD-4C2E-8064-430DFD8B7726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE76AF9-49AD-4C2E-8064-430DFD8B7726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE76AF9-49AD-4C2E-8064-430DFD8B7726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE76AF9-49AD-4C2E-8064-430DFD8B7726}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {344A442C-CA70-4696-8016-6BA6E07458A3}
+	EndGlobalSection
+EndGlobal
