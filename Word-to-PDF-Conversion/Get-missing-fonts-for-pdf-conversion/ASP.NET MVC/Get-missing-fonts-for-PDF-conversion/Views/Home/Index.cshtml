@@ -1,0 +1,49 @@
+﻿@{Html.BeginForm("WordToPDF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" });
+
+    {
+        <div class="Common">
+            <div class="tablediv">
+                <div class="rowdiv">
+                    This sample will print whether the fonts in Word document are available in machine while converting Word document to PDF using .NET Word library (DocIO) and .NET PDF library (PDF).
+                </div>
+                &nbsp;
+                <div class="rowdiv" style="border-width: 0.5px;border-style:solid; border-color: lightgray; padding: 1px 5px 7px 5px">
+                    Click the button to view the resultant PDF document being converted from Word document using DocIO. Please note that PDF viewer is required to view the resultant PDF.
+                    <div style="margin-top: 10px">
+                        <div>
+                            <input type="button" value="Choose File" onclick="openPage()">
+                            <input type="text" id="fileNameBox" value="WordtoPDF.docx" readonly="readonly" style="border:none" />
+                            <input type="file" name="file" id="fileUpload" accept=".doc,.docx,.rtf,.dot,.dotm,.dotx,docm,.xml" style="display:block;visibility:hidden;width:0;height:0;">
+                            <br />
+                        </div>
+                        <div style="margin-top: 8px">
+                            <input class="e-btn" type="submit" value="Convert to PDF" name="button" style="width:170px; text-transform:capitalize" />
+                            <br />
+                            <div class="text-danger">
+                                @ViewBag.Message
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+            </div>
+        </div>
+        Html.EndForm();
+    }
+}
+
+
+
+<script>
+    function openPage() {
+        document.getElementById('fileUpload').click();
+        document.getElementById('fileUpload').addEventListener('change', readFile, false);
+    }
+    function readFile(evt) {
+        var upoadedFiles = evt.target.files;
+
+        filename = upoadedFiles[0].name;
+        document.getElementById('fileNameBox').value = filename;
+    }
+</script>
