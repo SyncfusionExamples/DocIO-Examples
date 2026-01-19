@@ -1,4 +1,5 @@
 ﻿using Syncfusion.DocIO.DLS;
+using System.Collections.Generic;
 using System.Data;
 
 namespace Apply_custom_formatting_mailmerge_fields
@@ -69,18 +70,18 @@ namespace Apply_custom_formatting_mailmerge_fields
         /// <param name="numberType">The boolean denotes current changes as Number format</param>
         public static void UpdateMergeFieldResult(bool numberType)
         {
-            Dictionary<WParagraph, List<KeyValuePair<int, string>>> tempDictonary;
+            Dictionary<WParagraph, List<KeyValuePair<int, string>>> mergeFieldResults;
             if (numberType)
-                tempDictonary = paratoModifyNumberFormat;
+                mergeFieldResults = paratoModifyNumberFormat;
             else
-                tempDictonary = paratoModifyDateFormat;
+                mergeFieldResults = paratoModifyDateFormat;
             // Iterate the outer dictionary entries
-            foreach (var dictionaryItem in tempDictonary)
+            foreach (KeyValuePair<WParagraph, List<KeyValuePair<int, string>>> dictionaryItem in mergeFieldResults)
             {
                 // Get the merge field result paragraph
                 WParagraph mergeFieldParagraph = dictionaryItem.Key;
                 // The list of (index, fieldValues) pairs for this paragraph.
-                var fieldList = dictionaryItem.Value;                
+                List<KeyValuePair<int, string>> fieldList = dictionaryItem.Value;               
                 for (int i = 0; i <= fieldList.Count - 1; i++)
                 {
                     // Get the index and Field values ("Number" or "Date")
