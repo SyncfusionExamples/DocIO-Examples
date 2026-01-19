@@ -11,6 +11,7 @@ namespace Apply_custom_formatting_mailmerge_fields
             = new Dictionary<WParagraph, List<KeyValuePair<int, string>>>();
         public static void Main(string[] args)
         {
+            // Load the existing word document
             WordDocument document = new WordDocument(Path.GetFullPath(@"Data\Template.docx"));
             // Enable separate page for each invoice
             document.MailMerge.StartAtNewPage = true;
@@ -20,7 +21,9 @@ namespace Apply_custom_formatting_mailmerge_fields
             // Update the merge field results with formatted values.
             UpdateMergeFieldResult(true);
             UpdateMergeFieldResult(false);
+            // Save the Word document.
             document.Save(Path.GetFullPath(@"../../../Output/Output.docx"));
+            // Close the document
             document.Close();
 
         }
@@ -76,7 +79,7 @@ namespace Apply_custom_formatting_mailmerge_fields
             {
                 // Get the merge field result paragraph
                 WParagraph mergeFieldParagraph = dictionaryItem.Key;
-                // The list of (index, fieldVales) pairs for this paragraph.
+                // The list of (index, fieldValues) pairs for this paragraph.
                 var fieldList = dictionaryItem.Value;                
                 for (int i = 0; i <= fieldList.Count - 1; i++)
                 {
@@ -95,13 +98,13 @@ namespace Apply_custom_formatting_mailmerge_fields
                         // Check if the Number field value
                         if (numberType)
                         {
-                            // Format number: 1,234.567 → Indian or US style
+                            // Format number: 1,234.56 
                             field.FieldCode = $"IF 1 = 1 \"{fieldValue}\" \" \" \\# \"#,##0.00";
                         }
                         // Update the Date field value
                         else
                         {
-                            // Format date: dd/MM/yyyy
+                            // Format date: dd/MMM/yyyy
                             field.FieldCode = $"IF 1 = 1 \"{fieldValue}\" \" \" \\@ \"dd/MMM/yyyy\" ";
                         }
                         // Update the field and unlink
