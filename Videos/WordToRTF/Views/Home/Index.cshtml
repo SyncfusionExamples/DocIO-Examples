@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h2 style="margin-bottom: 20px"> Word to RTF Conversions </h2>
+    <div>
+        <button style="width: 200px; margin-bottom: 20px; height: 40px;display:block;font-size:18px;"
+                onclick="location.href='@Url.Action("WordToRTF", "Home")'">
+            Word to RTF
+        </button>
+        <button style="width: 200px; margin-bottom: 20px; height: 40px;display:block;font-size:18px;"
+                onclick="location.href='@Url.Action("RTFToWord", "Home")'">
+            RTF to Word
+        </button>
+    </div>
+</div>

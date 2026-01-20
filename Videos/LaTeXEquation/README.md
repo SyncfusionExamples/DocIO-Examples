@@ -2,7 +2,7 @@
 
 This repository provides an example of how to work with LaTeX equations in a Word document using the **Syncfusion .NET Word Library (DocIO)**. It demonstrates how to create, add, and edit LaTeX equations in Word documents.
 
-## Process behind Field Integration
+## Process Behind LaTeX Equation Integration
 
 This sample shows how LaTeX syntax can be used to insert professional mathematical equations into Word documents. LaTeX is widely used in scientific and academic fields for typesetting complex formulas.
 
