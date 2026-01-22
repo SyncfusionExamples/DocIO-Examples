@@ -1,6 +1,5 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using Syncfusion.Drawing;
 using System.IO;
 
 namespace Replace_content_with_document_part
