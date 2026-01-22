@@ -1,7 +1,5 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using Syncfusion.Office;
-using System;
 using System.IO;
 
 namespace Merge_documents_in_new_page

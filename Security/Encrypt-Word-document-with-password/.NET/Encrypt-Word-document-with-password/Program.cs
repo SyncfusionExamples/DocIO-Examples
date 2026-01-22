@@ -1,6 +1,5 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System.Data;
 using System.IO;
 
 namespace Encrypt_Word_document_with_password
