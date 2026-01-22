@@ -8,7 +8,7 @@ namespace Convert_RTF_String_To_HTML_String
     {
         public static void Main(string[] args)
         {
-            var rtfString = @"{\rtf1\ansi\deff0 {\fonttbl {\f0 Times New Roman;}}\f0\fs60 Hello World!}";
+            string rtfString = @"{\rtf1\ansi\deff0 {\fonttbl {\f0 Times New Roman;}}\f0\fs60 Hello World!}";
             byte[] bytes = Encoding.ASCII.GetBytes(rtfString);
             MemoryStream streamRTF = new MemoryStream(bytes);
             WordDocument document = new WordDocument(streamRTF, FormatType.Rtf);
@@ -17,7 +17,8 @@ namespace Convert_RTF_String_To_HTML_String
             document.Close();
             ms.Position = 0;
             streamRTF.Close();
-            var htmlString = Encoding.ASCII.GetString(ms.ToArray());
+            string htmlString = Encoding.ASCII.GetString(ms.ToArray());
+			Console.WriteLine(htmlString);
             ms.Close();
         }
     }
