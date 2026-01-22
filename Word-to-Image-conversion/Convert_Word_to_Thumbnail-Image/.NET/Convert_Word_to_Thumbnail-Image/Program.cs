@@ -2,7 +2,6 @@
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
 using Syncfusion.Pdf;
-using System.Drawing;
 using Syncfusion.PdfToImageConverter;
 
 namespace Convert_Word_document_to_PDF
@@ -35,17 +34,13 @@ namespace Convert_Word_document_to_PDF
                             Stream thumbnailStream = imageConverter.Convert(0, false, false);
                             //Reset stream position
                             thumbnailStream.Position = 0;
-
-                            //Resize image to thumbnail size.
-                            Image image = Image.FromStream(thumbnailStream);
-                            Image thumbnail = image.GetThumbnailImage(600, 700, () => false, IntPtr.Zero);
-
-                            //Save the image.
-                            thumbnail.Save(Path.GetFullPath(@"Output/Image.png"), System.Drawing.Imaging.ImageFormat.Png);
-							thumbnail.Dispose();
-							thumbnailStream.Dispose();
-                            //Close the PDF document
-                            pdfDocument.Close();
+                            //Save the image
+                            using (FileStream file = new FileStream(Path.GetFullPath(@"Output/Image.png"), FileMode.Create))
+                            {
+                                thumbnailStream.CopyTo(file);
+                            }
+                            thumbnailStream.Dispose();
+                            imageConverter.Dispose();
                         }
                     }
                 }
