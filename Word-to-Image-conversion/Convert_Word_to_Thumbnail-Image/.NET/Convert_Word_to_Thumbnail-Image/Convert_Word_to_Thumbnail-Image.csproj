@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="*" />
     <PackageReference Include="Syncfusion.PdfToImageConverter.Net" Version="*" />
+    <PackageReference Include="System.Drawing.Common" Version="*" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Data\Input.docx">

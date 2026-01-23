@@ -1,10 +1,9 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIORenderer;
-using Syncfusion.Pdf;
-using Syncfusion.PdfToImageConverter;
+using System.Drawing;
 
-namespace Convert_Word_document_to_PDF
+namespace Convert_Word_document_to_Thumbnail_Image
 {
     class Program
     {
@@ -19,29 +18,20 @@ namespace Convert_Word_document_to_PDF
                     //Creates an instance of DocIORenderer.
                     using (DocIORenderer renderer = new DocIORenderer())
                     {
-                        //Converts Word document into PDF document.
-                        using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
-                        {
-                            // Save PDF to memory stream
-                            using MemoryStream pdfStream = new MemoryStream();
-                            pdfDocument.Save(pdfStream);
-                            pdfStream.Position = 0;
-                            //Initialize PDF image converter
-                            PdfToImageConverter imageConverter = new PdfToImageConverter();
-                            //Load the PDF document
-                            imageConverter.Load(pdfStream);
-                            //Convert first page of PDF to image (thumbnail)
-                            Stream thumbnailStream = imageConverter.Convert(0, false, false);
-                            //Reset stream position
-                            thumbnailStream.Position = 0;
-                            //Save the image
-                            using (FileStream file = new FileStream(Path.GetFullPath(@"Output/Image.png"), FileMode.Create))
-                            {
-                                thumbnailStream.CopyTo(file);
-                            }
-                            thumbnailStream.Dispose();
-                            imageConverter.Dispose();
-                        }
+                        //Convert the first page of the Word document into an image.
+                        Stream imageStream = wordDocument.RenderAsImages(0, ExportImageFormat.Png);
+                        //Reset the stream position.
+                        imageStream.Position = 0;
+
+                        //Resize image to thumbnail size.
+                        Image image = Image.FromStream(imageStream);
+                        Image thumbnail = image.GetThumbnailImage(600, 700, () => false, IntPtr.Zero);
+
+                        //Save the image.
+                        thumbnail.Save(Path.GetFullPath(@"Output/Image1.png"), System.Drawing.Imaging.ImageFormat.Png);
+                        thumbnail.Dispose();
+                        imageStream.Dispose();
+                        image.Dispose();
                     }
                 }
             }
