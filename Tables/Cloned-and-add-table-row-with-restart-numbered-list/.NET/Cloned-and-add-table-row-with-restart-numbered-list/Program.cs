@@ -10,12 +10,12 @@ namespace Cloned_and_add_table_row_with_restart_numbered_list
             WordDocument document = new WordDocument(Path.GetFullPath(@"Data\Input.docx"));
             // Retrieve the first table from the last section of the document
             WTable table = (WTable)document.LastSection.Tables[0];
-            // Clone the third row (index 2) of the table
-            WTableRow clonedRow = table.Rows[2].Clone();
-            // Insert the cloned row back into the table at position 3 (after the original row)
-            table.Rows.Insert(3, clonedRow);
-            // Iterate through all cells in the newly inserted row (row index 3)
-            foreach (WTableCell cell in table.Rows[3].Cells)
+            // Clone the second row (index 1) of the table
+            WTableRow clonedRow = table.Rows[1].Clone();
+            // Insert the cloned row back into the table at position 2 (after the original row)
+            table.Rows.Insert(2, clonedRow);
+            // Iterate through all cells in the newly inserted row (row index 2)
+            foreach (WTableCell cell in table.Rows[2].Cells)
             {
                 // Flag to track whether the first list paragraph has been encountered
                 bool isListStart = false;
@@ -32,7 +32,7 @@ namespace Cloned_and_add_table_row_with_restart_numbered_list
                         {
                             // Mark that the first list paragraph has been found
                             isListStart = true;
-                            // Restart numbering for the first list paragraph in the cloned ro
+                            // Restart numbering for the first list paragraph in the cloned row
                             paragraph.ListFormat.RestartNumbering = true;
                         }
                     }
