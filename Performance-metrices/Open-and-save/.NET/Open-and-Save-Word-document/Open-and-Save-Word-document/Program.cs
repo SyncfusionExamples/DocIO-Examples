@@ -8,35 +8,22 @@ class Program
 {
     static void Main()
     {
-        string inputFolder = Path.GetFullPath("../../../Data/");
-        string outputFolder = Path.GetFullPath("../../../Output/");
 
-        Directory.CreateDirectory(outputFolder);
-
-        // Get all .docx files in the Data folder
-        string[] files = Directory.GetFiles(inputFolder, "*.docx");
-
-        foreach (string inputPath in files)
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        //Open a file as a stream.
+        using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
         {
-            string fileName = Path.GetFileName(inputPath);
-            string outputPath = Path.Combine(outputFolder, fileName);
-
-            Stopwatch stopwatch = Stopwatch.StartNew();
-
-            try
+            //Load the file stream into a Word document.
+            using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
             {
-                // Load or open Word document
-                WordDocument document = new WordDocument(inputPath);
-
-                // Save the Word document to Output folder
-                document.Save(outputPath);
-                stopwatch.Stop();
-                Console.WriteLine($"{fileName} open and saved in {stopwatch.Elapsed.TotalSeconds} seconds");
-                document.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error processing {fileName}: {ex.Message}");
+                //Create a file stream.
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                {
+                    //Save a Markdown file to the file stream.
+                    document.Save(outputFileStream, FormatType.Docx);
+                    stopwatch.Stop();
+                    Console.WriteLine($"Time taken to open and save a 100-page document: {stopwatch.Elapsed.TotalSeconds} seconds");
+                }
             }
         }
     }
