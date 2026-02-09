@@ -18,7 +18,7 @@ namespace Find_and_replace_in_a_worddocument
                     //Find all occurrences of a misspelled word and replaces with properly spelled word
                     int replacedCount = document.Replace("document", "DocIO", false, false);
                     stopwatch.Stop();
-                    Console.WriteLine(replacedCount);
+                    Console.WriteLine($"Count of replaced words in the word Document: " + replacedCount);
                     Console.WriteLine($"Time taken for Replace (string):" + stopwatch.Elapsed.TotalSeconds);
                     //Create file stream
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
