@@ -10,40 +10,31 @@ class Program
 {
     static void Main()
     {
-        string inputFolder = Path.GetFullPath("../../../Data/");
-        string outputFolder = Path.GetFullPath("../../../Output/");
-
-        Directory.CreateDirectory(outputFolder);
-
-        // Get all .docx files in the Data folder
-        string[] files = Directory.GetFiles(inputFolder, "*.docx");
-
-        foreach (string inputPath in files)
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        try
         {
-            string fileName = Path.GetFileName(inputPath);
-            string outputPath = Path.Combine(outputFolder, Path.GetFileNameWithoutExtension(fileName) + ".pdf");
-
-            Stopwatch stopwatch = Stopwatch.StartNew();
-
-            try
+            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 // Open and convert Word to PDF
-                using (WordDocument document = new WordDocument(inputPath))
+                using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
                     DocIORenderer render = new DocIORenderer();
                     // Convert Word to PDF
                     using (PdfDocument pdfDocument = render.ConvertToPDF(document))
                     {
-                        pdfDocument.Save(outputPath);
-                    }                    
+                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.pdf"), FileMode.Create, FileAccess.ReadWrite))
+                        {
+                            pdfDocument.Save(outputFileStream);
+                        }
+                    }
                 }
-                stopwatch.Stop();
-                Console.WriteLine($"{fileName} taken time to convert as PDF: {stopwatch.Elapsed.TotalSeconds} seconds");
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error processing {fileName}: {ex.Message}");
-            }
+            stopwatch.Stop();
+            Console.WriteLine($"Time taken to convert as PDF: {stopwatch.Elapsed.TotalSeconds} seconds");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Time taken to convert as PDF: {ex.Message}");
         }
     }
 }
