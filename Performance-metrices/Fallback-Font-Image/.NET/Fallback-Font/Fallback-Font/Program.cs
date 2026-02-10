@@ -14,6 +14,8 @@ class Program
             {
                 // Open an existing Word document
                 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
+                //Initialize the default fallback fonts collection.
+                document.FontSettings.FallbackFonts.InitializeDefault();
                 DocIORenderer renderer = new DocIORenderer();
                 //Convert the entire Word document to images.
                 Stream[] imageStreams = document.RenderAsImages();

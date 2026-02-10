@@ -16,6 +16,8 @@ class Program
                 // Open an existing Word document
                 WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
                 DocIORenderer renderer = new DocIORenderer();
+                //Sets true to embed fonts True
+                renderer.Settings.EmbedFonts = true;
                 //Convert the entire Word document to images.
                 Stream[] imageStreams = document.RenderAsImages();
                 for (int i = 0; i < imageStreams.Length; i++)

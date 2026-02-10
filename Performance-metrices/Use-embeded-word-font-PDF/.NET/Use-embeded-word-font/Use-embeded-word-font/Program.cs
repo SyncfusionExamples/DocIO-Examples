@@ -14,15 +14,17 @@ class Program
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 // Open and convert Word to PDF
-                using (WordDocument wordDocument = new WordDocument(fileStreamPath,FormatType.Docx))
+                using (WordDocument wordDocument = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
                     //Creates an instance of DocIORenderer.
                     using (DocIORenderer renderer = new DocIORenderer())
                     {
-                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.pdf"), FileMode.Create, FileAccess.ReadWrite))
+                        //Sets true to embed fonts True
+                        renderer.Settings.EmbedFonts = true;
+                        //Converts Word document into PDF document.
+                        using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
                         {
-                            //Converts Word document into PDF document.
-                            using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
+                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.pdf"), FileMode.Create, FileAccess.ReadWrite))
                             {
                                 pdfDocument.Save(outputFileStream);
                             }
@@ -32,7 +34,7 @@ class Program
                 stopwatch.Stop();
                 Console.WriteLine($"Input.docx taken time to convert as PDF: {stopwatch.Elapsed.TotalSeconds} seconds");
             }
-              
+
         }
         catch (Exception ex)
         {

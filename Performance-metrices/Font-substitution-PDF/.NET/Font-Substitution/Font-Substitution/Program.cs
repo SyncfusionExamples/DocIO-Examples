@@ -14,20 +14,20 @@ class Program
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 // Open and convert Word to PDF
-                using (WordDocument wordDocument = new WordDocument(fileStreamPath,FormatType.Docx))
+                using (WordDocument wordDocument = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
                     //Hooks the font substitution event
                     wordDocument.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
                     //Creates an instance of DocIORenderer.
                     using (DocIORenderer renderer = new DocIORenderer())
                     {
-                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.pdf"), FileMode.Create, FileAccess.ReadWrite))
+                        //Converts Word document into PDF document.
+                        using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
                         {
-                            //Converts Word document into PDF document.
-                            using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
+                            //Unhooks the font substitution event after converting to PDF
+                            wordDocument.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
+                            using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.pdf"), FileMode.Create, FileAccess.ReadWrite))
                             {
-                                //Unhooks the font substitution event after converting to PDF
-                                wordDocument.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
                                 pdfDocument.Save(outputFileStream);
                             }
                         }
@@ -36,7 +36,7 @@ class Program
                 stopwatch.Stop();
                 Console.WriteLine($"Input.docx taken time to convert as PDF: {stopwatch.Elapsed.TotalSeconds} seconds");
             }
-               
+
         }
         catch (Exception ex)
         {

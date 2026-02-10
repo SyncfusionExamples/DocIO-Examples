@@ -16,26 +16,26 @@ class Program
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 // Open and convert Word to PDF
-                using (WordDocument document = new WordDocument(fileStreamPath,FormatType.Docx))
+                using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
                     DocIORenderer render = new DocIORenderer();
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.pdf"), FileMode.Create, FileAccess.ReadWrite))
+                    // Convert Word to PDF
+                    using (PdfDocument pdfDocument = render.ConvertToPDF(document))
                     {
-                        // Convert Word to PDF
-                        using (PdfDocument pdfDocument = render.ConvertToPDF(document))
+                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.pdf"), FileMode.Create, FileAccess.ReadWrite))
                         {
                             pdfDocument.Save(outputFileStream);
                         }
-                        stopwatch.Stop();
-                        Console.WriteLine($"Time taken to convert as PDF: {stopwatch.Elapsed.TotalSeconds} seconds");
                     }
                 }
-            }            
+            }
+            stopwatch.Stop();
+            Console.WriteLine($"Time taken to convert as PDF: {stopwatch.Elapsed.TotalSeconds} seconds");
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Time taken to convert as PDF: {ex.Message}");
-        }    
+        }
     }
 }
 
