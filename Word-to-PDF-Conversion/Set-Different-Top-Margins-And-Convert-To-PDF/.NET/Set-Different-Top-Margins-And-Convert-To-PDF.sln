@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Set-Different-Top-Margins-And-Convert-To-PDF", "Set-Different-Top-Margins-And-Convert-To-PDF\Set-Different-Top-Margins-And-Convert-To-PDF.csproj", "{3D84F105-5AE1-4FE2-B7A0-80C119984587}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D84F105-5AE1-4FE2-B7A0-80C119984587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D84F105-5AE1-4FE2-B7A0-80C119984587}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D84F105-5AE1-4FE2-B7A0-80C119984587}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D84F105-5AE1-4FE2-B7A0-80C119984587}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {750A521F-F8E8-4C88-B601-658483C1F62E}
+	EndGlobalSection
+EndGlobal
