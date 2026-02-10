@@ -13,23 +13,27 @@ class Program
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 // Open an existing Word document
-                WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx);
-                //Hooks the font substitution event
-                document.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
-                DocIORenderer renderer = new DocIORenderer();
-                //Convert the entire Word document to images.
-                Stream[] imageStreams = document.RenderAsImages();
-                //Unhooks the font substitution event after converting to PDF
-                document.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
-                for (int i = 0; i < imageStreams.Length; i++)
+                using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
-                    //Save the image stream as file.
-                    string imagePath = Path.Combine(Path.GetFullPath(@"Output/Images"), $"WordToImage_{i + 1}.jpg");
-                    using (FileStream fileStreamOutput = new(imagePath, FileMode.Create, FileAccess.Write))
+                    //Hooks the font substitution event
+                    document.FontSettings.SubstituteFont += FontSettings_SubstituteFont;
+                    using (DocIORenderer renderer = new DocIORenderer())
                     {
-                        imageStreams[i].CopyTo(fileStreamOutput);
-                    }
-                }
+                        //Convert the entire Word document to images.
+                        Stream[] imageStreams = document.RenderAsImages();
+                        //Unhooks the font substitution event after converting to PDF
+                        document.FontSettings.SubstituteFont -= FontSettings_SubstituteFont;
+                        for (int i = 0; i < imageStreams.Length; i++)
+                        {
+                            //Save the image stream as file.
+                            string imagePath = Path.Combine(Path.GetFullPath(@"Output/Images"), $"WordToImage_{i + 1}.jpg");
+                            using (FileStream fileStreamOutput = new(imagePath, FileMode.Create, FileAccess.Write))
+                            {
+                                imageStreams[i].CopyTo(fileStreamOutput);
+                            }
+                        }
+                    }               
+                }                  
                 stopwatch.Stop();
                 Console.WriteLine($"Word To Image processed in {stopwatch.Elapsed.TotalSeconds} seconds");
             }
