@@ -19,8 +19,6 @@ class Program
                     //Creates an instance of DocIORenderer.
                     using (DocIORenderer renderer = new DocIORenderer())
                     {
-                        //Sets true to embed fonts True
-                        renderer.Settings.EmbedFonts = true;
                         //Converts Word document into PDF document.
                         using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
                         {

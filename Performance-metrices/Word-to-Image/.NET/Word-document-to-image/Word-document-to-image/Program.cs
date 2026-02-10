@@ -13,22 +13,26 @@ class Program
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 // Open an existing Word document
-                WordDocument document = new WordDocument(fileStreamPath,FormatType.Docx);
-                DocIORenderer renderer = new DocIORenderer();
-                //Convert the entire Word document to images.
-                Stream[] imageStreams = document.RenderAsImages();
-                for (int i = 0; i < imageStreams.Length; i++)
+                using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
                 {
-                    //Save the image stream as file.
-                    string imagePath = Path.Combine(Path.GetFullPath(@"Output/Images"), $"WordToImage_{i + 1}.jpg");
-                    using (FileStream fileStreamOutput = new(imagePath, FileMode.Create, FileAccess.Write))
+                    using (DocIORenderer renderer = new DocIORenderer())
                     {
-                        imageStreams[i].CopyTo(fileStreamOutput);
-                    }
+                        //Convert the entire Word document to images.
+                        Stream[] imageStreams = document.RenderAsImages();
+                        for (int i = 0; i < imageStreams.Length; i++)
+                        {
+                            //Save the image stream as file.
+                            string imagePath = Path.Combine(Path.GetFullPath(@"Output/Images"), $"WordToImage_{i + 1}.jpg");
+                            using (FileStream fileStreamOutput = new(imagePath, FileMode.Create, FileAccess.Write))
+                            {
+                                imageStreams[i].CopyTo(fileStreamOutput);
+                            }
+                        }
+                    }                 
                 }
                 stopwatch.Stop();
                 Console.WriteLine($"Word To Image processed in {stopwatch.Elapsed.TotalSeconds} seconds");
-            }              
+            }
         }
         catch (Exception ex)
         {
