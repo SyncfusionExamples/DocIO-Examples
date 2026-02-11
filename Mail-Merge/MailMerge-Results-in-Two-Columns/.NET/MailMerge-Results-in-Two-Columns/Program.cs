@@ -12,9 +12,9 @@ namespace MailMerge_Results_in_Two_Columns
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
                     // Get student data
-                    List<StudentsGroup> studentParentList = GetStudentData();
+                    List<StudentsGroup> studentsGroupList = GetStudentData();
                     //Create mail merge data table
-                    MailMergeDataTable dataTable = new MailMergeDataTable("Studentsparent", studentParentList);
+                    MailMergeDataTable dataTable = new MailMergeDataTable("StudentsGroup", studentsGroupList);
                     // Execute nested mail merge
                     document.MailMerge.ExecuteNestedGroup(dataTable);
                     // Split the document into sections based on tables
@@ -138,7 +138,6 @@ namespace MailMerge_Results_in_Two_Columns
                     Marks = $"M{i:000}",
                 });
             }
-            // Wrap in parent group
             List<StudentsGroup> parentList = new List<StudentsGroup>
             {
                 new StudentsGroup {
