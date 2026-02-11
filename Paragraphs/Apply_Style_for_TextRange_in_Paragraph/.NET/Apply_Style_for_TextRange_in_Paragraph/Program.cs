@@ -17,6 +17,7 @@ namespace Apply_Style_for_TextRange_in_Paragraph
                     //Set style properties
                     customStyle.CharacterFormat.FontName = "Calibri";
                     customStyle.CharacterFormat.FontSize = 22;
+					customStyle.CharacterFormat.Bold = true;
                     customStyle.CharacterFormat.UnderlineStyle = Syncfusion.Drawing.UnderlineStyle.Single;
 					
                     // Find the first occurrence of the target text
