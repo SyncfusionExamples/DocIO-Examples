@@ -11,13 +11,14 @@ namespace Set_Different_Top_Margins_And_Convert_To_PDF
         {            
             //Load the Word document
             WordDocument document = new WordDocument(Path.GetFullPath(@"Data/Input.docx"));
+            int sectionsCount = document.Sections.Count;
             // Loop through all sections in the document
-            for (int i = 0; i < document.Sections.Count; i++)
+            for (int i = 0; i < sectionsCount; i++)
             {
                 // Get the current section
                 IWSection section = document.Sections[i];
                 // Set the top margin based on whether it's the first or last section
-                if (i == 0 || i == document.Sections.Count -1)
+                if (i == 0 || i == sectionsCount - 1)
                     section.PageSetup.Margins.Top = 200; // Apply a top margin of 200 for the first section and last section
                 else
                     section.PageSetup.Margins.Top = 90;  // Apply a top margin of 90 for all other sections
