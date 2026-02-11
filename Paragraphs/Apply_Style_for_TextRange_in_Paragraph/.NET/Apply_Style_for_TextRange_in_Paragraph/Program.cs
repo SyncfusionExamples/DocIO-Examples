@@ -16,16 +16,18 @@ namespace Apply_Style_for_TextRange_in_Paragraph
 
                     //Set style properties
                     customStyle.CharacterFormat.FontName = "Calibri";
-                    customStyle.CharacterFormat.FontSize = 18;
-                    customStyle.CharacterFormat.Bold = true;
+                    customStyle.CharacterFormat.FontSize = 22;
                     customStyle.CharacterFormat.UnderlineStyle = Syncfusion.Drawing.UnderlineStyle.Single;
-                    //Get text range
-                    WTextRange textRange = null;
-                    if (wordDocument.LastParagraph.ChildEntities.Count > 0)
-                        textRange = wordDocument.LastParagraph.ChildEntities[0] as WTextRange;
-                    //Apply custom style
-                    if (textRange != null)
-                        textRange.ApplyStyle("MyCustomStyle");
+					
+                    // Find the first occurrence of the target text
+					TextSelection selection = document.Find("Adventure Works Cycles", true,true);
+
+					if (selection != null)
+					{
+						// Convert selection into a single text range and apply the style.
+						WTextRange textRange = selection.GetAsOneRange();
+						textRange.ApplyStyle("MyCustomStyle");
+					}
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
