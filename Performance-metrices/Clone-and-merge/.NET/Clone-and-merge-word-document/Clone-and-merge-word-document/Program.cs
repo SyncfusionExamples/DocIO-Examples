@@ -10,18 +10,20 @@ class Program
         {
             using (FileStream destinationFileStream = new FileStream(Path.GetFullPath(@"Data/DestinationDocument/Document-100.docx"), FileMode.Open, FileAccess.Read))
             {
-                WordDocument mainDoc = new WordDocument(sourceFileStream, FormatType.Docx);
-                WordDocument mergeDoc = new WordDocument(destinationFileStream, FormatType.Docx);
-                Stopwatch sw = Stopwatch.StartNew();
-                mainDoc.ImportContent(mergeDoc, ImportOptions.UseDestinationStyles);
-                sw.Stop();
-                Console.WriteLine("Time taken for Merge Documents:" + sw.Elapsed.TotalSeconds);
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/MergedDocument.docx"), FileMode.Create))
+                using (WordDocument mainDoc = new WordDocument(sourceFileStream, FormatType.Docx))
                 {
-                    mainDoc.Save(outputFileStream, FormatType.Docx);
-                }
-                mainDoc.Close();
-                mergeDoc.Close();
+                    using (WordDocument mergeDoc = new WordDocument(destinationFileStream, FormatType.Docx))
+                    {
+                        Stopwatch sw = Stopwatch.StartNew();
+                        mainDoc.ImportContent(mergeDoc, ImportOptions.UseDestinationStyles);
+                        sw.Stop();
+                        Console.WriteLine("Time taken for Merge Documents:" + sw.Elapsed.TotalSeconds);
+                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/MergedDocument.docx"), FileMode.Create))
+                        {
+                            mainDoc.Save(outputFileStream, FormatType.Docx);
+                        }
+                    }  
+                }               
             }
         }
     }
