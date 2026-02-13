@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
@@ -7,54 +6,24 @@ class Program
 {
     static void Main()
     {
-        string sourceFolder = Path.GetFullPath("../../../Data/SourceDocument/");
-        string destinationFolder = Path.GetFullPath("../../../Data/DestinationDocument/");
-        string outputFolder = Path.GetFullPath("../../../Output/");
-
-        Directory.CreateDirectory(outputFolder);
-
-        // Get all source files
-        string[] sourceFiles = Directory.GetFiles(sourceFolder, "*.docx");
-
-        foreach (string sourcePath in sourceFiles)
+        using (FileStream sourceFileStream = new FileStream(Path.GetFullPath(@"Data/SourceDocument/Document-100.docx"), FileMode.Open, FileAccess.Read))
         {
-            string fileName = Path.GetFileName(sourcePath);
-            string destinationPath = Path.Combine(destinationFolder, fileName);
-
-            if (!File.Exists(destinationPath))
+            using (FileStream destinationFileStream = new FileStream(Path.GetFullPath(@"Data/DestinationDocument/Document-100.docx"), FileMode.Open, FileAccess.Read))
             {
-                Console.WriteLine($"Skipping {fileName} - No matching destination file found.");
-                continue;
-            }
-
-            string outputPath = Path.Combine(outputFolder, fileName);
-
-            Stopwatch stopwatch = Stopwatch.StartNew();
-
-            try
-            {
-                // Open source and destination document
-                WordDocument sourceDocument = new WordDocument(sourcePath); 
-                WordDocument destinationDocument =  new WordDocument(destinationPath);
-
-                // Clone and merge all slides
-                foreach (WSection section in sourceDocument.Sections)
+                using (WordDocument mainDoc = new WordDocument(sourceFileStream, FormatType.Docx))
                 {
-                    WSection clonedSection = section.Clone();
-                    destinationDocument.Sections.Add(clonedSection);
-                }
-
-                // Save the merged document.
-                destinationDocument.Save(outputPath);
-
-                stopwatch.Stop();
-                Console.WriteLine($"{fileName} is cloned and merged in {stopwatch.Elapsed.TotalSeconds} seconds.");
-                sourceDocument.Close();
-                destinationDocument.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error processing {fileName}: {ex.Message}");
+                    using (WordDocument mergeDoc = new WordDocument(destinationFileStream, FormatType.Docx))
+                    {
+                        Stopwatch sw = Stopwatch.StartNew();
+                        mainDoc.ImportContent(mergeDoc, ImportOptions.UseDestinationStyles);
+                        sw.Stop();
+                        Console.WriteLine("Time taken for Merge Documents:" + sw.Elapsed.TotalSeconds);
+                        using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/MergedDocument.docx"), FileMode.Create))
+                        {
+                            mainDoc.Save(outputFileStream, FormatType.Docx);
+                        }
+                    }  
+                }               
             }
         }
     }
