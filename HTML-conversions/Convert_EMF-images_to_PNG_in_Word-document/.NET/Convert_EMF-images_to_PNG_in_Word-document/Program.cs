@@ -44,7 +44,9 @@ using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.doc
                     picture.Height = height;
                     picture.Width = width;
                 }
+				imageByteStream.Dispose();
             }
+			stream.Dispose();
         }
         // Save the modified document to the specified output file.
         using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.html"), FileMode.Create, FileAccess.Write))
