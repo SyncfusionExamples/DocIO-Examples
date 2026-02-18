@@ -127,6 +127,16 @@ namespace Set_Proofing_for_Word_document
                         InlineContentControl inlineContentControl = entity as InlineContentControl;
                         IterateParagraph(inlineContentControl.ParagraphItems);
                         break;
+					case EntityType.Symbol:
+						WSymbol symbol = entity as WSymbol;
+						symbol.CharacterFormat.LocaleIdASCII = (short)LocaleIDs.fr_FR;
+						break;
+				   case EntityType.Footnote:
+						WFootnote footer = entity as WFootnote;
+						footer.MarkerCharacterFormat.LocaleIdASCII = (short)LocaleIDs.fr_FR;
+						// Also iterate its TextBody to set on inner WTextRange
+						IterateTextBody(footer.TextBody);
+						break;
                 }
             }
         }
