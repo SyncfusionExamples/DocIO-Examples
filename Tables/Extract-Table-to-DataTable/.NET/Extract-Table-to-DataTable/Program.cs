@@ -35,8 +35,8 @@ class Program
                         IWorksheet worksheet = workbook.Worksheets[sheetIndex++];
                         worksheet.Name = $"Table{++tableNumber}";
 
-                        // Export with merges starting at row=1, col=1
-                        ExportWordTableToExcelMerged(wTable, worksheet, 1, 1);
+                        // Export with merges starting
+                        ExportWordTableToExcelMerged(wTable, worksheet);
 
                         // Formatting
                         worksheet.UsedRange.AutofitRows();
@@ -53,33 +53,32 @@ class Program
     }
 
     /// <summary>
-    /// Writes a Word table to the worksheet, preserving horizontal and vertical merges.
-    /// startRow/startCol are 1-based Excel coordinates where the table should be placed.
-    /// </summary>
-    private static void ExportWordTableToExcelMerged(IWTable table, IWorksheet worksheet, int startRow, int startCol)
+	/// Writes a Word table to the worksheet, preserving horizontal and vertical merges.
+	/// startRow/startCol are 1-based Excel coordinates where the table should be placed.
+	/// </summary>
+	static void ExportWordTableToExcelMerged(IWTable table, IWorksheet worksheet)
     {
-        // Iterate table rows
         for (int r = 0; r < table.Rows.Count; r++)
         {
-            WTableRow wRow = table.Rows[r];
+            WTableRow wRow = (WTableRow)table.Rows[r];
 
             // Map Word's logical grid to Excel columns using GridSpan
-            int gridCol = startCol;
+            int gridCol = 1;
 
             for (int i = 0; i < wRow.Cells.Count; i++)
             {
                 WTableCell wCell = wRow.Cells[i];
 
                 // Horizontal width in grid columns
-                int hSpan = Math.Max(1, (int)wCell.GridSpan);
+                int hSpan = (int)wCell.GridSpan;
 
-                // Merge flags (DocIO)
-                CellMerge vFlag = wCell.CellFormat.VerticalMerge;
+                // Merge flags
+                CellMerge vFlag = wCell.CellFormat.VerticalMerge;   // None | Start | Continue
                 CellMerge hFlag = wCell.CellFormat.HorizontalMerge;
 
                 // Excel start cell for this Word cell
-                int xRow = startRow + r;
-                int xCol = gridCol;
+                int xRow = r + 1;
+                int excelStartColIndex = gridCol;
 
                 // Compute vertical span when this cell is the START of a vertical merge
                 int vSpan = 1;
@@ -88,45 +87,57 @@ class Program
                     // Count how many subsequent rows continue the merge at the same grid column
                     for (int nr = r + 1; nr < table.Rows.Count; nr++)
                     {
-                        WTableRow nextRow = table.Rows[nr];
-                        WTableCell nextCell = GetCellAtGridColumn(nextRow, (xCol - startCol + 1));
+                        WTableRow nextRow = (WTableRow)table.Rows[nr];
+                        WTableCell nextCell = GetCellAtGridColumn(nextRow, excelStartColIndex); // 1-based grid col
                         if (nextCell != null && nextCell.CellFormat.VerticalMerge == CellMerge.Continue)
                             vSpan++;
                         else
                             break;
                     }
                 }
+                if (hFlag == CellMerge.Start) 
+                {
+                    for( int nc = i + 1; nc < wRow.Cells.Count; nc++)
+                    {
+                        WTableCell cell = wRow.Cells[nc];
+                        if (cell != null && cell.CellFormat.HorizontalMerge == CellMerge.Continue)
+                            hSpan += cell.GridSpan;
+                        else
+                            break;
+                    }
+                }
 
                 // Is Start or None of a merge region
-                bool isStartorNone =
+                bool isCotinued =
                     (vFlag != CellMerge.Continue) &&
                     (hFlag != CellMerge.Continue);
 
-                if (isStartorNone)
+                if (isCotinued)
                 {
-                    // To get the exact lest row and last column -1
-                    int lastRow = xRow + vSpan - 1;
-                    int lastCol = xCol + hSpan - 1;
+                    int vMergeEndIndex = xRow + vSpan - 1;
+                    int hMergeEndColIndex = excelStartColIndex + hSpan - 1;
 
                     // Merge in Excel if region spans multiple cells
-                    if (lastRow > xRow || lastCol > xCol)
-                        worksheet.Range[xRow, xCol, lastRow, lastCol].Merge(); // XlsIO merge
+                    if (vMergeEndIndex > xRow || hMergeEndColIndex > excelStartColIndex)
+                        worksheet.Range[xRow, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].Merge();
 
                     // Write the visible text to the top-left Excel cell
-                    IRange range = worksheet.Range[xRow, xCol];
+                    IRange range = worksheet.Range[xRow, excelStartColIndex];
                     range.Text = BuildCellText(wCell);
 
-                    // Text styling
+                    // Format styling
                     range.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
                     range.CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
-                    // Border formatting
-                    worksheet.Range[xRow, xCol, lastRow, lastCol].CellStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Thin;
-                    worksheet.Range[xRow, xCol, lastRow, lastCol].CellStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
-                    worksheet.Range[xRow, xCol, lastRow, lastCol].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
-                    worksheet.Range[xRow, xCol, lastRow, lastCol].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
+
+                    worksheet.Range[xRow, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].CellStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Thin;
+                    worksheet.Range[xRow, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].CellStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
+                    worksheet.Range[xRow, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
+                    worksheet.Range[xRow, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
+
                 }
-            // Add Excel column cursor by the horizontal span of this Word cell
-            gridCol += hSpan;
+
+                // Advance Excel column cursor by the horizontal span of this Word cell
+                gridCol += hSpan;
             }
         }
     }
@@ -137,10 +148,10 @@ class Program
     /// </summary>
     static WTableCell GetCellAtGridColumn(WTableRow row, int gridColumn)
     {
-        int cursor = 1;
+        int cursor = 1; // 1-based grid column within the table
         foreach (WTableCell c in row.Cells)
         {
-            int span = Math.Max((int)1, (int)c.GridSpan);
+            int span = (int)c.GridSpan;
             int start = cursor;
             int end = cursor + span - 1;
             if (gridColumn >= start && gridColumn <= end)
@@ -158,7 +169,7 @@ class Program
         StringBuilder sb = new StringBuilder();
         for (int p = 0; p < cell.Paragraphs.Count; p++)
         {
-            WParagraph para = (WParagraph)cell.Paragraphs[p];
+            WParagraph para = cell.Paragraphs[p];
             string text = para.Text?.TrimEnd();
             if (!string.IsNullOrEmpty(text))
             {
