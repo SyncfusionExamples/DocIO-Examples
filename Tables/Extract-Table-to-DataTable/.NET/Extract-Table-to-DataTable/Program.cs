@@ -77,7 +77,7 @@ class Program
                 CellMerge hFlag = wCell.CellFormat.HorizontalMerge;
 
                 // Excel start cell for this Word cell
-                int xRow = r + 1;
+                int excelStartRowIndex = r + 1;
                 int excelStartColIndex = gridCol;
 
                 // Compute vertical span when this cell is the START of a vertical merge
@@ -108,31 +108,31 @@ class Program
                 }
 
                 // Is Start or None of a merge region
-                bool isCotinued =
+                bool isNotContinuedCell =
                     (vFlag != CellMerge.Continue) &&
                     (hFlag != CellMerge.Continue);
 
-                if (isCotinued)
+                if (isNotContinuedCell)
                 {
-                    int vMergeEndIndex = xRow + vSpan - 1;
+                    int vMergeEndIndex = excelStartRowIndex + vSpan - 1;
                     int hMergeEndColIndex = excelStartColIndex + hSpan - 1;
 
                     // Merge in Excel if region spans multiple cells
-                    if (vMergeEndIndex > xRow || hMergeEndColIndex > excelStartColIndex)
-                        worksheet.Range[xRow, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].Merge();
+                    if (vMergeEndIndex > excelStartRowIndex || hMergeEndColIndex > excelStartColIndex)
+                        worksheet.Range[excelStartRowIndex, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].Merge();
 
                     // Write the visible text to the top-left Excel cell
-                    IRange range = worksheet.Range[xRow, excelStartColIndex];
+                    IRange range = worksheet.Range[excelStartRowIndex, excelStartColIndex];
                     range.Text = BuildCellText(wCell);
 
                     // Format styling
                     range.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
                     range.CellStyle.VerticalAlignment = ExcelVAlign.VAlignCenter;
 
-                    worksheet.Range[xRow, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].CellStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Thin;
-                    worksheet.Range[xRow, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].CellStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
-                    worksheet.Range[xRow, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
-                    worksheet.Range[xRow, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
+                    worksheet.Range[excelStartRowIndex, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].CellStyle.Borders[ExcelBordersIndex.EdgeLeft].LineStyle = ExcelLineStyle.Thin;
+                    worksheet.Range[excelStartRowIndex, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].CellStyle.Borders[ExcelBordersIndex.EdgeRight].LineStyle = ExcelLineStyle.Thin;
+                    worksheet.Range[excelStartRowIndex, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].CellStyle.Borders[ExcelBordersIndex.EdgeTop].LineStyle = ExcelLineStyle.Thin;
+                    worksheet.Range[excelStartRowIndex, excelStartColIndex, vMergeEndIndex, hMergeEndColIndex].CellStyle.Borders[ExcelBordersIndex.EdgeBottom].LineStyle = ExcelLineStyle.Thin;
 
                 }
 
