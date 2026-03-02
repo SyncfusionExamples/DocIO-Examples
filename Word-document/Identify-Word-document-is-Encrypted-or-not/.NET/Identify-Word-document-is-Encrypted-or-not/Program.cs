@@ -21,7 +21,7 @@ namespace Identify_Word_document_is_Encrypted_or_not
             {
                 //Open the existing Word document.
                 WordDocument document = new WordDocument(fileStream, FormatType.Docx);
-                return "Docuemnt is not encrypted.";
+                return "Document is not encrypted.";
             }
             catch (Exception exception)
             {
@@ -31,7 +31,7 @@ namespace Identify_Word_document_is_Encrypted_or_not
                     return exception.Message;
                 }
             }
-            return "Docuemnt is not encrypted.";
+            return "Document is not encrypted.";
         }
     }
 }
