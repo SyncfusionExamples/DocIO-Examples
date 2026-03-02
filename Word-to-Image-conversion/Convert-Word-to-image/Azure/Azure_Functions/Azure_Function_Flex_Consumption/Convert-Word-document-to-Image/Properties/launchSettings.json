@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Convert_Word_document_to_Image": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7041",
+      "launchBrowser": false
+    }
+  }
+}
