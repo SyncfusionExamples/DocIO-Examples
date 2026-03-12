@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (Html.BeginForm("WordToPDF", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="Common">
+        <div class="tablediv">
+            <div class="rowdiv">
+                This sample illustrates how to convert Word document, Excel and PowerPoint file to PDF using Document SDK.
+            </div>
+
+            <div class="rowdiv" style="border-width: 0.5px; border-style: solid; border-color: lightgray; padding: 1px 5px 7px 5px; margin-top: 8px;">
+                Click the button to view the resultant PDF document being converted using Document SDK.
+                Please note that a PDF viewer is required to view the resultant PDF.
+
+                <div class="rowdiv" style="margin-top: 10px">
+                    <div class="celldiv">
+                        Select Document :
+                        @Html.TextBox("file", null, new { type = "file", accept = ".doc,.docx,.rtf,.dot,.dotm,.dotx,.docm,.xml,.xlsx,.pptx" })
+                        <br />
+                    </div>
+
+                    <div class="rowdiv" style="margin-top: 8px">
+                        <input class="buttonStyle" type="submit" value="Convert to PDF" name="button" style="width:150px;height:27px" />
+                        <br />
+                        <div class="text-danger">
+                            @ViewBag.Message
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
