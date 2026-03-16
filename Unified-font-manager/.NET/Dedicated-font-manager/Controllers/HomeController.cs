@@ -19,7 +19,7 @@ namespace Dedicated_font_manager.Controllers
         {
             _logger = logger;
         }
-        public IActionResult WordToPDF(string button)
+        public IActionResult OfficeToPDF(string button)
         {
             if (button == null)
                 return View("Index");
@@ -35,113 +35,101 @@ namespace Dedicated_font_manager.Controllers
                 string extension = Path.GetExtension(Request.Form.Files[0].FileName).ToLower();
                 string fileName = Path.GetFileNameWithoutExtension(Request.Form.Files[0].FileName);
 
-                // Compares extension with supported extensions.
-                if (extension == ".doc" || extension == ".docx" || extension == ".dot" || extension == ".dotx" || extension == ".dotm" || extension == ".docm"
-                   || extension == ".xml" || extension == ".rtf")
+                try
                 {
-                    try
+                    PdfDocument pdfDocument = null;
+                    // Switch on file extension to determine conversion method
+                    switch (extension.ToLower())
                     {
-                        MemoryStream outputStream = new MemoryStream();
-                        //Open the Word document file stream.
-                        using (MemoryStream inputStream = new MemoryStream())
-                        {
-                            Request.Form.Files[0].CopyTo(inputStream);
-                            inputStream.Position = 0;
-                            //Loads an existing Word document.
-                            using (WordDocument wordDocument = new WordDocument())
+                        // Word document formats
+                        case ".doc":
+                        case ".docx":
+                        case ".dot":
+                        case ".dotx":
+                        case ".dotm":
+                        case ".docm":
+                        case ".xml":
+                        case ".rtf":
+                            using (MemoryStream inputStream = new MemoryStream())
                             {
-                                wordDocument.Open(inputStream, Syncfusion.DocIO.FormatType.Automatic);
-                                //Creates an instance of DocIORenderer.
-                                using (DocIORenderer renderer = new DocIORenderer())
+                                // Copy uploaded file to memory stream
+                                Request.Form.Files[0].CopyTo(inputStream);
+                                inputStream.Position = 0;
+                                // Open and load the Word document
+                                using (WordDocument wordDocument = new WordDocument())
                                 {
-                                    //Converts Word document into PDF document.
-                                    using (PdfDocument pdfDocument = renderer.ConvertToPDF(wordDocument))
+                                    // Convert Word document to PDF format
+                                    wordDocument.Open(inputStream, Syncfusion.DocIO.FormatType.Automatic);
+                                    using (DocIORenderer renderer = new DocIORenderer())
                                     {
-                                        pdfDocument.Save(outputStream);
+                                        pdfDocument = renderer.ConvertToPDF(wordDocument);
                                     }
                                 }
                             }
-                        }
-                        outputStream.Position = 0;
-                        return File(outputStream, "application/pdf", fileName + ".pdf");
-                    }
-                    catch (Exception ex)
-                    {
-                        ViewBag.Message = string.Format(ex.Message);
-                        //ViewBag.Message = string.Format("The input document could not be processed completely, Could you please email the document to support@syncfusion.com for troubleshooting.");
-                    }
-                }
-                else if (extension == ".xlsx")
-                {
-                    try
-                    {
-                        using (MemoryStream inputStream = new MemoryStream())
-                        {
-                            Request.Form.Files[0].CopyTo(inputStream);
-                            inputStream.Position = 0;
-                            //Loads an existing Excel document.
-                            using (ExcelEngine excelEngine = new ExcelEngine())
+                            break;
+                        // Excel format
+                        case ".xlsx":
+                        case ".xls":
+                        case ".xltx":
+                        case ".xlsm":
+                        case ".csv":
+                        case ".xlsb":
+                        case ".xltm":
+                            using (MemoryStream inputStream = new MemoryStream())
                             {
-                                IApplication application = excelEngine.Excel;
-                                application.DefaultVersion = ExcelVersion.Xlsx;
-                                //Open the Excel document file stream.
-                                IWorkbook workbook = application.Workbooks.Open(inputStream);
-                                //Initialize XlsIO renderer.
-                                XlsIORenderer renderer = new XlsIORenderer();
-                                //Convert Excel document into PDF document 
-                                PdfDocument pdfDocument = renderer.ConvertToPDF(workbook);
-                                //Create the MemoryStream to save the converted PDF.      
-                                MemoryStream pdfStream = new MemoryStream();
-                                //Save the converted PDF document to MemoryStream.
-                                pdfDocument.Save(pdfStream);
-                                pdfStream.Position = 0;
-
-                                //Download PDF document in the browser.
-                                return File(pdfStream, "application/pdf", "Sample.pdf");
-                            }
-                        }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        ViewBag.Message = string.Format(ex.Message);
-                    }
-                    
-                }
-                else if (extension == ".pptx")
-                {
-                    try 
-                    {
-                        using (MemoryStream inputStream = new MemoryStream())
-                        {
-                            Request.Form.Files[0].CopyTo(inputStream);
-                            inputStream.Position = 0;
-                            //Open the existing PowerPoint presentation with loaded stream.
-                            using (IPresentation pptxDoc = Presentation.Open(inputStream))
-                            {
-                                //Convert the PowerPoint presentation to PDF document.
-                                using (PdfDocument pdfDocument = PresentationToPdfConverter.Convert(pptxDoc))
+                                // Copy uploaded file to memory stream
+                                Request.Form.Files[0].CopyTo(inputStream);
+                                inputStream.Position = 0;
+                                // Create Excel engine and load workbook
+                                using (ExcelEngine excelEngine = new ExcelEngine())
                                 {
-                                    //Create the MemoryStream to save the converted PDF.      
-                                    MemoryStream pdfStream = new MemoryStream();
-                                    //Save the converted PDF document to MemoryStream.
-                                    pdfDocument.Save(pdfStream);
-                                    pdfStream.Position = 0;
-                                    //Download PDF document in the browser.
-                                    return File(pdfStream, "application/pdf", "Sample.pdf");
+                                    IApplication application = excelEngine.Excel;
+                                    application.DefaultVersion = ExcelVersion.Xlsx;
+                                    IWorkbook workbook = application.Workbooks.Open(inputStream);
+                                    // Convert Excel workbook to PDF format
+                                    XlsIORenderer renderer = new XlsIORenderer();
+                                    pdfDocument = renderer.ConvertToPDF(workbook);
                                 }
                             }
+                            break;
+                        // PowerPoint format
+                        case ".pptx":
+                            using (MemoryStream inputStream = new MemoryStream())
+                            {
+                                // Copy uploaded file to memory stream
+                                Request.Form.Files[0].CopyTo(inputStream);
+                                inputStream.Position = 0;
+                                // Open PowerPoint presentation and convert to PDF
+                                using (IPresentation pptxDoc = Presentation.Open(inputStream))
+                                {
+                                    pdfDocument = PresentationToPdfConverter.Convert(pptxDoc);
+                                }
+                            }
+                            break;
+                        // Invalid file format
+                        default:
+                            ViewBag.Message = "Please choose Word, Excel or PowerPoint document to convert to PDF";
+                            return null;
+                    }
+                    // Save converted PDF and return as downloadable file
+                    if (pdfDocument != null)
+                    {
+                        using (pdfDocument)
+                        {
+                            // Create memory stream to hold the PDF data
+                            MemoryStream pdfStream = new MemoryStream();
+                            // Save the converted PDF to memory stream
+                            pdfDocument.Save(pdfStream);
+                            // Reset stream position to beginning for reading
+                            pdfStream.Position = 0;
+                            // Return PDF as downloadable file to browser
+                            return File(pdfStream, "application/pdf", fileName + ".pdf");
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        ViewBag.Message = string.Format(ex.Message);
-                    }
-                    
                 }
-                else
+                catch (Exception ex)
                 {
-                    ViewBag.Message = string.Format("Please choose Word, Excel or PowerPoint document to convert to PDF");
+                    ViewBag.Message = string.Format(ex.Message);
                 }
             }
             else
