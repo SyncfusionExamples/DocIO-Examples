@@ -22,7 +22,7 @@ namespace Modify_ink_effect
                     // Modify the ink effect to 'Lava'.
                     inkTrace.Brush.InkEffect = OfficeInkEffectType.Lava;
                     // Creates a file stream to save the modified document.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);

@@ -23,7 +23,7 @@ namespace Modify_ink_points
                     // Close the ink stroke by setting the last point to be the same as the first point
                     inkTrace.Points[inkTrace.Points.Length - 1] = new PointF(inkTrace.Points[0].X, inkTrace.Points[0].Y);
                     // Creates a file stream to save the modified document.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);
