@@ -35,7 +35,7 @@ namespace Create_ink
                 brush.Size = new SizeF(5f, 5f);
                 // Sets the ink effect to 'Galaxy'.
                 brush.InkEffect = OfficeInkEffectType.Galaxy;
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
                     document.Save(outputFileStream, FormatType.Docx);

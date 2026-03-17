@@ -22,7 +22,7 @@ namespace Modify_ink_color
                     IOfficeInkTrace inkTrace = ink.Traces[0];
                     // Modify the brush color to Color.Red.
                     inkTrace.Brush.Color = Color.Red;
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
                         document.Save(outputFileStream, FormatType.Docx);
