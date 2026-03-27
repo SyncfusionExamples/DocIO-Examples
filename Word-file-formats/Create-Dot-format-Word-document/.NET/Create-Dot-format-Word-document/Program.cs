@@ -2,7 +2,7 @@
 using Syncfusion.DocIO.DLS;
 using System.IO;
 
-namespace Create_Docx_format_Word_document
+namespace Create_Dot_format_Word_document
 {
     class Program
     {
@@ -16,10 +16,10 @@ namespace Create_Docx_format_Word_document
                 //Appends text to the last paragraph of the document.
                 document.LastParagraph.AppendText("Hello World");
                 //Creates file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.dot"), FileMode.Create, FileAccess.ReadWrite))
                 {
                     //Saves the Word document to file stream.
-                    document.Save(outputFileStream, FormatType.Docx);
+                    document.Save(outputFileStream, FormatType.Dot);
                 }
             }
         }
