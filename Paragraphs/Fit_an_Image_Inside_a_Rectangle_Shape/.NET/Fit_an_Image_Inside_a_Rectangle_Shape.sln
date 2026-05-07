@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37216.2 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fit_an_Image_Inside_a_Rectangle_Shape", "Fit_an_Image_Inside_a_Rectangle_Shape\Fit_an_Image_Inside_a_Rectangle_Shape.csproj", "{AF30512B-BF73-E738-E1D6-179374198043}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF30512B-BF73-E738-E1D6-179374198043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF30512B-BF73-E738-E1D6-179374198043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF30512B-BF73-E738-E1D6-179374198043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF30512B-BF73-E738-E1D6-179374198043}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49E18A89-A198-41B2-9245-2940167C1CA3}
+	EndGlobalSection
+EndGlobal
