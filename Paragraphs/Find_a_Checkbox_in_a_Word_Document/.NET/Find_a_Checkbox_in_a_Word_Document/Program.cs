@@ -1,7 +1,7 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-namespace Extract_Selected_CheckBox
+namespace Find_a_Checkbox_in_a_Word_Document
 {
     class Program
     {
