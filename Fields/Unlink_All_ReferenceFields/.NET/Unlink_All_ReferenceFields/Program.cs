@@ -2,7 +2,7 @@
 using Syncfusion.DocIO;
 
 
-namespace Remove_Field_ReferenceLink
+namespace Unlink_All_ReferenceFields
 {
     class Program
     {

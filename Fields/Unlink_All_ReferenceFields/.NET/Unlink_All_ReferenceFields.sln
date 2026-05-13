@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.37216.2 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remove_Field_ReferenceLinks", "Remove_Field_ReferenceLinks\Remove_Field_ReferenceLinks.csproj", "{B6C63866-67F8-3CB8-F517-6EB1FC20E12E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unlink_All_ReferenceFields", "Unlink_All_ReferenceFields\Unlink_All_ReferenceFields.csproj", "{E4D230B8-9F6B-145A-CA54-AC9AC5408FA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B6C63866-67F8-3CB8-F517-6EB1FC20E12E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6C63866-67F8-3CB8-F517-6EB1FC20E12E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6C63866-67F8-3CB8-F517-6EB1FC20E12E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6C63866-67F8-3CB8-F517-6EB1FC20E12E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4D230B8-9F6B-145A-CA54-AC9AC5408FA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4D230B8-9F6B-145A-CA54-AC9AC5408FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4D230B8-9F6B-145A-CA54-AC9AC5408FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4D230B8-9F6B-145A-CA54-AC9AC5408FA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {24D6371E-D6B4-441F-8C1D-66D4E03D6860}
+		SolutionGuid = {AFE5EF7E-B3AB-46EA-9B1D-6A1291EF65FE}
 	EndGlobalSection
 EndGlobal
