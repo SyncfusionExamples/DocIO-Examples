@@ -42,24 +42,29 @@ namespace Insert_Signature_in_Word_Document_through_MailMerge
                 args.ImageStream = imageStream;
                 // Get the picture to be merged
                 WPicture picture = args.Picture;
-
-                //Get the text box format
-               WTextBoxFormat textBoxFormat = (args.CurrentMergeField.OwnerParagraph.OwnerTextBody.Owner as WTextBox).TextBoxFormat;
-
-                if (textBoxFormat != null)
+                
+                WTextBox textbox = args.CurrentMergeField.OwnerParagraph.OwnerTextBody.Owner as WTextBox;
+                // check whether the picture is inside the text box
+                if (textbox != null)
                 {
-                    // Resize width
-                    if (picture.Width != textBoxFormat.Width)
-                    {
-                        float widthScale = textBoxFormat.Width / picture.Width * 100;
-                        picture.WidthScale = widthScale;
-                    }
+                    // Get the text box format
+                    WTextBoxFormat textBoxFormat = textbox.TextBoxFormat;
 
-                    // Resize height
-                    if (picture.Height != textBoxFormat.Height)
+                    if (textBoxFormat != null)
                     {
-                        float heightScale = textBoxFormat.Height / picture.Height * 100;
-                        picture.HeightScale = heightScale;
+                        // Resize width
+                        if (picture.Width != textBoxFormat.Width)
+                        {
+                            float widthScale = textBoxFormat.Width / picture.Width * 100;
+                            picture.WidthScale = widthScale;
+                        }
+
+                        // Resize height
+                        if (picture.Height != textBoxFormat.Height)
+                        {
+                            float heightScale = textBoxFormat.Height / picture.Height * 100;
+                            picture.HeightScale = heightScale;
+                        }
                     }
                 }
             }
