@@ -14,7 +14,7 @@ namespace Insert_Signature_in_Word_Document_through_MailMerge
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
                     string[] fieldNames = { "Signature" };
-                    string[] fieldValues = { "signature.gif" };
+                    string[] fieldValues = { "signature.png" };
 
                     document.MailMerge.MergeImageField += MailMerge_MergeSignature;
                     //Execute mail merge in the Word document
