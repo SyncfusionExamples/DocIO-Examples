@@ -15,7 +15,7 @@
 		<None Update="Data\Template.docx">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="Data\Signature.gif">
+		<None Update="Data\Signature.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="Output\.gitkeep">
