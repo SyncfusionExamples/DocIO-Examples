@@ -22,6 +22,7 @@ namespace Get_Type_and_Name_of_ContentControls
                         //Access block content control properties
                         string title = blockContentControl.ContentControlProperties.Title;
                         string tag = blockContentControl.ContentControlProperties.Tag;
+                        Console.WriteLine("BlockContentControl Title:  " + title + ", Tag: " + tag);
                     }
 
                     //Find all inline content controls
@@ -33,6 +34,7 @@ namespace Get_Type_and_Name_of_ContentControls
                         //Access inline content control properties
                         string title = inlineContentControl.ContentControlProperties.Title;
                         string tag = inlineContentControl.ContentControlProperties.Tag;
+                        Console.WriteLine("InlineContentControl Title:  " + title + ", Tag: " + tag);
                     }
 
                     //Save the modified document if needed
