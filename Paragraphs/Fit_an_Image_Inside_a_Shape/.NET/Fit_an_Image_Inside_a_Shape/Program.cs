@@ -2,7 +2,7 @@
 using Syncfusion.DocIO.DLS;
 
 
-namespace Fit_an_Image_Inside_a_Rectangle_Shape
+namespace Fit_an_Image_Inside_a_Shape
 {
     class Program
     {
