@@ -4,7 +4,7 @@ using System.Collections;
 using System.Data;
 using System.Data.OleDb;
 
-namespace Convert_Database_into_Dataset_and_Perform_Mailmerge
+namespace Perform_Mailmerge_Using_OleDbConnection
 {
     class Program
     {
