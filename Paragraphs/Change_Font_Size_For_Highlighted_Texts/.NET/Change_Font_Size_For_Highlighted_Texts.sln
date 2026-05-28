@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37314.3 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Change_Font_Size_For_Highlighted_Texts", "Change_Font_Size_For_Highlighted_Texts\Change_Font_Size_For_Highlighted_Texts.csproj", "{F67A30EB-8D8F-454D-47D1-40582F91AFC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F67A30EB-8D8F-454D-47D1-40582F91AFC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F67A30EB-8D8F-454D-47D1-40582F91AFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F67A30EB-8D8F-454D-47D1-40582F91AFC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F67A30EB-8D8F-454D-47D1-40582F91AFC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18366B0B-7231-4300-AD29-B24C1FAB9785}
+	EndGlobalSection
+EndGlobal

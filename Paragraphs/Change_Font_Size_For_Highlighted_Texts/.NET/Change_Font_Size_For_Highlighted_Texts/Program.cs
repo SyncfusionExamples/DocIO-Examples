@@ -1,7 +1,7 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 
-namespace Set_Font_Size_for_Text_Highlighted_Rows
+namespace Change_Font_Size_For_Highlighted_Texts
 {
     class Program
     {
