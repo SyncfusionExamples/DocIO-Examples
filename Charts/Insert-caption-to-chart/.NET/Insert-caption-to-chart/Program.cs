@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using Syncfusion.OfficeChart;
 
 namespace Insert_caption_to_chart
 {
@@ -9,7 +8,6 @@ namespace Insert_caption_to_chart
     {
         static void Main(string[] args)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NxYtFisQPR08Cit/VkR+XU9FfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hTH9SdENiWHtZc3ZVRWFeWkd1");
             // Load existing Word document.
             using (FileStream inputFileStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
