@@ -16,17 +16,12 @@ namespace Merge_Documents_by_Page_Orientation
                 foreach (WSection section in sourceDocument.Sections)
                 {
                     bool skipSection = false;
-                    // Check if the section has landscape orientation which contain table
+                    // Check if the section has landscape orientation
                     if (section.PageSetup.Orientation == PageOrientation.Landscape)
                     {
-                        for (int i = 0; i < section.Body.ChildEntities.Count; i++)
-                        {
-                            if (section.Body.ChildEntities[i] is WTable)
-                            {
-                                skipSection = true;
-                                break;
-                            }
-                        }
+                      
+                        skipSection = true;
+                        break;
                     }
                     // If the section is not marked to be skipped, clone and add it to the destination document
                     if (!skipSection)
