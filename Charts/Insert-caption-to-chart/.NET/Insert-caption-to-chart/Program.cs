@@ -9,70 +9,30 @@ namespace Insert_caption_to_chart
     {
         static void Main(string[] args)
         {
-            //Create a new Word document.
-            using (WordDocument document = new WordDocument())
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NxYtFisQPR08Cit/VkR+XU9FfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hTH9SdENiWHtZc3ZVRWFeWkd1");
+            // Load existing Word document.
+            using (FileStream inputFileStream = new FileStream(Path.GetFullPath(@"../../../Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
             {
-                //Add a section to the document.
-                IWSection section = document.AddSection();
-                //Add a paragraph to the section.
-                IWParagraph paragraph = section.AddParagraph();
-                //Create and append the chart to the paragraph.
-                WChart chart = paragraph.AppendChart(446, 270);
-                //Set chart type.
-                chart.ChartType = OfficeChartType.Line;
-                //Set chart data.
-                chart.ChartData.SetValue(1, 1, "Fruits");
-                chart.ChartData.SetValue(2, 1, "Apples");
-                chart.ChartData.SetValue(3, 1, "Grapes");
-                chart.ChartData.SetValue(4, 1, "Bananas");
-                chart.ChartData.SetValue(5, 1, "Oranges");
-                chart.ChartData.SetValue(6, 1, "Melons");
-                chart.ChartData.SetValue(1, 2, "Joey");
-                chart.ChartData.SetValue(2, 2, 5);
-                chart.ChartData.SetValue(3, 2, 4);
-                chart.ChartData.SetValue(4, 2, 4);
-                chart.ChartData.SetValue(5, 2, 2);
-                chart.ChartData.SetValue(6, 2, 2);
-                chart.ChartData.SetValue(1, 3, "Matthew");
-                chart.ChartData.SetValue(2, 3, 3);
-                chart.ChartData.SetValue(3, 3, 5);
-                chart.ChartData.SetValue(4, 3, 4);
-                chart.ChartData.SetValue(5, 3, 1);
-                chart.ChartData.SetValue(6, 3, 7);
-                chart.ChartData.SetValue(1, 4, "Peter");
-                chart.ChartData.SetValue(2, 4, 2);
-                chart.ChartData.SetValue(3, 4, 2);
-                chart.ChartData.SetValue(4, 4, 3);
-                chart.ChartData.SetValue(5, 4, 5);
-                chart.ChartData.SetValue(6, 4, 6);
-                //Set region of Chart data.
-                chart.DataRange = chart.ChartData[1, 1, 6, 4];
-                //Set chart series in the column for assigned data region.
-                chart.IsSeriesInRows = false;
-                //Set a Chart Title.
-                chart.ChartTitle = "Line Chart";
-                //Set Datalabels.
-                IOfficeChartSerie series1 = chart.Series[0];
-                IOfficeChartSerie series2 = chart.Series[1];
-                IOfficeChartSerie series3 = chart.Series[2];
-
-                series1.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
-                series2.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
-                series3.DataPoints.DefaultDataPoint.DataLabels.IsValue = true;
-                //Set legend.
-                chart.HasLegend = true;
-                chart.Legend.Position = OfficeLegendPosition.Bottom;
-                //Mention caption text here.
-                string captionName = "Figure";
-                //Add caption to the chart.
-                AddCaptionToChart(chart, captionName, CaptionNumberingFormat.Number, CaptionPosition.AfterImage);
-                //Update fields in the Word document.
-                document.UpdateDocumentFields();
-                //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                // Initialize the Word document with the input file stream.
+                using (WordDocument document = new WordDocument(inputFileStream, FormatType.Automatic))
                 {
-                    //Save the Word document to the file stream.
-                    document.Save(outputFileStream, FormatType.Docx);
+                    Entity entity = document.FindItemByProperty(EntityType.Chart, null, null);
+                    WChart chart = entity as WChart;
+                   if (chart != null)
+                    {
+                        //Mention caption text here.
+                        string captionName = "Chart";
+                        //Add caption to the chart.
+                        AddCaptionToChart(chart, captionName, CaptionNumberingFormat.Number, CaptionPosition.AfterImage);
+                        //Update fields in the Word document.
+                        document.UpdateDocumentFields();
+                    }
+                    //Create a file stream.
+                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
+                    {
+                        //Save the Word document to the file stream.
+                        document.Save(outputFileStream, FormatType.Docx);
+                    }
                 }
             }
         }
@@ -82,7 +42,7 @@ namespace Insert_caption_to_chart
         public static void AddCaptionToChart(WChart chart, string captionName, CaptionNumberingFormat format, CaptionPosition captionPosition)
         {
             IWParagraph ownerParagraph = chart.OwnerParagraph;
-            WTextBody body = (ownerParagraph.Owner as WTextBody);
+            WTextBody body = ownerParagraph.Owner as WTextBody;
             WParagraph paragraph = null;
             if (body != null)
             {
@@ -97,7 +57,12 @@ namespace Insert_caption_to_chart
                 int chartIndex = ownerParagraph.Items.IndexOf(chart);
 
                 // Set needed formatting and paragraph location dependently on captionPosition value
-                if (captionPosition == CaptionPosition.AboveImage)
+                if (captionPosition == CaptionPosition.AfterImage)
+                {
+                    ownerParagraph.ParagraphFormat.KeepFollow = true;
+                    body.ChildEntities.Insert(index + 1, paragraph);
+                }
+                else
                 {
                     paragraph.ParagraphFormat.KeepFollow = true;
                     int captionIndex = (chartIndex == 0) ? index : index + 1;
@@ -111,11 +76,6 @@ namespace Insert_caption_to_chart
                         newParagraph.Items.Insert(0, chart);
                         body.ChildEntities.Insert(captionIndex + 1, newParagraph);
                     }
-                }
-                else
-                {
-                    ownerParagraph.ParagraphFormat.KeepFollow = true;
-                    body.ChildEntities.Insert(index + 1, paragraph);
                 }
                 ApplyFormattingForCaption(paragraph);
             }
