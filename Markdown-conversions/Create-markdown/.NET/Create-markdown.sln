@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37314.3 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Create-markdown", "Create-markdown\Create-markdown.csproj", "{B488B68A-FD97-4AA0-B6A6-B29B5A577BB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B488B68A-FD97-4AA0-B6A6-B29B5A577BB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B488B68A-FD97-4AA0-B6A6-B29B5A577BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B488B68A-FD97-4AA0-B6A6-B29B5A577BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B488B68A-FD97-4AA0-B6A6-B29B5A577BB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F2449BA-7D62-4F78-AC45-0D195EAB7750}
+	EndGlobalSection
+EndGlobal
