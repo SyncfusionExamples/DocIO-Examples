@@ -18,16 +18,12 @@ namespace Change_Font_Size_For_Highlighted_Texts
                     // Iterates the text ranges.
                     foreach (Entity entity in entities)
                     {
-                        //Replaces the text with another.
+                        // Casts the entity as WTextRange.
                         WTextRange textRange = entity as WTextRange;
                         // Get character format of the text
                         WCharacterFormat charFormat = textRange.CharacterFormat;
-                        //Checks whether text has highlightcolor
-                        if (!charFormat.HighlightColor.IsEmpty)
-                        {
-                            //If text has highlight color, set text's font size larger
-                            charFormat.FontSize = 14;
-                        }
+                        // Set text's font size larger
+                        charFormat.FontSize = 14;
                     }
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"../../../Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
