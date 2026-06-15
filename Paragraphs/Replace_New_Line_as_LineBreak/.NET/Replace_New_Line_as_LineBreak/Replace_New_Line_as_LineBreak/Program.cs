@@ -7,7 +7,6 @@ namespace Replace_New_Line_as_LineBreak
     {
         static void Main(string[] args)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NxYtFisQPR08Cit/VkR+XU9FfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hTH9SdENiWHtZc3ZVRWFeWkd1");
             //Creates a new Word document.
             using (WordDocument document = new WordDocument())
             {
