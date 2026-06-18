@@ -16,10 +16,19 @@ namespace Fit_an_Image_Inside_a_Shape
                 {
                     Entity entity = document.FindItemByProperty(EntityType.Picture, "Title", "Product");
                     WPicture picture = entity as WPicture;
-                    if(picture.OwnerParagraph.OwnerTextBody.Owner is WTextBox shape)
+
+                    if (picture != null && picture.OwnerParagraph.OwnerTextBody.Owner is WTextBox shape)
                     {
-                        picture.Height = shape.TextBoxFormat.Height;
-                        picture.Width = shape.TextBoxFormat.Width;
+                        float boxWidth = shape.TextBoxFormat.Width
+                                          - shape.TextBoxFormat.InternalMargin.Left
+                                          - shape.TextBoxFormat.InternalMargin.Right;
+
+                        float boxHeight = shape.TextBoxFormat.Height
+                                          - shape.TextBoxFormat.InternalMargin.Top
+                                          - shape.TextBoxFormat.InternalMargin.Bottom;
+
+                        picture.Width = boxWidth;
+                        picture.Height = boxHeight;
                     }
                     //Creates file stream.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Output/Result.docx"), FileMode.Create))
