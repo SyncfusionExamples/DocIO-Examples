@@ -1,12 +1,12 @@
 # How to Work with Latex Equations in a Word Document Using the .NET Word Library
 
-This repository provides an example of how to work with LaTeX equations in a Word document using the **Syncfusion .NET Word Library (DocIO)**. It demonstrates how to create, add, and edit LaTeX equations in Word documents.
+This repository provides an example of how to work with LaTeX equations in a Word document using the **[.NET Word Library](https://www.syncfusion.com/document-sdk/net-word-library) (DocIO)**. It demonstrates how to create, add, and edit LaTeX equations in Word documents.
 
 ## Process Behind LaTeX Equation Integration
 
 This sample shows how LaTeX syntax can be used to insert professional mathematical equations into Word documents. LaTeX is widely used in scientific and academic fields for typesetting complex formulas.
 
-Using the Syncfusion DocIO library, you can:
+Using the Word library, you can:
 
 - Create equations like area of a circle, quadratic formula, and Fourier series in a new Word document.
 - Add equations dynamically to an existing document at specific locations.
