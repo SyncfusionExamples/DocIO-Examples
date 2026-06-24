@@ -1,6 +1,6 @@
 # How to Create an IF Field in a Word Document Using the .NET Word Library
 
-This repository provides an example of how to create an **IF Field** in a Word document using the **Syncfusion .NET Word Library (DocIO)**. It demonstrates how to create a simple IF field and how to use it with paragraphs and tables.
+This repository provides an example of how to create an **IF Field** in a Word document using the **[.NET Word Library](https://www.syncfusion.com/document-sdk/net-word-library) (DocIO)**. It demonstrates how to create a simple IF field and how to use it with paragraphs and tables.
 
 ## Process behind IF Field integration
 
