@@ -51,13 +51,13 @@ How to run the examples
 Resources
 ---------
 
-*   **Product page:** [Syncfusion&reg; Word Framework](https://www.syncfusion.com/document-sdk/net-word-library)
-*   **Documentation:** [Syncfusion&reg; Word library](https://help.syncfusion.com/document-processing/word/word-library/net/overview)
-*   **Online demo:** [Syncfusion&reg; Word library - Online demos](https://document.syncfusion.com/demos/word/salesinvoice#/bootstrap5)
-*   **Blog:** [Syncfusion&reg; Word library - Blog](https://www.syncfusion.com/blogs/category/docio?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
-*   **Knowledge Base:** [Syncfusion&reg; Word library - Knowledge Base](https://www.syncfusion.com/kb/aspnetcore/docio?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
-*   **Ebooks:** [Syncfusion&reg; Word library - Ebooks](https://www.syncfusion.com/succinctly-free-ebooks?utm_source=nuget&utm_medium=listing&utm_campaign=aspnetcore-docio-nuget)
-*   **FAQ:** [Syncfusion&reg; Word library - FAQ](https://www.syncfusion.com/faq/?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
+*   **Product page:** [.NET Word Library](https://www.syncfusion.com/document-sdk/net-word-library)
+*   **Documentation:** [.NET Word library](https://help.syncfusion.com/document-processing/word/word-library/net/overview)
+*   **Online demo:** [.NET Word library - Online demos](https://document.syncfusion.com/demos/word/salesinvoice#/bootstrap5)
+*   **Blog:** [.NET Word library - Blog](https://www.syncfusion.com/blogs/category/docio?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
+*   **Knowledge Base:** [.NET Word library - Knowledge Base](https://www.syncfusion.com/kb/aspnetcore/docio?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
+*   **Ebooks:** [.NET Word library - Ebooks](https://www.syncfusion.com/succinctly-free-ebooks?utm_source=nuget&utm_medium=listing&utm_campaign=aspnetcore-docio-nuget)
+*   **FAQ:** [.NET Word library - FAQ](https://www.syncfusion.com/faq/?utm_source=github&utm_medium=listing&utm_campaign=github-docio-examples)
 
 Support and feedback
 --------------------
