@@ -6,7 +6,7 @@ This repository provides an example of how to work with LaTeX equations in a Wor
 
 This sample shows how LaTeX syntax can be used to insert professional mathematical equations into Word documents. LaTeX is widely used in scientific and academic fields for typesetting complex formulas.
 
-Using the Word library, you can:
+Using the [.NET Word Library](https://www.syncfusion.com/document-sdk/net-word-library), you can:
 
 - Create equations like area of a circle, quadratic formula, and Fourier series in a new Word document.
 - Add equations dynamically to an existing document at specific locations.

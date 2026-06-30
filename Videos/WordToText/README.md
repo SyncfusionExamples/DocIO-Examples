@@ -4,8 +4,9 @@ This repository provides an example of how to convert a Word document to a text 
 
 ## Process behind Word–Text Conversion
 
-This sample shows how you can easily switch between Word and text formats using the Word library. These conversions are essential for scenarios such as storing content in a lightweight text format for efficient processing or extracting text for indexing and search operations.
-Using the Word library, you can:
+This sample shows how you can easily switch between Word and text formats using the [.NET Word Library](https://www.syncfusion.com/document-sdk/net-word-library). These conversions are essential for scenarios such as storing content in a lightweight text format for efficient processing or extracting text for indexing and search operations.
+
+Using the [.NET Word Library](https://www.syncfusion.com/document-sdk/net-word-library), you can:
 
 - Convert a Word document (.docx) to a plain text file (.txt).
 - Convert a text file (.txt) back to a Word document (.docx).
