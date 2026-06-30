@@ -4,13 +4,13 @@ This repository provides an example of how to convert a Word document to RTF, an
 
 ## Process Behind Word–RTF Conversion
 
-This sample shows how easily you can switch between Word (.docx) and Rich Text Format (.rtf) using the Word library. These conversions are useful when you need to:
+This sample shows how easily you can switch between Word (.docx) and Rich Text Format (.rtf) using the [.NET Word Library](https://www.syncfusion.com/document-sdk/net-word-library). These conversions are useful when you need to:
 
 - Share documents in a lightweight, widely supported RTF format.
 - Preserve text formatting while avoiding the full complexity of a DOCX file.
 - Integrate RTF files into applications that require plain rich-text formatting.
 
-Using the Word library, you can:
+Using the [.NET Word Library](https://www.syncfusion.com/document-sdk/net-word-library), you can:
 
 - Convert a Word document (.docx) to an RTF file (.rtf).
 - Convert an RTF file (.rtf) back to a Word document (.docx).
