@@ -1,6 +1,6 @@
 # Create Word document using C#
 
-The Syncfusion&reg; [.NET Word Library](https://www.syncfusion.com/document-processing/word-framework/net/word-library) (DocIO) empowers you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **create Word document** using C#.
+The [.NET Word Library](https://www.syncfusion.com/document-sdk/net-word-library) (DocIO) empowers you to create, read, and edit Word documents programmatically without Microsoft Word or interop dependencies. Using this library, you can **create Word document** using C#.
 
 ## Steps to create Word document programmatically
 
