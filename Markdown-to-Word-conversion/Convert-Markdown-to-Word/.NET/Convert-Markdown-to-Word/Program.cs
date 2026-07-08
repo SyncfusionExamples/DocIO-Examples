@@ -8,19 +8,11 @@ namespace Convert_Markdown_to_Word
     {
         static void Main(string[] args)
         {
-            //Open a file as a stream.
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.md"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            // Open an existing Markdown file.
+            using (WordDocument document = new WordDocument(Path.GetFullPath(@"Data/Input.md")))
             {
-                //Load the file stream into a Markdown file.
-                using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Markdown))
-                {
-                    //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/MarkdownToWord.docx"), FileMode.Create, FileAccess.ReadWrite))
-                    {
-                        //Save a Word document to the file stream.
-                        document.Save(outputFileStream, FormatType.Docx);
-                    }
-                }
+                // Save as a Word document.
+                document.Save(Path.GetFullPath(@"Output/MarkdownToWord.docx"), FormatType.Docx);
             }
         }
     }
