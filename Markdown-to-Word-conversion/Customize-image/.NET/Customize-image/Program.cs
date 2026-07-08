@@ -16,14 +16,9 @@ namespace Customize_image
                 //Hook the event to customize the image while importing Markdown.
                 document.MdImportSettings.ImageNodeVisited += MdImportSettings_ImageNodeVisited;
                 //Open the Markdown file.
-                document.Open(new FileStream(Path.GetFullPath("Data/Input.md"), FileMode.Open, FileAccess.Read), FormatType.Markdown);
-
-                //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
-                {
-                    //Save a Markdown file to the file stream.
-                    document.Save(outputFileStream, FormatType.Docx);
-                }
+                document.Open(Path.GetFullPath("Data/Input.md"));
+                //Save as a Word document.
+                document.Save(Path.GetFullPath(@"../../../Output/Output.docx"));
             }
         }
         private static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.Markdown.MdImageNodeVisitedEventArgs args)

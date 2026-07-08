@@ -9,21 +9,13 @@ namespace Customize_image_path
     {
         static void Main(string[] args)
         {
-            //Open a file as a stream.
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            //Load the file stream into a Word document.
+            using (WordDocument document = new WordDocument(Path.GetFullPath(@"Data/Input.docx")))
             {
-                //Load the file stream into a Word document.
-                using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
-                {
-                    //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.md"), FileMode.Create, FileAccess.ReadWrite))
-                    {
-                        //Hook the event to customize the image. 
-                        document.SaveOptions.ImageNodeVisited += SaveImage;
-                        //Save a Markdown file to the file stream.
-                        document.Save(outputFileStream, FormatType.Markdown);
-                    }
-                }
+                //Hook the event to customize the image. 
+                document.SaveOptions.MarkdownSaveOptions.ImageNodeVisited += SaveImage;
+                //Save a Markdown file to the file stream.
+                document.Save(Path.GetFullPath(@"Output/Output.md"));
             }
         }
         //The following code examples show the event handler to customize the image path and save the image in an external folder.

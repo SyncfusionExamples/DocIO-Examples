@@ -21,12 +21,8 @@ namespace Block_quote_in_Markdown
                 paragraph.ApplyStyle("Quote");
                 //Append text.
                 IWTextRange textRange = paragraph.AppendText("Hello World");
-                //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.md"), FileMode.Create, FileAccess.ReadWrite))
-                {
-                    //Save the Markdown file to the file stream.
-                    document.Save(outputFileStream, FormatType.Markdown);
-                }
+                //Save the document as a Markdown file.
+                document.Save(Path.GetFullPath(@"Output/Output.md"));
             }
         }
     }

@@ -35,12 +35,8 @@ namespace Code_block_in_Markdown
                 paragraph.ApplyStyle("IndentedCode");
                 //Append text.
                 textRange = paragraph.AppendText("class Hello\n\t{\n\t\tStatic void Main()\n\t\t{\n\t\t\tConsole.WriteLine(\"Indented Code\")\n\t\t}\n\t}");
-                //Create a file stream.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.md"), FileMode.Create, FileAccess.ReadWrite))
-                {
-                    //Save the Markdown file to the file stream.
-                    document.Save(outputFileStream, FormatType.Markdown);
-                }
+                //Save the document as a Markdown file.
+                document.Save(Path.GetFullPath(@"Output/Output.md"));
             }
         }
     }
