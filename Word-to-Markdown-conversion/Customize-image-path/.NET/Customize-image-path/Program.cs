@@ -1,6 +1,7 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.Drawing;
+using Syncfusion.Office.Markdown;
 using System.IO;
 
 namespace Customize_image_path
@@ -19,7 +20,7 @@ namespace Customize_image_path
             }
         }
         //The following code examples show the event handler to customize the image path and save the image in an external folder.
-        static void SaveImage(object sender, ImageNodeVisitedEventArgs args)
+        static void SaveImage(object sender, MdImageNodeVisitedEventArgs args)
         {
             string imagepath = Path.GetFullPath(@"Output/Output.png");
             //Save the image stream as a file. 
