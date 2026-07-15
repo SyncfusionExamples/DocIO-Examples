@@ -35,13 +35,8 @@ serie2.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition
 //Set legend
 chart.HasLegend = true;
 chart.Legend.Position = OfficeLegendPosition.Bottom;
-//Create a file stream.
-//Create a file stream.
-using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
-{
-    //Save the Word document to the file stream.
-    document.Save(outputFileStream, FormatType.Docx);
-}
+//Save the Word document
+document.Save(Path.GetFullPath(@"Output/Output.docx"), FormatType.Docx);
 
 
 /// <summary>
