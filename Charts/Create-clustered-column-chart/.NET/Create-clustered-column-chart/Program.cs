@@ -36,7 +36,7 @@ serie2.DataPoints.DefaultDataPoint.DataLabels.Position = OfficeDataLabelPosition
 chart.HasLegend = true;
 chart.Legend.Position = OfficeLegendPosition.Bottom;
 //Save the Word document
-document.Save(Path.GetFullPath(@"Output/Output.docx"), FormatType.Docx);
+document.Save(Path.GetFullPath(@"Output/Output.docx"));
 
 
 /// <summary>
