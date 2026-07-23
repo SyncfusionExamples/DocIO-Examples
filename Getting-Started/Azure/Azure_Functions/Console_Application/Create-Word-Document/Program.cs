@@ -46,7 +46,7 @@ namespace Create_Word_Document
             }
             catch (Exception ex)
             {
-                throw;
+                Console.WriteLine("Error: " + ex.Message);
             }
 
             //Launch the output Word document
