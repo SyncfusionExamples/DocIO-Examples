@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Convert_Word_to_Markdown</RootNamespace>
+    <RootNamespace>Get_Markdown_document</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@
 using Syncfusion.Office.Markdown;
 using System.IO;
 
-namespace Convert_Word_to_Markdown
+namespace Get_Markdown_document
 {
     class Program
     {

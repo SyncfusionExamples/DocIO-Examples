@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace Convert_Word_to_Markdown
+namespace Convert-Word-to-Markdown_with_Encoding
 {
     class Program
     {
