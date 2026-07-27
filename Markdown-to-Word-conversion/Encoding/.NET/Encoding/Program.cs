@@ -2,7 +2,7 @@
 using Syncfusion.DocIO.DLS;
 using System.IO;
 
-namespace Encoding
+namespace Encoding_as_Word
 {
     class Program
     {
