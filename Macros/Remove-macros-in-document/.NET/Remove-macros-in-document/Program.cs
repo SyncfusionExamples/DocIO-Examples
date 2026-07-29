@@ -11,7 +11,7 @@ namespace Remove_macros_in_document
             using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docm"), FileMode.Open, FileAccess.ReadWrite))
             {
                 //Opens the template document.
-                using (WordDocument document = new WordDocument(fileStream, FormatType.Dotm))
+                using (WordDocument document = new WordDocument(fileStream, FormatType.Docm))
                 {
                     //Checks whether the document has macros and then removes them.
                     if (document.HasMacros)

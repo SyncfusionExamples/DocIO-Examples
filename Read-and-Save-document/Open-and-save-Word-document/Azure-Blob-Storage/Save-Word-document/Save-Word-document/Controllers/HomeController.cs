@@ -287,7 +287,7 @@ namespace Save_Word_document.Controllers
             }
             catch (Exception e)
             {
-                Console.WriteLine("Unknown encountered on server. Message:'{0}' when writing an object", e.Message);
+                Console.WriteLine("Error encountered when writing an object: {0}", e.Message);
             }
             return stream;
         }
