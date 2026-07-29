@@ -24,7 +24,7 @@ namespace Change_default_footnote_separator
 				//Appends the footnotes.
 				WFootnote footnote = (WFootnote)paragraph.AppendFootnote(Syncfusion.DocIO.FootnoteType.Footnote);
 				WTextBody separator = document.Footnotes.Separator;
-				//Replaces the default footnote separated by text.
+				//Replaces the default footnote separator with text.
 				separator.Paragraphs[0].Text = "Footnote separator";
 				//Sets the footnote character format.
 				footnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;

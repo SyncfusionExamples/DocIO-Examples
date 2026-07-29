@@ -42,7 +42,7 @@ namespace Format_Axis
                 chart.PrimaryCategoryAxis.Font.Bold = true;
                 chart.PrimaryCategoryAxis.Font.Size = 8;
 
-                //Customize the vertical category axis font.
+                //Customize the vertical value axis font.
                 chart.PrimaryValueAxis.Font.Color = OfficeKnownColors.Red;
                 chart.PrimaryValueAxis.Font.FontName = "Calibri";
                 chart.PrimaryValueAxis.Font.Bold = true;
@@ -69,10 +69,10 @@ namespace Format_Axis
                 //Number format for axis.
                 chart.PrimaryValueAxis.NumberFormat = "0.0";
 
-                //Hiding major gridlines.
+                //Showing major gridlines.
                 chart.PrimaryValueAxis.HasMajorGridLines = true;
 
-                //Showing minor gridlines.
+                //Hiding minor gridlines.
                 chart.PrimaryValueAxis.HasMinorGridLines = false;
 
                 using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))

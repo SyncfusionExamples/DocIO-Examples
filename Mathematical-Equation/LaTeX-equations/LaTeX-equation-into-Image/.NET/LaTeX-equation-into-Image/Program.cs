@@ -9,7 +9,7 @@ using (WordDocument document = new WordDocument())
     //Add one section and one paragraph to the document.
     document.EnsureMinimal();
 
-    //Append an accent equation using LaTeX.
+    //Append a accent equation using LaTeX.
     document.LastParagraph.AppendMath(@"f\left(x\right)={a}_{0}+\sum_{n=1}^{\infty}{\left({a}_{n}\cos{\frac{n\pi{x}}{L}}+{b}_{n}\sin{\frac{n\pi{x}}{L}}\right)}");
     
     //Instantiation of DocIORenderer for Word to PDF conversion

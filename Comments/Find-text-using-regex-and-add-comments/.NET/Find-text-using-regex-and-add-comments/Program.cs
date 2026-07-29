@@ -7,11 +7,11 @@ using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Input.docx
     //Open the existing Word document.
     using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
     {
-        //Find all occurrence of a particular text ending with comma in the document using regex.
+        //Find all occurrences of a particular text ending with a comma in the document using regex.
         TextSelection[] textSelection = document.FindAll(new Regex("\\w+,"));
         if (textSelection != null)
         {
-            //Iterates through each occurrence and comment it.
+            //Iterates through each occurrence and adds a comment to it.
             for (int i = 0; i < textSelection.Count(); i++)
             {
                 //Get the found text as a single text range.
@@ -20,17 +20,17 @@ using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Input.docx
                 WParagraph paragraph = textRange.OwnerParagraph;
                 //Get the index of the found text.
                 int textIndex = paragraph.ChildEntities.IndexOf(textRange);
-                //Add comment to a paragraph.
+                //Add a comment to a paragraph.
                 WComment comment = paragraph.AppendComment("comment test_" + i);
                 //Specify the author of the comment.
                 comment.Format.User = "Peter";
-                //Specify the initial of the author.
+                //Specify the initials of the author.
                 comment.Format.UserInitials = "St";
                 //Set the date and time for the comment.
                 comment.Format.DateTime = DateTime.Now;
-                //Insert the comment next to the textrange.
+                //Insert the comment next to the text range.
                 paragraph.ChildEntities.Insert(textIndex + 1, comment);
-                //Add the paragraph items to the commented items.
+                //Add the paragraph item to the commented items.
                 comment.AddCommentedItem(textRange);
             }
         }

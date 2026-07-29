@@ -17,7 +17,7 @@ namespace Check_box_content_control
                 WParagraph paragraph = document.LastParagraph;
                 //Adds text to the paragraph.
                 paragraph.AppendText("A new text is added to the paragraph. ");
-                //Appends picture content control to the paragraph.
+                //Appends checkbox content control to the paragraph.
                 InlineContentControl checkBox = paragraph.AppendInlineContentControl(ContentControlType.CheckBox) as InlineContentControl;
                 checkBox.ContentControlProperties.IsChecked = true;
                 //Creates file stream.

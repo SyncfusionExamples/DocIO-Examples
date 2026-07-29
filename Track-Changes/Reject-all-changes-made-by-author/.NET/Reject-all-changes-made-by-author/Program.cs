@@ -19,7 +19,7 @@ namespace Reject_all_changes_made_by_author
                         //Checks the author of current revision and rejects it.
                         if (document.Revisions[i].Author == "Nancy Davolio")
                             document.Revisions[i].Reject();
-                        //Resets to last item when reject the moving related revisions.
+                        //Resets to last item when rejecting the moving related revisions.
                         if (i > document.Revisions.Count - 1)
                             i = document.Revisions.Count;
                     }

@@ -17,17 +17,17 @@ namespace Remove_headers_in_Word_document
                     foreach (WSection section in document.Sections)
                     {
                         HeaderFooter header;
-                        //Gets even footer of current section.
+                        //Gets even header of current section.
                         header = section.HeadersFooters[HeaderFooterType.EvenHeader];
-                        //Removes even footer.
+                        //Removes even header.
                         header.ChildEntities.Clear();
-                        //Gets odd footer of current section.
+                        //Gets odd header of current section.
                         header = section.HeadersFooters[HeaderFooterType.OddHeader];
-                        //Removes odd footer.
+                        //Removes odd header.
                         header.ChildEntities.Clear();
-                        //Gets first page footer.
+                        //Gets first page header.
                         header = section.HeadersFooters[HeaderFooterType.FirstPageHeader];
-                        //Removes first page footer.
+                        //Removes first page header.
                         header.ChildEntities.Clear();
                     }
                     //Creates file stream.

@@ -21,9 +21,9 @@ namespace Add_comment_to_Word_document
                 WComment comment = paragraph.AppendComment("comment test");
                 //Specifies the author of the comment.
                 comment.Format.User = "Peter";
-                //Specifies the initial of the author.
+                //Specifies the initials of the author.
                 comment.Format.UserInitials = "St";
-                //Set the date and time for comment.
+                //Sets the date and time for the comment.
                 comment.Format.DateTime = DateTime.Now;
                 //Creates file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))

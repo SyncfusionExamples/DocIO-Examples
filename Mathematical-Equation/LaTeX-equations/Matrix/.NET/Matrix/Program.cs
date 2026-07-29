@@ -8,7 +8,7 @@ using WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
 document.EnsureMinimal();
 
-//Append an matrix equation using LaTeX.
+//Append a matrix equation using LaTeX.
 document.LastParagraph.AppendMath(@"\begin{matrix}a&b\\\end{matrix}");
 
 //Save the Word document

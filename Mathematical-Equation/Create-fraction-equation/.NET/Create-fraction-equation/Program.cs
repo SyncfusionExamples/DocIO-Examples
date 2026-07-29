@@ -21,12 +21,12 @@ namespace Create_fraction_equation
                 //Adds a fraction equation.
                 IOfficeMathFraction mathFraction =
                 officeMath.Functions.Add(0, MathFunctionType.Fraction) as IOfficeMathFraction;
-                //Sets the denominator for fraction.
+                //Sets the numerator for fraction.
                 IOfficeMathRunElement officeMathRunElement =
                 mathFraction.Numerator.Functions.Add(0, MathFunctionType.RunElement) as IOfficeMathRunElement;
                 officeMathRunElement.Item = new WTextRange(document);
                 (officeMathRunElement.Item as WTextRange).Text = "a";
-                //Sets the numerator for fraction.
+                //Sets the denominator for fraction.
                 officeMathRunElement =
                 mathFraction.Denominator.Functions.Add(0, MathFunctionType.RunElement) as IOfficeMathRunElement;
                 officeMathRunElement.Item = new WTextRange(document);

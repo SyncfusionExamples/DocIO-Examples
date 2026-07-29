@@ -8,7 +8,7 @@ using WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
 document.EnsureMinimal();
 
-//Append an limit equation using LaTeX.
+//Append a limit equation using LaTeX.
 document.LastParagraph.AppendMath(@"\lim\below{b}{a}");
 
 //Save the Word document.

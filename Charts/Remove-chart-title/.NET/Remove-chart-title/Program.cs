@@ -32,7 +32,7 @@ namespace Remove_chart_title
                 chart.ChartData.SetValue(2, 2, 141.396);
                 chart.ChartData.SetValue(3, 1, "Stanley Hudson");
                 chart.ChartData.SetValue(3, 2, 80.368);
-                //Creates a new chart series with the name “Sales”.
+                //Creates a new chart series with the name "Sales".
                 IOfficeChartSerie pieSeries = chart.Series.Add("Sales");
                 pieSeries.Values = chart.ChartData[2, 2, 3, 2];
                 //Sets category labels.

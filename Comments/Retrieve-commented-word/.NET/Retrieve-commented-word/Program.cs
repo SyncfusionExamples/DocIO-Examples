@@ -16,7 +16,7 @@ namespace Retrieve_commented_word
                 //Iterate the comments in the Word document.
                 foreach (WComment comment in document.Comments)
                 {
-                    //Get the commented word or part of a particular comment.
+                    //Get the commented text or items of a particular comment.
                     if (comment.TextBody.LastParagraph.Text == "This is the second comment.")
                     {
                         ParagraphItemCollection paragraphItem = comment.CommentedItems;

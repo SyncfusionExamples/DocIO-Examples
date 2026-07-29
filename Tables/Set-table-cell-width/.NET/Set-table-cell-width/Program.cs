@@ -28,7 +28,7 @@ namespace Set_table_cell_width
                                 //Sets width as 100 for cells in even column.
                                 cell.Width = 100;
                             else
-                                //Sets width as 150 for cell in odd column.
+                                //Sets width as 150 for cells in odd column.
                                 cell.Width = 150;
                         }
                     }

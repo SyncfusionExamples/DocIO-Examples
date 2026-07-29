@@ -8,7 +8,7 @@ using WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
 document.EnsureMinimal();
 
-//Append an fraction equation using LaTeX.
+//Append a fraction equation using LaTeX.
 document.LastParagraph.AppendMath(@"{\frac{dy}{dx}}");
 
 //Save the Word document.

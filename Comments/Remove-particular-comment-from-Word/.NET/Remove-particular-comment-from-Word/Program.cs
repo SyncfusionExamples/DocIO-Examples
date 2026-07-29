@@ -13,7 +13,7 @@ namespace Remove_particular_comment_from_Word
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
-                    //Removes second comments from a document.
+                    //Removes the second comment from the document.
                     document.Comments.RemoveAt(1);
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))

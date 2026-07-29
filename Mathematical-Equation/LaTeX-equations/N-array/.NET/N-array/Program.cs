@@ -8,7 +8,7 @@ using WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
 document.EnsureMinimal();
 
-//Append an N-array equation using LaTeX.
+//Append a N-array equation using LaTeX.
 document.LastParagraph.AppendMath(@"\sum a");
 
 //Save the Word document.

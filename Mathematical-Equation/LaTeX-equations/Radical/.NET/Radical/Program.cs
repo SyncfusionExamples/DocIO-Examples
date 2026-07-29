@@ -8,7 +8,7 @@ using WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
 document.EnsureMinimal();
 
-//Append an radical equation using LaTeX.
+//Append a radical equation using LaTeX.
 document.LastParagraph.AppendMath(@"\sqrt a");
 
 //Save the Word document.

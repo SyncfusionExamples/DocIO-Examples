@@ -13,7 +13,7 @@ namespace Access_parent_comment
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
-                    //Get the Ancestor comment.
+                    //Get the ancestor comment.
                     WComment ancestorComment = document.Comments[1].Ancestor;
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))

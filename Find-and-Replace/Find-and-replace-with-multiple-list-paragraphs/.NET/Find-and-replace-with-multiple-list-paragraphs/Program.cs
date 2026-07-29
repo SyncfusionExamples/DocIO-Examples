@@ -4,7 +4,7 @@ using System.Reflection.Metadata;
 
 
 string[] filePaths = {"Data/Heading1Items.docx","Data/Heading2Items.docx"};
-//Open the file as Stream.
+//Open the file as a Stream.
 using (FileStream documentStream = new FileStream("Data/Input.docx", FileMode.Open, FileAccess.Read))
 {
     //Open an existing Word document.
@@ -18,7 +18,7 @@ using (FileStream documentStream = new FileStream("Data/Input.docx", FileMode.Op
             TextSelection selection = document.Find(findText, false, false);
             //Get the owner paragraph.
             WParagraph ownerPara = selection.GetAsOneRange().OwnerParagraph;
-            //Open the file as Stream.
+            //Open the file as a Stream.
             using (FileStream subDocumentStream = new FileStream(filePaths[documentIndex-1], FileMode.Open, FileAccess.Read))
             {
                 //Open an sub Word document.

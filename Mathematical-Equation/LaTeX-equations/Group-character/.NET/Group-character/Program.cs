@@ -8,7 +8,7 @@ using WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
 document.EnsureMinimal();
 
-//Append an group character equation using LaTeX.
+//Append a group character equation using LaTeX.
 document.LastParagraph.AppendMath(@"\overbrace{a-b}");
 
 //Save the Word document.

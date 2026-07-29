@@ -8,7 +8,7 @@ using WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
 document.EnsureMinimal();
 
-//Append an accent equation using LaTeX.
+//Append a accent equation using LaTeX.
 document.LastParagraph.AppendMath(@"\dot{a}");
 
 //Save the Word document.

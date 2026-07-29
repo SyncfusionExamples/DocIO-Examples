@@ -8,7 +8,7 @@ using WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
 document.EnsureMinimal();
 
-//Append an box equation using LaTeX.
+//Append a box equation using LaTeX.
 document.LastParagraph.AppendMath(@"\box{a}");
 
 //Save the Word document.

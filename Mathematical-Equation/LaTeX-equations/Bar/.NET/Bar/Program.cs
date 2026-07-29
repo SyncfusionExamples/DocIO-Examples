@@ -8,7 +8,7 @@ using WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
 document.EnsureMinimal();
 
-//Append an bar equation using LaTeX.
+//Append a bar equation using LaTeX.
 document.LastParagraph.AppendMath(@"\overline{a}");
 
 //Save the Word document.

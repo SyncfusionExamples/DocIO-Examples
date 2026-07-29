@@ -48,7 +48,7 @@ namespace Create_chart_from_scratch
                 chart.ChartData.SetValue(10, 2, 29.171);
                 chart.ChartData.SetValue(11, 1, "Elizabeth Lincoln");
                 chart.ChartData.SetValue(11, 2, 25.696);
-                //Creates a new chart series with the name “Sales”.
+                //Creates a new chart series with the name "Sales".
                 IOfficeChartSerie pieSeries = chart.Series.Add("Sales");
                 pieSeries.Values = chart.ChartData[2, 2, 11, 2];
                 //Sets data label.

@@ -24,7 +24,7 @@ namespace Change_default_endnote_separator
 				//Appends the endnotes.
 				WFootnote endnote = (WFootnote)paragraph.AppendFootnote(Syncfusion.DocIO.FootnoteType.Endnote);
 				WTextBody separator = document.Endnotes.Separator;
-				//Replaces the default endnote separated by text.
+				//Replaces the default endnote separator with text.
 				separator.Paragraphs[0].Text = "Endnote separator";
 				//Sets the endnote character format.
 				endnote.MarkerCharacterFormat.SubSuperScript = SubSuperScript.SuperScript;
