@@ -10,7 +10,7 @@ namespace Split_by_section
         {
             using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Load the template document as stream
+                //Load the template document a stream
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
                     //Iterate each section from Word document

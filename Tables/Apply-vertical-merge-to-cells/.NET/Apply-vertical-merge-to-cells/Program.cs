@@ -15,7 +15,7 @@ namespace Apply_vertical_merge_to_cells
                 section.AddParagraph().AppendText("Vertical merging of Table cells");
                 IWTable table = section.AddTable();
                 table.ResetCells(5, 5);
-                // Specifies the vertical merge to the third cell, from second row to fifth row.
+                // Specifies the vertical merge to the third column, from second row to fifth row.
                 table.ApplyVerticalMerge(2, 1, 4);
                 //Creates file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))

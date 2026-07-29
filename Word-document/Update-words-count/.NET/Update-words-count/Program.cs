@@ -11,7 +11,7 @@ namespace Update_words_count
         {
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opens an document from file system through constructor of WordDocument class.
+                //Opens a document from file system through constructor of WordDocument class.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
                     //Update the word count in the document.

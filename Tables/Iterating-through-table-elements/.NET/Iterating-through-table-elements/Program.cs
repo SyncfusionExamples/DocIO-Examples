@@ -25,7 +25,7 @@ namespace Iterating_through_table_elements
                             //Iterates through the paragraphs of the cell.
                             foreach (WParagraph paragraph in cell.Paragraphs)
                             {
-                                //When the paragraph contains text Panda then apply green as back color to cell.
+                                //When the paragraph contains the text 'panda', apply green as the back color to the cell.
                                 if (paragraph.Text.Contains("panda"))
                                     cell.CellFormat.BackColor = Color.Green;
                             }

@@ -24,7 +24,7 @@ namespace Mail_merge_with_dynamic_objects
                     dataTable = new MailMergeDataTable("Orders", GetOrders());
                     dataSet.Add(dataTable);
                     List<DictionaryEntry> commands = new List<DictionaryEntry>();
-                    //DictionaryEntry contain "Source table" (key) and "Command" (value).
+                    //DictionaryEntry contains "Source table" (key) and "Command" (value).
                     DictionaryEntry entry = new DictionaryEntry("Customers", string.Empty);
                     commands.Add(entry);
                     //Retrieves the customer details.

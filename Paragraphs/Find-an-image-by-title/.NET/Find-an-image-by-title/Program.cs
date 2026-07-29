@@ -10,7 +10,7 @@ namespace Find_an_image_by_title
         {
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Creates a new Word document.
+                //Loads an existing Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
                     //Gets textbody content.

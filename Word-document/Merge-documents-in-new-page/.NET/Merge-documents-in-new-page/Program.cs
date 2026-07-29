@@ -12,7 +12,7 @@ namespace Merge_documents_in_new_page
         {
             using (FileStream sourceStreamPath = new FileStream(Path.GetFullPath(@"Data/SourceDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opens an source document from file system through constructor of WordDocument class.
+                //Opens a source document from file system through constructor of WordDocument class.
                 using (WordDocument sourceDocument = new WordDocument(sourceStreamPath, FormatType.Automatic))
                 {
                     using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"Data/DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))

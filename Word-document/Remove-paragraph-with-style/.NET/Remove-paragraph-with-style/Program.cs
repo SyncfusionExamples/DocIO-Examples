@@ -11,13 +11,13 @@ namespace Remove_paragraph_with_style
         {
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opens an existing document from file system through constructor of WordDocument class.
+                //Opens a existing document from file system through constructor of WordDocument class.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
                     //Processes the body contents for each section in the Word document
                     foreach (WSection section in document.Sections)
                     {
-                        //Accesses the Body of section where all the contents in document are apart.
+                        //Accesses the Body of section where all the contents in document reside.
                         WTextBody sectionBody = section.Body;
                         IterateTextBody(sectionBody);
                         WHeadersFooters headersFooters = section.HeadersFooters;
@@ -67,7 +67,7 @@ namespace Remove_paragraph_with_style
                         break;
                     case EntityType.BlockContentControl:
                         BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
-                        //Iterates to the body items of Block Content Control.
+                        //Iterates through the body items of Block Content Control.
                         IterateTextBody(blockContentControl.TextBody);
                         break;
                 }

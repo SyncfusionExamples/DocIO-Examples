@@ -15,7 +15,7 @@ namespace Add_web_link
                 IWSection section = document.AddSection();
                 //Adds new paragraph to the section.
                 IWParagraph paragraph = section.AddParagraph();
-                paragraph.AppendText("Web Hyperlink:  ");
+                paragraph.AppendText("Web hyperlink:  ");
                 paragraph = section.AddParagraph();
                 //Appends web hyperlink to the paragraph.
                 IWField field = paragraph.AppendHyperlink("http://www.syncfusion.com", "Syncfusion", HyperlinkType.WebLink);

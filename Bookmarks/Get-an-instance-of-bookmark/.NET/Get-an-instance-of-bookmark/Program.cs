@@ -16,7 +16,7 @@ namespace Get_an_instance_of_bookmark
                 {
                     //Gets the bookmark instance by using FindByName method of BookmarkCollection with bookmark name.
                     Bookmark bookmark = document.Bookmarks.FindByName("Northwind");
-                    //Accesses the bookmark start’s owner paragraph by using bookmark and changes its back color.
+                    //Accesses the bookmark start's owner paragraph by using the bookmark and changes its back color.
                     bookmark.BookmarkStart.OwnerParagraph.ParagraphFormat.BackColor = Color.AliceBlue;
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))

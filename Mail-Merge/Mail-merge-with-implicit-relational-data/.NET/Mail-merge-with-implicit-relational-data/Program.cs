@@ -16,7 +16,7 @@ namespace Mail_merge_with_implicit_relational_data
                 {
                     //Gets the organization details as “IEnumerable” collection.
                     List<Organization> organizationList = GetOrganizations();
-                    //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+                    //Creates an instance of MailMergeDataTable by specifying mail merge group name and IEnumerable collection.
                     MailMergeDataTable dataTable = new MailMergeDataTable("Organizations", organizationList);
                     //Performs Mail merge.
                     document.MailMerge.ExecuteNestedGroup(dataTable);

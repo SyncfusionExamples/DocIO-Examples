@@ -11,12 +11,12 @@ namespace Iterate_document_elements
         {
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opens an existing document from file system through constructor of WordDocument class.
+                //Opens a existing document from file system through constructor of WordDocument class.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
                     foreach (WSection section in document.Sections)
                     {
-                        //Accesses the Body of section where all the contents in document are apart.
+                        //Accesses the Body of section where all the contents in document reside.
                         WTextBody sectionBody = section.Body;
                         IterateTextBody(sectionBody);
                         WHeadersFooters headersFooters = section.HeadersFooters;
@@ -63,7 +63,7 @@ namespace Iterate_document_elements
                         break;
                     case EntityType.BlockContentControl:
                         BlockContentControl blockContentControl = bodyItemEntity as BlockContentControl;
-                        //Iterates to the body items of Block Content Control.
+                        //Iterates through the body items of Block Content Control.
                         IterateTextBody(blockContentControl.TextBody);
                         break;
                 }
@@ -122,17 +122,17 @@ namespace Iterate_document_elements
                         }
                         break;
                     case EntityType.TextBox:
-                        //Iterates to the body items of textbox.
+                        //Iterates through the body items of textbox.
                         WTextBox textBox = entity as WTextBox;
                         IterateTextBody(textBox.TextBoxBody);
                         break;
                     case EntityType.Shape:
-                        //Iterates to the body items of shape.
+                        //Iterates through the body items of shape.
                         Shape shape = entity as Shape;
                         IterateTextBody(shape.TextBody);
                         break;
                     case EntityType.InlineContentControl:
-                        //Iterates to the paragraph items of inline content control.
+                        //Iterates through the paragraph items of inline content control.
                         InlineContentControl inlineContentControl = entity as InlineContentControl;
                         IterateParagraph(inlineContentControl.ParagraphItems);
                         break;

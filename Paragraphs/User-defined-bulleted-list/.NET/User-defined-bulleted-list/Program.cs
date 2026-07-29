@@ -16,18 +16,18 @@ namespace User_defined_bulleted_list
                 //Add a new list style to the document.
                 ListStyle listStyle = document.AddListStyle(ListType.Bulleted, "UserDefinedList");
                 WListLevel levelOne = listStyle.Levels[0];
-                //Define the following character, pattern and start index for level 0.
+                //Define the pattern, bullet character, and start index for level 0.
                 levelOne.PatternType = ListPatternType.Bullet;
                 levelOne.BulletCharacter = "*";
                 levelOne.StartAt = 1;
                 WListLevel levelTwo = listStyle.Levels[1];
-                //Define the following character, pattern and start index for level 1.
+                //Define the pattern, bullet character, and start index for level 1.
                 levelTwo.PatternType = ListPatternType.Bullet;
                 levelTwo.BulletCharacter = "\u00A9";
                 levelTwo.CharacterFormat.FontName = "Wingdings";
                 levelTwo.StartAt = 1;
                 WListLevel levelThree = listStyle.Levels[2];
-                //Define the following character, pattern and start index for level 2.
+                //Define the pattern, bullet character, and start index for level 2.
                 levelThree.PatternType = ListPatternType.Bullet;
                 levelThree.BulletCharacter = "\u0076";
                 levelThree.CharacterFormat.FontName = "Wingdings";

@@ -27,7 +27,7 @@ namespace Collection_of_shapes_into_group_shape
                 //Sets Wrapping style for shape.
                 shape.WrapFormat.TextWrappingStyle = TextWrappingStyle.InFrontOfText;
                 //Sets horizontal and vertical position for shape.
-                shape.HorizontalPosition = 7;
+                shape.HorizontalPosition = 72;
                 shape.VerticalPosition = 72;
                 //Sets horizontal and vertical origin for shape.
                 shape.HorizontalOrigin = HorizontalOrigin.Page;

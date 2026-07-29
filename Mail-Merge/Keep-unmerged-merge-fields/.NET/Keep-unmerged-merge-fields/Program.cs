@@ -13,7 +13,7 @@ namespace Keep_unmerged_merge_fields
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
-                    //Sets “ClearFields” to true to remove empty mail merge fields from document.
+                    //Sets “ClearFields” to false to keep empty mail merge fields in the document.
                     document.MailMerge.ClearFields = false;
                     string[] fieldNames = new string[] { "EmployeeName", "EmployeeId", "City" };
                     string[] fieldValues = new string[] { "John", "101", "London" };

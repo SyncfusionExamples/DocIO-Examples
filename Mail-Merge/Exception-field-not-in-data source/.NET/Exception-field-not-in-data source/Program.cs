@@ -15,7 +15,7 @@ namespace Exception_field_not_in_data_source
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
-                    //Sets “ClearFields” to true to remove empty mail merge fields from document.
+                    //Sets “ClearFields” to false to keep empty mail merge fields in the document.
                     document.MailMerge.ClearFields = false;
                     //Uses the mail merge event to throw exception if the field is not in the data source.
                     document.MailMerge.BeforeClearField += new BeforeClearFieldEventHandler(BeforeClearFieldEvent);

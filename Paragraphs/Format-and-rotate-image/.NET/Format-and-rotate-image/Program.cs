@@ -25,7 +25,7 @@ namespace Format_and_rotate_image
                 //Sets horizontal and vertical origin.
                 picture.HorizontalOrigin = HorizontalOrigin.Page;
                 picture.VerticalOrigin = VerticalOrigin.Paragraph;
-                //Sets width and height for the paragraph.
+                //Sets width and height for the picture.
                 picture.Width = 150;
                 picture.Height = 100;
                 //Sets horizontal and vertical position for the picture.

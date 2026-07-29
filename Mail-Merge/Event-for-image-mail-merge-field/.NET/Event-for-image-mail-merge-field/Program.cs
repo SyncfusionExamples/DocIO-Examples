@@ -18,7 +18,7 @@ namespace Event_for_image_mail_merge_field
                     //Specifies the field names and field values.
                     string[] fieldNames = new string[] { "Logo" };
                     string[] fieldValues = new string[] { "Logo.png" };
-                    //Executes the mail merge with groups.
+                    //Executes the mail merge.
                     document.MailMerge.Execute(fieldNames, fieldValues);
                     //Creates file stream.
                     using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))

@@ -12,7 +12,7 @@ namespace Merge_documents_in_same_page
         {
             using (FileStream sourceStreamPath = new FileStream(Path.GetFullPath(@"Data/SourceDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opens an source document from file system through constructor of WordDocument class.
+                //Opens a source document from file system through constructor of WordDocument class.
                 using (WordDocument sourceDocument = new WordDocument(sourceStreamPath, FormatType.Automatic))
                 {
                     using (FileStream destinationStreamPath = new FileStream(Path.GetFullPath(@"Data/DestinationDocument.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
@@ -20,7 +20,7 @@ namespace Merge_documents_in_same_page
                         //Opens the destination document.
                         using (WordDocument destinationDocument = new WordDocument(destinationStreamPath, FormatType.Automatic))
                         {
-                            //Sets the break-code of First section of source document as NoBreak to avoid imported from a new page.
+                            //Sets the break code of the first section of the source document as NoBreak to avoid importing from a new page.
                             sourceDocument.Sections[0].BreakCode = SectionBreakCode.NoBreak;
                             //Imports the contents of source document at the end of destination document.
                             destinationDocument.ImportContent(sourceDocument, ImportOptions.UseDestinationStyles);

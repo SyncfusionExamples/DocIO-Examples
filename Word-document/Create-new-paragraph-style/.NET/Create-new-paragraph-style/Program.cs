@@ -11,7 +11,7 @@ namespace Create_new_paragraph_style
         {
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opens an document from file system through constructor of WordDocument class.
+                //Opens a document from file system through constructor of WordDocument class.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
                     IWParagraphStyle myStyle = document.AddParagraphStyle("MyStyle");

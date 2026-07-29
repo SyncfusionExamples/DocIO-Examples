@@ -10,7 +10,7 @@ namespace Split_by_heading
         {
             using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read))
             {
-                //Load the template document as stream
+                //Load the template document a stream
                 using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
                 {
                     WordDocument newDocument = null;
@@ -68,7 +68,7 @@ namespace Split_by_heading
         /// </summary>
         private static WSection AddSection(WordDocument newDocument, WSection section)
         {
-            //Create new session based on original document
+            //Create a new section based on the original document
             WSection newSection = section.Clone();
             newSection.Body.ChildEntities.Clear();
             //Remove the first page header.
@@ -102,7 +102,7 @@ namespace Split_by_heading
         {
             using (FileStream outputStream = new FileStream(Path.GetFullPath(fileName), FileMode.OpenOrCreate, FileAccess.ReadWrite))
             {
-                //Save file stream as Word document
+                //Save the new Word document
                 newDocument.Save(outputStream, FormatType.Docx);
                 //Closes the document
                 newDocument.Close();

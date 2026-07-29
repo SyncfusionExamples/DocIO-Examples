@@ -22,7 +22,7 @@ namespace Link_paragraph_and_character_style
                 //Sets the formatting of the style.
                 charStyle.CharacterFormat.Bold = true;
                 charStyle.CharacterFormat.Italic = true;
-                //Link both paragraph and character style.
+                //Links both paragraph and character style.
                 paraStyle.LinkedStyleName = "CharacterStyle";
                 //Appends the contents into the paragraph.
                 document.LastParagraph.AppendText("AdventureWorks Cycles");

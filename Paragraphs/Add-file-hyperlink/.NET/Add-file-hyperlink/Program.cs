@@ -15,9 +15,9 @@ namespace Add_file_hyperlink
                 IWSection section = document.AddSection();
                 //Adds new paragraph to the section.
                 IWParagraph paragraph = section.AddParagraph();
-                paragraph.AppendText("File Hyperlinks: ");
+                paragraph.AppendText("File hyperlink: ");
                 paragraph = section.AddParagraph();
-                //Appends hyperlink field to the paragraph.
+                //Appends a file hyperlink to the paragraph.
                 paragraph.AppendHyperlink(@"Data/Template.docx", "File", HyperlinkType.FileLink);
                 //Creates file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))

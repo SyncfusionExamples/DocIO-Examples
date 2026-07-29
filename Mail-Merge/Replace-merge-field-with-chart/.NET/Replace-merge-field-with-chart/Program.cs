@@ -15,7 +15,7 @@ namespace Replace_merge_field_with_chart
                 //Loads an existing Word document into DocIO instance.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Automatic))
                 {
-                    //Gets the employee details as “IEnumerable” collection
+                    //Gets the employee details as IEnumerable collection
                     List<Employees> employeeList = GetEmployeeData();
                     //Creates an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection.
                     MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
