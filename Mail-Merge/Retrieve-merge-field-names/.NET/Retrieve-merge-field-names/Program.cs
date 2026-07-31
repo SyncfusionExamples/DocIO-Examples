@@ -31,7 +31,7 @@ namespace Retrieve_merge_field_names
                     foreach (string groupName in groupNames)
                         Console.WriteLine(groupName);
 
-                    //Gets the fields from the specified groups. 
+                    //Gets the fields from the specified group. 
                     string[] fieldNamesInGroup = document.MailMerge.GetMergeFieldNames(groupNames[1]);
 
                     Console.WriteLine("\n\nMerge field names in " + groupNames[1] + " Group :");

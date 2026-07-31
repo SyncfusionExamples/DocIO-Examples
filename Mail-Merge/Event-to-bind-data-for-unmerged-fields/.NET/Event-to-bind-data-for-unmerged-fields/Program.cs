@@ -15,9 +15,9 @@ namespace Event_to_bind_data_for_unmerged_fields
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
-                    //Sets “ClearFields” to true to remove empty mail merge fields from document.
+                    //Sets “ClearFields” to false to keep empty mail merge fields in the document.
                     document.MailMerge.ClearFields = false;
-                    //Uses the mail merge event to clear the unmerged field while perform mail merge execution.
+                    //Uses the mail merge event to clear the unmerged field while performing mail merge execution.
                     document.MailMerge.BeforeClearField += new BeforeClearFieldEventHandler(BeforeClearFieldEvent);
                     //Execute mail merge.
                     document.MailMerge.ExecuteGroup(GetDataTable());

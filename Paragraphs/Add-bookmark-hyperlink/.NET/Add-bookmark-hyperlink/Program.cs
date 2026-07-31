@@ -15,15 +15,15 @@ namespace Add_bookmark_hyperlink
                 IWSection section = document.AddSection();
                 //Adds new paragraph to the section.
                 IWParagraph paragraph = section.AddParagraph();
-                //Creates new Bookmark.
+                //Creates a new bookmark.
                 paragraph.AppendBookmarkStart("Introduction");
                 paragraph.AppendText("Hyperlink");
                 paragraph.AppendBookmarkEnd("Introduction");
                 paragraph.AppendText("\nA hyperlink is a reference or navigation element in a document to another section of the same document or to another document that may be on or part of a (different) domain.");
                 paragraph = section.AddParagraph();
-                paragraph.AppendText("Bookmark Hyperlink: ");
+                paragraph.AppendText("Bookmark hyperlink: ");
                 paragraph = section.AddParagraph();
-                //Appends Bookmark hyperlink to the paragraph.
+                //Appends a bookmark hyperlink to the paragraph.
                 paragraph.AppendHyperlink("Introduction", "Bookmark", HyperlinkType.Bookmark);
                 //Creates file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))

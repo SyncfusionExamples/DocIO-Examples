@@ -9,7 +9,7 @@ namespace Find_and_replace_text_within_table
     {
         static void Main(string[] args)
         {
-            //Open the file as Stream.
+            //Open the file as a Stream.
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 //Load the Input document.

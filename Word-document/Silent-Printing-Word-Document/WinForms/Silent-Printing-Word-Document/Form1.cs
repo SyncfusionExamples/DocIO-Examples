@@ -296,7 +296,7 @@ namespace EssentialDocIOSamples
             printDialog.Document = new PrintDocument();
             //Retrieve the Page need to be rendered
             printDialog.Document.PrintPage += new PrintPageEventHandler(OnPrintPage);
-            //Print the document
+            //Prints the document
             printDialog.Document.Print();
         }
         #endregion
@@ -314,7 +314,7 @@ namespace EssentialDocIOSamples
             //Renders the Word document as image.
             images = wordDoc.RenderAsImages(ImageType.Metafile);
             endPageIndex = images.Length;
-            //Closes the Word Document.
+            //Closes the Word document.
             wordDoc.Close();
 
             //Disposes the label image.

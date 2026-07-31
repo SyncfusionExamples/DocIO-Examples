@@ -39,8 +39,8 @@ namespace Open_and_Save_Word_Document
             //Read the response stream
             var stream = new StreamReader(response.Payload);
             JsonReader reader = new JsonTextReader(stream);
-            var serilizer = new JsonSerializer();
-            var responseText = serilizer.Deserialize(reader);
+            var serializer = new JsonSerializer();
+            var responseText = serializer.Deserialize(reader);
 
             //Convert Base64String into Word document
             byte[] bytes = Convert.FromBase64String(responseText.ToString());

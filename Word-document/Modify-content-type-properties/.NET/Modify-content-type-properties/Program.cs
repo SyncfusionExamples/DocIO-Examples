@@ -12,7 +12,7 @@ namespace Modify_content_type_properties
         {
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opens an existing document from file system through constructor of WordDocument class.
+                //Opens a existing document from file system through constructor of WordDocument class.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
                     //Processes the metaproperty collection in the Word document

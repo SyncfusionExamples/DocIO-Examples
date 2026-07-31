@@ -92,7 +92,7 @@ namespace Create_form_in_Word_document
                 //Appends a new inline content control to enter the value.
                 InlineContentControl txtField = cellPara.AppendInlineContentControl(ContentControlType.Text) as InlineContentControl;
                 txtField.ContentControlProperties.Title = "Text";
-                //Sets formatting options for text present insider a content control.
+                //Sets formatting options for text present inside a content control.
                 txtField.BreakCharacterFormat.TextColor = Syncfusion.Drawing.Color.MidnightBlue;
                 txtField.BreakCharacterFormat.FontName = "Arial";
                 txtField.BreakCharacterFormat.FontSize = 11f;
@@ -105,7 +105,7 @@ namespace Create_form_in_Word_document
                 txtField.ContentControlProperties.Title = "Date";
                 //Sets the date display format
                 txtField.ContentControlProperties.DateDisplayFormat = "M/d/yyyy";
-                //Sets formatting options for text present insider a content control.
+                //Sets formatting options for text present inside a content control.
                 txtField.BreakCharacterFormat.TextColor = Syncfusion.Drawing.Color.MidnightBlue;
                 txtField.BreakCharacterFormat.FontName = "Arial";
                 txtField.BreakCharacterFormat.FontSize = 11f;
@@ -118,7 +118,7 @@ namespace Create_form_in_Word_document
                 txtField.ContentControlProperties.Title = "Text";
                 //Sets multiline property to true to get the multiple line input of Address.
                 txtField.ContentControlProperties.Multiline = true;
-                //Sets formatting options for text present insider a content control.
+                //Sets formatting options for text present inside a content control.
                 txtField.BreakCharacterFormat.TextColor = Syncfusion.Drawing.Color.MidnightBlue;
                 txtField.BreakCharacterFormat.FontName = "Arial";
                 txtField.BreakCharacterFormat.FontSize = 11f;
@@ -129,7 +129,7 @@ namespace Create_form_in_Word_document
                 //Appends a new inline content control to enter the value.
                 txtField = cellPara.AppendInlineContentControl(ContentControlType.Text) as InlineContentControl;
                 txtField.ContentControlProperties.Title = "Text";
-                //Sets formatting options for text present insider a content control.
+                //Sets formatting options for text present inside a content control.
                 txtField.BreakCharacterFormat.TextColor = Syncfusion.Drawing.Color.MidnightBlue;
                 txtField.BreakCharacterFormat.FontName = "Arial";
                 txtField.BreakCharacterFormat.FontSize = 11f;
@@ -140,7 +140,7 @@ namespace Create_form_in_Word_document
                 //Appends a new inline content control to enter the value.
                 txtField = cellPara.AppendInlineContentControl(ContentControlType.Text) as InlineContentControl;
                 txtField.ContentControlProperties.Title = "Text";
-                //Sets formatting options for text present insider a content control.
+                //Sets formatting options for text present inside a content control.
                 txtField.BreakCharacterFormat.TextColor = Syncfusion.Drawing.Color.MidnightBlue;
                 txtField.BreakCharacterFormat.FontName = "Arial";
                 txtField.BreakCharacterFormat.FontSize = 11f;
@@ -199,7 +199,7 @@ namespace Create_form_in_Word_document
                 item.Value = "3";
                 dropdown.ContentControlProperties.ContentControlListItems.Add(item);
                 dropdown.ContentControlProperties.Title = "Drop-Down";
-                //Sets formatting options for text present insider a content control.
+                //Sets formatting options for text present inside a content control.
                 dropdown.BreakCharacterFormat.TextColor = Syncfusion.Drawing.Color.MidnightBlue;
                 dropdown.BreakCharacterFormat.FontName = "Arial";
                 dropdown.BreakCharacterFormat.FontSize = 11f;
@@ -209,7 +209,7 @@ namespace Create_form_in_Word_document
                 txt.CharacterFormat.FontSize = 11f;
                 //Appends a new inline content control to enter the value.
                 txtField = cellPara.AppendInlineContentControl(ContentControlType.Text) as InlineContentControl;
-                //Sets formatting options for text present insider a content control.
+                //Sets formatting options for text present inside a content control.
                 txtField.BreakCharacterFormat.TextColor = Syncfusion.Drawing.Color.MidnightBlue;
                 txtField.BreakCharacterFormat.FontName = "Arial";
                 txtField.BreakCharacterFormat.FontSize = 11f;
@@ -242,7 +242,7 @@ namespace Create_form_in_Word_document
                 item.DisplayText = "Excellent";
                 item.Value = "3";
                 dropdown.ContentControlProperties.ContentControlListItems.Add(item);
-                //Sets formatting options for text present insider a content control.
+                //Sets formatting options for text present inside a content control.
                 dropdown.BreakCharacterFormat.TextColor = Syncfusion.Drawing.Color.MidnightBlue;
                 dropdown.BreakCharacterFormat.FontName = "Arial";
                 dropdown.BreakCharacterFormat.FontSize = 11f;
@@ -272,7 +272,7 @@ namespace Create_form_in_Word_document
                 item.Value = "3";
                 dropdown.ContentControlProperties.ContentControlListItems.Add(item);
                 dropdown.ContentControlProperties.Title = "Drop-Down";
-                //Sets formatting options for text present insider a content control
+                //Sets formatting options for text present inside a content control
                 dropdown.BreakCharacterFormat.TextColor = Syncfusion.Drawing.Color.MidnightBlue;
                 dropdown.BreakCharacterFormat.FontName = "Arial";
                 dropdown.BreakCharacterFormat.FontSize = 11f;

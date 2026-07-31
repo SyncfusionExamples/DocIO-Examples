@@ -15,9 +15,9 @@ namespace Remove_empty_merge_field_groups
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
-                    //Gets the employee details as “IEnumerable” collection.
+                    //Gets the employee details as IEnumerable collection.
                     List<Employees> employeeList = GetEmployees();
-                    //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+                    //Creates an instance of MailMergeDataTable by specifying mail merge group name and IEnumerable collection.
                     MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
                     //Enable the flag to remove empty groups which contain empty merge fields.
                     document.MailMerge.RemoveEmptyGroup = true;

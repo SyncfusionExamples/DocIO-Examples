@@ -14,9 +14,9 @@ namespace Find_all_items_by_property
                 //Opens an existing Word document.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
-                    //Find all footnote and endnote by EntityType in Word document.
+                    //Find all footnotes by EntityType in Word document.
                     List<Entity> footNotes = document.FindAllItemsByProperty(EntityType.Footnote, null, null);
-                    //Remove the footnotes and endnotes.
+                    //Remove the footnotes.
                     for (int i = 0; i < footNotes.Count; i++)
                     {
                         WFootnote footnote = footNotes[i] as WFootnote;

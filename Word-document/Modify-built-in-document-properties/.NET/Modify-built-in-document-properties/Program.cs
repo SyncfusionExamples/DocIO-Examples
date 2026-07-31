@@ -12,13 +12,13 @@ namespace Modify_built_in_document_properties
         {
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opens an document from file system through constructor of WordDocument class.
+                //Opens a document from file system through constructor of WordDocument class.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
                     //Accesses the built-in document properties.
                     Console.WriteLine("Title - {0}", document.BuiltinDocumentProperties.Title);
                     Console.WriteLine("Author - {0}", document.BuiltinDocumentProperties.Author);
-                    //Modifies or sets the Built-in document properties.
+                    //Modifies or sets the built-in document properties.
                     document.BuiltinDocumentProperties.Author = "Andrew";
                     document.BuiltinDocumentProperties.LastAuthor = "Steven";
                     document.BuiltinDocumentProperties.CreateDate = new DateTime(1900, 12, 31, 12, 0, 0);

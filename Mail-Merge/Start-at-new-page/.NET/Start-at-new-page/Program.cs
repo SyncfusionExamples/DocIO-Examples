@@ -16,7 +16,7 @@ namespace Start_at_new_page
                 {
                     //Gets the invoice details as “IEnumerable” collection.
                     List<Invoice> invoice = GetInvoice();
-                    //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+                    //Creates an instance of MailMergeDataTable by specifying mail merge group name and IEnumerable collection.
                     MailMergeDataTable dataTable = new MailMergeDataTable("Invoice", invoice);
                     //Enables the flag to start each record in new page.
                     document.MailMerge.StartAtNewPage = true;

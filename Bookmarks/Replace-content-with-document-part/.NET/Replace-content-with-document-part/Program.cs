@@ -28,7 +28,7 @@ namespace Replace_content_with_document_part
                             bookmarkNavigator = new BookmarksNavigator(document);
                             //Moves the virtual cursor to the location before the end of the bookmark "NorthwindDB".
                             bookmarkNavigator.MoveToBookmark("NorthwindDB");
-                            //Replaces the bookmark content with word body part.
+                            //Replaces the bookmark content with WordDocumentPart.
                             bookmarkNavigator.ReplaceContent(wordDocumentPart);
                             //Close the WordDocumentPart instance.
                             wordDocumentPart.Close();

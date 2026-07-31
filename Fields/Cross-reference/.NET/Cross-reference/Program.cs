@@ -28,7 +28,7 @@ namespace Cross_reference
                 //Gets the collection of bookmark start in the word document.
                 List<Entity> items = document.GetCrossReferenceItems(ReferenceType.Bookmark);
                 paragraph.AppendText("Bookmark Cross Reference starts here ");
-                //Appends the cross reference for bookmark “Title” with ContentText as reference kind.
+                //Appends the cross reference for bookmark "Title" with ContentText as reference kind.
                 paragraph.AppendCrossReference(ReferenceType.Bookmark, ReferenceKind.ContentText, items[0], true, false, false, string.Empty);
                 //Updates the document Fields.
                 document.UpdateDocumentFields();

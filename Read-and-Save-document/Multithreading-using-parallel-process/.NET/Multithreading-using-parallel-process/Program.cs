@@ -10,7 +10,7 @@ namespace Multithreading_using_parallel_process
     {
         static void Main(string[] args)
         {
-            //Indicates the number of threads to be create.
+            //Indicates the number of threads to be created.
             int limit = 5;
             Console.WriteLine("Parallel For Loop");
             Parallel.For(0, limit, count =>

@@ -61,7 +61,7 @@ namespace Create_matrix_equation
 
                 //Gets an argument in first cell in second row.
                 officeMath = mathMatrix.Rows[1].Arguments[0];
-                //Sets text for argument in first cell in seond row.
+                //Sets text for argument in first cell in second row.
                 officeMathRunElement = officeMath.Functions.Add(MathFunctionType.RunElement) as IOfficeMathRunElement;
                 officeMathRunElement.Item = new WTextRange(document);
                 (officeMathRunElement.Item as WTextRange).Text = "3";

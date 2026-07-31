@@ -8,7 +8,7 @@ using WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
 document.EnsureMinimal();
 
-//Append an border box equation using LaTeX.
+//Append a border box equation using LaTeX.
 document.LastParagraph.AppendMath(@"\boxed{x^2 + y^2 = z^2}");
 
 //Save the Word document.

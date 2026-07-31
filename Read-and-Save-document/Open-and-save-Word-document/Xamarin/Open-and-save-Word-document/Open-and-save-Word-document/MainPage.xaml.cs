@@ -36,7 +36,7 @@ namespace Open_and_save_Word_document
                 MemoryStream stream = new MemoryStream();
                 document.Save(stream, FormatType.Docx);
                 //Save the stream as a file in the device and invoke it for viewing.
-                Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/msword", stream);
+                Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Sample.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", stream);
             }
         }
     }

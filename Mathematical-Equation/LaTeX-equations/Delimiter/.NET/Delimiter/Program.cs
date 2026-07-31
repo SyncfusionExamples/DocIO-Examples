@@ -8,7 +8,7 @@ using WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
 document.EnsureMinimal();
 
-//Append an delimiter equation using LaTeX.
+//Append a delimiter equation using LaTeX.
 document.LastParagraph.AppendMath(@"\left(a\right)");
 
 //Save the Word document.

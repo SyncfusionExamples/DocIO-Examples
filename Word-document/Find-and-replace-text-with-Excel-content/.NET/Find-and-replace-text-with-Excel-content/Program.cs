@@ -7,7 +7,7 @@ using Syncfusion.DocIO;
 
 using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
 {
-    //Opens an existing Word document.
+    //Opens a existing Word document.
     using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Docx))
     {
         //Create a new table

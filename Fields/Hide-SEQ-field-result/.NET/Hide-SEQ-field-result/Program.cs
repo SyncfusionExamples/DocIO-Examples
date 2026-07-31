@@ -14,7 +14,7 @@ namespace Hide_SEQ_field_result
 				//Accesses sequence field in the document.
 				WTable table = document.LastSection.Body.ChildEntities[1] as WTable;
 				WSeqField field = ((table[2, 1].ChildEntities[0] as WParagraph).ChildEntities[0] as WSeqField);
-				//Enables a flag to to hide the sequence field result .
+				//Enables a flag to hide the sequence field result.
 				field.HideResult = true;
 				//Accesses sequence field in the document.
 				field = ((table[4, 1].ChildEntities[0] as WParagraph).ChildEntities[0] as WSeqField);

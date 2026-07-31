@@ -17,7 +17,7 @@ namespace Add_an_email_link
                 IWParagraph paragraph = section.AddParagraph();
                 paragraph.AppendText("Email hyperlink: ");
                 paragraph = section.AddParagraph();
-                //Appends Email hyperlink to the paragraph.
+                //Appends an email hyperlink to the paragraph.
                 paragraph.AppendHyperlink("mailto:sales@syncfusion.com", "Sales", HyperlinkType.EMailLink);
                 //Creates file stream.
                 using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))

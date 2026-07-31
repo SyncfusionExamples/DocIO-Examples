@@ -21,7 +21,7 @@ namespace Accept_or_reject_specific_type
                         //Accepts only insertion and Move from revisions changes.
                         if (revisionType == RevisionType.Insertions || revisionType == RevisionType.MoveFrom)
                             document.Revisions[i].Accept();
-                        //Resets to last item when accept the moving related revisions.
+                        //Resets to last item when accepting the moving related revisions.
                         if (i > document.Revisions.Count - 1)
                             i = document.Revisions.Count;
                     }

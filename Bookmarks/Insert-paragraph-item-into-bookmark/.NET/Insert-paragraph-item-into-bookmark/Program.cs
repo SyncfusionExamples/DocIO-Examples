@@ -24,6 +24,8 @@ namespace Insert_paragraph_item_into_bookmark
                     picture.LoadImage(imageStream);
                     picture.WidthScale = 50;
                     picture.HeightScale = 50;
+					//Disposes the image stream
+                    imageStream.Dispose();
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
                     {

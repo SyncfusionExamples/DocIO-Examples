@@ -19,7 +19,7 @@ namespace Split_a_document_by_bookmark
                     //Iterate each bookmark in Word document.
                     foreach (Bookmark bookmark in bookmarkCollection)
                     {
-                        //Move the virtual cursor to the location before the end of the bookmark.
+                        //Move the virtual cursor to the bookmark.
                         bookmarksNavigator.MoveToBookmark(bookmark.Name);
                         //Get the bookmark content as WordDocumentPart.
                         WordDocumentPart documentPart = bookmarksNavigator.GetContent();

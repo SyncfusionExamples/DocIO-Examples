@@ -20,7 +20,7 @@ namespace Enable_track_changes_of_Word
                 //Sets font name and size for text.
                 text.CharacterFormat.FontName = "Times New Roman";
                 text.CharacterFormat.FontSize = 14;
-                text = paragraph.AppendText("This track changes is useful in shared environment.");
+                text = paragraph.AppendText("This track changes is useful in a shared environment.");
                 text.CharacterFormat.FontSize = 12;
                 //Turns on the track changes option.
                 document.TrackChanges = true;

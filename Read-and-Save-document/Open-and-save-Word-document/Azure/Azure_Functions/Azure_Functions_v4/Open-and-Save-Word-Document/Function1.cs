@@ -48,7 +48,7 @@ namespace Open_and_Save_Word_Document
                     FileName = "Sample.docx"
                 };
                 //Set the content type as Word document mime type.
-                response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/docx");
+                response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
                 //Return the response with output Word document stream.
                 return response;
             }

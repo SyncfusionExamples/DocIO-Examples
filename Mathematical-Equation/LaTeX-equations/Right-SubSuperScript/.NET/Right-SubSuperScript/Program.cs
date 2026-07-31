@@ -8,7 +8,7 @@ using WordDocument document = new WordDocument();
 //Add one section and one paragraph to the document.
 document.EnsureMinimal();
 
-//Append an right subsuperscript equation using LaTeX.
+//Append a right subsuperscript equation using LaTeX.
 document.LastParagraph.AppendMath(@"{100}_{40}^{20}");
 
 //Save the Word document.

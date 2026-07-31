@@ -25,7 +25,7 @@ namespace Modify_url_of_hyperlink
                                 Hyperlink link = new Hyperlink(item as WField);
                                 if (link.Type == HyperlinkType.WebLink)
                                 {
-                                    //Modifies the url of the hyperlink.
+                                    //Modifies the URL of the hyperlink.
                                     link.Uri = "http://www.google.com";
                                     link.TextToDisplay = "Google";
                                     break;

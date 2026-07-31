@@ -2,7 +2,7 @@
 using Syncfusion.DocIO.DLS;
 
 
-//Opens an existing Word document
+//Opens a existing Word document
 using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Sample.docx"), FileMode.Open, FileAccess.Read))
 {
     using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
@@ -11,7 +11,7 @@ using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Sample.do
         //Iterates sections in Word document.
         for (int i = document.Sections.Count - 1; i >= 0; i--)
         {
-            //Accesses the Body of section where all the contents in document are apart
+            //Accesses the Body of section where all the contents in document reside
             textBody = document.Sections[i].Body;
             //Removes the last empty page in the Word document
             RemoveEmptyItems(textBody);

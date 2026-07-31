@@ -11,7 +11,7 @@ namespace Remove_particular_style_from_document
         {
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opens an document from file system through constructor of WordDocument class.
+                //Opens a document from file system through constructor of WordDocument class.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
                     //Accesses the styles collection that contains paragraph and character styles in a Word document.

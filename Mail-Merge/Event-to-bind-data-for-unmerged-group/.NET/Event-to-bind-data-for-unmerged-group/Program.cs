@@ -15,13 +15,13 @@ namespace Event_to_bind_data_for_unmerged_group
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
                 {
-					//Sets “ClearFields” to true to remove empty mail merge fields from document.
+					//Sets “ClearFields” to false to keep empty mail merge fields in the document.
 					document.MailMerge.ClearFields = false;
 					//Uses the mail merge event to clear the unmerged group field while perform mail merge execution.
 					document.MailMerge.BeforeClearGroupField += new BeforeClearGroupFieldEventHandler(BeforeClearFields);
-					//Gets the employee details as “IEnumerable” collection.
+					//Gets the employee details as IEnumerable collection.
 					List<Employees> employeeList = GetEmployees();
-					//Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+					//Creates an instance of MailMergeDataTable by specifying mail merge group name and IEnumerable collection.
 					MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);
 					//Performs Mail merge
 					document.MailMerge.ExecuteNestedGroup(dataTable);
@@ -47,6 +47,7 @@ namespace Event_to_bind_data_for_unmerged_group
                 string[] groupName = args.GroupName.Split(':');
                 if (groupName[groupName.Length - 1] == "Orders")
                 {
+					//Gets the field names in the group
                     string[] fields = args.FieldNames;
                     List<OrderDetails> orderList = GetOrders();
                     //Binds the data to the unmerged fields in group as alternative values.

@@ -22,7 +22,7 @@ namespace Multiple_documents_as_data_sources
                 {
                     //Gets the subscription details as “IEnumerable” collection.
                     List<CategoryList> categoryLists = GetCategoryList();
-                    //Creates an instance of “MailMergeDataTable” by specifying mail merge group name and “IEnumerable” collection.
+                    //Creates an instance of MailMergeDataTable by specifying mail merge group name and IEnumerable collection.
                     MailMergeDataTable dataTable = new MailMergeDataTable("Categories", categoryLists);
 
                     //Mail merge event

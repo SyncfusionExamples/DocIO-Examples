@@ -44,7 +44,7 @@ namespace Open_and_save_Word_document.Controllers
                     document.Save(stream, FormatType.Docx);
 
                     //Download Word document in the browser.
-                    return File(stream, "application/msword", "Sample.docx");
+                    return File(stream, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "Sample.docx");
 
                 }
             }

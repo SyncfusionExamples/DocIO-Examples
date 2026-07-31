@@ -16,7 +16,7 @@ namespace Replace_Merge_field_with_table
                 {
                     //Enables the flag to start each record in new page.
                     document.MailMerge.StartAtNewPage = true;
-                    //Gets the employee details as “IEnumerable” collection
+                    //Gets the employee details as IEnumerable collection
                     List<Employees> employeeList = GetEmployeeData(document);
                     //Creates an instance of MailMergeDataTable by specifying MailMerge group name and IEnumerable collection.
                     MailMergeDataTable dataTable = new MailMergeDataTable("Employees", employeeList);

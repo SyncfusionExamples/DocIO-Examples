@@ -42,7 +42,7 @@ namespace Create_nested_table
                 nestedCell.AddParagraph().AppendText("Mango");
                 //Accesses the instance of the cell (second row, second cell).
                 nestedCell = table.Rows[1].Cells[1];
-                table[1, 1].AddParagraph().AppendText("85");
+                nestedCell.AddParagraph().AppendText("85");
                 table[2, 0].AddParagraph().AppendText("Pomegranate");
                 table[2, 1].AddParagraph().AppendText("70");
                 //Creates file stream.

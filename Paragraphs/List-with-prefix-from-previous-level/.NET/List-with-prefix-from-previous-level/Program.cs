@@ -27,7 +27,7 @@ namespace List_with_prefix_from_previous_level
                 levelTwo.PatternType = ListPatternType.Arabic;
                 levelTwo.StartAt = 1;
                 WListLevel levelThree = listStyle.Levels[2];
-                //Defines the follow character, prefix from previous level, pattern, start index for level 1.
+                //Defines the follow character, prefix from previous level, pattern, start index for level 2.
                 levelThree.FollowCharacter = FollowCharacterType.Nothing;
                 levelThree.NumberPrefix = "\u0000.\u0001.";
                 levelThree.PatternType = ListPatternType.Arabic;

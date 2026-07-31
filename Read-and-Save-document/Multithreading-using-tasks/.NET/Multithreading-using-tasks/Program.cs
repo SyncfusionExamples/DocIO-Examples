@@ -8,7 +8,7 @@ namespace Multithreading_using_tasks
 {
     class MultiThreading
     {
-        //Indicates the number of threads to be create.
+        //Indicates the number of threads to be created.
         private const int TaskCount = 1000;
         public static async Task Main()
         {

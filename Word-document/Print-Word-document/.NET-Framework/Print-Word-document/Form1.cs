@@ -366,7 +366,7 @@ namespace EssentialDocIOSamples
             //Renders the Word document as image.
             images = wordDoc.RenderAsImages(ImageType.Metafile);
             endPageIndex = images.Length;
-            //Closes the Word Document.
+            //Closes the Word document.
             wordDoc.Close();
             //Disposes the label image.
             if (this.descriptionLabel.Image != null)

@@ -1,6 +1,5 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System.Data;
 using System.IO;
 
 namespace Open_and_save_macro_enabled_document
@@ -9,7 +8,7 @@ namespace Open_and_save_macro_enabled_document
     {
         static void Main(string[] args)
         {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.dotm"), FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.dotm"), FileMode.Open, FileAccess.Read))
             {
                 //Opens the template document.
                 using (WordDocument document = new WordDocument(fileStream, FormatType.Dotm))
@@ -18,7 +17,7 @@ namespace Open_and_save_macro_enabled_document
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docm"), FileMode.Create, FileAccess.ReadWrite))
                     {
                         //Saves the Word document to file stream.
-                        document.Save(outputFileStream, FormatType.Word2013Docm);
+                        document.Save(outputFileStream, FormatType.Docm);
                     }
                 }
             }

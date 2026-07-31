@@ -33,7 +33,7 @@ namespace Increase_or_decrease_list_indent
                 paragraph.AppendText("Multilevel numbered list - Level 0");
                 //Continues last defined list.
                 paragraph.ListFormat.ContinueListNumbering();
-                //Increases the level indent.
+                //Decreases the level indent.
                 paragraph.ListFormat.DecreaseIndentLevel();
                 //Adds new paragraph.
                 paragraph = section.AddParagraph();

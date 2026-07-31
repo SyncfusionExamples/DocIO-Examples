@@ -15,7 +15,7 @@ namespace Multilevel_bulleted_list
                 IWSection section = document.AddSection();
                 //Adds new paragraph to the section.
                 IWParagraph paragraph = section.AddParagraph();
-                //Applies default numbered list style.
+                //Applies default bulleted list style.
                 paragraph.ListFormat.ApplyDefBulletStyle();
                 //Adds text to the paragraph.
                 paragraph.AppendText("List item 1 - Level 0");

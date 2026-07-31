@@ -11,7 +11,7 @@ namespace Clone_whole_Word_document
         {
             using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                //Opens an existing document from file system through constructor of WordDocument class.
+                //Opens a existing document from file system through constructor of WordDocument class.
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
                     //Creates a clone of Input Template.
