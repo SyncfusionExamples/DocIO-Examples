@@ -3,7 +3,7 @@ using Syncfusion.DocIO.DLS;
 using System.IO;
 using Syncfusion.Drawing;
 
-namespace Change_bullet_symbol_in_list
+namespace Change_bullet_color_and_symbol_in_list
 {
     class Program
     {
