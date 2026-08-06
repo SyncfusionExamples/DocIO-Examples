@@ -1,34 +1,24 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
+using System.Collections.Generic;
 using System.IO;
 
-namespace Change_bullet_symbol_in_list
+using (WordDocument document = new WordDocument(Path.Combine(@"../../../Data/input.docx"), FormatType.Docx))
 {
-    class Program
+    //Find picture in document
+    List<Entity> pictures = document.FindAllItemsByProperty(EntityType.Picture, null, null);
+
+    if (pictures != null)
     {
-        static void Main(string[] args)
+        //Iterate and replace image
+        foreach (Entity entity in pictures)
         {
-            //Open the file as a stream.
-            using (FileStream inputStream = new FileStream(Path.GetFullPath(@"Data/Input.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            {
-                //Load the file stream into a Word document.
-                using (WordDocument document = new WordDocument(inputStream, FormatType.Docx))
-                {
-                    //Access the list style in a Word document.
-                    ListStyle style = document.ListStyles[0];
-                    WListLevel levelOne = style.Levels[0];
-                    //Define the character and pattern for level 1.
-                    levelOne.PatternType = ListPatternType.Bullet;
-                    levelOne.BulletCharacter = "\u0076";
-                    levelOne.CharacterFormat.FontName = "Wingdings";
-                    //Create a file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Sample.docx"), FileMode.Create, FileAccess.ReadWrite))
-                    {
-                        //Save the Word document to the file stream.
-                        document.Save(outputFileStream, FormatType.Docx);
-                    }
-                }
-            }
+            WPicture picture = entity as WPicture;
+            FileStream imageStream = new FileStream(@"../../../Data/Image.emf", FileMode.Open, FileAccess.ReadWrite);
+            picture.LoadImage(imageStream);
+            imageStream.Close();
+
         }
     }
+    document.Save(@"../../../Output/output.docx", FormatType.Docx);
 }
