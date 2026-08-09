@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mail-merged-Word-into-PDF", "Mail-merged-Word-into-PDF\Mail-merged-Word-into-PDF.csproj", "{060C9D44-A053-43CB-8A16-BFB8BCCCE580}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{060C9D44-A053-43CB-8A16-BFB8BCCCE580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{060C9D44-A053-43CB-8A16-BFB8BCCCE580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{060C9D44-A053-43CB-8A16-BFB8BCCCE580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{060C9D44-A053-43CB-8A16-BFB8BCCCE580}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF422962-51A0-4C08-B7DB-51C26692639F}
+	EndGlobalSection
+EndGlobal
