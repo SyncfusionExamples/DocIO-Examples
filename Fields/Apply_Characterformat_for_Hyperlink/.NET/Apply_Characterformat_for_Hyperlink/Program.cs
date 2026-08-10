@@ -17,12 +17,6 @@ namespace Apply_Characterformat_for_Hyperlink
                 // Appends a hyperlink to the last paragraph of the document
                 string linkUri = "https://www.syncfusion.com";
                 IWField field = document.LastParagraph.AppendHyperlink(linkUri, "Syncfusion", HyperlinkType.WebLink);
-                // Character format for hyperlink
-                bool isItalic = false;
-                bool isUnderline = true;
-                bool isStrikeout = false;
-                bool isBold = false;
-                float fontSize = 12;
                 //Format hyperlink
                 IEntity entity = field;
                 //Iterates to sibling items until Field End
@@ -33,12 +27,12 @@ namespace Apply_Characterformat_for_Hyperlink
                         WTextRange textRange = entity as WTextRange;
                         //Apply character format for text ranges
                         textRange.CharacterFormat.FontName = "Verdana";
-                        textRange.CharacterFormat.FontSize = fontSize;
+                        textRange.CharacterFormat.FontSize = 12;
                         textRange.CharacterFormat.TextColor = Color.Red;
-                        textRange.CharacterFormat.Bold = isBold;
-                        textRange.CharacterFormat.Italic = isItalic;
-                        textRange.CharacterFormat.UnderlineStyle = isUnderline ? UnderlineStyle.Single : UnderlineStyle.None;
-                        textRange.CharacterFormat.Strikeout = isStrikeout;
+                        textRange.CharacterFormat.Bold = false;
+                        textRange.CharacterFormat.Italic = false;
+                        textRange.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
+                        textRange.CharacterFormat.Strikeout = false;
                     }
                     else if ((entity is WFieldMark) && (entity as WFieldMark).Type == FieldMarkType.FieldEnd)
                         break;
