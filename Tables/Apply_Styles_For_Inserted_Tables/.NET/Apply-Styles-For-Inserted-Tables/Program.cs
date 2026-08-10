@@ -18,13 +18,28 @@ namespace Apply_Styles_For_Inserted_Tables
                 resultDocument.LastSection.Body.InsertXHTML(html);
 
                 // Append table manually - this one applies the table style from the template
-                IWTable table = resultDocument.LastSection.AddTable();
-                //Specify the total number of rows and columns. 
-                table.ResetCells(2, 6);
+                var employees = new List<(string Id, string Name, string Department)>
+                {
+                    ("1001", "John", "Sales"),
+                    ("1002", "Mary", "HR"),
+                    ("1003", "David", "IT")
+                };
 
-                for (int rowIndex = 0; rowIndex < 2; rowIndex++)
-                    for (int columnIndex = 0; columnIndex < 6; columnIndex++)
-                        table.Rows[rowIndex].Cells[columnIndex].AddParagraph().Text = (rowIndex * columnIndex).ToString();
+                IWTable table = resultDocument.LastSection.AddTable();
+                table.ResetCells(employees.Count + 1, 3);
+
+                // Header row
+                table[0, 0].AddParagraph().AppendText("ID");
+                table[0, 1].AddParagraph().AppendText("Name");
+                table[0, 2].AddParagraph().AppendText("Department");
+
+                // Data rows
+                for (int i = 0; i < employees.Count; i++)
+                {
+                    table[i + 1, 0].AddParagraph().AppendText(employees[i].Id);
+                    table[i + 1, 1].AddParagraph().AppendText(employees[i].Name);
+                    table[i + 1, 2].AddParagraph().AppendText(employees[i].Department);
+                }
 
                 //Finds all the table in the Word document
                 List<Entity> tableList = resultDocument.FindAllItemsByProperty(EntityType.Table, "EntityType", EntityType.Table.ToString());
