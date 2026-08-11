@@ -2,17 +2,17 @@
 using Syncfusion.DocIO;
 
 //Load an existing main Word document.
-using (WordDocument targetDocument = new WordDocument(Path.GetFullPath(@"../../Data/TargetDocument.docx"), FormatType.Docx))
+using (WordDocument targetDocument = new WordDocument(@"../../../Data/TargetDocument.docx", FormatType.Docx))
 {
     //Load an existing template Word document.
-    using (WordDocument sourceDocument = new WordDocument(Path.GetFullPath(@"../../Data/SourceDocument.docx"), FormatType.Docx))
+    using (WordDocument sourceDocument = new WordDocument(@"../../../Data/SourceDocument.docx", FormatType.Docx))
     {
         //Move Built-in document properties from one Word document to another Word document.
         MoveBuiltinDocumentProperties(sourceDocument, targetDocument);
         //Move custom document properties from one Word document to another Word document.
         MoveCustomDocumentProperties(sourceDocument, targetDocument);
         //Save the Word document.
-        targetDocument.Save(Path.GetFullPath(@"../../Result.docx"));
+        targetDocument.Save(@"../../../Output/Result.docx");
     }
 }
 
