@@ -1,8 +1,8 @@
-﻿using Syncfusion.DocIO;
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System.IO;
 
-namespace Encoding_as_Word
+namespace Encoding_As_Word
 {
     class Program
     {
