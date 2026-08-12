@@ -34,11 +34,10 @@ static void MdImportSettings_ImageNodeVisited(object sender, Syncfusion.Office.M
     // Retrieve the image from the website and use it.
     else if (args.Uri.StartsWith("https://"))
     {
-        WebClient client = new WebClient();
-        // Download the image as a stream.
-        byte[] image = client.DownloadData(args.Uri);
-        Stream stream = new MemoryStream(image);
-        // Set the retrieved image from the input Markdown.
-        args.ImageStream = stream;
+        using (HttpClient client = new HttpClient())
+        {
+            byte[] image = client.GetByteArrayAsync(args.Uri).GetAwaiter().GetResult();
+            args.ImageStream = new MemoryStream(image);
+        }
     }
 }

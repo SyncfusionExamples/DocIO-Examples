@@ -7,25 +7,20 @@ namespace Customize_image_data
     class Program
     {
         static void Main(string[] args)
-        {
-            //Loads an existing Word document into DocIO instance. 
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Input.html"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+        { 
+            //Creates a new instance of WordDocument
+            using (WordDocument document = new WordDocument())
             {
-                using (WordDocument document = new WordDocument())
-                {
-                    //Hooks the ImageNodeVisited event to open the image from a specific location.
-                    document.HTMLImportSettings.ImageNodeVisited += OpenImage;
-                    //Opens the input HTML document.
-                    document.Open(fileStreamPath, FormatType.Html);
-                    //Unhooks the ImageNodeVisited event after loading HTML.
-                    document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
-                    //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/HtmlToWord.docx"), FileMode.Create, FileAccess.ReadWrite))
-                    {
-                        //Saves the Word document to file stream.
-                        document.Save(outputFileStream, FormatType.Docx);
-                    }
-                }
+                //Hooks the ImageNodeVisited event to open the image from a specific location
+                document.HTMLImportSettings.ImageNodeVisited += OpenImage;
+                //Opens the input HTML document
+                document.Open(@"Data\Input.html", FormatType.Html);
+                //Unhooks the ImageNodeVisited event after loading HTML
+                document.HTMLImportSettings.ImageNodeVisited -= OpenImage;
+                //Saves the Word document
+                document.Save(@"Output\HtmlToWord.docx", FormatType.Docx);
+                //Closes the WordDocument instance
+                document.Close();
             }
         }
         private static void OpenImage(object sender, ImageNodeVisitedEventArgs args)
@@ -34,4 +29,5 @@ namespace Customize_image_data
             args.ImageStream = System.IO.File.OpenRead(args.Uri);
         }
     }
+
 }

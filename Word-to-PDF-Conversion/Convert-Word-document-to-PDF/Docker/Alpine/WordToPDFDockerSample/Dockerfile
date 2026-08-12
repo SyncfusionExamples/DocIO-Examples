@@ -1,8 +1,7 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base
-RUN apk update && apk upgrade && apk add fontconfig
-RUN apk add --update ttf-dejavu fontconfig
+RUN apk update && apk add --no-cache fontconfig ttf-dejavu
 WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
