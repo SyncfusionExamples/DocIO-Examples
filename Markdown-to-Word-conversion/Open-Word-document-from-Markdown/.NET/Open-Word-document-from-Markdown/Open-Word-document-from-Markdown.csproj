@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Open_Word_document_from_Markdown</RootNamespace>
+    <RootNamespace>Open_Word_Document_From_Markdown</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -3,7 +3,7 @@ using Syncfusion.DocIO.DLS;
 using Syncfusion.Office.Markdown;
 using System.IO;
 
-namespace Open_Word_document_from_Markdown
+namespace Open_Word_Document_From_Markdown
 {
     class Program
     {
