@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37301.10 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merge_Documents_by_Page_Orientation", "Merge_Documents_by_Page_Orientation\Merge_Documents_by_Page_Orientation.csproj", "{421CAFAF-E3E5-F807-5391-D1D713B859DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{421CAFAF-E3E5-F807-5391-D1D713B859DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{421CAFAF-E3E5-F807-5391-D1D713B859DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{421CAFAF-E3E5-F807-5391-D1D713B859DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{421CAFAF-E3E5-F807-5391-D1D713B859DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B953DA91-D41B-43BE-926C-A232CEFA4A8E}
+	EndGlobalSection
+EndGlobal
