@@ -38,7 +38,7 @@ namespace Use_alternate_font_without_installing
         private static void FontSettings_SubstituteFont(object sender, SubstituteFontEventArgs args)
         {
             //Sets the alternate font when a specified font is not installed in the production environment.
-            if (args.OrignalFontName == "Arial Unicode MS")
+            if (args.OriginalFontName == "Arial Unicode MS")
             {
                 switch (args.FontStyle)
                 {

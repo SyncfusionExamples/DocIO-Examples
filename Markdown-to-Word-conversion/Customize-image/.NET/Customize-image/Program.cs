@@ -3,6 +3,7 @@ using Syncfusion.DocIO.DLS;
 using Syncfusion.Drawing;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 
 namespace Customize_image
 {
@@ -31,12 +32,12 @@ namespace Customize_image
             //Retrive the image from the website and use it.
             else if (args.Uri.StartsWith("https://"))
             {
-                WebClient client = new WebClient();
                 //Download the image as a stream.
-                byte[] image = client.DownloadData(args.Uri);
-                Stream stream = new MemoryStream(image);
-                //Set the retrieved image from the input Markdown.
-                args.ImageStream = stream;
+                using (HttpClient client = new HttpClient())
+                {
+                    byte[] image = client.GetByteArrayAsync(args.Uri).GetAwaiter().GetResult();
+                    args.ImageStream = new MemoryStream(image);
+                }
             }
         }
     }
