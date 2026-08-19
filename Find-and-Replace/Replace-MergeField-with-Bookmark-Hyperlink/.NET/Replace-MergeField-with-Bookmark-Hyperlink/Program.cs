@@ -44,7 +44,14 @@ namespace Replace_MergeField_with_Bookmark_Hyperlink
             }
         }
 
-        // This method converts a merge field to a placeholder by replacing the merge field with its text representation.
+        /// <summary>
+        /// Converts the specified merge field into a placeholder text by extracting
+        /// its displayed content and replacing the merge field with a text range.
+        /// </summary>
+        /// <param name="field">The merge field to be converted.</param>
+        /// <returns>
+        /// The text extracted from the merge field that is used as a placeholder.
+        /// </returns>
         private static string ConvertMergeFieldToPlaceHolder(WMergeField field)
         {
             // Get the paragraph that contains the merge field.
@@ -69,7 +76,19 @@ namespace Replace_MergeField_with_Bookmark_Hyperlink
             return textRange.Text;
         }
 
-        // This method extracts the text of a merge field, handling nested fields if present.
+        /// <summary>
+        /// Extracts the displayed text from a merge field by traversing its field
+        /// elements and handling nested fields when present.
+        /// </summary>
+        /// <param name="hyperlinkIndex">
+        /// The index of the merge field within the paragraph child entities collection.
+        /// </param>
+        /// <param name="paragraph">
+        /// The paragraph containing the merge field.
+        /// </param>
+        /// <returns>
+        /// The text displayed by the merge field.
+        /// </returns>
         private static string GetMergeFieldText(int hyperlinkIndex, WParagraph paragraph)
         {
             string text = string.Empty;
