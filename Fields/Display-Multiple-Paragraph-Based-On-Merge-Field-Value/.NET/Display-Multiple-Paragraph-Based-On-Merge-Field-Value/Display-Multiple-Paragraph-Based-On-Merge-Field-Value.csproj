@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Display_Multiple_Paragraph_Based_On_Merge_Field_Value</RootNamespace>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<None Update="Data\Template.docx">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Output\.gitkeep">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="*" />
+  </ItemGroup>
+
+
+
+</Project>
