@@ -1,41 +1,52 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
+using Syncfusion.Drawing;
 
-namespace Create_list_with_hanging_indent
+WordDocument document = new WordDocument();
+IWSection section = document.AddSection();
+
+// Paragraph containing highlighted hyperlink word
+IWParagraph para = section.AddParagraph();
+
+para.AppendText("For detailed information, refer to ");
+
+IWField hyperlink = para.AppendHyperlink(
+    "Section5",                  // Bookmark name
+    "Section 5",                 // Display text
+    HyperlinkType.Bookmark);
+
+
+WTextRange textRange = hyperlink.OwnerParagraph.ChildEntities[
+    hyperlink.OwnerParagraph.ChildEntities.Count - 2] as WTextRange;
+
+if (textRange != null)
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            // Create a new Word document.
-            using (WordDocument document = new WordDocument())
-            {
-                // Add a section to the document.
-                IWSection section = document.AddSection();
-
-                // Add a bulleted list item with a hanging indent.
-                IWParagraph bulletParagraph1 = section.AddParagraph();
-                bulletParagraph1.ListFormat.ApplyDefBulletStyle();
-                bulletParagraph1.AppendText("First").CharacterFormat.FontSize = 12;
-                bulletParagraph1.ParagraphFormat.FirstLineIndent = -18; // Hanging indent for bullet alignment.
-
-                // Add a normal paragraph with a first-line indent.
-                IWParagraph normalParagraph = section.AddParagraph();
-                normalParagraph.AppendText("Sample text with first-line indent.").CharacterFormat.FontSize = 12;
-                normalParagraph.ParagraphFormat.FirstLineIndent = 35;
-
-                // Add another bulleted list item with a hanging indent.
-                IWParagraph bulletParagraph2 = section.AddParagraph();
-                bulletParagraph2.ListFormat.ApplyDefBulletStyle();
-                bulletParagraph2.AppendText("Second").CharacterFormat.FontSize = 12;
-                bulletParagraph2.ParagraphFormat.FirstLineIndent = -18; // Hanging indent for bullet alignment.
-
-                // Save the document.
-                using (FileStream outputFileStream = new FileStream(Path.GetFullPath("Output/Result.docx"), FileMode.Create, FileAccess.Write))
-                {
-                    document.Save(outputFileStream, FormatType.Docx);
-                }
-            }
-        }
-    }
+    textRange.CharacterFormat.HighlightColor = Color.Yellow;
 }
+
+para.AppendText(" in this document.");
+
+//Add some content before destination
+for (int i = 0; i < 5; i++)
+{
+    para = section.AddParagraph();
+    para.AppendBookmarkStart($"Section{i}");
+    para.AppendText($"Sample paragraph {i + 1}");
+    para.AppendBookmarkEnd($"Section{i}");
+}
+
+// Bookmark destination
+IWParagraph destinationPara = section.AddParagraph();
+
+//Bookmark start
+destinationPara.AppendBookmarkStart("Section5");
+
+//Destination content
+destinationPara.AppendText("Section 5 - Detailed Information");
+
+//Bookmark end
+destinationPara.AppendBookmarkEnd("Section5");
+section.AddParagraph().AppendText("End");
+//Save document
+document.Save(@"../../../Output/Output.docx", FormatType.Docx);
+document.Close();
