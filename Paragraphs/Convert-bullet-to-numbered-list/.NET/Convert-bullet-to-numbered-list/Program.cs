@@ -1,8 +1,9 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
+using System.Collections.Generic;
 
-string inputFile = @"../../../Input.docx";
-string outputFile = @"../../../Output.docx";
+string inputFile = @"../../../Data/Input.docx";
+string outputFile = @"../../../Output/Ouput.docx";
 
 WordDocument wordDocument = new WordDocument(inputFile, FormatType.Docx);
 // Replace {list-id} with the bullet list's id you want to target.
