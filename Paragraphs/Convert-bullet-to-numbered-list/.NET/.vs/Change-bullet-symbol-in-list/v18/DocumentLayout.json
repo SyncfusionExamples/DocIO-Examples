@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\KB\\DocIO-Examples\\Paragraphs\\Change-bullet-symbol-in-list\\.NET\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C17B90BC-F559-456B-B189-90B53FF6CDD4}|Change-bullet-symbol-in-list\\Change-bullet-symbol-in-list.csproj|d:\\kb\\docio-examples\\paragraphs\\change-bullet-symbol-in-list\\.net\\change-bullet-symbol-in-list\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C17B90BC-F559-456B-B189-90B53FF6CDD4}|Change-bullet-symbol-in-list\\Change-bullet-symbol-in-list.csproj|solutionrelative:change-bullet-symbol-in-list\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\KB\\DocIO-Examples\\Paragraphs\\Change-bullet-symbol-in-list\\.NET\\Change-bullet-symbol-in-list\\Program.cs",
+              "RelativeDocumentMoniker": "Change-bullet-symbol-in-list\\Program.cs",
+              "ToolTip": "D:\\KB\\DocIO-Examples\\Paragraphs\\Change-bullet-symbol-in-list\\.NET\\Change-bullet-symbol-in-list\\Program.cs",
+              "RelativeToolTip": "Change-bullet-symbol-in-list\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T06:30:31.773Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
