@@ -10,14 +10,16 @@ namespace Insert_Page_Break_Inside_Tables
             // Creates a new Word document.
             using (WordDocument document = new WordDocument())
             {
+                // Adds a default section and paragraph to the document.
                 document.EnsureMinimal();
-                //Adds a new Table to the text body.
 
+                //Adds a new Table to the text body.
                 WTable table = document.LastSection.Body.AddTable() as WTable;
 
                 //Insert rows to the table. This will apply the format to a whole table.
                 table.ResetCells(5, 5);
 
+                // Sample text collection used to populate table cells.
                 string[] randomTexts =
                          {
                             "Lorem ipsum dolor sit amet",
@@ -31,23 +33,24 @@ namespace Insert_Page_Break_Inside_Tables
                             "Sample paragraph content",
                             "Testing table layout"
                         };
-
+                // Populate each table cell with sample text.
                 for (int i = 0; i < table.Rows.Count; i++)
                 {
                     WTableRow row = table.Rows[i];
 
                     for (int j = 0; j < row.Cells.Count; j++)
                     {
+                        // Add a paragraph to the current cell.
                         WParagraph paragraph = row.Cells[j].AddParagraph() as WParagraph;
 
                         // Add random text
-                        paragraph.AppendText(
-                            randomTexts[(i * row.Cells.Count + j) % randomTexts.Length]);
+                        paragraph.AppendText(randomTexts[(i * row.Cells.Count + j) % randomTexts.Length]);
                     }
                 }
+                // Insert page breaks between table rows.
                 InserPageBreak(table);
                 //saves the document
-                document.Save(Path.GetFullPath("../../../Output/Output.docx"));
+                document.Save(Path.GetFullPath("Output/Output.docx"));
             }
         }
 
