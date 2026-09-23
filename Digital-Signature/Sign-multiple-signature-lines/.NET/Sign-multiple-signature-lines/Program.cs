@@ -60,7 +60,7 @@ namespace Sign_multiple_signature_lines
             // Loads the signing certificate.
             OfficeDigitalSignatureCertificate certificate =
                 new OfficeDigitalSignatureCertificate(
-                    Path.GetFullPath(@"Data\Certificate.pfx"),
+                    Path.GetFullPath(@"Data\certificate.pfx"),
                     "password123");
 
             // Opens the saved document to sign each signature line.
