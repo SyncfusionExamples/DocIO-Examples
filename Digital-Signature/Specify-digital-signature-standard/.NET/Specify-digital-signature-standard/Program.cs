@@ -2,7 +2,7 @@
 using Syncfusion.DocIO.DLS;
 using Syncfusion.Office;
 
-namespace Configure_digital_signature_standard
+namespace Specify_digital_signature_standard
 {
     class Program
     {
@@ -27,3 +27,4 @@ namespace Configure_digital_signature_standard
         }
     }
 }
+
