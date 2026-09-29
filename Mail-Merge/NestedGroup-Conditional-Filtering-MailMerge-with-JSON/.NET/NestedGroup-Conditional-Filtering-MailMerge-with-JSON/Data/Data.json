@@ -1,0 +1,25 @@
+{
+  "User": [
+    {
+      "name": "Syncfusion",
+      "ExpectedType": "All",
+      "SectionDisplay": "true",
+      "Expense": [
+        {
+          "Type": "Reimbursement",
+          "InvoiceNumber": "INV-1001",
+          "IsPaid": "true",
+          "Description": "Travel reimbursement",
+          "Amount": 150.00,
+        },
+        {
+          "Type": "Expense",
+          "InvoiceNumber": "INV-1002",
+          "IsPaid": "false",
+          "Description": "Hotel accommodation",
+          "Amount": 550.00,
+        }
+      ]
+    }
+  ]
+}
