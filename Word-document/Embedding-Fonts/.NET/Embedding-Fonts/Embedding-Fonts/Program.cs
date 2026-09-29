@@ -16,7 +16,7 @@ namespace Embedding_Fonts
                 //Enable the flag to embed complete TrueType/OpenType fonts used in the document.
                 document.SaveOptions.EmbedFonts = true;
                 //Save the Word document
-                document.Save(Path.GetFullPath(@"Output/Output.md"));
+                document.Save(Path.GetFullPath(@"Output/Output.docx"));
                 document.Close();
             }
         }
