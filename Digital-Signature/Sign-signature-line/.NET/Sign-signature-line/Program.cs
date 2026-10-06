@@ -9,9 +9,7 @@ namespace Sign_signature_line
         static void Main(string[] args)
         {
             //Opens an existing Word document with signature line.
-            using (WordDocument document =
-                new WordDocument(
-                    Path.GetFullPath(@"Data\Template.docx")))
+            using (WordDocument document = new WordDocument(Path.GetFullPath(@"Data\Template.docx")))
             {
                 WPicture picture = null;
                 OfficeSignatureLine signatureLine = null;
@@ -30,11 +28,9 @@ namespace Sign_signature_line
                                 break;
                             }
                         }
-
                         if (picture != null)
                             break;
                     }
-
                     if (picture != null)
                         break;
                 }

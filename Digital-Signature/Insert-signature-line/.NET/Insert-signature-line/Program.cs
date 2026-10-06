@@ -24,8 +24,12 @@ namespace Insert_signature_line
             settings.SignerTitle = "Manager";
             settings.Email = "john.doe@example.com";
             settings.Instructions = "Please review and sign.";
+            //Specifies whether the signer can attach comments when signing.
             settings.AllowComments = true;
+            //Specifies whether the sign date is displayed on the signature line.
             settings.ShowDate = true;
+            //Specifies whether the default signing instructions are used (false uses the custom Instructions value).
+            settings.DefaultInstructions = false;
             //Inserts the signature line into the new paragraph with the specified dimensions.
             IWPicture picture = signatureParagraph.AppendSignatureLine(settings, 200, 100);
             //Saves the Word document to file.
