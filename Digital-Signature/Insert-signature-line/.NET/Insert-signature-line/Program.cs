@@ -1,4 +1,4 @@
-﻿using Syncfusion.DocIO;
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.Office;
 
@@ -9,7 +9,7 @@ namespace Insert_signature_line
         static void Main(string[] args)
         {
             //Opens an existing Word document.
-            WordDocument document = new WordDocument(Path.GetFullPath(@"Data\Template.docx"));
+            WordDocument document = new WordDocument(Path.GetFullPath(@"Data/Template.docx"));
             //Gets the first section of the document.
             IWSection section = document.Sections[0];
             //Adds new paragraph to the section.
@@ -33,7 +33,7 @@ namespace Insert_signature_line
             //Inserts the signature line into the new paragraph with the specified dimensions.
             IWPicture picture = signatureParagraph.AppendSignatureLine(settings, 200, 100);
             //Saves the Word document to file.
-            document.Save(Path.GetFullPath(@"Output\Result.docx"), FormatType.Docx);
+            document.Save(Path.GetFullPath(@"Output/Result.docx"), FormatType.Docx);
             //Closes the document
             document.Close();
         }
