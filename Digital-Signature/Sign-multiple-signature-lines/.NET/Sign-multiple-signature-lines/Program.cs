@@ -1,4 +1,4 @@
-﻿using Syncfusion.DocIO;
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.Office;
 
@@ -10,7 +10,7 @@ namespace Sign_multiple_signature_lines
         {
             // Opens an existing Word document and adds signature lines.
             Dictionary<Guid, string> signatureInfo;
-            using (WordDocument document = new WordDocument(Path.GetFullPath(@"Data\Template.docx")))
+            using (WordDocument document = new WordDocument(Path.GetFullPath(@"Data/Template.docx")))
             {
                 // Gets the last section of the document.
                 IWSection section = document.LastSection;
@@ -24,9 +24,9 @@ namespace Sign_multiple_signature_lines
                 // Defines the signature images corresponding to each signer.
                 string[] images =
                 {
-                    Path.GetFullPath(@"Data\TonySignature.png"),
-                    Path.GetFullPath(@"Data\SteveSignature.png"),
-                    Path.GetFullPath(@"Data\BruceSignature.png")
+                    Path.GetFullPath(@"Data/TonySignature.png"),
+                    Path.GetFullPath(@"Data/SteveSignature.png"),
+                    Path.GetFullPath(@"Data/BruceSignature.png")
                 };
 
                 // Adds a signature line for each signer.
@@ -54,17 +54,17 @@ namespace Sign_multiple_signature_lines
                 }
 
                 // Saves the document after adding the signature lines.
-                document.Save(Path.GetFullPath(@"Output\Result.docx"), FormatType.Docx);
+                document.Save(Path.GetFullPath(@"Output/Result.docx"), FormatType.Docx);
             }
 
             // Loads the signing certificate.
             OfficeDigitalSignatureCertificate certificate =
                 new OfficeDigitalSignatureCertificate(
-                    Path.GetFullPath(@"Data\certificate.pfx"),
+                    Path.GetFullPath(@"Data/certificate.pfx"),
                     "password123");
 
             // Opens the saved document to sign each signature line.
-            using (WordDocument document = new WordDocument(Path.GetFullPath(@"Output\Result.docx")))
+            using (WordDocument document = new WordDocument(Path.GetFullPath(@"Output/Result.docx")))
             {
                 // Signs each signature line using its corresponding signature image.
                 foreach (KeyValuePair<Guid, string> item in signatureInfo)
@@ -81,7 +81,7 @@ namespace Sign_multiple_signature_lines
                 }
 
                 // Saves the signed document.
-                document.Save(Path.GetFullPath(@"Output\Result.docx"), FormatType.Docx);
+                document.Save(Path.GetFullPath(@"Output/Result.docx"), FormatType.Docx);
             }
         }
     }

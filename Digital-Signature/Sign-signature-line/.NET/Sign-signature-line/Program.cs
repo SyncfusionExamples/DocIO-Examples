@@ -1,4 +1,4 @@
-﻿using Syncfusion.DocIO;
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using Syncfusion.Office;
 
@@ -9,7 +9,7 @@ namespace Sign_signature_line
         static void Main(string[] args)
         {
             //Opens an existing Word document with signature line.
-            using (WordDocument document = new WordDocument(Path.GetFullPath(@"Data\Template.docx")))
+            using (WordDocument document = new WordDocument(Path.GetFullPath(@"Data/Template.docx")))
             {
                 WPicture picture = null;
                 OfficeSignatureLine signatureLine = null;
@@ -38,7 +38,7 @@ namespace Sign_signature_line
                 //Loads the signing certificate.
                 OfficeDigitalSignatureCertificate certificate =
                     new OfficeDigitalSignatureCertificate(
-                        Path.GetFullPath(@"Data\certificate.pfx"),
+                        Path.GetFullPath(@"Data/certificate.pfx"),
                         "password123");
 
                 //Signs the signature line with the image.
@@ -46,16 +46,16 @@ namespace Sign_signature_line
                 {
                     SignatureLineId = signatureLine.Id,
                     SignTime = DateTime.Now,
-                    SignatureLineImage = File.ReadAllBytes(Path.GetFullPath(@"Data\Signature.png")),
+                    SignatureLineImage = File.ReadAllBytes(Path.GetFullPath(@"Data/Signature.png")),
                     Comments = "Approved"
                 };
 
-                if (File.Exists(Path.GetFullPath(@"Data\Signature.png")))
-                    settings.SignatureLineImage = File.ReadAllBytes(Path.GetFullPath(@"Data\Signature.png"));
+                if (File.Exists(Path.GetFullPath(@"Data/Signature.png")))
+                    settings.SignatureLineImage = File.ReadAllBytes(Path.GetFullPath(@"Data/Signature.png"));
 
                 document.AddDigitalSignature(certificate, settings);
                 //Saves the signed document.
-                document.Save(Path.GetFullPath(@"Output\Result.docx"), FormatType.Docx);
+                document.Save(Path.GetFullPath(@"Output/Result.docx"), FormatType.Docx);
             }
 
         }
