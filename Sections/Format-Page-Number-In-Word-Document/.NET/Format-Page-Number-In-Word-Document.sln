@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37531.7 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Format-Page-Number-In-Word-Document", "Format-Page-Number-In-Word-Document\Format-Page-Number-In-Word-Document.csproj", "{3C2D26B9-6BC1-0B0B-0218-62B152FB3C0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C2D26B9-6BC1-0B0B-0218-62B152FB3C0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C2D26B9-6BC1-0B0B-0218-62B152FB3C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C2D26B9-6BC1-0B0B-0218-62B152FB3C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C2D26B9-6BC1-0B0B-0218-62B152FB3C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {037D14B2-80D6-4805-A0DE-C2839EAEA9F8}
+	EndGlobalSection
+EndGlobal
