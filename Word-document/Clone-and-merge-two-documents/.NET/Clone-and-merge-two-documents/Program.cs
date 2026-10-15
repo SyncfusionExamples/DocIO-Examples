@@ -3,11 +3,9 @@ using Syncfusion.DocIO.DLS;
 using System.IO;
 
 //Opens the source document
-FileStream SourceFileStream = new FileStream(@"../../../Data/SourceDocument.docx", FileMode.Open);
-WordDocument sourceDocument = new WordDocument(SourceFileStream, FormatType.Docx);
-//Opens the destination document  
-FileStream DestinationFileStream = new FileStream(@"../../../Data/DestinationDocument.docx", FileMode.Open);
-WordDocument destinationDocument = new WordDocument(DestinationFileStream, FormatType.Docx);
+WordDocument sourceDocument = new WordDocument(@"../../../Data/SourceDocument.docx", FormatType.Docx);
+//Opens the destination document
+WordDocument destinationDocument = new WordDocument(@"../../../Data/DestinationDocument.docx", FormatType.Docx);
 //Processes the body contents for each section in the Word document
 foreach (WSection section in sourceDocument.Sections)
 {
