@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="*" />
+    <PackageReference Include="Syncfusion.Presentation.Net.Core" Version="*" />
   </ItemGroup>
 
   <ItemGroup>
