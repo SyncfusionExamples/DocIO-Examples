@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+    <PackageReference Include="Syncfusion.DocIO.Net.Core" Version="35.1.40" />
+  </ItemGroup>
+
 </Project>
