@@ -1,4 +1,4 @@
-﻿using Syncfusion.DocIO.DLS; 
+using Syncfusion.DocIO.DLS;
 using Syncfusion.DocIO;
 using System;
 using System.IO;
@@ -30,29 +30,12 @@ namespace Remove_previous_Paragraph_of_PlaceHolder
 
                     if (selections.Length > 0)
                     {
-                        List<WParagraph> paragraphsToRemove = new List<WParagraph>();
-
                         foreach (var selection in selections)
                         {
-                            WParagraph paragraphContainingPhrase = selection.GetAsOneRange().OwnerParagraph;
-                            //Previous sibling gets previous entity (above paragraphContainingPhrase)
-                            if (paragraphContainingPhrase.PreviousSibling is WParagraph)
-                            {
-                                // Mark the paragraph above for removal
-                                paragraphsToRemove.Add(paragraphContainingPhrase.PreviousSibling as WParagraph);
-                            }
-                            // Mark the paragraph containing the phrase for removal
-                            paragraphsToRemove.Add(paragraphContainingPhrase);
-                        }
-
-                        // Reverse loop to safely remove paragraphs without index shifting issues
-                        for (int i = paragraphsToRemove.Count - 1; i >= 0; i--)
-                        {
-                            WParagraph para = paragraphsToRemove[i];
-                            if (para != null && para.OwnerTextBody != null)
-                            {
-                                para.OwnerTextBody.ChildEntities.Remove(para);
-                            }
+                            WParagraph paragraph = selection.GetAsOneRange().OwnerParagraph;
+                            if (paragraph?.PreviousSibling is WParagraph prevParagraph)
+                                prevParagraph.OwnerTextBody?.ChildEntities.Remove(prevParagraph);
+                            paragraph?.OwnerTextBody?.ChildEntities.Remove(paragraph);
                         }
                     }
                 }
