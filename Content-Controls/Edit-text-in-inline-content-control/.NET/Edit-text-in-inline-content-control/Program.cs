@@ -18,10 +18,10 @@ namespace Edit_text_in_inline_content_control
                     ///Processes the body contents for each section in the Word document
                     // Use FindAllItemsByProperty to get all inline content controls with Title == "ReplaceText"
                     // and replace their text, instead of iterating through the DOM.
-                    var controls = document.FindAllItemsByProperty(EntityType.InlineContentControl, "Title", "ReplaceText");
+                    System.Collections.IList controls = document.FindAllItemsByProperty(EntityType.InlineContentControl, null, null);
                     if (controls != null)
                     {
-                        foreach (var ctrl in controls)
+                        foreach (object ctrl in controls)
                         {
                             InlineContentControl inlineContentControl = ctrl as InlineContentControl;
                             if (inlineContentControl != null && 
