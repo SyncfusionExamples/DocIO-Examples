@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "HbYvbejBr8M=",
+  "success": true,
+  "projectFilePath": "/home/user/DocIO-Examples/Content-Controls/Edit-text-in-inline-content-control/.NET/Edit-text-in-inline-content-control/Edit-text-in-inline-content-control.csproj",
+  "expectedPackageFiles": [
+    "/home/user/.nuget/packages/microsoft.bcl.cryptography/10.0.13/microsoft.bcl.cryptography.10.0.13.nupkg.sha512",
+    "/home/user/.nuget/packages/microsoft.netcore.platforms/2.0.0/microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "/home/user/.nuget/packages/syncfusion.compression.net.core/35.1.41/syncfusion.compression.net.core.35.1.41.nupkg.sha512",
+    "/home/user/.nuget/packages/syncfusion.docio.net.core/35.1.41/syncfusion.docio.net.core.35.1.41.nupkg.sha512",
+    "/home/user/.nuget/packages/syncfusion.licensing/35.1.41/syncfusion.licensing.35.1.41.nupkg.sha512",
+    "/home/user/.nuget/packages/syncfusion.markdown/35.1.41/syncfusion.markdown.35.1.41.nupkg.sha512",
+    "/home/user/.nuget/packages/syncfusion.officechart.net.core/35.1.41/syncfusion.officechart.net.core.35.1.41.nupkg.sha512",
+    "/home/user/.nuget/packages/syncfusion.telemetry/35.1.41/syncfusion.telemetry.35.1.41.nupkg.sha512",
+    "/home/user/.nuget/packages/system.formats.asn1/10.0.13/system.formats.asn1.10.0.13.nupkg.sha512",
+    "/home/user/.nuget/packages/system.security.cryptography.pkcs/10.0.13/system.security.cryptography.pkcs.10.0.13.nupkg.sha512",
+    "/home/user/.nuget/packages/system.security.cryptography.xml/10.0.13/system.security.cryptography.xml.10.0.13.nupkg.sha512",
+    "/home/user/.nuget/packages/system.text.encoding.codepages/4.4.0/system.text.encoding.codepages.4.4.0.nupkg.sha512",
+    "/home/user/.nuget/packages/microsoft.netcore.app.ref/8.0.31/microsoft.netcore.app.ref.8.0.31.nupkg.sha512",
+    "/home/user/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.31/microsoft.aspnetcore.app.ref.8.0.31.nupkg.sha512",
+    "/home/user/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.31/microsoft.netcore.app.host.linux-x64.8.0.31.nupkg.sha512"
+  ],
+  "logs": []
+}
