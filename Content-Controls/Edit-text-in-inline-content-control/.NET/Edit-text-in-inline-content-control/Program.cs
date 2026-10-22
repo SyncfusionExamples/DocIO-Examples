@@ -18,13 +18,17 @@ namespace Edit_text_in_inline_content_control
                 {
                     //Finds all the inline content controls in the Word document
                     List<Entity> inlineContentControls = document.FindAllItemsByProperty(EntityType.InlineContentControl, null, null);
-                    //Iterates through the inline content controls
-                    foreach (Entity entity in inlineContentControls)
+                    //Check if the list is not null before iterating
+                    if (inlineContentControls != null)
                     {
-                        InlineContentControl inlineContentControl = entity as InlineContentControl;
-                        //Replaces the content when the content control title is "ReplaceText"
-                        if (inlineContentControl.ContentControlProperties.Title == "ReplaceText")
-                            ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
+                        //Iterates through the inline content controls
+                        foreach (Entity entity in inlineContentControls)
+                        {
+                            InlineContentControl inlineContentControl = entity as InlineContentControl;
+                            //Replaces the content when the content control title is "ReplaceText"
+                            if (inlineContentControl.ContentControlProperties.Title == "ReplaceText")
+                                ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
+                        }
                     }
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
