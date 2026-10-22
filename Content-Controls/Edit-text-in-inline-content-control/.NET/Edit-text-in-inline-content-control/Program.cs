@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
@@ -16,11 +16,21 @@ namespace Edit_text_in_inline_content_control
                 using (WordDocument document = new WordDocument(docStream, FormatType.Automatic))
                 {
                     ///Processes the body contents for each section in the Word document
-                    foreach (WSection section in document.Sections)
+                    // Use FindAllItemsByProperty to get all inline content controls with Title == "ReplaceText"
+                    // and replace their text, instead of iterating through the DOM.
+                    var controls = document.FindAllItemsByProperty(EntityType.InlineContentControl, "Title", "ReplaceText");
+                    if (controls != null)
                     {
-                        //Accesses the Body of section where all the contents in document are apart
-                        WTextBody sectionBody = section.Body;
-                        IterateTextBody(sectionBody);
+                        foreach (var ctrl in controls)
+                        {
+                            InlineContentControl inlineContentControl = ctrl as InlineContentControl;
+                            if (inlineContentControl != null && 
+                                (inlineContentControl.ContentControlProperties.Type == ContentControlType.RichText 
+                                || inlineContentControl.ContentControlProperties.Type == ContentControlType.Text))
+                            {
+                                ReplaceTextWithInlineContentControl("Hello World", inlineContentControl);
+                            }
+                        }
                     }
                     //Creates file stream.
                     using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Output.docx"), FileMode.Create, FileAccess.ReadWrite))
