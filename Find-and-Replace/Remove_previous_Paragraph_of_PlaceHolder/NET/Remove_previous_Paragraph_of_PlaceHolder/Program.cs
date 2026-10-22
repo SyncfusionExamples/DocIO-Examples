@@ -35,7 +35,6 @@ namespace Remove_previous_Paragraph_of_PlaceHolder
                             WParagraph paragraph = selection.GetAsOneRange().OwnerParagraph;
                             if (paragraph?.PreviousSibling is WParagraph prevParagraph)
                                 prevParagraph.OwnerTextBody?.ChildEntities.Remove(prevParagraph);
-                            paragraph?.OwnerTextBody?.ChildEntities.Remove(paragraph);
                         }
                     }
                 }
