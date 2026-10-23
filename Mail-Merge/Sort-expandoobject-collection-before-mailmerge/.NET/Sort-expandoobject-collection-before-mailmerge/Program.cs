@@ -23,6 +23,11 @@ namespace Sort_expandoobject_collection_before_mailmerge
                 }
             }
         }
+
+        /// <summary>
+        /// Reads customer information from the XML file, creates a collection of dynamic customer objects,
+        /// sorts all hierarchy levels, and returns the prepared customer list.
+        /// </summary>
         private static List<ExpandoObject> GetCustomers(string xmlPath)
         {
             List<ExpandoObject> customers = new List<ExpandoObject>();
@@ -75,6 +80,10 @@ namespace Sort_expandoobject_collection_before_mailmerge
             return customers;
         }
 
+        /// <summary>
+        /// Reads order and order item details from the XML reader and creates a collection
+        /// of dynamic order objects with their corresponding nested order items.
+        /// </summary>
         private static List<ExpandoObject> GetOrders(XmlReader reader)
         {
             List<ExpandoObject> orders = new List<ExpandoObject>();
@@ -147,6 +156,10 @@ namespace Sort_expandoobject_collection_before_mailmerge
             return orders;
         }
 
+        /// <summary>
+        /// Creates and returns a dynamic customer object with customer details
+        /// and its associated orders collection.
+        /// </summary>
         private static dynamic GetDynamicCustomer(int customerID, string customerName, string companyName, List<ExpandoObject> orders)
         {
             dynamic dynamicCustomer = new ExpandoObject();
@@ -157,11 +170,19 @@ namespace Sort_expandoobject_collection_before_mailmerge
             return dynamicCustomer;
         }
 
+        /// <summary>
+        /// Initiates recursive sorting for the provided ExpandoObject collection
+        /// across all hierarchy levels.
+        /// </summary>
         public static void SortAllLevels(List<ExpandoObject> dynamicList)
         {
             SortRecursively(dynamicList);
         }
 
+        /// <summary>
+        /// Recursively sorts the current ExpandoObject collection based on the first
+        /// comparable property and processes any nested ExpandoObject collections.
+        /// </summary>
         private static void SortRecursively(List<ExpandoObject> currentLevelList)
         {
             if (currentLevelList == null || currentLevelList.Count == 0) return;
