@@ -1,32 +1,17 @@
-﻿using Syncfusion.DocIO;
-using Syncfusion.DocIO.DLS;
-using System;
+﻿using Syncfusion.DocIO.DLS;
 using System.IO;
 
-namespace Get_list_value
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            using (FileStream fileStreamPath = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            {
-                //Creates a new Word document.
-                using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
-                {
-                    //Gets the document text.
-                    document.GetText();
-                    //Gets the string that represents the appearance of list value of the paragraph.
-                    string listString = document.LastParagraph.ListString;
-                    Console.WriteLine("List value of last paragraph : " + listString);
-                    //Creates file stream.
-                    using (FileStream outputFileStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
-                    {
-                        //Saves the Word document to file stream.
-                        document.Save(outputFileStream, FormatType.Docx);
-                    }
-                }
-            }
-        }
-    }
-}
+//Loads an existing Word document into DocIO instance.
+WordDocument doc = new WordDocument(@"../../../Data/Template.docx");
+
+WParagraph firstPara = doc.Sections[0].Paragraphs[0];
+WParagraph temp = new WParagraph(doc);
+WPicture pic = temp.AppendPicture(File.ReadAllBytes(@"../../../Data/Image.png")) as WPicture;
+pic.Width = 400;
+pic.Height = 200;
+firstPara.Items.Insert(0, temp.Items[0]);
+
+//Saving the document as .docx
+doc.Save(@"../../../Output/Result.docx");
+//Closes the document instance.
+doc.Close();
