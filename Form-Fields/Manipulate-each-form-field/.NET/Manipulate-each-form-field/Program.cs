@@ -1,38 +1,41 @@
 ﻿using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
-using System.IO;
+using System.Collections.Generic;
 
-namespace Modify_checkbox_form_field
+// Opens template Word document
+WordDocument document = new WordDocument(@"../../../Data/input.docx", FormatType.Docx);
+// Find and update checkbox form fields
+List<Entity> checkBoxes = document.FindAllItemsByProperty(EntityType.CheckBox, null, null);
+foreach (Entity entity in checkBoxes)
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            using (FileStream fileStream = new FileStream(Path.GetFullPath(@"Data/Template.docx"), FileMode.Open, FileAccess.ReadWrite))
-            {
-                //Opens the template document.
-                using (WordDocument document = new WordDocument(fileStream, FormatType.Docx))
-                {
-                    //Iterates through paragraph items.
-                    foreach (ParagraphItem item in document.LastParagraph.ChildEntities)
-                    {
-                        if (item is WCheckBox)
-                        {
-                            WCheckBox checkbox = item as WCheckBox;
-                            //Modifies check box properties.
-                            if (checkbox.Checked)
-                                checkbox.Checked = false;
-                            checkbox.SizeType = CheckBoxSizeType.Exactly;
-                        }
-                    }
-                    //Creates file stream.
-                    using (FileStream outputStream = new FileStream(Path.GetFullPath(@"Output/Result.docx"), FileMode.Create, FileAccess.ReadWrite))
-                    {
-                        //Saves the Word document to file stream.
-                        document.Save(outputStream, FormatType.Docx);
-                    }
-                }
-            }
-        }
-    }
+    WCheckBox checkBox = entity as WCheckBox;
+    checkBox.SizeType = CheckBoxSizeType.Exactly;
+    checkBox.CheckBoxSize = 20;
 }
+
+// Find and update dropdown form fields
+List<Entity> dropDowns = document.FindAllItemsByProperty(EntityType.DropDownFormField, null, null);
+foreach (Entity entity in dropDowns)
+{
+    WDropDownFormField dropdown = entity as WDropDownFormField;
+    //Modifies the dropdown items
+    dropdown.DropDownItems.Remove(1);
+    dropdown.DropDownSelectedIndex = 0;
+    dropdown.CharacterFormat.FontName = "Arial";
+}
+
+// Find and update text form fields
+List<Entity> textFormFields = document.FindAllItemsByProperty(EntityType.TextFormField, null, null);
+foreach (Entity entity in textFormFields)
+{
+    WTextFormField textField = entity as WTextFormField;
+    //Modifies the text form field
+    textField.Type = TextFormFieldType.RegularText;
+    textField.StringFormat = "";
+    textField.DefaultText = "Default text";
+    textField.Text = "Default text";
+    textField.CalculateOnExit = false;
+}
+//Save and dispose document
+document.Save(@"../../../Output/Result.docx", FormatType.Docx);
+document.Close();
