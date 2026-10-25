@@ -9,29 +9,21 @@ WordDocument document = new WordDocument(@"../../../Data/Template.docx");
 document.UpdateTableOfContents();
 TableOfContent tableOfContents = (document.Sections[0].Paragraphs[0] as WParagraph).ChildEntities[0] as TableOfContent;
 //Iterate the toc section and apply line spacing.
-ApplyLineSpacingToTOC(tableOfContents.OwnerParagraph.OwnerTextBody);
+WTextBody textBody = tableOfContents.OwnerParagraph.OwnerTextBody;
+for (int i = 0; i < textBody.ChildEntities.Count; i++)
+{
+    if (textBody.ChildEntities[i] is WParagraph)
+    {
+        if (CheckTOCEntries((textBody.ChildEntities[i] as WParagraph).Items))
+        {
+            (textBody.ChildEntities[i] as WParagraph).ParagraphFormat.LineSpacing = 30;
+        }
+    }
+}
 //Saves and closes the Word document instance
 document.Save(@"../../../Output/Result.docx", FormatType.Docx);
 document.Close();
 
-/// <summary>
-/// Apply Line spacing to TOC.
-/// </summary>
-/// <param name="textBody"></param>
-void ApplyLineSpacingToTOC(WTextBody textBody)
-{
-    for (int i = 0; i < textBody.ChildEntities.Count; i++)
-    {
-        if (textBody.ChildEntities[i] is WParagraph)
-        {
-            if (CheckTOCEntries((textBody.ChildEntities[i] as WParagraph).Items))
-            {
-                (textBody.ChildEntities[i] as WParagraph).ParagraphFormat.LineSpacing = 30;
-            }
-        }
-    }
-
-}
 /// <summary>
 /// Iterates into paragraph items.
 /// </summary>
