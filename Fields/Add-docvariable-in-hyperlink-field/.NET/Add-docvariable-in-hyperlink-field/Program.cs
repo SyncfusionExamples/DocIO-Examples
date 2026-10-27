@@ -4,7 +4,6 @@ namespace Add_docvariable_in_hyperlink_field
 {
     internal class Program
     {
-
         static void Main(string[] args)
         {
             // Creates a new instance of WordDocument (empty Word document).
