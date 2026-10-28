@@ -4,25 +4,26 @@ using Syncfusion.DocIORenderer;
 
 
 //Creates a new Word document
-WordDocument document = new WordDocument(@"../../../Data/Template.docx");
-//Updates the table of contents
-document.UpdateTableOfContents();
-TableOfContent tableOfContents = (document.Sections[0].Paragraphs[0] as WParagraph).ChildEntities[0] as TableOfContent;
-//Iterate the toc section and apply line spacing.
-WTextBody textBody = tableOfContents.OwnerParagraph.OwnerTextBody;
-for (int i = 0; i < textBody.ChildEntities.Count; i++)
+using (WordDocument document = new WordDocument(@"../../../Data/Template.docx"))
 {
-    if (textBody.ChildEntities[i] is WParagraph)
+    //Updates the table of contents
+    document.UpdateTableOfContents();
+    TableOfContent tableOfContents = (document.Sections[0].Paragraphs[0] as WParagraph).ChildEntities[0] as TableOfContent;
+    //Iterate the toc section and apply line spacing.
+    WTextBody textBody = tableOfContents.OwnerParagraph.OwnerTextBody;
+    for (int i = 0; i < textBody.ChildEntities.Count; i++)
     {
-        if (CheckTOCEntries((textBody.ChildEntities[i] as WParagraph).Items))
+        if (textBody.ChildEntities[i] is WParagraph)
         {
-            (textBody.ChildEntities[i] as WParagraph).ParagraphFormat.LineSpacing = 30;
+            if (CheckTOCEntries((textBody.ChildEntities[i] as WParagraph).Items))
+            {
+                (textBody.ChildEntities[i] as WParagraph).ParagraphFormat.LineSpacing = 30;
+            }
         }
     }
+    //Saves and closes the Word document instance
+    document.Save(@"../../../Output/Result.docx", FormatType.Docx);
 }
-//Saves and closes the Word document instance
-document.Save(@"../../../Output/Result.docx", FormatType.Docx);
-document.Close();
 
 /// <summary>
 /// Iterates into paragraph items.
