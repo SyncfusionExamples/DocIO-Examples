@@ -37,8 +37,13 @@ namespace Apply_merge_field_formatting_to_InsertHTML
         }
 
         /// <summary>
-        /// Replaces merge field with HTML string by using MergeFieldEventHandler.
+        /// Handles the mail merge field event and collects XHTML content along with
+        /// the merge field position and character formatting information for later insertion.
         /// </summary>
+        /// <param name="args">Contains information about the current merge field being processed.</param>
+        /// <param name="paraToInsertHTML">
+        /// Dictionary that maps paragraphs to their corresponding XHTML insertion details.
+        /// </param>
         public static void MergeFieldEvent(MergeFieldEventArgs args, Dictionary<WParagraph, List<MergeFieldInfo>> paraToInsertHTML)
         {
             if (args.TableName.Equals("HTML"))
@@ -70,8 +75,17 @@ namespace Apply_merge_field_formatting_to_InsertHTML
         }
 
         /// <summary>
-        /// Append HTML to paragraph.
+        /// Inserts XHTML content at the corresponding merge field locations and optionally
+        /// applies the merge field character formatting to all newly inserted content,
+        /// including content spanning multiple paragraphs.
         /// </summary>
+        /// <param name="paraToInsertHTML">
+        /// Collection containing paragraphs and XHTML insertion details.
+        /// </param>
+        /// <param name="mergeFieldStyle">
+        /// True to apply the merge field character formatting to inserted XHTML content;
+        /// otherwise, false.
+        /// </param>
         public static void InsertHtml(Dictionary<WParagraph, List<MergeFieldInfo>> paraToInsertHTML, bool mergeFieldStyle)
         {
             //Iterates through each item in the dictionary.
@@ -122,6 +136,23 @@ namespace Apply_merge_field_formatting_to_InsertHTML
             paraToInsertHTML.Clear();
         }
 
+        /// <summary>
+        /// Applies the specified character formatting to the newly inserted text ranges
+        /// within the given paragraph.
+        /// </summary>
+        /// <param name="paragraph">The paragraph containing the inserted content.</param>
+        /// <param name="diffCount">
+        /// Number of newly inserted paragraph items to format.
+        /// </param>
+        /// <param name="totalCount">
+        /// Total number of child entities present in the paragraph.
+        /// </param>
+        /// <param name="index">
+        /// Starting index from which formatting should be applied.
+        /// </param>
+        /// <param name="format">
+        /// Character formatting to apply to the inserted text.
+        /// </param>
         private static void ApplyFormat(WParagraph paragraph, int diffCount, int totalCount, int index, WCharacterFormat format)
         {
             int j = 0;
@@ -138,9 +169,12 @@ namespace Apply_merge_field_formatting_to_InsertHTML
         }
 
         /// <summary>
-        /// Gets the data to perform mail merge
+        /// Creates and returns a data source used for mail merge execution.
+        /// The XHTML content is read from an external file and assigned to the merge field.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// A DataTable containing XHTML content for mail merge processing.
+        /// </returns>
         private static DataTable GetDataTable()
         {
             DataTable dataTable = new DataTable("HTML");
@@ -152,10 +186,25 @@ namespace Apply_merge_field_formatting_to_InsertHTML
             datarow["DisplayHTML"] = htmlString;
             return dataTable;
         }
+
+        /// <summary>
+        /// Stores information required to replace a merge field with XHTML content
+        /// and preserve the original merge field character formatting.
+        /// </summary>
         internal class MergeFieldInfo
         {
+            /// <summary>
+            /// Gets or sets the index position of the merge field within the paragraph.
+            /// </summary>
             public int Index { get; set; }
+            /// <summary>
+            /// Gets or sets the XHTML content that will be inserted at the merge field location.
+            /// </summary>
             public string Html { get; set; }
+            /// <summary>
+            /// Gets or sets the character formatting of the merge field that should be
+            /// applied to the inserted XHTML content.
+            /// </summary>
             public WCharacterFormat CharacterFormat { get; set; }
         }
 
