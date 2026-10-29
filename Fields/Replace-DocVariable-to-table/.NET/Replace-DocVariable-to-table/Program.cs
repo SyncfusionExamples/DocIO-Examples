@@ -1,4 +1,4 @@
-﻿using Syncfusion.DocIO;
+using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 namespace Replace_DocVariable_to_table
 {
@@ -53,20 +53,20 @@ namespace Replace_DocVariable_to_table
         /// </summary>
         /// <param name="paragraph">Owner paragraph of the field</param>
         /// <param name="table">The table which will replace the Doc Variable</param>
-        /// <param name="index">Index of the paragraph item</param>
+        /// <param name="fieldIndex">Index of the paragraph item</param>
         /// <param name="textBodyIndex">Index of the text body</param>
-        private static void SplitAndInsertTable(WParagraph paragraph, WTable table, int index, int textBodyIndex)
+        private static void SplitAndInsertTable(WParagraph paragraph, WTable table, int fieldIndex, int textBodyIndex)
         {
             WTextBody ownerTextBody = paragraph.OwnerTextBody;
             //Clone the paragraph to split the paragraph into two
             WParagraph clonedParagraph = (WParagraph)paragraph.Clone();
             //Removes the cloned para items before the field to split the para
-            for (int i = 0; i < index; i++)
+            for (int i = 0; i < fieldIndex; i++)
             {
                 clonedParagraph.ChildEntities.Remove(clonedParagraph.Items[i]);
             }
             //Removes the para items after the field
-            for (int i = index; i < paragraph.Items.Count; i++)
+            for (int i = fieldIndex; i < paragraph.Items.Count; i++)
             {
                 paragraph.ChildEntities.Remove(paragraph.Items[i]);
             }
@@ -74,18 +74,18 @@ namespace Replace_DocVariable_to_table
             {
                 paragraph.OwnerTextBody.ChildEntities.Remove(paragraph);
             }
-            int indexOftheItemToBeInserted = textBodyIndex + 1, indexOftheSplittedPara = textBodyIndex + 2;
+            int fieldIndexOftheItemToBeInserted = textBodyIndex + 1, fieldIndexOftheSplittedPara = textBodyIndex + 2;
             //Insert the table to be inserted in the position of Doc Variable field
             if (paragraph.ChildEntities.Count == 0)
             {
                 ownerTextBody.ChildEntities.Insert(textBodyIndex, table);
-                indexOftheSplittedPara = indexOftheSplittedPara - 1;
+                fieldIndexOftheSplittedPara = fieldIndexOftheSplittedPara - 1;
             }
             else
-                ownerTextBody.ChildEntities.Insert(indexOftheItemToBeInserted, table);
+                ownerTextBody.ChildEntities.Insert(fieldIndexOftheItemToBeInserted, table);
             //If there is a splitted paragraph insert it after the inserted table 
             if (!(clonedParagraph.ChildEntities.Count == 0))
-                ownerTextBody.ChildEntities.Insert(indexOftheSplittedPara, clonedParagraph);
+                ownerTextBody.ChildEntities.Insert(fieldIndexOftheSplittedPara, clonedParagraph);
         }
     }
 }
