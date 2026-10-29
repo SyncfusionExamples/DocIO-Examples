@@ -4,44 +4,19 @@ using Syncfusion.DocIO.DLS;
 //Loads an existing Word document into DocIO instance.
 using (WordDocument document = new WordDocument(@"../../../Data/Template.docx"))
 {
-    IWSection sec = document.LastSection;
-    WTextFormField textFF;
-    WDropDownFormField dropFF;
+    IWSection section = document.LastSection;
 
-    //Access the form field with field name
-    textFF = sec.Body.FormFields["FullName"] as WTextFormField;
+    (section.Body.FormFields["FullName"] as WTextFormField).TextRange.Text = "John";
+    (section.Body.FormFields["BirthDayField"] as WTextFormField).TextRange.Text = "5.13.1980";
 
-    //Fill value for the textfield
-    textFF.TextRange.Text = "John";
+    (section.Body.FormFields[2] as WTextFormField).TextRange.Text = "221b Baker Street";
+    (section.Body.FormFields[3] as WTextFormField).TextRange.Text = "(206)555-3412";
+    (section.Body.FormFields[4] as WTextFormField).TextRange.Text = "John@company.com";
 
-    //Access the form field with field name
-    textFF = sec.Body.FormFields["BirthDayField"] as WTextFormField;
-    textFF.TextRange.Text = "5.13.1980";
+    (section.Body.FormFields[5] as WDropDownFormField).DropDownSelectedIndex = 1;
+    (section.Body.FormFields[6] as WTextFormField).TextRange.Text = "Michigan University";
+    (section.Body.FormFields[7] as WDropDownFormField).DropDownSelectedIndex = 1;
+    (section.Body.FormFields[8] as WDropDownFormField).DropDownSelectedIndex = 2;
 
-    //Access the form field with index
-    textFF = sec.Body.FormFields[2] as WTextFormField;
-    textFF.TextRange.Text = "221b Baker Street";
-
-    textFF = sec.Body.FormFields[3] as WTextFormField;
-    textFF.TextRange.Text = "(206)555-3412";
-
-    textFF = sec.Body.FormFields[4] as WTextFormField;
-    textFF.TextRange.Text = "John@company.com";
-
-    dropFF = sec.Body.FormFields[5] as WDropDownFormField;
-
-    //Set the value
-    dropFF.DropDownSelectedIndex = 1;
-
-    textFF = sec.Body.FormFields[6] as WTextFormField;
-    textFF.TextRange.Text = "Michigan University";
-
-    dropFF = sec.Body.FormFields[7] as WDropDownFormField;
-    dropFF.DropDownSelectedIndex = 1;
-
-    dropFF = sec.Body.FormFields[8] as WDropDownFormField;
-    dropFF.DropDownSelectedIndex = 2;
-
-    //Saving the document as .docx
     document.Save(@"../../../Output/Sample.docx", FormatType.Docx);
 }
