@@ -4,9 +4,6 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Data;
-using Syncfusion.DocIORenderer;
-using Syncfusion.Pdf;
-using System.Reflection;
 
 namespace Apply_merge_field_formatting_to_InsertHTML
 {
@@ -20,11 +17,9 @@ namespace Apply_merge_field_formatting_to_InsertHTML
                 using (WordDocument document = new WordDocument(fileStreamPath, FormatType.Automatic))
                 {
                     Dictionary<WParagraph, List<MergeFieldInfo>> paraToInsertHTML = new Dictionary<WParagraph, List<MergeFieldInfo>>();
-
                     //Creates the mail merge events handler to replace merge field with HTML.
                     MergeFieldEventHandler mergeHandler = (sender, eventArgs) => MergeFieldEvent(eventArgs, paraToInsertHTML);
                     document.MailMerge.MergeField += mergeHandler;
-
                     //Gets data to perform the mail merge.
                     DataTable table = GetDataTable();
                     //Performs the mail merge.
@@ -35,19 +30,8 @@ namespace Apply_merge_field_formatting_to_InsertHTML
                     InsertHtml(paraToInsertHTML, mergeFieldStyle);
                     //Removes the mail merge events handler.
                     document.MailMerge.MergeField -= mergeHandler;
-                    //Creates an instance of DocIORenderer.
-                    using (DocIORenderer renderer = new DocIORenderer())
-                    {
-                        //Converts Word document into PDF document.
-                        using (PdfDocument pdfDocument = renderer.ConvertToPDF(document))
-                        {
-                            //Saves the PDF file to file system.    
-                            using (FileStream outputStream = new FileStream(Path.GetFullPath(@"../../../Output/output.pdf"), FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
-                            {
-                                pdfDocument.Save(outputStream);
-                            }
-                        }
-                    }
+                    document.Save(@"../../../Output/output.docx");
+                    paraToInsertHTML.Clear();
                 }
             }
         }
