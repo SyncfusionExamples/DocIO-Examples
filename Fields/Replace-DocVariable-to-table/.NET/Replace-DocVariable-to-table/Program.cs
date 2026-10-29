@@ -33,21 +33,18 @@ namespace Replace_DocVariable_to_table
         /// <param name="table">The table which will replace the Doc Variable</param>
         private static void ReplaceDocVariableWithTable(WordDocument document, string docVariableToBeReplaced, WTable table)
         {
-            List<Entity> docFields = document.FindAllItemsByProperty(EntityType.Field, "FieldType", FieldType.FieldDocVariable.ToString());
+            List<Entity> docFields = document.FindAllItemsByProperties(EntityType.Field, new string[2]{"FieldType", "FieldValue" }, new string[2] { FieldType.FieldDocVariable.ToString(), docVariableToBeReplaced });
             if(docFields != null)
             {
                 foreach (Entity ent in docFields)
                 {
                     WField docField = ent as WField;
-                    if (docField.FieldValue == docVariableToBeReplaced)
-                    {
-                        WParagraph ownerPara = docField.OwnerParagraph;
-                        int fieldIndex = ownerPara.ChildEntities.IndexOf(docField);
-                        int textBodyIndex = ownerPara.OwnerTextBody.ChildEntities.IndexOf(ownerPara);
-                        ownerPara.ChildEntities.Remove(docField);
-                        //Split the paragraph and insert the table in the between
-                        SplitAndInsertTable(ownerPara, table, fieldIndex, textBodyIndex);
-                    }
+                    WParagraph ownerPara = docField.OwnerParagraph;
+                    int fieldIndex = ownerPara.ChildEntities.IndexOf(docField);
+                    int textBodyIndex = ownerPara.OwnerTextBody.ChildEntities.IndexOf(ownerPara);
+                    ownerPara.ChildEntities.Remove(docField);
+                    //Split the paragraph and insert the table in the between
+                    SplitAndInsertTable(ownerPara, table, fieldIndex, textBodyIndex);
                 }
             }
         }
