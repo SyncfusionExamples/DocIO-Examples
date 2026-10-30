@@ -15,9 +15,10 @@ namespace WordtoPDF_CJK_FallbackFonts
                 document.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic");
                 using (DocToPDFConverter converter = new DocToPDFConverter())
                 {
-                    PdfDocument pdf = converter.ConvertToPDF(document);
-                    pdf.Save(@"../../Output/output.pdf");
-                    pdf.Close(true);
+                    using (PdfDocument pdf = converter.ConvertToPDF(document))
+                    {
+                        pdf.Save(@"../../Output/output.pdf");
+                    }
                 }
             }
         }
