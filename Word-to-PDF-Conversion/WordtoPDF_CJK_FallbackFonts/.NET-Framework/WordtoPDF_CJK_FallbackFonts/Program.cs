@@ -8,13 +8,18 @@ namespace WordtoPDF_CJK_FallbackFonts
     {
         static void Main(string[] args)
         {
-            WordDocument document = new WordDocument(@"../../Data/Template.docx");
-            document.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "MicroSoft YaHei, SimSun");
-            document.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Gothic, Meiryo");
-            document.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic");
-            DocToPDFConverter converter = new DocToPDFConverter();
-            PdfDocument pdf = converter.ConvertToPDF(document);
-            pdf.Save(@"../../Output/output.pdf");
+            using (WordDocument document = new WordDocument(@"../../Data/Template.docx"))
+            {
+                document.FontSettings.FallbackFonts.Add(ScriptType.Chinese, "MicroSoft YaHei, SimSun");
+                document.FontSettings.FallbackFonts.Add(ScriptType.Japanese, "Yu Gothic, Meiryo");
+                document.FontSettings.FallbackFonts.Add(ScriptType.Korean, "Malgun Gothic");
+                using (DocToPDFConverter converter = new DocToPDFConverter())
+                {
+                    PdfDocument pdf = converter.ConvertToPDF(document);
+                    pdf.Save(@"../../Output/output.pdf");
+                    pdf.Close(true);
+                }
+            }
         }
     }
 }
