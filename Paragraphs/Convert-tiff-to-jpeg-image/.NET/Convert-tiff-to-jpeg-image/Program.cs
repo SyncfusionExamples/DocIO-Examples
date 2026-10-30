@@ -56,7 +56,7 @@ using (WordDocument document = new WordDocument(@"../../../Data/Sample.docx"))
 }
 
 /// <summary>
-/// Determines whether a picture contains a TIFF image.
+/// Determines whether the image is in TIFF format.
 /// </summary>
 /// <param name="picture">The picture.</param>
 static bool IsTiff(WPicture picture)
