@@ -21,7 +21,7 @@ using (WordDocument document = new WordDocument(@"../../../Data/Template", Forma
 
     #region InsertTOCEntryField
     //Access exisiting paragraph
-    paragraph = (WParagraph)(document.Sections[0].Tables[1].Rows[0].Cells[1].ChildEntities[0] as WTable).Rows[0].Cells[0].ChildEntities[0];
+    paragraph = (WParagraph)(document.Sections[0].Tables[0].Rows[0].Cells[1].ChildEntities[0] as WTable).Rows[0].Cells[0].ChildEntities[0];
     //Append field of type TOCEntry
     WField field = (WField)paragraph.AppendField(paragraph.Text, FieldType.FieldTOCEntry);
     #endregion
@@ -30,7 +30,6 @@ using (WordDocument document = new WordDocument(@"../../../Data/Template", Forma
     paragraph = (WParagraph)(document.Sections[0].Tables[1].Rows[0].Cells[1].ChildEntities[0] as WTable).Rows[1].Cells[0].ChildEntities[0];
     //Apply "Heading 1" style for paragraph
     paragraph.ApplyStyle(BuiltinStyle.Heading1);
-    //paragraph.ApplyStyle(BuiltinStyle.Heading2);
     #endregion
 
     //Update Table of contents
