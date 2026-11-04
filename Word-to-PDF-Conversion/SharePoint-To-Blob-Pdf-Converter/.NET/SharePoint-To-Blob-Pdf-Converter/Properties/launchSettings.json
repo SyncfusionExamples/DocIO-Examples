@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "SharePoint_To_Blob_Pdf_Converter": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7152",
+      "launchBrowser": false
+    }
+  }
+}
