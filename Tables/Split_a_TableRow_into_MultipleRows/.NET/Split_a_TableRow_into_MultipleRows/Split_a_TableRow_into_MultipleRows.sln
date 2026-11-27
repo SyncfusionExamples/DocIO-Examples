@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37314.3 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Split_a_TableRow_into_MultipleRows", "Split_a_TableRow_into_MultipleRows\Split_a_TableRow_into_MultipleRows.csproj", "{D01A3F0E-108B-E548-A652-9AEE28B61554}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D01A3F0E-108B-E548-A652-9AEE28B61554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D01A3F0E-108B-E548-A652-9AEE28B61554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D01A3F0E-108B-E548-A652-9AEE28B61554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D01A3F0E-108B-E548-A652-9AEE28B61554}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA9E1F07-F169-4D63-89BE-F5457051D1E7}
+	EndGlobalSection
+EndGlobal
