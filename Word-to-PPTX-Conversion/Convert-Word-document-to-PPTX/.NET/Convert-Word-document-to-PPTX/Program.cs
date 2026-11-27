@@ -28,20 +28,11 @@ namespace Convert_Word_document_to_PPTX
         }
 
         /// <summary>
-        /// Adds the text body items to the Presentation document
-        /// </summary>
-        /// <param name="docTextBody"></param>
-        private static void AddTextBodyItems(WTextBody docTextBody)
-        {
-            AddTextBodyItems(docTextBody, null);
-        }
-
-        /// <summary>
         /// Iterates the text body items of Word document and creates slides and add textbox accordingly
         /// </summary>
         /// <param name="docTextBody"></param>
         /// <param name="powerPointTableCell"></param>
-        private static void AddTextBodyItems(WTextBody docTextBody, ICell powerPointTableCell)
+        private static void AddTextBodyItems(WTextBody docTextBody, ICell powerPointTableCell = null)
         {
             ISlide powerPointSlide = null;
             IShape powerPointShape = null;
@@ -147,22 +138,12 @@ namespace Convert_Word_document_to_PPTX
         }
 
         /// <summary>
-        /// Adds the paragraph items to the Presentation document
-        /// </summary>
-        /// <param name="docParagraph"></param>
-        /// <param name="powerPointParagraph"></param>
-        private static void AddParagraphItems(WParagraph docParagraph, IParagraph powerPointParagraph)
-        {
-            AddParagraphItems(docParagraph, powerPointParagraph, null);
-        }
-
-        /// <summary>
         /// Iterates the paragraph and adds the paragraph items to the Presentation document
         /// </summary>
         /// <param name="docParagraph"></param>
         /// <param name="powerPointParagraph"></param>
         /// <param name="powerPointTableCell"></param>
-        private static void AddParagraphItems(WParagraph docParagraph, IParagraph powerPointParagraph, ICell powerPointTableCell)
+        private static void AddParagraphItems(WParagraph docParagraph, IParagraph powerPointParagraph, ICell powerPointTableCell = null)
         {
             for (int i = 0; i < docParagraph.Items.Count; i++)
             {
