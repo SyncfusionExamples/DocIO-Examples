@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37614.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apply-Custom-Font-For-TOC-Headings", "Apply-Custom-Font-For-TOC-Headings\Apply-Custom-Font-For-TOC-Headings.csproj", "{000D8166-FF6B-E115-AEE0-A0A05404C8D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{000D8166-FF6B-E115-AEE0-A0A05404C8D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{000D8166-FF6B-E115-AEE0-A0A05404C8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{000D8166-FF6B-E115-AEE0-A0A05404C8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{000D8166-FF6B-E115-AEE0-A0A05404C8D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {60A98D90-ADE4-44B7-B094-64DB371D3B67}
+	EndGlobalSection
+EndGlobal
